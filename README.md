@@ -10,8 +10,8 @@ from middle school up to undergraduates at the university level with great match
 school it is also an amazing base for STEM based competitions like
 "[Jugend forscht](https://www.jugend-forscht.de/information-in-english.html)" or science fairs.
 
-This is the software package for data acquisition and its documentation. If you are looking for hardware guides, build
-instructions or educational concepts, please check out our other [repositories](https://github.com/PhyPiDAQ).
+This is the guide for educators. If you are looking for hardware guides, build instructions or software, please check
+out our other [repositories](https://github.com/PhyPiDAQ).
 
 ## Übersicht in Deutscher Sprache
 
@@ -23,9 +23,8 @@ und Experimente auch in freier Natur ermöglicht. *PhyPiDAQ* richtet sich an Sch
 Studierenden auf Universitätsebene. Über die Schule hinaus ist es auch eine gute Basis für MINT-Wettbewerbe wie
 "[Jugend forscht](https://www.jugend-forscht.de/)".
 
-Dies ist das Softwarepaket zur Datenerfassung und die zugehörige Dokumentation. Wenn Sie nach
-Hardware-Beschreibungen, Bauanleitungen oder pädagogischen Konzepten suchen, schauen Sie sich bitte unsere anderen
-[Repositories](https://github.com/PhyPiDAQ) an.
+Dies ist Dokumentation für Lehrkräfte. Wenn Sie nach Hardware-Beschreibungen, Bauanleitungen oder Software suchen,
+schauen Sie sich bitte unsere anderen [Repositories](https://github.com/PhyPiDAQ) an.
 
 ## Contributing
 
