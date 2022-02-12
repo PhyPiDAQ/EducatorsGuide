@@ -20,13 +20,15 @@ In dieser Anleitung wird der gesamte Workflow von PhyPiDAQ, begonnen von der Ins
     - [Starten und Startoberfälche](#startenundstartoberflaeche)
     - [Konfigurationsdatei](#konfigurationsdatei)
     - [Messung starten](#messungstarten)
-- [Wie führe ich damit Versuche durch ?](#wiefuehreichdamitversuchedurch)
+- [Experimente mit PhyPiDAQ ?](#wiefuehreichdamitversuchedurch)
+    - [Einführung in die digitale Messtechnik]
 	- [Elektrostatik](#elektrostatik)
 	- [Kraftsensor](#kraftsensor)
 	- [Photoeffekt](#photoeffekt)
 
 
-
+&nbsp;  
+&nbsp;  
 <a name="wasistphypidaq"></a>
 
 ## 1. Was ist PhyPiDAQ ? 
@@ -45,6 +47,9 @@ Die Sensoren können einzeln mittels sogenannter Jumper-Kabeln mit dem Raspberry
 *Abb. 2*:  Messkoffer mit Raspberry Pi, Vorschaltplatine und eingebautem Display  
                     ![Figure 2](images/Overview_koffer.png)  
 
+
+&nbsp;  
+&nbsp;  
 <a name="wasbraucheichundwiebaueichdaszusammen"></a>
 ## 2. Was brauche ich und wie baue ich das zusammen ?  
 
@@ -67,7 +72,9 @@ Eine detaillierte Bauanleitung und eine Liste der empfohlenen Komponenten
 sind im Ordner *MeasuringCase* beschrieben, den Sie auch auf dem
 [Github-Repository](https://github.com/PhyPiDAQ/MeasuringCase) finden.  
 
-
+&nbsp;  
+&nbsp;  
+<a name="wiesetzeichdenraspberrypiaufundinstalliereichphypidaq"></a> 
 ## 3. Wie setze ich den Raspberry Pi auf und installiere PhyPiDAQ ?
 
 Falls sich bereits ein Betriebssystem auf dem Raspberry Pi befindet, können  Sie direkt mit [3.2](#wieinstalliereichphypidaq) fortfahren. Falls nicht, wird dieses nun aufgesetzt.  
@@ -129,7 +136,7 @@ sudo apt-get install git
 
 *Abb. 10*:  Befehl im Terminal eingeben  
                     ![Figure 10](images/terminal.png)  
-                    
+
 Zur Installation von *PhyPiDAQ* geben Sie folgende Befehle ein. Kopieren Sie grundsätzlich Zeile für Zeile dieses Cods in das Terminal und bestätigen Sie jeden Befehl mit der Enter-Taste. Fügen Sie **NICHT** alle Zeilen auf einmal ein.
 
 ```bash
@@ -149,11 +156,13 @@ git pull
 ./installlibs.sh
 ```
 
+
+&nbsp;  
+&nbsp;  
 <a name="wiebedieneichdiephypidaqsoftware"></a>
-
 ## 4. Wie bediene ich die PhyPiDAQ Software ?
-<a name="startenundstartoberflaeche"></a>
 
+<a name="startenundstartoberflaeche"></a>
 ## 4.1 Starten und Startoberfälche
 
 Zum Starten der Anwendung *PhyPiDAQ*, doppelklicken Sie auf dem Desktop auf das Icon **PhyPi**.  
@@ -306,10 +315,19 @@ Standardmäßig werden nur die ersten 12 Sekunden abgespeichert, was genau das  
 
 Für alle Buttons sind Tastaturkürzel definiert, die durch "_" im Button-Text angegeben sind. 
 
-<a name="wiefuehreichdamitversuchedurch"></a>
-## 5. Wie führe ich damit Versuche durch ?
-Wir sind nun soweit, dass wir eine Vielzahl unterschiedlicher Sensoren auslesen, live im Monitor grafisch plotten und die Werte exportieren können. Das eröffnet und unzählige Möglichkeiten, *PhyPiDAQ* im Unterricht einzusetzen. Es werden nun drei Beispielversuche beschreiben, damit Sie einmal sehen, wie der gesamte  Workflow von Anfang bis Schluss aussehen kann.  
 
+&nbsp;  
+&nbsp;  
+<a name="wiefuehreichdamitversuchedurch"></a>
+## 5. Experimente mit PhyPiDAQ
+
+Wir sind nun soweit, dass wir eine Vielzahl unterschiedlicher Sensoren auslesen, live im Monitor grafisch plotten und die Werte exportieren können. Das eröffnet unzählige Möglichkeiten, *PhyPiDAQ* im Unterricht einzusetzen. 
+
+Eine Einführung in die Grundlagen der digitalen Messtechnik für Schülerinnen und Schüler findet sich im 
+[Kurs digitale Messswerterfassung](
+docs/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md). Dort wird zunächst gezeigt, wie man grundsätzlich eine Spannung digitalisiert und mit Hilfe von Python-Code mit dem Rechner aufnimmt und weiter verarbeitet. Als interessantes erstes Projekt wird eine Hell-Dunkel-Schaltung realisiert. Es folgt eine etwas anspruchsvollere Aufgabe, die Kalibration eines temperaturabhängigen Widerstands und die anschließende Temperaturmessung mit diesem Sensor. Den Abschluss des vorgeschlagenen Kurses bildet der Bau eines Kraftmessers mit einer Wägezelle, wie sie auch in modernen Küchenwagen verwendet wird. 
+
+Einige anspruchsvollere Beispiele für Messungen aus verschiedenen Bereichen des Physikunterrichts werden in den folgenden Absätzen beschrieben. 
 
 <a name="elektrostatik"></a>
 ### 5.1 Elektrostatik
@@ -428,8 +446,9 @@ Die Messmethode, die hier verwendet wird, enthält einen parallel zur Photozelle
 
 Hardwareseitig wird die Spannung mit dem Elektrometer gemessen, da hier ein  großer Innenwiderstand benötigt wird, um die Messung nicht zu verfälschen.  Ein handelsübliches Multimeter ist daher ungeeignet. Der Schaltaufbau ist in der nachfolgenden Abbildung zu sehen:
 
-*Abb. 24*:  **Photoeffekt** schematischer Aufbau
+*Abb. 24*:  **Photoeffekt** schematischer Aufbau  
                     ![Figure 24](images/photo_aufbau.png)  
+
 Der Kondensator mit *C=47µF* muss ggf. angepasst werden, falls die Aufladung zu schnell oder zu langsam erfolgt.
 
 In *PhyPiDAQ* kann folgende Config verwendet werden. (Die Plots weiter unten wurden erstellt, indem die Werte von *PhyPiDAQ* als *.csv* exportiert und anschließend in einem Python Script eingelesen wurden. Dies kann für die Mittelstufe beispielsweise genauso gut mit einer Exceltabelle oder ähnlichem erstellt werden.)
@@ -464,7 +483,7 @@ Die Grafik unten zeigt den jeweiligen Spannungsverlauf für verschiedene Farben 
   - die Spannungen über dem Kondensator saturieren abhängig von der Farbe
   - der Spannungsanstieg ist jeweils unterschiedlich und hängt von der Lichtintensität ab.
 
-*Abb. 25*:  **Photoeffekt** Aufladung eines Kondensators an einer Vakuum-Photozelle für verschiedene Wellenlängen des einfallenden Lichts
+*Abb. 25*:  **Photoeffekt** Aufladung eines Kondensators an einer Vakuum-Photozelle für verschiedene Wellenlängen des einfallenden Lichts  
                     ![Figure 25](images/photo_1.png)  
 
 

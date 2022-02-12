@@ -2,8 +2,8 @@
 
 ---  
 
-This is the English version for educators of the project PhyPiDAQ,
-a package for acquisition, storage, visualization and analysis of measurement data
+This is the English version for educators of the project PhyPiDAQ, 
+a package for acquisition, storage, visualization and analysis of measurement data 
 with the [Raspberry Pi](https://www.raspberrypi.com/).
 
 Hier gibt es die [Deutsche Version](Dokumentation_de.md).  
@@ -22,13 +22,14 @@ Installation up to descripotions of concrete experiments is described.
     - [Starting surface](#startenundstartoberflaeche)
     - [configuration file](#konfigurationsdatei)
     - [starting the measurement](#messungstarten)
-- [How do I carry out experiments with it?](#wiefuehreichdamitversuchedurch)
-- [electrostatics](#elektrostatik)
-- [force sensor](#kraftsensor)
-- [photo effect](#photoeffekt)
+- [Experiments with PhyPiDAQ?](#wiefuehreichdamitversuchedurch)  
+     - [electrostatics](#elektrostatik)
+     - [force sensor](#kraftsensor)
+     - [photo effect](#photoeffekt)
 
-<a name="wasistphypidaq"> </a>
+&nbps;&nbsp;<a name="wasistphypidaq"> </a>
 ## 1. What is PhyPiDAQ?
+
 PhyPiDAQ is a project for transparent, easily understandable Data AQuisition (DAQ) 
 with a Raspberry Pi. The software contains basic functions for data acquisition and
 visualization such as data logger, bar graph, XY or oscilloscope display and data 
@@ -53,15 +54,16 @@ cabling efforts to a minimum and experiments can be set up quickly.  A 3d printe
 connection panel and a printed circuit-board  are available so that all components
 can be conveniently  provided  in an organizer case.  
 
- *Fig. 1*:  Representation of the time dependence of two signal sources 
-  (square wave and capacitor voltage) connected to an AD converter  
+*Fig. 1*:  Representation of the time dependence of two signal sources 
+(square wave and capacitor voltage) connected to an AD converter  
                     ![Figure 1](images/Kondensator.png)  
 
 *Fig. 2*:  Measurement case with Raspberry Pi, circuit board and built-in display  
                     ![Figure 2](images/Overview_koffer.png)  
 
-<a name="wasbraucheichundwiebaueichdaszusammen"></a>  
-
+&nbsp;  
+&nbsp;  
+<a name="wasbraucheichundwiebaueichdaszusammen"></a>
 ## 2. What do I need and how do I assemble it?
 
 Sensors and standard amplifiers are at the heart of the PhyPiDAQ project. 
@@ -81,13 +83,15 @@ are described in the folder *MeasuringCase*, which you can also find on the
 [Github repository](https://github.com/PhyPiDAQ/MeasuringCase).  
 
 
+&nbsp;  
+&nbsp;  
+<a name="wiesetzeichdenraspberrypiaufundinstalliereichphypidaq"></a>  
 ## 3. How do I set up the Raspberry Pi and install PhyPiDAQ?
 
 If there already is an operating system on the Raspberry Pi, you can  continue directly with [3.2](#wieinstalliereichphypidaq). 
 If not, proceed with this description how to install the operating system. 
 
-<a name="wiesetzeichdenraspberrypiauf"></a>
-
+<a name="wiesetzeichdenraspberrypiauf"></a>  
 ### 3.1 How do I set up the Raspberry Pi?
 
 First download *Raspberry Pi Imager* from the official website  
@@ -104,8 +108,6 @@ Pi OS (other)" and then "Raspberry Pi OS Full".
 
 *Fig. 4*: Selection of the operating system  
                     ![Figure 4](images/installieren_2.png)  
- 
-
 
 *Fig. 5*: Selection of the operating system  
                     ![Figure 5](images/installieren_3.png)  
@@ -120,14 +122,14 @@ In the *Raspberry Pi Imager* you can now select your SD card by clicking on *"SD
 
 *Fig. 7*: Selection of the SD card  
                     ![Figure 6](images/installieren_5.png)  
-                    
+
 By clicking on *"Write"* and then confirming, you can finally record onto 
 the SD card; you may be asked for the password once. This process can now 
 take a few minutes.  
 
 *Fig. 8*: Writing to the SD card  
                   ![Figure 8](images/installieren_6.png)  
-                    
+
 When the process is complete, the operating system for the Raspberry Pi is 
 on the SD card and this can be plugged into the Raspberry Pi. If you have 
 not decided to use the case version with a display, connect an external monitor 
@@ -139,8 +141,8 @@ If this is successful, a window opens in which you can set  basic system setting
 as time zone, country, keyboard layout and your  WiFi network, if this is desired. 
 The installation of the Pi is now   complete and we can continue installing *PhyPiDAQ*.  
 
-<a name="wieinstalliereichphypidaq"></a>
 
+<a name="wieinstalliereichphypidaq"></a>  
 ### 3.2 Installation of PhyPiDAQ on the Raspberry Pi
 
 **Obtaining the PhyPiDAQ code and easy installation**
@@ -183,9 +185,11 @@ git pull
 ./installlibs.sh
 ```
 
-<a name="wiebedieneichdiephypidaqsoftware"></a>
+&nbsp;  
+&nbsp;  
+<a name="wiebedieneichdiephypidaqsoftware"></a>  
 ## 4. How do I use the PhyPiDAQ software?<a name="startenundstartoberflaeche"></a>
-## 4.1 starting surface
+## 4.1 Start-up interface
 
 To start the *PhyPiDAQ* application, double-click the icon on the desktop **PhyPi**.  
 
@@ -365,7 +369,8 @@ We have now selected the sensor *ADS1115* with four channels. You can now assign
 a name below and save the configuration.
 
 Now connect the analog-digital converter to the Raspberry Pi - four wires are required:  
-GND and + 5V for the power supply and SCL and SDA for the *i2C* connection for the data transmission from the sensor to the Pi.
+GND and + 5V for the power supply and SCL and SDA for the *i2C* connection for the data 
+transmission from the sensor to the Pi.
 
 <a name="messungstarten"></a>
 ## 4.3 Starting the measurement
@@ -379,7 +384,7 @@ Fig. 18 shows the graphical display you should see.
                     ![Figure 18](images/bedienung_6.png)  
 
 
-There are now numerous ways in which you can interact wiht *PhyPiDAQ*. On the one hand, it 
+There are numerous ways in which you can interact wiht *PhyPiDAQ*. On the one hand, it 
 is important to be able to save recorded data, which is done with the button *"SaveData"*. 
 The values are saved in the folder selected in the working directory (*"WorkDir"*) in the 
 folder belonging to the measurement. By default, only the first 12 seconds are saved, which 
@@ -390,16 +395,30 @@ also be adapted.
 Keyboard shortcuts are defined for all buttons, as indicated by the '_' on the
 button text. In many practical cases, typing a button is much easier than interacting via the mouse.
 
-<a name="wiefuehreichdamitversuchedurch"></a>
-## 5. How do I carry out experiments with it?
+
+&nbsp;  
+&nbsp;  
+<a name="wiefuehreichdamitversuchedurch"></a>  
+## 5. Experiments with *PhyPiDAQ*
+
 We are now ready to read out a large number of different sensors, graphically 
 plot them live on the monitor and export the values. That opens up countless 
-possibilities to use *PhyPiDAQ* in the classroom. We will now describe three 
-sample experiments so that you can see what the entire workflow can look like 
-from start to finish.
+possibilities to use *PhyPiDAQ* in the classroom. 
 
+There is an introductory Course in German languge, 
+[Kurs digitale Messswerterfassung](
+docs/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md), which has not yet been
+translated to English. 
+Starting with very basic material on digitization and data processing with *Python*, 
+a first project deals with a non-linear, temperature dependent resistor, an NTC, 
+which is first calibrated and then used in a self-made thermometer. 
+As a  more advanced example involving active amplification of a weak signal, a load-cell 
+as contained in standard kitchen scales is used to build a very sensitive force sensor. 
 
-<a name="elektrostatik"></a>
+Some more advanced sample experiments from different areas of Phyics are described below 
+to illustrate the entire *PhyPiDAQ* workflow from start to end.
+
+&nbsp;<a name="elektrostatik"></a>
 ### 5.1 Electrostatics
 
 In the following experiment, the effect of electrostatic influence will be shown. 
@@ -481,7 +500,7 @@ capacitor plate (t ≈ 67.9 s), the voltage reaches a constant value.
                     ![Figure 21](images/elektrostatik_3.png)  
 
 
-<a name="kraftsensor"></a>
+&nbsp;<a name="kraftsensor"></a>
 ### 5.2 Force sensor
 
 A force measurement is to be carried out using a load cell. It is checked whether the voltage 
@@ -562,7 +581,7 @@ sampleRate: 860
 ```
 
 
-<a name="photoeffekt"></a>
+&nbsp;<a name="photoeffekt"></a>
 ### 5.3 Photo effect
 
 The photo effect is examined in more detail below. The resulting counter-voltage 
