@@ -31,16 +31,17 @@ In dieser Anleitung wird der gesamte Workflow von PhyPiDAQ, begonnen von der Ins
 &nbsp;  
 <a name="wasistphypidaq"></a>
 
-## 1. Was ist PhyPiDAQ ? 
+## 1. Was ist PhyPiDAQ ?
+
 PhyPiDAQ ist ein Projekt zur transparenten, einfach verständlichen Datenerfassung mit einem Raspberry Pi. Die Software enthält grundlegende Funktionen zur Datenaufnahme und -visualisierung wie Datenlogger, Balkendiagramm, XY- oder Oszilloskopanzeige und Datenaufzeichnung auf die Festplatte zur anschließenden Auswertung.
 
-Die Bedienoberfläche ist so gestaltet, dass vorgefertigte Templates für viele Sensoren benutzt werden können, um diese somit einfach und schnell auszulesen. Darüber hinaus bietet sie aber auch die Möglichkeit, die einzelnen Parameter wie Abtastrate, Intervall, Achsenbeschriftung, Differentieller Modus, Funktionen zur direkten Umrechnung und viele mehr zu verändern. Die Einstellungen lassen sich bequem abspeichern und wieder aufrufen, sodass ein Demonstationsversuch schnell gezeigt werden kann.
+Die Bedienoberfläche ist so gestaltet, dass vorgefertigte Vorlagen für viele Sensoren benutzt werden können, um diese somit einfach und schnell auszulesen. Darüber hinaus bietet sie aber auch die Möglichkeit, die einzelnen Parameter wie Abtastrate, Intervall, Achsenbeschriftung, Differentieller Modus, Funktionen zur direkten Umrechnung und viele mehr zu verändern. Die Einstellungen lassen sich bequem abspeichern und wieder aufrufen, sodass ein Demonstrationsversuch schnell gezeigt werden kann.
 
 Es wird bereits eine Vielzahl unterschiedlicher Sensoren, wie verschiedene Analog-Digital-Wandler, Stromsensoren, Klimadatensensoren, Gammadetektoren etc. unterstützt. Hierbei wurde auf weit verbreitete und preiswerte Sensoren gesetzt, welche eine hohe Genauigkeit aufweisen, die für Schulversuche mehr als ausreichend ist.
 
 Die Sensoren können einzeln mittels sogenannter Jumper-Kabeln mit dem Raspberry Pi verbunden werden, oder es kann die eigens für PhyPiDAQ entworfene Platine verwendet werden, auf welcher die Sensoren fest angebracht werden. Dadurch kann der Verkabelungsaufwand auf ein Mindestmaß reduziert werden und Versuche können auch schnell in der 5-Minuten-Pause aufgebaut werden. Mit maßgeschneiderten 3D-gedruckten Modellen kann alles geräumig in einem Organizer-Koffer befestigt werden.  
 
- *Abb. 1*:  Darstellung der Zeitabhängigkeit von zwei Signalquellen 
+*Abb. 1*:  Darstellung der Zeitabhängigkeit von zwei Signalquellen 
               (Kondensatorspannung an Rechteckspannung) an einem AD-Wandler  
                     ![Figure 1](images/Kondensator.png)  
 
@@ -117,8 +118,83 @@ Mit einem Klick auf *"Write"* und anschließendem bestätigen können Sie schlie
 Wenn der Vorgang abgeschlossen ist befindet sich das Betriebssystem für den  Raspberry Pi auf der SD-Karte und diese kann in den Raspberry Pi eingesteckt  werden. Falls Sie sich nicht für die Koffervariante mit Display entschieden haben, verbinden Sie nun einen externen Monitor, und stellen Sie sicher, dass eine Maus und Tastatur angeschlossen ist. Verbinden Sie weiter ein Ethernet-Kabel, falls Sie keine Wlan-Verbindung verfügbar haben. Anschließend können Sie den Raspberry Pi mit dem Netzteil verbinden, er startet automatisch.  
 Es werden nun verschiedene Pakete automatisch installiert, was ebenfalls  mehrere Minuten dauern kann. Ist das erfolgreich geschenen, so öffnet sich ein  Fenster, in welchem Sie grundlegende Systemeinstellungen wie Zeitzone, Land,  Tastaturlayout und Ihr Wlan-Netz einstellen, sofern das gewünscht ist. Das Aufsetzen des Pi ist damit abgeschlossen und wir können mit dem Installieren von *PhyPiDAQ* fortfahren.
 
-<a name="wieinstalliereichphypidaq"></a>
+### 3.2.1 Ein paar Worte zu Linux
 
+Das Betriebssystem des Raspberry Pi ist ein Linux-System, das von Hause aus schon viele Programme mitbringt. Zur Arbeitsweise unter Linux gehört es,
+häufig die Kommandozeile zu verwenden, die in vielen Belangen der "Kommandozeile" unter
+Windows gleicht. Als modernes Betriebssystem verfügt Linux natürlich auch über eine
+sehr komfortable grafische Oberfläche, in der Sie Anwendungen mit der Maus starten
+und steuern können. Die Programmnamen für gängige Anwendungen weichen bisweilen vom 
+gewohnten ab. Eine Übersicht findet sich in der Liste unten. 
+
+**Liste der wichtigsten Anwendungen unter Linux auf dem Raspberry Pi**  
+
+| Programm           | Beschreibung                                                 |
+| ------------------ | ------------------------------------------------------------ |
+| `LXTerminal`       | Linux-Konsole für Befehlseingabe                             |
+| `leafpad`          | einfacher Editor für Textdateien                             |
+| `gedit`            | Editor für Textdateien mit fortgeschrittenen Möglichkeiten (z. B. Syntax-Highlighting) |
+| `qpdfview`         | Anzeige von pdf-Dokumenten                                   |
+| `gpicview`         | Bildbetrachter                                               |
+| `idle3`            | einfache Entwicklungsumgebung für python (vers. 3)           |
+| `Thonny`           | Entwicklungsumgebung für Python-Programme mit Debugger und Einzelschritt |
+| `libreoffice`      | Textverarbeitung, Tabellenkalkulation und Präsentation       |
+| `chromium-browser` | Web-Browser                                                  |
+| `Mathematica`      | Computer-Algebra, sehr mächtig                               |
+| `pi-packages`      | grafischer Manager für Software-Pakete                       |
+| `apg-get`          | Kommandozeilen-Werkzeug zur Installation und zum Löschen von Softwarepaketen |
+| `git`              | Quellcode-Management System zum Herunterladen, Modifizieren und Veröffentlichen von Programmpaketen; üblicherweise verbunden mit einem Konto auf *https://github.com*   |
+|                    |                                                              |
+
+ Sollte eines der aufgeführten Programme nicht vorhanden sein, kann es leicht genau so 
+wie andere Programmpakete mit dem Befehl `sudo apt-get install <name>` auf der Kommandozeile 
+nachinstalliert werden. Fast alle der aufgeführten Programm können auch über die grafische
+Bedienoberfläche des Raspberry Pi aus dem Programm-Menü gestartet werden. 
+
+Die am häufigsten verwendeten Befehle in der Konsole (`LXTerminal`, s. Liste oben) sind in
+der Tabelle unten kurz beschrieben. 
+
+**Liste der  wichtigsten Befehle für die Kommandozeile** 
+
+| Befehl                             | Beschreibung                                                 |
+| ---------------------------------- | ------------------------------------------------------------ |
+| `ls`                               | listet alle Dateien im aktuellen Verzeichnis auf             |
+| `cd`  **Ordnername**               | wechselt in den angegebenen Ordner                           |
+| `cd`                               | wechselt ins Home-Verzeichnis                                |
+| `pwd`                              | zeigt aktuelles (Arbeits-)Verzeichnis an                     |
+| `cp` **Datei1** **Datei2**         | kopiert **Datei1** in (neue) **Datei2**                      |
+| `mv` **Dateiname1** **Dateiname2** | Datei mit **Dateiname1** in **Dateiname2** umbenennen        |
+| `mkdir` **Ordnername**             | erzeugt einen Ordner mit namen **Ordnername**                |
+| `rmdir` **Ordnername**             | Ordner **Ordnername** entfernen (muss leer sein)             |
+| `sudo nano` **Dateiname**          | erstellt/öffent neue Datei **Dateiname**                     |
+| `rm` **Dateiname**                 | löscht die angegebene Datei                                  |
+| `pyhton3` **Dateiname.py**         | führt Datei **Dateiname.py** in *python3* aus                |
+| `./`**Dateiname.py**               | alternativ: führt Datei **Dateiname.py** aus                 |
+| `cat` **Dateiname**                | zeigt Inhalt der Datei mit Namen **Dateiname** an            |
+| `less` **Dateiname**               | zeigt Inhalt einer Datei an (auf und ab mit Pfeiltasten, Ende mit *q*) |
+| `man` **Befehl**                   | zeigt Hilfsinformation zum angegebenen **Befehl** an         |
+| *Pfeiltaste hoch/runter*           | zeigt zuletzt benutzte Befehle an                            |
+| *Pfeiltaste rechts/links*          | Befehl editieren                                             |
+| `<Str> + <c>`                      | Beendet das im Terminal ausgeführte Programm                 |
+| `<Str> + <z>`                      | Verschiebt das im Terminal laufende Programm in den Hintergrund |
+| `bg`                               | führt in den Hingergrund verschobenes Programm weiter aus    |
+| `jobs`                             | zeigt alle im Termnal laufenden Prozese an                   |
+| `kill %i`                          | stoppt Prozess mit Nummer *i*  (siehe Befehl `jobs`)         |
+| **Befehl**`&`                      | führt **Befehl** als Hintergrundprozess aus                  |
+| `date`                             | zeigt Datum und Uhrzeit an                                   |
+|                              | `/` in Dateiangabe trennt Unterordner von Ordner- oder Dateinamen |
+|                              | `~/` in Dateiangabe steht für das Home-Verzeichnis           |
+|                              | `*` in Dateiname steht für beliebige Zeichenfolge            |
+|                              | `?` in Datei- oder Verzeichnisname steht für ein beliebiges Zeichen |
+|                              | `./` in Pfadangabe zu Datei steht für das aktuelle Verzeichnis |
+| **Befehl** `>` **Dateiname** | Ausgabe von **Befehl** in Datei mit Namen **Dateiname** speichern |
+| **Befehl**1 `|` **Befehl2**  | Ausgabe von **Befehl1** als Eingabe an **Befehl2**           |
+| `sudo` **Befehl**            | führt **Befehl** als Administrator aus (mit "**s**uper**u**ser-Rechten") |
+| `sudo reboot`                | System neu starten                                           |
+| `sudo halt`                  | System anhalten (kann danach ausgeschaltet werden)           |
+
+
+<a name="wieinstalliereichphypidaq"></a>  
 ### 3.2 Installation von PhyPiDAQ auf dem Raspberry Pi
 
 **Beziehen des PhyPiDAQ Codes und einfache Installation**

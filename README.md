@@ -1,9 +1,9 @@
 # PhyPiDAQ  Educators Guide
 
 
-[Full Educators Tutorial in English](Documentation_en.md)
+[Full Educators Tutorial in English](EducatorsGuide.md)
 
-[Ausführliche Anleitung in deutscher Sprache](Dokumentation_de.md)
+[Ausführliche Anleitung in deutscher Sprache](Anleitung.md)
 
 
 ## Summary  
