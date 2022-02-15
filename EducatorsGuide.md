@@ -88,7 +88,8 @@ are described in the folder *MeasuringCase*, which you can also find on the
 <a name="wiesetzeichdenraspberrypiaufundinstalliereichphypidaq"></a>  
 ## 3. How do I set up the Raspberry Pi and install PhyPiDAQ?
 
-If there already is an operating system on the Raspberry Pi, you can  continue directly with [3.2](#wieinstalliereichphypidaq). 
+If there already is an operating system on the Raspberry Pi, you can  continue directly with 
+[3.2](#wieinstalliereichphypidaq). 
 If not, proceed with this description how to install the operating system. 
 
 <a name="wiesetzeichdenraspberrypiauf"></a>  
@@ -465,10 +466,14 @@ of the level converter is compensated as follows:
 U<sub>capacitor</sub> = 2 · U<sub>measured</sub>-5V, which is already taken 
 into account in *ChanFormula*.  
 Before the measurement begins, the capacitor plate is connected to earth potential 
-using a conductor so that it is uncharged. If a charged body is brought closer to the capacitor plate, the electric field of the charged body causes a force on the free electrons of the capacitor plate, which then - depending on the body's charge - are accelerated towards or away from it (electrostatic influence). This process is limited by the fact that an 
+using a conductor so that it is uncharged. If a charged body is brought closer to the capacitor plate, the electric 
+field of the charged body causes a force on the free electrons of the capacitor plate, which then - depending on the 
+body's charge - are accelerated towards or away from it (electrostatic influence). This process is limited by the fact 
+that an 
 electric field is built up through the charge shift, which counteracts the accelerating force.
   
-The charge separation can be measured as an electrical voltage between earth and the capacitor plate, i.e. precisely on the input side of the electrometer. It 
+The charge separation can be measured as an electrical voltage between earth and the capacitor plate, i.e. precisely on 
+the input side of the electrometer. It 
 should be noted that an electrometer with a very high internal resistance is 
 absolutely necessary for this experiment, as otherwise current flow 
 between the input of the electrometer and the earth leads to a charge equalization 
@@ -564,7 +569,8 @@ ChanUnits: ['V']         # units for channels
 ChanColors: [darkblue]      # channel colours in display
 
 Interval: 0.05                 # logging interval         
-NHistoryPoints: 20000          # number of points used in history buffer, time=NHistoryPoints*Interval = 2000*0.05 = 100 seonds
+NHistoryPoints: 20000          # number of points used in history buffer, time=NHistoryPoints*Interval = 2000*0.05 = 
+100 seonds
 DisplayModule: DataGraphs     # text, bar-graph, history and xy-view
 Title: "Data from File"       # display title
 DataFile:   null              #  null to disable 
@@ -630,7 +636,8 @@ ChanUnits: ['V']         # units for channels
 ChanColors: [darkblue]      # channel colours in display
 
 Interval: 0.05                 # logging interval         
-NHistoryPoints: 20000          # number of points used in history buffer, time=NHistoryPoints*Interval = 2000*0.05 = 100 seonds
+NHistoryPoints: 20000          # number of points used in history buffer, time=NHistoryPoints*Interval = 2000*0.05 = 
+100 seonds
 DisplayModule: DataGraphs     # text, bar-graph, history and xy-view
 Title: "Data from File"       # display title
 DataFile:   null              #  null to disable 
@@ -651,7 +658,8 @@ connected to ground again for discharging.
 
 The results obtained are summarized in the Figure below. 
 
-*Fig. 25*: **Photo effect** Charging of a capacitor on a vacuum photocell for different wavelengths of the incident light  
+*Fig. 25*: **Photo effect** Charging of a capacitor on a vacuum photocell for different wavelengths of the incident 
+light  
                     ![Figure 25](images/photo_1.png)  
 
 A number of interesting effects are worht mentioning:  
@@ -663,7 +671,8 @@ A number of interesting effects are worht mentioning:
 To calculate the ratio *h/e*, the energy balance is first drawn up. The 
 incident light with the wavelength *λ* has the frequency *ν=λc* and the 
 energy *E<sub>light</sub>=hν*.  
-After deducting the work function, the released electrons have the kinetic energy *E<sub>kin</sub>=E<sub>light</sub>-E_A*.  
+After deducting the work function, the released electrons have the kinetic energy 
+*E<sub>kin</sub>=E<sub>light</sub>-E_A*.  
 For the energy of the electric field, *E<sub>field</sub>=U*e* applies, where *U* 
 is the counter voltage and *e* is the elementary charge.  
 In the stationary case, the energy of the electric field is the same as the kinetic 
