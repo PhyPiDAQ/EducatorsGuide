@@ -10,13 +10,20 @@
 
 The PhyPiDAQ project aims to provide students access to state-of-the-art measurement technology and data
 acquisition tools. As it is based on standardized protocols and hardware, it can not only be cheaper to
-set up than similar offers but also gives a great educational introduction in methods of modern science. Additionally, the measuring technology can be run off a power bank, making it portable and allowing great
+set up than similar offers but also gives a great educational introduction in methods of modern science. 
+Additionally, the measuring technology can be run off a power bank, making it portable and allowing great
 experiments in nature. This project targets students from middle school up to undergraduates at the university
 level with great matching educational concepts.
   
 This is the [general tutorial](Documentation_en.md) aming at educators. 
 If you are looking for hardware guides, build instructions or software details, please check out our
 other [repositories](https://github.com/PhyPiDAQ).
+
+#### Currently available Documentation
+
+ - [Software Description](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/Documentation_en.md)
+ - [Educators Guide](https://github.com/PhyPiDAQ/EducatorsGuide/blob/main/EducatorsGuide.md)
+ - [Hardware build instructions](https://github.com/PhyPiDAQ/MeasuringCase/blob/main/Documentation_en.md)
 
 
 ## Übersicht in Deutscher Sprache
@@ -31,6 +38,14 @@ ermöglicht. *PhyPiDAQ* richtet sich an SchülerInnen von der Mittelstufe bis hi
 Diese [allgemeine Anleitung](Dokumentation_de.md) richtet sich an Lehrkräfte.
 Wenn Sie nach Hardware-Beschreibungen, Bauanleitungen oder einer detaillierten Beschreibung der Software suchen, schauen Sie sich bitte unsere anderen
 [Repositories](https://github.com/PhyPiDAQ) an.
+
+#### Derzeit verfügbare Dokumentation
+
+ - [Anleitung für Lehrkräfte](https://github.com/PhyPiDAQ/EducatorsGuide/blob/main/Anleitung.md)
+ - [Einführungskurs für Schülerinnen und Schüler](
+     https://github.com/PhyPiDAQ/EducatorsGuide/blob/main/docs/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md)
+ - [Beschreibung der Software](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/Dokumentation_de.md)
+ - [Bauanleitung Messkoffer](https://github.com/PhyPiDAQ/MeasuringCase/blob/main/Dokumentation_de.md)
 
 
 ## Contributing
