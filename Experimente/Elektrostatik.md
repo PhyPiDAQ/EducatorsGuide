@@ -1,4 +1,4 @@
-#PhyPiDAQ: Messungen zur Elektrostatik
+# *PhyPiDAQ*: Messungen zur Elektrostatik
 
 Messungen von Ladungen und am Plattenkondensator sind auch mit kleinen, für Schülerinnen und Schüler
 unbedenklichen Spannungen möglich, wenn man einen sehr hochomigen Verstärker einsetzt, mit dem
