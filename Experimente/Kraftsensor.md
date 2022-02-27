@@ -1,12 +1,27 @@
 # *PhyPiDAQ*: Experimente mit einer Wägezelle als Kraftsensor
 
-Mithilfe einer Wägezelle wird eine Kraftmessung werden. Dabei  wird zunächst überprüft, ob die 
-an der Wägezelle anliegende Spannung linear mit der angehängten Masse ansteigt, wie es erwartet wird.  
+Mithilfe einer Wägezelle wird eine Kraftmessung durchgeführt. Dabei  wird zunächst überprüft, ob die 
+an der Wägezelle anliegende Spannung linear mit der angehängten Masse ansteigt. Diese Messung dient
+zur Kalibration der Kraftmessung.  
 
-Der schematische Aufbau ist nachfolgend dargestellt:
+Da die relative Änderung des Widerstands von Dehnmessstreifen nur klein ist, wird zu Messung eine
+Wheatsone-Brücke aus vier Dehnmessstreifen verwendet. Weil das Signal auch dann noch klein ist,
+empfiehlt es sich, einen Instrumentenverstärker zu verwenden, wie er in Abb. 1 gezeigt. ist.
 
-*Abb. 1*:  **Kraftsensor** schematischer Aufbau  
-                    ![Abb 1´](images/kraft_aufbau.png)  
+*Abb. 1*:  **Instrumentenverstärker** zur Messung kleiner Spannungen.  
+                    ![Abb. 1](../Schematics/Instrumentenverstaerker_schematic.png)  
+
+Wenn das Signal mit einem an den Raspberry Pi angeschlossenen Analog-Digital-Wandler aufgezeichnet
+werden soll, kann man den Referenz-Eingang der Instrumentenverstärkers mit einer Spannung belegen,
+die die Null-Lage festlegt und so die Ausgangsspannung in den Bereich von 0-5V anhebt. 
+
+## Kalibration eines Dehnmessstreifen-Kraftmessers
+
+Der schematische Aufbau unter Verwendung der im Messkoffer vorhandenen Messplatine ist 
+nachfolgend dargestellt:
+
+*Abb. 2*:  **Kraftsensor** schematischer Aufbau  
+                    ![Abb. 2](images/kraft_aufbau.png)  
 
 Die verwendete Wägezelle kann nach [dieser Anleitung](docs/Bauanleitung_Kraftsensor.pdf) nachgebaut werden. 
 
@@ -34,13 +49,15 @@ zur angehängten Masse ist. Die Spannung, welche gemessen wird, ohne dass ein Ma
 Offset-Spannung von den anderen Spannungen abgezogen. Nach Bestimmung der Ausgleichsfunktion kann diese Wägezelle somit 
 als Waage für Massen bis 500 g eingesetzt werden.  
 
-*Abb.2*:  Die Spannung der Wägezelle steigt mit zunehmender Kraft an.  
-Die Offset-Spannung, welche ohne ein angehängtes Massestück anliegt, wird von den restlichen Spannungswerten abgezogen. 
+*Abb. 3*:  Die Spannung an der Wägezelle steigt mit zunehmender Kraft an.  
+Die Offset-Spannung, welche ohne ein angehängtes Massestück anliegt, wird von den 
+restlichen Spannungswerten abgezogen. 
 Die gemessenen Werte sind mit einer Ursprungsgeraden kompatibel.  
-                    ![Abb. 2](images/kraft_ratio.png)  
+                    ![Abb. 3](images/kraft_ratio.png)  
  
-Die Regression kann entweder direkt in *PhyPiDAQ* mit der Funktion *ChanCalib*  vorgenommen werden, oder die Werte 
-werden exportiert und anschließend in Excel,  Python, ect. weiter verarbeitet.  
+Die Interpolation der Messpwerte kann entweder direkt in *PhyPiDAQ* mit der Funktion *ChanCalib* 
+vorgenommen werden, oder die Werte werden exportiert und anschließend in Excel,  Python, ect. 
+weiter verarbeitet.  
 
 Konfigurtionsdatei **kraftsensor.daq:**
 

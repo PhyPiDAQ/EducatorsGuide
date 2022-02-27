@@ -1,11 +1,27 @@
 # *PhyPiDAQ*: Experiments with a Force Sensor
 
 A force measurement is to be carried out using a load cell. It is checked whether the voltage 
-applied to the load cell increases linearly with the attached mass, as one would expect.
+applied to the load cell increases linearly with the attached mass. This measurement serves
+to calibrate the force sensor.
+
+Since the relative change in resistance of strain gauges is only small, a Wheatsone bridge of 
+four strain gauges is used for measurement. Because the signal is still small, 
+it is recommended to use an instrumentation amplifier as shown in Fig. 1.
+
+*Fig. 1*:  **Instrumentation amplifier** for measuring small voltages.  
+                    ![Fig 1'](../Schematics/Instrumentenverstaerker_schematic.png)  
+
+If the signal is to be recorded with an analogue-to-digital converter connected to the 
+Raspberry Pi, you should consider applying a voltage to the reference input of the 
+instrumentation amplifier, which sets the zero position and thus raises the output voltage 
+to the range of 0- 5V. 
+
+## Calibration of a strain gauge force gauge
+
 The schematic layout of the experiment is shown in the Figure below.
 
-*Fig. 1*: **force sensor** schematic structure  
-                    ![Fig. 1](../Experimente/images/kraft_aufbau.png)  
+*Fig. 2*: **force sensor** schematic structure  
+                    ![Fig. 2](../Experimente/images/kraft_aufbau.png)  
 
 The load cell used can be rebuilt according to 
 [these instructions](../docs/Bauanleitung_Kraftsensor.pdf).  
@@ -41,11 +57,11 @@ mass. The voltage that is measured without an attached mass is subtracted from
 the other voltages as an offset voltage. After determining the compensation 
 function, this load cell can be used as a scale for masses of up to 500 g.
 
-*Fig. 2*: The voltage of the load cell increases with increasing force. The 
+*Fig. 3*: The voltage of the load cell increases with increasing force. The 
 offset voltage that is applied without an attached mass is subtracted from the 
 remaining voltage values. The measured values ​​are compatible with a straight line 
 through the origin.  
-                    ![Fig. 2](../Experimente/images/kraft_ratio.png)  
+                    ![Fig. 3](../Experimente/images/kraft_ratio.png)  
 
 The regression can either be carried out directly in *PhyPiDAQ* with the *ChanCalib*  
 function, or the values are exported and then transferred to Excel, Python, etc. for
