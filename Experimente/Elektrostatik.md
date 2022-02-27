@@ -1,11 +1,33 @@
 # *PhyPiDAQ*: Messungen zur Elektrostatik
 
-Messungen von Ladungen und am Plattenkondensator sind auch mit kleinen, für Schülerinnen und Schüler
-unbedenklichen Spannungen möglich, wenn man einen sehr hochomigen Verstärker einsetzt, mit dem
-Spannungsmessungen ohne störenden Stromfluss messbar sind. Dazu kann man den Operationsverstärker
-CA 3140 mit einem Innenwiderstand >10¹² Ohm einsetzen, mit dem eine "Elektrometerschaltung" realisiert werden kann und der auch im Bauvorschlag für eine allgemein einsetzbare 
+Messungen von Ladungen und am Plattenkondensator sind auch mit kleinen, für Schülerinnen und 
+Schüler unbedenklichen Spannungen möglich, wenn man einen sehr hochomigen Verstärker einsetzt, 
+mit dem Spannungsmessungen ohne störenden Stromfluss messbar sind. 
+Dazu kann man den Operationsverstärker CA 3140 mit einem Innenwiderstand >10¹² Ω einsetzen, 
+mit dem eine "Elektrometerschaltung" realisiert werden kann und der auch im Bauvorschlag für 
+eine allgemein einsetzbare 
 [Verstärkerplatine](https://github.com/PhyPiDAQ/MeasuringCase) enthalten ist.
 
+## Grundlagen der Messtechnik 
+
+Die Elektrometerschaltung ist in Abb. 1 gezeigt. Da häufig die Polarität des Signals nicht
+von vorneherein klar ist, wurde eine symmetrische Spannungsversorgung vorgesehen, so dass
+Eingangssignale zwischen -5V und +5V möglich sind. Der Eingang (1) muss entweder mit einem 
+Widerstand oder mit einem Kondensator gegen Masse verbunden werden, um eine zu einem kleinen
+Strom oder zu einer Ladung proportionale Spannung am Eingang zu erzeugen. 
+
+*Abb. 1*:  Elektrometerschaltung mit CA3140 und symmetrischer Spannungsversorung  ±5V mit dem DC-DC-Wandler TMA0505D.  
+                    ![Abb. 1](../Schematics/Elektrometer_schematic.png)  
+
+Wenn das Signal mit einem an den Raspberry Pi angeschlossenen Analog-Digital-Wandler aufgezeichnet werden soll,
+ist die Wandlung des Ausgangssignals von ±5V nach 0-5V notwendig. Dazu eignet sich eine einfache Schaltung mit
+einem Operationsverstärker zur Pegelanpassung, wie sie in Abb. 2 gezeigt ist. 
+
+*Abb. 2*: Operationsverstärker-Schaltung zur Pegelanpassung ±5V → 0-5V.  
+                    ![Abb. 2](../Schematics/Pegelwandler_schematic.png)  
+
+
+## Demonstration von elektrostatischer Influenz 
 
 Im folgenden Versuch soll der Effekt Influenz dargestellt werden. Des Weiteren lässt sich derselbe Aufbau ebenfalls zur 
 Demonstration eines Ladungslöffels verwenden.  
@@ -15,8 +37,8 @@ Kondensator mit der Kapazität von 1 nF angeschlossen. Der Ausgang des  Elektrom
 verbunden und dieser wiederum mit dem  
 ADC. Somit können sowohl positive, als auch negative Spannungen ausgelesen werden.  
 
-*Abb. 1*:  Aufbau Elektrostatik-Versuch  
-                    ![Abb. 1](images/elektrostatik_1.png)  
+*Abb. 3*:  Aufbau Elektrostatik-Versuch  
+                    ![Abb. 3](images/elektrostatik_1.png)  
 
 Wir befassen uns nun mit der Konfigurationsdatei.  Aus Gründen der Übersichtlichkeit sind nun überflüssige Kommentare 
 und auskommentierte  Zeilen ggf. weggelassen.  
@@ -46,8 +68,8 @@ DifModeChan: [false]   # enable differential mode for Channels
 Gain: [1]              # programmable gain of ADC-Channel
 sampleRate: 860        # programmable Sample Rate of ADS1115  
 ```
-Den *Gain* in der vorletzten Zeile müssen Sie ggf. anpassen - je nachdem,  ob das angezeigte Signal zu klein oder zu 
-groß ist.  
+Den *Gain* in der vorletzten Zeile müssen Sie ggf. anpassen - je nachdem,  ob das angezeigte Signal zu 
+klein oder zu groß ist.  
 Softwareseitig wird die Funktion des Pegelwandlers folgendermaßen kompensiert:  
 U<sub>Kondensator</sub> = 2 · U<sub>gemessen</sub> − 5 V, was bei  *ChanFormula* bereits berücksichtigt ist.  
 Bevor die Messung beginnt,  wird die Kondensatorplatte mit Hilfe eines Leiters mit dem Erdpotential  verbunden, sodass 
@@ -67,9 +89,12 @@ aufgenommene Kurve in Abbildung unten zeigt den zeitlichen Verlauf der Spannung 
 Die Veränderung der Spannung mit dem Abstand des Stabs ist gut zu erkennen.  Anhand des Vorzeichens der Spannung ist 
 weiter zu erkennen, dass der Stab positiv geladen ist. 
 
-*Abb. 2*:  **Influenz** Zeitlicher Verlauf der Spannung am Kondensator bei  mehrmaliger Veränderung des Abstandes zum 
+*Abb. 4*:  **Influenz**  
+Zeitlicher Verlauf der Spannung am Kondensator bei  mehrmaliger Veränderung des Abstandes zum 
 geladenen Stab.  
-                    ![Abb. 2](images/elektrostatik_2.png)  
+                    ![Abb. 4](images/elektrostatik_2.png)  
+
+## Aufladung eines Kondensators mit Konduktorkugel. 
 
 Nun folgt die Demonstration des Ladungslöffels. Hierzu wird eine Metallkugel  an einem Wollpullover gerieben und 
 anschließend die entladene Kondensatorplatte damit berührt. In der Abbildung ist der Verlauf der Spannung zu sehen. Der 
@@ -77,9 +102,10 @@ Anstieg der Kondensatorspannung bei Berührung mit der Kugel lässt auf die Ladu
 bekannten Kapazität von 1 nF und der Spannungsdifferenz von −2,7 V beträgt die übertragene 
 Ladung −2,7 nC.
 
-*Abb. 21*:  **Ladungslöffel** Zeitlicher Verlauf der Spannung am Kondensator bei Annäherung und Berührung mit einer 
+*Abb. 5*:  **Ladungslöffel**  
+Zeitlicher Verlauf der Spannung am Kondensator bei Annäherung und Berührung mit einer 
 geladenen Kugel. Bei ca. 66 s wird der Kondensator geerdet, sodass die Spannung 0 V beträgt. Bei Annäherung der 
 geladenen Kugel steigt der Betrag der Spannung am Kondensator durch Influenz an. Bei Berührung der Kugel an der 
 Kondensatorplatte (t ≈ 67,9 s) erreicht die Spannung einen konstanten Wert.  
-                    ![Abb. 3](images/elektrostatik_3.png)  
+                    ![Abb. 5](images/elektrostatik_3.png)  
 

@@ -6,6 +6,29 @@ disturbing current flow. For this purpose, one can use the operational amplifier
 resistance >10¹² Ohm, with which an "electrometer circuit" can easily be realised and which is also included
 in the construction proposal for a generally applicable [amplifier board](https://github.com/PhyPiDAQ/MeasuringCase).
 
+
+## Basics of measurement technology 
+
+The electrometer circuit is shown in Fig. 1. Since the polarity of the signal is often not 
+clear from the outset, a symmetrical voltage supply has been foreseen so that input signals 
+between -5V and +5V are possible. 
+The input (1) must be connected to ground either with a resistor or with a capacitor, in 
+order to obtain a voltage level at the input that is proportional to a small current or an
+electric charge. 
+
+*Fig. 1*:  Electrometer circuit with CA3140 and balanced voltage supply ±5V with the DC-DC converter TMA0505D.  
+                    ![Fig. 1](../Schematics/Elektrometer_schematic.png)  
+
+If the signal is to be recorded with an analogue-to-digital converter connected to the Raspberry Pi, 
+it is necessary to convert the output signal from ±5V to 0-5V. A simple circuit with an operational 
+amplifier for level adjustment is shown in Fig. 2. 
+
+*Fig. 2*: Operational amplifier circuit for level adjustment ±5V → 0-5V.  
+                    ![Fig. 2](../Schematics/Pegelwandler_schematic.png)  
+
+
+## Electrostatic influence 
+
 In the following experiment, the effect of electrostatic influence will be shown. 
 Furthermore, the same setup can also be used to demonstrate a load spoon.  
 
@@ -17,8 +40,8 @@ and this in turn to the ADC. This means that both positive and negative
 voltages can be read out.
 
 **elektrostatik.daq:**
-*Fig. 1*: Electrostatic experiment setup  
-                    ![Fig. 1](../Experimente/images/elektrostatik_1.png)  
+*Fig. 3*: Electrostatic experiment setup  
+                    ![Fig. 3](../Experimente/images/elektrostatik_1.png)  
 
 We now deal with the configuration file. For the sake of clarity, superfluous comments and 
 lines that have been commented out have been left out.
@@ -66,13 +89,15 @@ visible with a conventional multimeter. A plastic rod is used as the body, which
 was rubbed on a wool sweater so that it became charged. Then it is brought closer 
 to the capacitor plate, the distance being varied several times. 
 
-Fig. 2 below shows the time course of the voltage across the capacitor. The 
+Fig. 4 below shows the time course of the voltage across the capacitor. The 
 change in voltage with the distance between the rods can be clearly seen. The sign 
 of the voltage also shows that the rod is positively charged. 
 
-*Fig. 2*: **Influence** Time curve of the voltage on the capacitor with repeated
+*Fig. 4*: **Influence** Time curve of the voltage on the capacitor with repeated
 changes in the distance to the charged rod.  
-                    ![Fig. 2](../Experimente/images/elektrostatik_2.png)  
+                    ![Fig. 4](../Experimente/images/elektrostatik_2.png)  
+
+## Charging of a capacitor with a conducting sphere 
 
 Now the demonstration of the electrical charge spoon follows. To do this, a metal ball is 
 rubbed on a wool sweater and then the discharged capacitor plate is touched with it. The 
@@ -81,9 +106,9 @@ upon contact with the sphere indicates the charge. With Q = C · U, a known
 capacitance of 1 nF and the measured voltage difference of −2.7 V, the transferred charge 
 is determined to be −2.7 nC.
 
-*Fig. 3*: **Electric Charge spoon** Time curve of the voltage on the capacitor when 
+*Fig. 5*: **Electric Charge spoon** Time curve of the voltage on the capacitor when 
 approaching and touching a charged ball. At approx. 66 s the capacitor is grounded 
 so that the voltage is 0 V. When the charged sphere approaches, the amount of 
 voltage on the capacitor increases due to influence. When the ball touches the 
 capacitor plate (t ≈ 67.9 s), the voltage reaches a constant value.  
-                    ![Fig. 3](../Experimente/images/elektrostatik_3.png)  
+                    ![Fig. 5](../Experimente/images/elektrostatik_3.png)  
