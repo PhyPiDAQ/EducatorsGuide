@@ -1,9 +1,21 @@
 # *PhyPiDAQ*: Experimente zum Photoeffekt
 
+Eine im Vergleich zur klassischen Gegenspannungsmethode einfache Variante zur  quantitativen Behandlung des Photoeffekts ist mit Hilfe eines Elektrometerverstärkers 
+möglich. Schaltet man einen Kondensator parallel zu einer mit Licht einer bekannten 
+festen Wellenlänge beleuchteten Vakuumphotozelle, so lädt sich der Kondensator so lange 
+auf, bis auch die schnellsten der ausgelösten Elektronen nicht mehr gegen die
+Kondensatorspannung anlaufen können. Mit einem modernen Operationsverstärker 
+mit sehr hohem Innenwiderstand kann diese Spannung problemlos gemessen werden, ohne
+den Kondensator zu entladen. Ein Schema dieser einfachen Messung ist hier gezeigt: 
 
-Im Folgenden wird der Photoeffekt genauer untersucht. Es soll für sechs verschiedene Wellenlängen im Bereich von λ = 
-360 nm bis λ = 590 nm jeweils die sich ergebende Gegenspannung gemessen werden. Anschließend soll das Verhältnis *h/e*, 
-wobei *h* das Plancksche Wirkungsquantum und *e* die Elementarladung ist, bestimmt werden.  
+*Abb. 1*:  **Photoeffekt**: Prinzip zur Messung der Gegenspannung mit einem Kondensator    
+                    ![Abb. 1](images/Photoeffekt_prinzip.png)  
+
+
+Im Folgenden wird der Photoeffekt quantitativ untersucht. Für sechs verschiedene 
+Wellenlängen im Bereich von λ = 360 nm bis λ = 590 nm soll die sich jeweils ergebende 
+Gegenspannung gemessen werden. Anschließend soll aus der Messreihe das Verhältnis 
+*h/e* bestimmt werden, wobei *h* das Plancksche Wirkungsquantum und *e* die Elementarladung ist. 
 
 Als Lichtquelle wird eine Quecksilber-Lampe verwendet, da diese auch im UV-Bereich Licht emittiert. Mit Linsen wird der 
 Lichtstrahl gebündelt und mit Interferenzfiltern die jeweilige Wellenlänge ausgewählt. Durch das Auftreffen der 
@@ -23,8 +35,8 @@ Hardwareseitig wird die Spannung mit dem Elektrometer gemessen, da hier ein  gro
 die Messung nicht zu verfälschen.  Ein handelsübliches Multimeter ist daher ungeeignet. Der Schaltaufbau ist in der 
 nachfolgenden Abbildung zu sehen:
 
-*Abb. 1*:  **Photoeffekt** schematischer Aufbau  
-                    ![Abb. 1](images/photo_aufbau.png)  
+*Abb. 2*:  **Photoeffekt**: schematischer Aufbau  
+                    ![Abb. 2](images/photo_aufbau.png)  
 
 Der Kondensator mit *C=47µF* muss ggf. angepasst werden, falls die Aufladung zu schnell oder zu langsam erfolgt.
 
@@ -65,9 +77,9 @@ Beobachtungen sind:
   - die Spannungen über dem Kondensator saturieren abhängig von der Farbe
   - der Spannungsanstieg ist jeweils unterschiedlich und hängt von der Lichtintensität ab.
 
-*Abb. 2*:  **Photoeffekt** Aufladung eines Kondensators an einer Vakuum-Photozelle für verschiedene Wellenlängen des 
+*Abb. 3*:  **Photoeffekt**: Aufladung eines Kondensators an einer Vakuum-Photozelle für verschiedene Wellenlängen des 
 einfallenden Lichts  
-                    ![Abb. 2](images/photo_1.png)  
+                    ![Abb. 3](images/photo_1.png)  
 
 
 Um das Verhältnis *h/e* zu berechnen, wird zunächst die Energiebilanz aufgestellt.  
@@ -97,7 +109,7 @@ Weiter lässt sich aus der Kondensatoraufladung  in der Abbildung unten der Phot
 dieser im  pA-Bereich liegt. Bei 590 nm Wellenlänge war der Strom am kleinsten, was sich an der verhältnismäßig 
 langsamen Aufladung zeigt.
 
-*Abb. 3*:  **Photoeffekt**  Gegenspannung gegen Frequenz des Lichts, aufgetragen mit linearer Regression. Die 
+*Abb. 4*:  **Photoeffekt**:  Gegenspannung gegen Frequenz des Lichts, aufgetragen mit linearer Regression. Die 
 Geradensteigung entspricht dem Verhältnis *h/e*.  
-                    ![Abb. 3](images/photo_2.png)  
+                    ![Abb. 4](images/photo_2.png)  
 

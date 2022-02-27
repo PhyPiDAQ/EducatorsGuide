@@ -1,9 +1,20 @@
 # *PhyPiDAQ*: Exploring the Photoeffect
 
-The photo effect is examined in more detail below. The resulting counter-voltage 
-should be measured for six different wavelengths in the range from *λ = 360 nm* to 
-λ=590 nm. Then the ratio *h/e*, where *h* is Planck's quantum and *e* is 
-the elementary charge, should be determined. 
+A simple variant for the quantitative treatment of the photoelectric effect 
+compared to the classical countervoltage method is possible with the help of an 
+electrometer amplifier. If a capacitor is connected in parallel to a vacuum 
+photocell illuminated with light of a known fixed wavelength, the capacitor is 
+charged until even the fastest of the released electrons can no longer run against 
+the capacitor voltage. This volatage can easily be measured with a modern operational amplifier with a very high internal resistance without discharging the capacitor.
+A schematic of this simple measurement is shown here:  
+*Fig. 1*:  **Photoelectric effect**: Principle for measuring the voltage with a capacitor.  
+![Fig. 1](../Experimente/images/Photoeffekt_prinzip.png)  
+
+
+The photo effect is examined qantitatively with this method in more detail below. 
+The resulting counter-voltage is to be measured for six different wavelengths in the 
+range from *λ = 360 nm* to λ=590 nm. From the measruements, the ratio *h/e* is 
+determined, where *h* is Planck's quantum and *e* is the elementary charge.  
 
 A mercury lamp is used as the light source because it also emits light in the UV 
 range. The light beam is bundled with lenses and reduced to the respective 
@@ -28,8 +39,8 @@ internal resistance is required here in order not to falsify the measurement. A
 commercially available multimeter is therefore unsuitable. The circuit structure 
 can be seen in the following figure:
 
-*Fig. 1*: **Photoeffect** schematic structure  
-                    ![Fig. 1](../Experimente/images/photo_aufbau.png)  
+*Fig. 2*: **Photoeffect**: Schematic of the experimental setting  
+                    ![Fig. 2](../Experimente/images/photo_aufbau.png)  
 
 The capacitor with *C=47µF* may have to be adjusted if the charging is too fast or too slow.
 
@@ -68,9 +79,9 @@ connected to ground again for discharging.
 
 The results obtained are summarized in the Figure below. 
 
-*Fig. 2*: **Photo effect** Charging of a capacitor on a vacuum photocell for different wavelengths of the incident 
+*Fig. 3*: **Photo effect**: Charging of a capacitor on a vacuum photocell for different wavelengths of the incident 
 light  
-                    ![Fig. 2](../Experimente/images/photo_1.png)  
+                    ![Fig. 3](../Experimente/images/photo_1.png)  
 
 A number of interesting effects are worht mentioning:  
  
@@ -95,8 +106,8 @@ straight line, obtained via linear regression, corresponds to the ratio *h/e*.
 The y-axis intercept corresponds to the work function *E_A*, with a negative sign 
 indicating that this physical work is needed to free an electron. 
 
-*Fig. 3*: **Photoeffect** Saturation voltage versus frequency of light.  
-                    ![Fig. 3](../Experimente/images/photo_2.png)  
+*Fig. 4*: **Photoeffect**: Saturation voltage versus frequency of light.  
+                    ![Fig. 4](../Experimente/images/photo_2.png)  
 
 The deviation of *(h/e)<sub>measured</sub>* from the literature value of 
 *h/e=4.14·10^(−15) Js/C* is only 3.5%, which indicates a very precise measurement 
