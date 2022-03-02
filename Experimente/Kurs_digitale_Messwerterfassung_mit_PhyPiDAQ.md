@@ -18,16 +18,18 @@ Raspberry Pi <br> und PhyPiDAQ  </span></center>
 | AD-Wandler ADS1115                                  |           ![](images/course/component_ads1115.png)           |
 | Bananenbuchse mit angeschlossener Breadboardleitung |         ![](images/course/component_banana_jack.png)         |
 | Fotowiderstand (LDR Typ5516)                        |             ![](images/course/component_ldr.png)             |
-| Instrumentenverstärker AD623                        |  ![](images/course/component_instrumentation_amplifier.png)  |
+| Instrumentenverstärker AD623                        |       ![](images/course/component_instrumentation_amplifier.png)  |
 | Keramikkondensator 0,1 µF                           |       ![](images/course/component_capacitor_0,1µF.png)       |
 | Elektrolytkondensator 10 µF                         |       ![](images/course/component_capacitor_10µF.png)        |
 | Kraftsensor, Wägezelle TAL220B                      |        ![](images/course/component_force_sensor.png)         |
 | NTC-Widerstand *R<sub>25</sub>* = 10 k&Omega;       |             ![](images/course/component_ntc.png)             |
 | Potentiometer 10 k&Omega;                           |        ![](images/course/component_potentiometer.png)        |
 | Spannungsversorgung                                 |        ![](images/course/component_power_supply.png)         |
-| Widerstand (Bsp. 10 k&Omega;)                       | Farbcode: <span style="color:SaddleBrown">braun</span>, 
-schwarz, schwarz, <span style="color:red">rot</span>, <span style="color:SaddleBrown">braun</span> 
-![](images/course/component_resistor_10kOhm.png) |
+| Widerstand (Bsp. 10 k&Omega;)  
+Farbcode: <span style="color:SaddleBrown">braun</span>, schwarz, schwarz, <span style="color:red">rot</span>,
+<span style="color:SaddleBrown">braun</span>          |  ![](images/course/component_resistor_10kOhm.png) |
+
+
 
 <div style="page-break-after: always;"></div>
 
@@ -140,7 +142,7 @@ Spannung zwischen dem Schleifer (dem mittleren Pin) des Potentiometers und GND (
 
 ![](images/course/digital_circuit.JPG)
 
-![](images/course/digital_breadboard.png)
+![](images/course/digital_breadboard.PNG)
 
 <span style="color:#5882FA; font-size: 12pt ">2. </span>Für alle, die am Raspberry Pi mit Bildschirm, Tastatur und Maus 
 arbeiten wollen (wer stattdessen mit dem VNC-Viewer per Fernzugriff arbeiten möchte, kann direkt zu Schritt 3 
