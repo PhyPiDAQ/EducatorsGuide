@@ -22,10 +22,11 @@ Installation up to descripotions of concrete experiments is described.
     - [Starting surface](#startenundstartoberflaeche)
     - [configuration file](#konfigurationsdatei)
     - [starting the measurement](#messungstarten)
-- [Experiments with PhyPiDAQ?](#wiefuehreichdamitversuchedurch)  
-     - [electrostatics](#elektrostatik)
-     - [force sensor](#kraftsensor)
-     - [photo effect](#photoeffekt)
+- [Experiments with PhyPiDAQ?](#wiefuehreichdamitversuchedurch)
+    - [introductory tutorial](#basicTutorial)
+    - [electrostatics](#elektrostatik)
+    - [force sensor](#kraftsensor)
+    - [photo effect](#photoeffekt)
 
 &nbps;&nbsp;<a name="wasistphypidaq"> </a>
 ## 1. What is PhyPiDAQ?
@@ -408,15 +409,22 @@ possibilities to use *PhyPiDAQ* in the classroom.
 
 There is an introductory Course in German languge, 
 [Kurs digitale Messswerterfassung](
-docs/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md), which has not yet been
-translated to English. 
+Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md), which has not yet been
+fully translated to English. 
 Starting with very basic material on digitization and data processing with *Python*, 
 a first project deals with a non-linear, temperature dependent resistor, an NTC, 
 which is first calibrated and then used in a self-made thermometer. 
 As a  more advanced example involving active amplification of a weak signal, a load-cell 
-as contained in standard kitchen scales is used to build a very sensitive force sensor. 
+as contained in standard kitchen scales is used to build a very sensitive force sensor.  
+ Some parts already available:  
 
-Some more advanced sample experiments from different areas of Phyics are described below 
+  - <a name="basicTutorial"></a> Introductory Material  
+  
+     - [Digital Measurements](experiments/DigitalMeasurement.md)
+     - [Light-Dark Switching](experiments/LightControl.md)
+     - [Charging of a Capacitor](experiments/CapacitorCharging.md)
+
+More advanced experiments from different areas of Physics are described below 
 to illustrate the entire *PhyPiDAQ* workflow from start to end.
 
 List of experiments with *PhyPiDAQ*
