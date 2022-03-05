@@ -422,6 +422,7 @@ as contained in standard kitchen scales is used to build a very sensitive force 
   
      - [Digital Measurements](experiments/DigitalMeasurement.md)
      - [Light-Dark Switching](experiments/LightControl.md)
+     - [Calibration of a non-linear temperature sensor](experiments/Thermometer.md)
      - [Charging of a Capacitor](experiments/CapacitorCharging.md)
 
 More advanced experiments from different areas of Physics are described below 
