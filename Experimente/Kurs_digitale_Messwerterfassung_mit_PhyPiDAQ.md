@@ -2,11 +2,14 @@
 
 ---
 
-
 &nbsp;
 
 <center><span style="color:#5882FA; font-size: 40pt"> Einführungskurs <br>zur digitalen Messwerterfassung <br> mit dem 
 Raspberry Pi <br> und PhyPiDAQ  </span></center>
+
+
+Autor: M. Aupperle, in ["Konzeption und Gestaltung eines digitalen Messwerterfassungssystems für den Physikunterricht in der Schule"](
+https://publish.etp.kit.edu/record/21520), Masterarbeit ETP 2018.
 
 ---
 
@@ -36,11 +39,13 @@ Farbcode: <span style="color:SaddleBrown">braun</span>, schwarz, schwarz, <span 
 # 1. Digitale Messtechnik
 
 Digitale Messtechnik begegnet uns im Alltag überall. Die digitale Temperaturanzeige am Gefrierschrank, eine Pulsuhr 
-beim Sport, eine digitale Küchenwaage oder die Einparkhilfe beim Auto...unsere Welt wäre eine andere ohne digitale 
-Messtechnik!
+beim Sport, eine digitale Küchenwaage oder die Einparkhilfe beim Auto...unsere Welt wäre eine andere ohne digitale Messtechnik!
 
-<span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> Nennen Sie drei weitere Geräte oder Anwendungen, in 
-denen digitale Messtechnik vorkommt und nennen Sie die physikalische Größe, die dabei gemessen wird.
+<span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> 
+Nennen Sie drei weitere Geräte oder Anwendungen, in denen digitale Messtechnik 
+vorkommt und nennen Sie die physikalische Größe, die dabei gemessen wird.  
+
+&nbsp;  
 
 
 |  |Gerät / Anwendung| physikalische Größe|
@@ -48,6 +53,8 @@ denen digitale Messtechnik vorkommt und nennen Sie die physikalische Größe, di
 |1.|                               |                                |
 |2.|                               |                                |
 |3.|                               |                                |
+
+&nbsp;  
 
 # 2. Das Breadboard und die LED
 
@@ -75,7 +82,9 @@ geschaltet werden, d.h. die **Anode** muss am **höheren Potential** angeschloss
 Auf dem Breadboard bauen wir unsere Schaltungen auf. Um die Schaltungen stecken zu können ist es wichtig zu wissen, wie 
 das Breadboard aufgebaut ist.
 In der nachfolgenden Abbildung sind die elektrisch verbundenen Steckkontakte durch Linien gekennzeichnet.  
-![](images/course/breadboard.png)
+
+![](images/course/breadboard.png)  
+
 <span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> In welcher der nachfolgend abgebildeten Schaltungen 
 leuchtet die LED? Begründe.  
 
