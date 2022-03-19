@@ -5,7 +5,7 @@ Dies ist die deutsche Version der Dokumentation für Lehrkräfte von PhyPiDAQ,
 einem Paket zur Aufnahme, Speicherung, Visualisierung und Auswertung von Messdaten
 mit dem [Raspberry Pi](https://www.raspberrypi.com/).
 
-Here is the [English version](Documentation_en.md).  
+Here is the [English version](EducatorsGuide.md).  
 
 ---  
 
@@ -26,6 +26,7 @@ Versuchen beschrieben.
 	- [Elektrostatik](#elektrostatik)
 	- [Kraftsensor](#kraftsensor)
 	- [Photoeffekt](#photoeffekt)
+- [Weitere Dokumentation und andere Projekte](#andereProjekte)
 
 
 &nbsp;  
@@ -493,4 +494,32 @@ Einige anspruchsvollere Beispiele für Messungen aus verschiedenen Bereichen des
 
  - <a name="photoeffekt"></a> [Photoeffekt](Experimente/Photoeffekt.md)
 
+&nbsp;  
+&nbsp;  
+<a name="andereProjekte"></a>  
+## 6. Weitere Dokumentation und andere Projekte  
 
+
+  - Moritz Aupperle, ["Konzeption und Gestaltung eines digitalen Messwerterfassungssystems
+    für den Physikunterricht in der Schule"](https://publish.etp.kit.edu/record/21520),
+    Masterarbeit Karlsruhe (2018)
+  - Dominik Braig, ["Digitales Messsystem mit aktiver Messbereichserweiterung zum Einsatz in physikalischen Praktika"](https://publish.etp.kit.edu/record/21995),
+    Bachelor Arbeit, ETP 2020
+
+
+Aktuelle Präsentationen zum Projekt:  
+
+  - [Digitales Messen mit dem Raspberry Pi auf Basis von PhyPiDAQ](
+    http://ekpwww.etp.kit.edu/~quast/Projects/PhyPiDAQ/Projekte_PhyPiDAQ_1810.pdf),  
+    Moritz Aupperle, Expose zur Masterarbeit
+  - [Digitale Messwerterfassung für den Physikunterricht mit dem Raspberry Pi](
+   http://ekpwww.etp.kit.edu/~quast/Projects/PhyPiDAQ/DigitalesMessen_DPG1903.pdf),
+   G. Quast, Tagung der deutschen Physikalsichen Gesellschaft Aachen (2019)  
+  - [Digitales Messen im Physikunterricht](http://ekpwww.etp.kit.edu/~quast/Projects/   PhyPiDAQ/DigitalesMessen_GQuast_Pforzheim1902.pdf), G. Quast,
+    Lehrerfortbildung Pforzheim (2019)
+  - [Digitales Messen im Physikunterricht](
+    http://ekpwww.etp.kit.edu/~quast/Projects/PhyPiDAQ/DigitalesMessen_GQuast_Pforzheim2002.pdf), Lehrerfortbildung Pforzheim (2020)
+
+Andere Projekte:
+
+M. Wong, [Schülerprojekt Mint-Micro-Macro](http://www.hw.pf.bw.schule.de/joomla/index.php/bildungsangebote/berufsschule/82-home/255-mint-mikro-makro-projekt)

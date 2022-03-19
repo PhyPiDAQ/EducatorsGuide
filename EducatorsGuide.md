@@ -27,6 +27,7 @@ Installation up to descripotions of concrete experiments is described.
     - [electrostatics](#elektrostatik)
     - [force sensor](#kraftsensor)
     - [photo effect](#photoeffekt)
+- [Related Projects](#andereProjekte)
 
 &nbps;&nbsp;<a name="wasistphypidaq"> </a>
 ## 1. What is PhyPiDAQ?
@@ -433,3 +434,13 @@ List of experiments with *PhyPiDAQ*
   - <a name="elektrostatik"></a> [Electrostatics](experiments/electrostatics.md)
   - <a name="kraftsensor"></a> [Force sensor](experiments/forcesensor.md)
   - <a name="photoeffekt"></a> [Photoeffect](experiments/photoeffect.md)
+
+&nbsp;  
+&nbsp;  
+<a name="andereProjekte"></a>  
+## 6. Related Projects  
+
+An appliction of PhyPiDAQ in a realistic school project with documentaion of a large number
+of typical phyiscs experiments is documented here:  
+
+  - M. Wong, [School project "Mint-Micro-Macro"](http://www.hw.pf.bw.schule.de/joomla/index.php/bildungsangebote/berufsschule/82-home/255-mint-mikro-makro-projekt)
