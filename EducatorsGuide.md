@@ -443,11 +443,11 @@ List of experiments with *PhyPiDAQ*
 An appliction of PhyPiDAQ in a realistic school project with documentaion of
 a large number of typical physics experiments is documented here:  
 
- -  M. Wong, G. Quast, D. Braig, [*Implementing a Raspberry Pi based Digital  
+ -  M. Wong, G. Quast, D. Braig, [*Implementing a Raspberry Pi based Digital
     Measurement System in Undergraduate Physics Education*](
     http://www.eu-journal.org/index.php/EJPE/article/view/297),
     European J of Physics Education, v. 11 n. 3 1-16 (Nov. 2020),
     DOI 10.20308/ejpe.v11i3.297
 
-  - M. Wong, [Project "Raspberry Pi based Digital Measurement System in  
+  - M. Wong, [Project "Raspberry Pi based Digital Measurement System in
    Physics"](https://mint.hw-schule.de/index.php/mint-projekte/phypidaq-international)
