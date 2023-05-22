@@ -168,25 +168,56 @@ sudo apt-get install git
                     ![Figure 10](images/terminal.png)  
 
 Enter the following commands to install *PhyPiDAQ*. Always copy this code 
-line by line into the terminal and confirm each command with the Enter key.  
+line by line into the terminal and confirm each command with the Enter key.
 **DO NOT** insert all lines at once.
-```bash
-mkdir ~/git
-cd ~/git
-git clone https://github.com/GuenterQuast/PhyPiDAQ
-cd ~/git/PhyPiDAQ
-./installlibs.sh
-cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop/
+
 ```
+mkdir ~/git
+```
+
+```
+cd ~/git
+```
+
+```
+git clone https://github.com/PhyPiDAQ/PhyPiDAQ
+```
+
+```
+cd ~/git/PhyPiDAQ
+```
+
+```
+./installlibs.sh
+```
+
 The installation is now complete and *PhyPiDAQ* is ready for the first use. 
+
 If you want to update the installed version later, enter the following in 
 the terminal (not necessary for the first installation, as the current 
 version has already been downloaded):  
-```bash
+```
 cd ~/git/PhyPiDAQ
+```
+
+```
 git pull
+```
+
+```
 ./installlibs.sh
 ```
+
+For every-day use of the PhyPiDAQ software it is very convenient to draw a copy of the relevant files
+of the installation in the user's home directory by executing
+
+```
+./install_user.sh
+```
+
+This script generates a directory named *PhyPi* and copies useful scripts and examples. It also creates desktop icons
+for an easy start of the graphical user interface. 
+
 
 &nbsp;  
 &nbsp;  
