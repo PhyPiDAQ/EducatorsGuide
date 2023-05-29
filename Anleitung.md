@@ -170,8 +170,7 @@ gewohnten ab. Eine Übersicht findet sich in der Liste unten.
 | `Mathematica`      | Computer-Algebra, sehr mächtig                               |
 | `pi-packages`      | grafischer Manager für Software-Pakete                       |
 | `apg-get`          | Kommandozeilen-Werkzeug zur Installation und zum Löschen von Softwarepaketen |
-| `git`              | Quellcode-Management System zum Herunterladen, Modifizieren und Veröffentlichen von 
-Programmpaketen; üblicherweise verbunden mit einem Konto auf *https://github.com*   |
+| `git`              | Quellcode-Management System zum Herunterladen, Modifizieren und Veröffentlichen von  Programmpaketen; üblicherweise verbunden mit einem Konto auf *https://github.com*   |
 |                    |                                                              |
 
  Sollte eines der aufgeführten Programme nicht vorhanden sein, kann es leicht genau so 
