@@ -1,4 +1,4 @@
-# PhyPiDAQ  Educators Guide
+# PhyPiDAQ  Educators' Guide README
 
 
 [Full Educators Tutorial in English](EducatorsGuide.md)
@@ -35,7 +35,7 @@ hervorragende pädagogische Einführung in die Messmethoden der modernen Wissens
 kann mit einer Powerbank betrieben werden, was sie tragbar macht und Experimente auch in freier Natur
 ermöglicht. *PhyPiDAQ* richtet sich an SchülerInnen von der Mittelstufe bis hin zu Studierenden auf Universitätsebene. 
 
-Diese [allgemeine Anleitung](Dokumentation_de.md) richtet sich an Lehrkräfte.
+Diese allgemeine Anleitung richtet sich an Lehrkräfte.
 Wenn Sie nach Hardware-Beschreibungen, Bauanleitungen oder einer detaillierten Beschreibung der Software suchen, schauen Sie sich bitte unsere anderen
 [Repositories](https://github.com/PhyPiDAQ) an.
 
