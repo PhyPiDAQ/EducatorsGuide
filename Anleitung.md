@@ -536,4 +536,4 @@ Aktuelle Präsentationen zum Projekt:
 
 Andere Projekte:
 
-M. Wong, [Schülerprojekt Mint-Micro-Macro](http://www.hw.pf.bw.schule.de/joomla/index.php/bildungsangebote/berufsschule/82-home/255-mint-mikro-makro-projekt)
+M. Wong, [Schülerprojekt Mint-Micro-Macro](https://mint.hw-schule.de/index.php/mint-projekte/mikro-makro-projekt)

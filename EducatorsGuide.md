@@ -6,7 +6,7 @@ This is the English version for educators of the project PhyPiDAQ,
 a package for acquisition, storage, visualization and analysis of measurement data 
 with the [Raspberry Pi](https://www.raspberrypi.com/).
 
-Hier gibt es die [Deutsche Version](Dokumentation_de.md).  
+Hier gibt es die [Deutsche Version](Anleitung.md).  
 
 ---  
 
@@ -29,7 +29,7 @@ Installation up to descripotions of concrete experiments is described.
     - [photo effect](#photoeffekt)
 - [Related Projects](#andereProjekte)
 
-&nbps;&nbsp;<a name="wasistphypidaq"> </a>
+&nbsp;&nbsp;<a name="wasistphypidaq"> </a>
 ## 1. What is PhyPiDAQ?
 
 PhyPiDAQ is a project for transparent, easily understandable Data AQuisition (DAQ) 
