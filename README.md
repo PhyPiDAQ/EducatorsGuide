@@ -15,7 +15,7 @@ Additionally, the measuring technology can be run off a power bank, making it po
 experiments in nature. This project targets students from middle school up to undergraduates at the university
 level with great matching educational concepts.
   
-This is the [general tutorial](Documentation_en.md) aming at educators. 
+This is the general tutorial aming at educators. 
 If you are looking for hardware guides, build instructions or software details, please check out our
 other [repositories](https://github.com/PhyPiDAQ).
 
@@ -29,7 +29,7 @@ other [repositories](https://github.com/PhyPiDAQ).
 ## Übersicht in Deutscher Sprache
 
 Das PhyPiDAQ-Projekt zielt darauf ab, Studierenden und SchülerInnen Zugang zu modernster Messtechnik
-und Datenerfassung zu geben. Da es auf offenen, standardisierten Protokollen und und leicht verfügbarer
+und Datenerfassung zu geben. Da es auf offenen, standardisierten Protokollen und leicht verfügbarer
 Hardware basiert, kann es nicht nur kostengünstig eingerichtet werden, sondern bietet auch eine 
 hervorragende pädagogische Einführung in die Messmethoden der modernen Wissenschaft. Die Messtechnik 
 kann mit einer Powerbank betrieben werden, was sie tragbar macht und Experimente auch in freier Natur
@@ -54,4 +54,3 @@ For information on how to contribute to this project, please refer to the [CONTR
 ## License
 
 This project is licensed under the `MIT BSD 2-Clause License`. For more information refer to the [LICENSE](LICENSE) file.
-
