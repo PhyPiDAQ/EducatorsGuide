@@ -198,7 +198,7 @@ briefly described in the table below.
 | `less` **file**                    | Displays contents of a file (up and down with arrow keys, end with *q*) |
 | `man` **Befehl**                   | displays auxiliary information for the specified **command**.|
 | *Arrow key up/down*                | displays last used commands                                  |
-| *Arrow key right/left              | Edit command                                                 |
+| *Arrow key right/left*              | Edit command                                                 |
 | `<Str> + <c>`                      | Exits the programme running in the terminal                  |
 | `<Str> + <z>`                      | Moves the programme running in the terminal to the background |
 | `bg`                               | Continues the programme that has been moved to the background |
