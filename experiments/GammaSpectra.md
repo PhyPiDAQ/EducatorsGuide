@@ -91,20 +91,61 @@ Interval: 1.            # logging interval
 startActive: true       # start in "active" mode
 ```
 
+### Measurements of spectra
+
 The setup described here is well suited for introductory courses on radioactivity, the interaction of gamma rays in matter and gamma spectroscopy. Thanks to the availability of radioactive sources in most physics labs, simple spectra, e.g. from Cs-137, Co-60 or Na-22 sources, can be studied and used to fix the calibration of the device. More complex spectra, e.g. from the Thorimum-232 chain as shown above, can then also be considered. 
 
 The high sensitivity of a CsI(Tl) crystal compared to a Geiger tube permits rather fast studies on the radioactivity contained in environmental probes, either biological ones (K-60 in bananas, Radium in para-nuts), Radon in probes of air, e.g. collected on the surface of a balloon,  or minerals like granite or others containing remnants of Thorium and Uranium. 
  
 Examples of recorded spectra are shown in the figures below.
+
+#### Cs-137 spectrum
+ 
+ Cs-137 is a radioactive isotope with a short life time of 30.2 years and therefore not existent in Nature; it is produced in nuclear reactions like the fission of Uranium. It is a common radioactive check source and used in radiation therapy and material quality-control. The spectrum shown below is characterized by a prominent photo peak at 662 keV, and the Compton edge and plateau and a back-scattering peak originating from 
+gamma rays that are Compton-scatterd from the shielding of the source into the detector.
  
   ![Cumulative spectrum of a Cs-137 source.](images/Cs137_Spectrum.png)
+
+#### Na-22 spectrum
  
+ Na-22 is a short-lived isotope that undergoes β+ decay. The emitted positron annihilates
+ with an electron in the material, producing two back-to-back photons of 511 keV energy
+ each. There also is an additional ɣ from the decay of the Ne-22 daughter nucleus.
+ Both the photopeak of one of the photons from annihilation and from the excited Ne
+ as well as the associated Compton edges and plateaus and backscattering peaks are clearly visible in the spectrum shown below. Na-22 is commonly used as a check source,
+ and also in nuclear medicine as a marker in positron-electron tomography (PET).
+
   ![Cumulative spectrum of a Na-22 source.](images/Na22_Spectrum.png)
- 
+
+#### Co-60 spectrum
+
+Co-60 is a shor-lived, man-made isotope with a half-libe of 5.3 years that decays via 
+β emission to an excited state of Ni-60, which emits two ɣ quanta of 1173 keV and 1333 keV, leading to the well-known double-peak structure in the spectrum, as shown below.
+Co-60 is commonly used as a check source and in nuclear medicine.  
+
   ![Cumulative spectrum of a Co-60 source.](images/Co60_Spectrum.png)
+
+#### Radon sample 
+
+A radon sample can be extracted from air by collecting  Radon-decay products on a
+balloon. The mix of isotopes is dominated by the short-lived daughter nuclei Po-218,
+Pb-14, Bi-214 and Po-214, as is shown in the graph below.
+
+  ![Collection of Radon decay products on a (charged) balloon.](images/Ra-onBalloon.png)
+
+The observed spectrum is rather rich of features and leaves a clear finger print of 
+the presence of the original Ra, that is a noble gas and escapes from the earth, 
+where it is produced in decays of the Uranium and Thorium chains. Radon is the
+dominant source of natural radioactive exposure of humans. 
 
   ![Cumulative spectrum of a probe collected in a cellar on the surface of a balloon
   shwoing clear evidence for decay products of the Radon decay chain.](
   images/Radon_Spectrum.png) 
 
+#### Decrease of Radon-induced activity as a function of time
  
+ A Radon sample as described above contains a number of short-lived daughter nuclei with a short live-time and therefore can be used to illustrate the time dependence of   
+the activity. Because several daughter nuclei are involved, the reduction of the initial activity does not strictly follow an exponential law. The recorded rate (measured with a GDK101 detector, Radiacode measurement to come soon),  is shown below.
+
+  ![Gamma rate of Radon decay products on a (charged) balloon as a function of time.](
+  images/Radon-decay.png)
