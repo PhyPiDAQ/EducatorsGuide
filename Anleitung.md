@@ -12,21 +12,21 @@ Here is the [English version](EducatorsGuide.md).
 In dieser Anleitung wird der gesamte Workflow von PhyPiDAQ, begonnen von der Installation bis hin zur Auswertung von 
 Versuchen beschrieben.
 
-- [Was ist PhyPiDAQ ?](#wasistphypidaq)
-- [Was brauche ich und wie baue ich das zusammen ?](#wasbraucheichundwiebaueichdaszusammen)
-- [Wie setze ich den Raspberry Pi auf und installiere PyPiDAQ?](#wiesetzeichdenraspberrypiaufundinstalliereichphypidaq)
-    - [Wie setze ich den Raspberry Pi auf ?](#wiesetzeichdenraspberrypiauf)
-    - [Wie installiere ich PhyPiDAQ ?](#wieinstalliereichphypidaq)
-- [Wie bediene ich die PhyPiDAQ Software ?](#wiebedieneichdiephypidaqsoftware)
-    - [Starten und Startoberfälche](#startenundstartoberflaeche)
-    - [Konfigurationsdatei](#konfigurationsdatei)
-    - [Messung starten](#messungstarten)
-- [Experimente mit PhyPiDAQ ?](#wiefuehreichdamitversuchedurch)
-    - [Einführung in die digitale Messtechnik]
-	- [Elektrostatik](#elektrostatik)
-	- [Kraftsensor](#kraftsensor)
-	- [Photoeffekt](#photoeffekt)
-- [Weitere Dokumentation und andere Projekte](#andereProjekte)
+- [PhyPiDAQ Dokumentation (für Lehrkräfte)](#phypidaq-dokumentation-für-lehrkräfte)
+  - [1. Was ist PhyPiDAQ ?](#1-was-ist-phypidaq-)
+  - [2. Was brauche ich und wie baue ich das zusammen ?](#2-was-brauche-ich-und-wie-baue-ich-das-zusammen-)
+  - [3. Wie setze ich den Raspberry Pi auf und installiere PhyPiDAQ ?](#3-wie-setze-ich-den-raspberry-pi-auf-und-installiere-phypidaq-)
+    - [3.1 Wie setze ich den Raspberry Pi auf ?](#31-wie-setze-ich-den-raspberry-pi-auf-)
+    - [3.2.1 Ein paar Worte zu Linux](#321-ein-paar-worte-zu-linux)
+    - [3.2 Installation von PhyPiDAQ auf dem Raspberry Pi](#32-installation-von-phypidaq-auf-dem-raspberry-pi)
+  - [4. Wie bediene ich die PhyPiDAQ Software ?](#4-wie-bediene-ich-die-phypidaq-software-)
+  - [4.1 Starten und Startoberfälche](#41-starten-und-startoberfälche)
+  - [4.2 Konfigurationsdatei](#42-konfigurationsdatei)
+    - [4.2.1 Sensor-Konfiguration "Device-Config"](#421-sensor-konfiguration-device-config)
+  - [4.3 Messung starten](#43-messung-starten)
+  - [5. Experimente mit PhyPiDAQ](#5-experimente-mit-phypidaq)
+      - [Liste mit Beschreibungen von Experimenten mit *PhyPiDAQ*](#liste-mit-beschreibungen-von-experimenten-mit-phypidaq)
+  - [6. Weitere Dokumentation und andere Projekte](#6-weitere-dokumentation-und-andere-projekte)
 
 
 &nbsp;  
@@ -193,7 +193,7 @@ der Tabelle unten kurz beschrieben.
 | `mv` **Dateiname1** **Dateiname2** | Datei mit **Dateiname1** in **Dateiname2** umbenennen        |
 | `mkdir` **Ordnername**             | erzeugt einen Ordner mit namen **Ordnername**                |
 | `rmdir` **Ordnername**             | Ordner **Ordnername** entfernen (muss leer sein)             |
-| `sudo nano` **Dateiname**          | erstellt/öffent neue Datei **Dateiname**                     |
+| `sudo nano` **Dateiname**          | erstellt/öffnet neue Datei **Dateiname**                     |
 | `rm` **Dateiname**                 | löscht die angegebene Datei                                  |
 | `pyhton3` **Dateiname.py**         | führt Datei **Dateiname.py** in *python3* aus                |
 | `./`**Dateiname.py**               | alternativ: führt Datei **Dateiname.py** aus                 |
@@ -215,7 +215,7 @@ der Tabelle unten kurz beschrieben.
 |                              | `?` in Datei- oder Verzeichnisname steht für ein beliebiges Zeichen |
 |                              | `./` in Pfadangabe zu Datei steht für das aktuelle Verzeichnis |
 | **Befehl** `>` **Dateiname** | Ausgabe von **Befehl** in Datei mit Namen **Dateiname** speichern |
-| **Befehl**1 `|` **Befehl2**  | Ausgabe von **Befehl1** als Eingabe an **Befehl2**           |
+| **Befehl1** <code>&#124;</code> **Befehl2** | Ausgabe von **Befehl1** als Eingabe an **Befehl2**           |
 | `sudo` **Befehl**            | führt **Befehl** als Administrator aus (mit "**s**uper**u**ser-Rechten") |
 | `sudo reboot`                | System neu starten                                           |
 | `sudo halt`                  | System anhalten (kann danach ausgeschaltet werden)           |
@@ -290,7 +290,7 @@ Icons auf dem Desktop angelegt, die man zum Start der grafischen Oberfläche ein
 Zum Starten der Anwendung *PhyPiDAQ*, doppelklicken Sie auf dem Desktop auf das Icon **PhyPi**.  
 
 *Abb. 11*:  PhyPiDAQ öffnen  
-                    ![Figure 11](images/bedienung_1.png)  
+                    ![Figure 11](images/bedienung_1x.png)  
 
 Sie werden gefragt, wie Sie es öffnen möchten, wählen Sie hier "*Ausführen*" aus.  
 Es öffnen sich nun zwei Fenster: ein schwarzes Terminal Fenster, welches aktuelle Statusmeldungen und Log-Dateien 
@@ -310,7 +310,7 @@ wo der konfigurierte Versuch abgespeichert werden soll. Eine übersichtliche Ord
 verwenden:  
 
 *Abb. 13*:  Ordnerstruktur  
-                    ![Figure 14](images/ordnerstruktur.png)  
+                    ![Figure 14](images/ordnerschema.png)  
 
 Sie können neue Ordner im Dateimanager erstellen (ähnlich wie Windows  "Arbeitsplatz" oder Mac "Finder"), indem Sie mit 
 der rechten Maustaste im  Fenster auf *"Neu"*->*"Ordner"* klicken.  
@@ -457,7 +457,8 @@ Konfiguration abspeichern.
 Wenn Sie den Messkoffer verwenden, ist der Aanlog-Digital-Wandler bereite mit dem Raspberry Pi verbunden und der Aufbau 
 ist messbereit. Falls Sie einen offenen Aufbau verwenden, verbinden Sie den Analog-Digital-Wandler mit dem Raspberry Pi 
 mit vier Leitungen benötigt: GND und +5V für die Spannungsversorgung und SCL und SDA  für die *i2C*-Verbindung, 
-überwelche der Sensor Daten an den Pi übermittelt.  
+überwelche der Sensor Daten an den Pi übermittelt. Die genaue Verkabelung mit dem Breadbord ist dabei im [Kurs digitale Messswerterfassung](
+Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md) explizit erläutert.
 
 <a name="messungstarten"></a>
 

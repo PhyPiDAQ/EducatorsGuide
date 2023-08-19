@@ -13,26 +13,25 @@ Hier gibt es die [Deutsche Version](Anleitung.md).
 In this document, the entire PhyPiDAQ workflow, starting from the  
 Installation up to descripotions of concrete experiments is described.  
 
-- [What is PhyPiDAQ?](#wasistphypidaq)
-- [What do I need and how do I assemble it?](#wasbraucheichundwiebaueichdaszusammen)
-- [How do I set up the Raspberry Pi and install PyPiDAQ?](#wiesetzeichdenraspberrypiaufundinstalliereichphypidaq)
-    - [How do I set up the Raspberry Pi?](#wiesetzeichdenraspberrypiauf)
-    - [How do I install PhyPiDAQ?](#wieinstalliereichphypidaq)
-- [How do I use the PhyPiDAQ software?](#wiebedieneichdiephypidaqsoftware)
-    - [Starting surface](#startenundstartoberflaeche)
-    - [configuration file](#konfigurationsdatei)
-    - [starting the measurement](#messungstarten)
-- [Experiments with PhyPiDAQ?](#wiefuehreichdamitversuchedurch)
-    - [introductory tutorial](#basicTutorial)
-    - [electrostatics](#elektrostatik)
-    - [force sensor](#kraftsensor)
-    - [photo effect](#photoeffekt)
-- [Related Projects](#andereProjekte)
+- [PhyPiDAQ documentation (for teachers)](#phypidaq-documentation-for-teachers)
+  - [1. What is PhyPiDAQ?](#1-what-is-phypidaq)
+  - [2. What do I need and how do I assemble it?](#2-what-do-i-need-and-how-do-i-assemble-it)
+  - [3. How do I set up the Raspberry Pi and install PhyPiDAQ?](#3-how-do-i-set-up-the-raspberry-pi-and-install-phypidaq)
+    - [3.1 How do I set up the Raspberry Pi?](#31-how-do-i-set-up-the-raspberry-pi)
+    - [3.2.1 A few words about Linux](#321-a-few-words-about-linux)
+    - [3.2 Installation of PhyPiDAQ on the Raspberry Pi](#32-installation-of-phypidaq-on-the-raspberry-pi)
+  - [4. How do I use the PhyPiDAQ software?](#4-how-do-i-use-the-phypidaq-software)
+  - [4.1 Start-up interface](#41-start-up-interface)
+  - [4.2 configuration file](#42-configuration-file)
+    - [4.2.1 Sensor configuration "Device-Config"](#421-sensor-configuration-device-config)
+  - [4.3 Starting the measurement](#43-starting-the-measurement)
+  - [5. Experiments with *PhyPiDAQ*](#5-experiments-with-phypidaq)
+  - [6. Related Projects](#6-related-projects)
 
 &nbsp;&nbsp;<a name="wasistphypidaq"> </a>
 ## 1. What is PhyPiDAQ?
 
-PhyPiDAQ is a project for transparent, easily understandable Data AQuisition (DAQ) 
+PhyPiDAQ is a project for transparent, easily understandable Data Acquisition (DAQ) 
 with a Raspberry Pi. The software contains basic functions for data acquisition and
 visualization such as data logger, bar graph, XY or oscilloscope display and data 
 recording on disk for subsequent evaluation.
@@ -143,6 +142,81 @@ Various packages are now installed automatically, which can take  several minute
 If this is successful, a window opens in which you can set  basic system settings such 
 as time zone, country, keyboard layout and your  WiFi network, if this is desired. 
 The installation of the Pi is now   complete and we can continue installing *PhyPiDAQ*.  
+### 3.2.1 A few words about Linux
+
+The operating system of the Raspberry Pi is a Linux system that comes with many programmes by default. Part of the 
+Linux operating system is to frequently use the command line,
+which is similar in many respects to the "command line" under
+Windows. As a modern operating system, Linux of course also has a very
+comfortable graphical user interface in which you can start and control applications with the
+and control applications with the mouse. The programme names for common applications sometimes deviate from the 
+usual. An overview can be found in the list below.
+
+**List of the most important applications under Linux on the Raspberry Pi**  
+
+| Programm           | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| `LXTerminal`       | Linux console for command input                              |
+| `leafpad`          | Simple editor for text files                                 |
+| `gedit`            | Editor for text files with advanced possibilities (e.g. syntax highlighting) |
+| `qpdfview`         | Display pdf documents                                        |
+| `gpicview`         | Image viewer                                                 |
+| `idle3`            | simple development environment for python (vers. 3)          |
+| `Thonny`           | Development environment for Python programs with debugger and single step |
+| `libreoffice`      | Word processing, spreadsheet and presentation                |
+| `chromium-browser` | Web-Browser                                                  |
+| `Mathematica`      | Computer algebra, very powerful                              |
+| `pi-packages`      | Graphical manager for software packages                      |
+| `apg-get`          | Command line tool for installing and deleting software packages |
+| `git`              | Source code management system for downloading, modifying and publishing programme packages; usually linked to an account on *https://github.com*   |
+|                    |                                                              |
+
+If one of the listed programmes is not available, it can easily be installed in exactly the same way as other programme packages on the command line, 
+with the command `sudo apt-get install <name>`. Almost all of the listed programs can also be installed via the 
+graphical user interface of the Raspberry Pi from the programme menu. 
+
+The most frequently used commands in the console (`LXTerminal`, see list above) are briefly described in the table below.
+briefly described in the table below.
+
+**List of the most important commands for the command line**.
+
+| Command                            | Beschreibung                                                 | 
+| ---------------------------------- | ------------------------------------------------------------ |
+| `ls`                               | Lists all files in the current directory                     |
+| `cd`  **folder**                   | Switches to the specified folder                             |
+| `cd`                               | Switches to the home directory                               |
+| `pwd`                              | Displays current (working) directory                         |
+| `cp` **file1** **file2**           | copies **file1** to (new) **file2**                          |
+| `mv` **file1** **file**            | Rename file with **file1** to **file2**                      |
+| `mkdir` **folder**                 | creates a folder with the name **folder**.                   |
+| `rmdir` **folder**                 | Remove folder **folder** (must be empty)                     |
+| `sudo nano` **file**               | creates/opens a new file **file**.                           |
+| `rm` **file**                      | Deletes the specified file                                   |
+| `pyhton3` **file.py**              | Executes file **file.py** in *python3*.                      |
+| `./`**file.py**                    | alternatively: execute file **file.py**.                     |
+| `cat` **file**                     | displays content of the file with name **file**.             |
+| `less` **file**                    | Displays contents of a file (up and down with arrow keys, end with *q*) |
+| `man` **Befehl**                   | displays auxiliary information for the specified **command**.|
+| *Arrow key up/down*                | displays last used commands                                  |
+| *Arrow key right/left*              | Edit command                                                 |
+| `<Str> + <c>`                      | Exits the programme running in the terminal                  |
+| `<Str> + <z>`                      | Moves the programme running in the terminal to the background |
+| `bg`                               | Continues the programme that has been moved to the background |
+| `jobs`                             | Displays all processes running in the term.                 |
+| `kill %i`                          | stops process with number *i* (see command `jobs`)          |
+| **Command**`&`                     | executes **command** as a background process                |
+| `date`                             | Displays date and time                                      |
+|                              | `/` in file name separates subfolder from folder or file name |
+|                              | `~/` in file specification stands for the home directory      |
+|                              | `*` in filename stands for any character string               |
+|                              | `?` in file or directory name stands for any character        |
+|                              | `./` in path to file stands for the current directory         |
+| **Command** `>` **file name** | Ausgabe von **Befehl** in Datei mit Namen **Dateiname** speichern |
+| **Command1** <code>&#124;</code> **Command2**  | Output of **Command1** as input to **Command2**. |
+| `sudo` **Command**           | executes **command** as administrator (with "**s**uper**u**ser rights") |
+| `sudo reboot`                | Reboot system                                         |
+| `sudo halt`                  |  Stop system (can be switched off afterwards)         |
+
 
 
 <a name="wieinstalliereichphypidaq"></a>  
@@ -159,7 +233,7 @@ bar at  the top left.
 
 First install the repository manager *git*, which is used to download all
 files of the *PhyPiDAQ* package from its github repository. 
-To do this, enter the following texxt in the terminal window:  
+To do this, enter the following text in the terminal window:  
 `` bash
 sudo apt-get install git
 ``
@@ -228,7 +302,7 @@ for an easy start of the graphical user interface.
 To start the *PhyPiDAQ* application, double-click the icon on the desktop **PhyPi**.  
 
 *Fig. 11*: Open PhyPiDAQ  
-                    ![Figure 11](images/bedienung_1.png)  
+                    ![Figure 11](images/bedienung_1x.png)  
 
 You will be asked how you would like to open it, select "*Run*" here. Two 
 windows open now: a black terminal window, which shows current status 
@@ -404,7 +478,7 @@ a name below and save the configuration.
 
 Now connect the analog-digital converter to the Raspberry Pi - four wires are required:  
 GND and + 5V for the power supply and SCL and SDA for the *i2C* connection for the data 
-transmission from the sensor to the Pi.
+transmission from the sensor to the Pi.The exact wiring with the breadboard is explained in [Course digital data acquisition](Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md).
 
 <a name="messungstarten"></a>
 ## 4.3 Starting the measurement
@@ -439,7 +513,7 @@ We are now ready to read out a large number of different sensors, graphically
 plot them live on the monitor and export the values. That opens up countless 
 possibilities to use *PhyPiDAQ* in the classroom. 
 
-There is an introductory Course in German languge, 
+There is an introductory Course in German language, 
 [Kurs digitale Messswerterfassung](
 Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md), which has not yet been
 fully translated to English. 
