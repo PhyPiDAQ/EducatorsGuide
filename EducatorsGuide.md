@@ -282,16 +282,15 @@ git pull
 ./installlibs.sh
 ```
 
-For every-day use of the PhyPiDAQ software it is very convenient to draw a copy of the relevant files
-of the installation in the user's home directory by executing
+For every-day use of the PhyPiDAQ software it is very convenient to draw a copy of
+ the relevant files of the installation in the user's home directory by executing
 
 ```
 ./install_user.sh
 ```
 
-This script generates a directory named *PhyPi* and copies useful scripts and examples. It also creates desktop icons
-for an easy start of the graphical user interface. 
-
+This script generates a directory named *PhyPi* and copies useful scripts and examples.
+It also creates desktop icons for an easy start of the graphical user interface. 
 
 &nbsp;  
 &nbsp;  
@@ -539,6 +538,7 @@ List of experiments with *PhyPiDAQ*
   - <a name="elektrostatik"></a> [Electrostatics](experiments/electrostatics.md)
   - <a name="kraftsensor"></a> [Force sensor](experiments/forcesensor.md)
   - <a name="photoeffekt"></a> [Photoeffect](experiments/photoeffect.md)
+ - <a name="gamma ray spectra"></a> [Gamma Spectra](experiments/GammaSpectra.md)
 
 &nbsp;  
 &nbsp;  
@@ -554,5 +554,5 @@ a large number of typical physics experiments is documented here:
     European J of Physics Education, v. 11 n. 3 1-16 (Nov. 2020),
     DOI 10.20308/ejpe.v11i3.297
 
-  - M. Wong, [Project "Raspberry Pi based Digital Measurement System in
-   Physics"](https://mint.hw-schule.de/index.php/mint-projekte/phypidaq-international)
+  - M. Wong, [Project "Raspberry Pi based Digital Measurement System in Physics"](
+    https://mint.hw-schule.de/index.php/mint-projekte/phypidaq-international)
