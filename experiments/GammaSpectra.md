@@ -41,10 +41,61 @@ total deposited energy is shown in units of keV; with known parameters of the de
    ![Live recording of a Thorium-232 source with a *RadiaCode 102* device and
    *PhyPiDAQ* (module *RC10xConfig.py*).](images/Gluehstrumpf.png)
 
-The setup shown here is well suited for introductory courses on radioactivity, the interaction of gamma rays in matter and gamma spectroscopy. Thanks to the availability of radioactive sources in most physics labs, simple spectra, e.g. from Cs-137, Co-60 or Na-22 sources, can be studied and used to fix the calibration of the device. More complex spectra, e.g. from the Thorimum-232 chain as shown above, can be considered. The high sensitivity of a CsI(Tl) crystal compared to a Geiger tube permits rather fast studies on the radioactivity contained in environmental probes, either biological ones (K-60 in bananas, Radium in para-nuts), Radon in probes of air, e.g. collected on the surface of a balloon, 
- or minerals like granite or others containing remnants of Thorium and Uranium. 
+
+A typical PhyPiDAQ configuration file (*RC102_GammaSpectrum.daq*)  looks as follows:
+
+```
+# configuration for PhyPiDAQ 
+#  read and display gamma spectrum from Radiacode 102
+
+Title: 'Gamma Ray Spectrum'
+DeviceFile: RC10x_spectrum.yaml  
+DisplayModule: DataSpectrum   # needs extra parameters, not yet read from driver 
+Chan2Val: [-5.7, 2.38, 0.00048]   # factory calibration MCA Channel to Energy
+xName: Energy
+xUnit: keV
+NBins: 1024
+
+Interval: 1.                # logging interval 
+startActive: true       # start in "active" mode
+```
+
+This configuration file my be set in the graphical interface, or data acquisition can be directly started from the command line via   
+
+        >  run_phyPi RC102_GammaSpectrum.daq 
+
+As an alternative, the current count rate (and, optionally, the deposited energy in units of
+keV), can be displayed with the standard *PhyPiDAQ* *DataLogger* module as a history
+plot. This option is very useful in basic experiments where the high count rate in a CsI(Tl)
+crystal compared to a Geiger counter is used receive prompt feedback on the activities of
+different sources or to illustrate the decaying rate of as sample from the Radon chain as a
+function of time. Here is the corresponding configuration (*RC102_GammaRate.daq*):
+
+```
+# configuration for PhyPiDAQ 
+#  read gamma spectrum from Radiacode 102 and calculate rate and dose
+
+# device configuration file
+DeviceFile: RC10x.yaml  
+
+Title: 'Gamma Ray Rate and Dose'
+DisplayModule: DataLogger
+NHistoryPoints: 250 
+
+ChanLabels: [Rate, Dosis]        # names and units for channels 
+ChanLimits: [[0., 30.],[0., 0.5]]   # range
+ChanColors: [darkblue, darkgreen] # channel colours for display
+ChanUnits: [' ', 'µGy/h']     # unit(s)
+
+Interval: 1.            # logging interval 
+startActive: true       # start in "active" mode
+```
+
+The setup described here is well suited for introductory courses on radioactivity, the interaction of gamma rays in matter and gamma spectroscopy. Thanks to the availability of radioactive sources in most physics labs, simple spectra, e.g. from Cs-137, Co-60 or Na-22 sources, can be studied and used to fix the calibration of the device. More complex spectra, e.g. from the Thorimum-232 chain as shown above, can then also be considered. 
+
+The high sensitivity of a CsI(Tl) crystal compared to a Geiger tube permits rather fast studies on the radioactivity contained in environmental probes, either biological ones (K-60 in bananas, Radium in para-nuts), Radon in probes of air, e.g. collected on the surface of a balloon,  or minerals like granite or others containing remnants of Thorium and Uranium. 
  
-Some examples are shown in the figures below.
+Examples of recorded spectra are shown in the figures below.
  
   ![Cumulative spectrum of a Cs-137 source.](images/Cs137_Spectrum.png)
  
