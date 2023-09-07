@@ -477,7 +477,7 @@ a name below and save the configuration.
 
 Now connect the analog-digital converter to the Raspberry Pi - four wires are required:  
 GND and + 5V for the power supply and SCL and SDA for the *i2C* connection for the data 
-transmission from the sensor to the Pi.The exact wiring with the breadboard is explained in [Course digital data acquisition](Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md).
+transmission from the sensor to the Pi.The exact wiring with the breadboard is explained in [Course digital data acquisition](Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ_en.md).
 
 <a name="messungstarten"></a>
 ## 4.3 Starting the measurement
@@ -512,10 +512,9 @@ We are now ready to read out a large number of different sensors, graphically
 plot them live on the monitor and export the values. That opens up countless 
 possibilities to use *PhyPiDAQ* in the classroom. 
 
-There is an introductory Course in German language, 
-[Kurs digitale Messswerterfassung](
-Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ.md), which has not yet been
-fully translated to English. 
+There is an introductory Course, 
+[Course for digital data acquisition](
+Experimente/Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ_en.md). 
 Starting with very basic material on digitization and data processing with *Python*, 
 a first project deals with a non-linear, temperature dependent resistor, an NTC, 
 which is first calibrated and then used in a self-made thermometer. 
