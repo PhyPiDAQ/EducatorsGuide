@@ -134,18 +134,21 @@ Pb-14, Bi-214 and Po-214, as is shown in the graph below.
   ![Collection of Radon decay products on a (charged) balloon.](images/Ra-onBalloon.png)
 
 The observed spectrum is rather rich of features and leaves a clear finger print of 
-the presence of the original Ra, that is a noble gas and escapes from the earth, 
+the presence of the original Radon, that is a noble gas and escapes from the earth, 
 where it is produced in decays of the Uranium and Thorium chains. Radon is the
-dominant source of natural radioactive exposure of humans. 
+dominant source of natural radioactive exposure of humans. The recorded spectrum
+is shown below. Background radiation was shielded by placing the RC102 and the  
+balloon in a lead-shielded probe chamber. 
 
   ![Cumulative spectrum of a probe collected in a cellar on the surface of a balloon
-  shwoing clear evidence for decay products of the Radon decay chain.](
+  showing clear evidence for decay products of the Radon decay chain.](
   images/Radon_Spectrum.png) 
 
 #### Decrease of Radon-induced activity as a function of time
  
- A Radon sample as described above contains a number of short-lived daughter nuclei and therefore can be used to illustrate the time dependence of  the activity. Because several daughter nuclei are involved, the reduction of the initial activity does not strictly follow an exponential law. The number of counts in time-bins
-of 30s  is shown below. A clear rise of the activity above backbround level is seen, with decrease back to normal over approx. 2h. Note that several short-lived nuclei with different life-times are produced, and the decay therefore is not strictly described by an exponential function. 
+ A Radon sample as described above contains a number of short-lived daughter nuclei and therefore can be used to illustrate the time dependence of  the activity. The time dependence of the activity is shown in the graph below, which was recorded with *PhyPiDAQ*. Because several daughter nuclei are involved, the reduction of the initial activity does not strictly follow an exponential law. The number of counts in time-bins
+of 30 s  is shown below. A clear rise of the activity above background level is seen, and also the decrease back
+to normal over approx. 2 hours. Note that several short-lived nuclei with different life-times are produced, and the decay rate therefore is not strictly described by an exponential function. 
 
   ![Gamma rate of Radon decay products on a balloon (electrostatically charged by rubbing) 
   as a function of time.](images/Radon-decay.png)
