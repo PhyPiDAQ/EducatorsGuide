@@ -144,8 +144,8 @@ dominant source of natural radioactive exposure of humans.
 
 #### Decrease of Radon-induced activity as a function of time
  
- A Radon sample as described above contains a number of short-lived daughter nuclei with a short live-time and therefore can be used to illustrate the time dependence of   
-the activity. Because several daughter nuclei are involved, the reduction of the initial activity does not strictly follow an exponential law. The recorded rate (measured with a GDK101 detector, Radiacode measurement to come soon),  is shown below.
+ A Radon sample as described above contains a number of short-lived daughter nuclei and therefore can be used to illustrate the time dependence of  the activity. Because several daughter nuclei are involved, the reduction of the initial activity does not strictly follow an exponential law. The number of counts in time-bins
+of 30s  is shown below. A clear rise of the activity above backbround level is seen, with decrease back to normal over approx. 2h. Note that several short-lived nuclei with different life-times are produced, and the decay therefore is not strictly described by an exponential function. 
 
-  ![Gamma rate of Radon decay products on a (charged) balloon as a function of time.](
-  images/Radon-decay.png)
+  ![Gamma rate of Radon decay products on a balloon (electrostatically charged by rubbing) 
+  as a function of time.](images/Radon-decay.png)
