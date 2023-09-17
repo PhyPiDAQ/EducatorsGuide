@@ -13,11 +13,14 @@ which uses a 1 cm³ CsI(Tl) crystal with a SiPM sensor with temperature correcti
 It measures the deposited energies of gamma rays from radioactive decay and provides
 raw output data in form of a spectrogram, i.e. a frequency distribution (histogram)
 of recorded pulse heights provided by the SiPM sensor.
-Data is exported via USB and Bluetooth interfaces.  An Android App as well as a
-windows program exist in addition to a
+Data is exported via USB and Bluetooth interfaces.
+An Android App as well as a windows program exist in addition to a
 [Python library](https://github.com/cdump/radiacode)
-to display and analyze the sensor data. An adapter (*RC10xConfig.py*) is
-also available to display and analyze data within the *PhyPiDAQ* framework.
+to display and analyze the sensor data. An example script *show-spectrum.py*
+provides access to the raw spectrum read from the sensor, displays it and
+optionally saves the data to a file.
+An adapter (*RC10xConfig.py*) is also available to display and analyze
+data from a RadiaCode device within the *PhyPiDAQ* framework.
 
 An up to now unique selling point of the RadiaCode device is its ability to run
 on battery power for about 100 h, with an internal memory to save rate and dose
@@ -175,8 +178,9 @@ shown below. Co-60 is commonly used as a check source and in nuclear medicine.
 #### Radon sample 
 
 A radon sample can be extracted from air by collecting  Radon-decay products on a
-balloon. The mix of isotopes is dominated by the short-lived daughter nuclei Po-218,
-Pb-14, Bi-214 and Po-214, as is shown in the graph below.
+balloon, which is elextrostatically charged by rubbing. The mix of isotopes is
+dominated by the short-lived daughter nuclei Po-218, Pb-14, Bi-214 and Po-214,
+as is shown in the graph below.
 
   ![Collection of Radon decay products on a (charged) balloon.](images/Ra-onBalloon.png)
 
@@ -184,13 +188,12 @@ The observed spectrum is rather rich of features and leaves a clear finger print
 the presence of the original Radon, that is a noble gas and escapes from the earth, 
 where it is produced in decays of the Uranium and Thorium chains. Radon is the
 dominant source of natural radioactive exposure of humans. The recorded spectrum
-is shown below. Background radiation was shielded by placing the RC102 and the  
-balloon in a lead-shielded probe chamber. 
+is shown below. Background radiation was suppressed by placing the RC102 and
+the balloon in a lead-shielded probe chamber. Note that x-ray fluorescence in the
+lead causes the very prominent peak around 80 keV. 
 
-  ![Cumulative spectrum of a probe collected in a cellar on the surface of a balloon
-  showing clear evidence for decay products of the Radon decay chain. Note: 
-  The prominent peak around 80 keV is due to x-ray  fluorescence in the shielding
-  lead container.](images/Radon_Spectrum.png) 
+![Cumulative spectrum of a probe collected in a cellar on the surface of a balloon
+  showing clear evidence for decay products of the Radon decay chain. ](images/Radon_Spectrum.png) 
 
 #### Decrease of Radon-induced activity as a function of time
  
