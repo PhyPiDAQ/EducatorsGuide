@@ -1,4 +1,4 @@
-# PhyPiDAQ Dokumentation (für Lehrkräfte)
+PhyPiDAQ Dokumentation (für Lehrkräfte)
 ---  
 
 Dies ist die deutsche Version der Dokumentation für Lehrkräfte von PhyPiDAQ, 
@@ -518,9 +518,9 @@ Einige anspruchsvollere Beispiele für Messungen aus verschiedenen Bereichen des
   - Moritz Aupperle, ["Konzeption und Gestaltung eines digitalen Messwerterfassungssystems
     für den Physikunterricht in der Schule"](https://publish.etp.kit.edu/record/21520),
     Masterarbeit Karlsruhe (2018)
-  - Dominik Braig, ["Digitales Messsystem mit aktiver Messbereichserweiterung zum Einsatz in physikalischen Praktika"](https://publish.etp.kit.edu/record/21995),
-    Bachelor Arbeit, ETP 2020
-
+  - Dominik Braig, ["Digitales Messsystem mit aktiver Messbereichserweiterung zum Einsatz in physikalischen Praktika"](https://publish.etp.kit.edu/record/21995), Bachelorarbeit, ETP 2020
+  - Philipp Eckerle, ["Konzeption eines Telemetriesenders zum Übertragen von Beschleunigungsdaten im Rahmen von PhyPiDAQ"](https://publikationen.bibliothek.kit.edu/1000157534) ,  Masterarbeit, ETP 2022
+- Pierre Robert Lang, ["Konzept zur Integration von digitaler Messtechnik in den Physikunterricht zur Thermodynamik"](https://publikationen.bibliothek.kit.edu/1000162114), Masterarbeit ETP 2023
 
 Aktuelle Präsentationen zum Projekt:  
 

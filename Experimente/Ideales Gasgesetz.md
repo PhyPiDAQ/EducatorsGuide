@@ -4,10 +4,7 @@
 
 Mit wenigen Mitteln einen anschaulichen Unterricht zum idealen Gasgesetz gestalten
 
-
-
-– Abgeänderter Auszug aus der Masterarbeit von Pierre Lang –
-
+– Angepasster Auszug aus der Masterarbeit von Pierre Lang,  ["Konzept zur Integration von digitaler Messtechnik in den Physikunterricht zur Thermodynamik"](https://publikationen.bibliothek.kit.edu/1000162114)
 
 **Was Sie hier erwartet:**
 
@@ -53,7 +50,7 @@ Die folgenden Experimente sind als abgesonderte „Pakete“ zu verstehen, welch
 
 ### Isothermer Prozess
 
-Dieses Experiment soll mit dem isobaren und isochoren Prozess einen Einstieg in das ideale Gasgesetz bieten, indem einzelne Größen, wie hier die Temperatur, konstant gehalten und die anderen Zustandsgrößen betrachtet werden. Da die Temperatur bei richtiger Anwendung konstant bleibt, kann die Aufmerksamkeit allein auf den Zusammenhang von Volumen und Druck gelenkt werden. Da mit leichten Gewichten hantiert wird, ist auch eine Schülerbeteiligung oder sogar Gruppenarbeit mit mehreren solcher Versuchsaufbauten möglich. Ausgehend von bekannten Vorgängen/Phänomenen in Natur, Technik und Alltag formulieren die Lernenden Hypothesen über den Verlauf der Messgrößen, ehe sie diese experimentell überprüfen. Zum Ende der Unterrichtseinheit sollte der Zusammenhang nach Boyle-Mariotte bekannt sein.  
+Dieses Experiment soll mit dem isobaren und isochoren Prozess einen Einstieg in das ideale Gasgesetz bieten, indem einzelne Größen, wie hier die Temperatur, konstant gehalten und die anderen Zustandsgrößen betrachtet werden. Da die Temperatur bei richtiger Anwendung konstant bleibt, kann die Aufmerksamkeit allein auf den Zusammenhang von Volumen und Druck gelenkt werden. Da mit leichten Gewichten hantiert wird, ist auch eine Schülerbeteiligung oder sogar Gruppenarbeit mit mehreren solcher Versuchsaufbauten möglich. Ausgehend von bekannten Vorgängen/Phänomenen in Natur, Technik und Alltag formulieren die Lernenden Hypothesen über den Verlauf der Messgrößen, ehe sie diese experimentell überprüfen. Zum Ende der Unterrichtseinheit sollte der Zusammenhang nach Boyle-Mariotte bekannt sein.  
 
 #### Didaktische Kernpunkte
 
@@ -73,7 +70,7 @@ Mögliche Ziele dieses Experiments:
 
 - Herstellen eines theoretischen Zusammenhangs aus den Messwerten bis hin zum Zusammenhang nach Boyle-Mariotte (p*V=const.)
 
-- Diskussion von Abweichungen vom theoretischen Wert 
+- Diskussion von Abweichungen vom theoretischen Wert 
 
 Hierbei können je nach Unterrichtssetting und Schwerpunktsetzung verschiedene Kompetenzen gefördert werden wie beispielsweise handwerkliche Kompetenz, analytische Fähigkeiten, Experimentier-, EDV-, Interpretierungs- und Kommunikationskompetenz.
 
@@ -93,9 +90,9 @@ Da beim isothermen Prozess idealerweise keine Temperaturdifferenz vorhanden ist,
 
 Hieraus können zwei Szenarien abgeleitet werden:
 
-- Die in das System eingebrachte Arbeit ![](images/20231025080029018-4.png)  verlässt es in Form von Wärme ![](images/20231025080029018-5.png)  wieder, ohne die innere Energie zu erhöhen
+- Die in das System eingebrachte Arbeit ![](images/20231025080029018-4.png)  verlässt es in Form von Wärme ![](images/20231025080029018-5.png)  wieder, ohne die innere Energie zu erhöhen
 
-- Die zugeführte Wärmemenge ![](images/20231025080029018-6.png)  führt zu einer Volumenänderung --> Erhöhung der Arbeit ![](images/20231025080029018-7.png) 
+- Die zugeführte Wärmemenge ![](images/20231025080029018-6.png)  führt zu einer Volumenänderung --> Erhöhung der Arbeit ![](images/20231025080029018-7.png) 
 
 Im Folgenden soll dem ersten Szenario nachgegangen werden.
 
@@ -136,14 +133,14 @@ Die Messwerte können entweder extern (beispielsweise in einem Tabellenkalkulati
 Abbildung 2: Visualisierung der Messdaten eines isothermen Prozesses mit Fehlern
 in einem p/V-Diagramm
 
-Mithilfe des Zusammenhangs aus Formel  ![](images/20231025080029018-10.png)  können die Messwerte mit dem isothermen Modell verglichen werden, indem der Zusammenhang, nach dem Druck umgestellt, als Kurvenanpassung genutzt wird ![](images/20231025080029018-11.png) . Hierbei ist zu beachten, dass nicht der Differenzdruck, sondern der Absolutdruck für die Berechnung des Modells maßgebend ist. Der zum Zeitpunkt des Versuchs vorliegende Atmosphärendruck ist somit zu den Messwerten hinzuzurechnen. Bei Berücksichtigung der korrelierten und unkorrelierten Messabweichungen/Fehler ergibt sich das folgende Schaubild.
+Mithilfe des Zusammenhangs aus Formel  ![](images/20231025080029018-10.png)  können die Messwerte mit dem isothermen Modell verglichen werden, indem der Zusammenhang, nach dem Druck umgestellt, als Kurvenanpassung genutzt wird ![](images/20231025080029018-11.png) . Hierbei ist zu beachten, dass nicht der Differenzdruck, sondern der Absolutdruck für die Berechnung des Modells maßgebend ist. Der zum Zeitpunkt des Versuchs vorliegende Atmosphärendruck ist somit zu den Messwerten hinzuzurechnen. Bei Berücksichtigung der korrelierten und unkorrelierten Messabweichungen/Fehler ergibt sich das folgende Schaubild.
 
 ![](images/20231025080029018-12.png)
 
 Abbildung 3: Kurvenanpassung an die Messdaten
 
 Aus der Kurvenanpassung der relevanten Messpaare geht der Wert der Konstanten zu
-![](images/20231025080029018-13.png)  hervor. Die Abweichungen im unteren Druckbereich können durch Haftreibung des Kolbens an der Zylinderwand bedingt sein. Die Abweichungen im oberen Druckbereich können durch den Luftverlust von insgesamt 2 ml bedingt sein. Dennoch zeigen die Messwerte zumindest hinreichend genau den qualitativen Zusammenhang bei isothermer Kompression.
+![](images/20231025080029018-13.png)  hervor. Die Abweichungen im unteren Druckbereich können durch Haftreibung des Kolbens an der Zylinderwand bedingt sein. Die Abweichungen im oberen Druckbereich können durch den Luftverlust von insgesamt 2 ml bedingt sein. Dennoch zeigen die Messwerte zumindest hinreichend genau den qualitativen Zusammenhang bei isothermer Kompression.
 
 #### Konklusion
 
@@ -183,7 +180,7 @@ Mögliche Ziele dieses Experiments:
 
 - Übertragung auf Beispiele in Technik, Natur und/oder Alltag
 
-Bereits im Vorfeld oder auch während des Experiments können Hypothesen über den Verlauf gesammelt werden, worauf weiter aufgebaut werden kann. Hierbei bietet es sich an, Bezug zu Vorgängen/Phänomenen aus Natur, Technik und Alltag herzustellen, um die Prägnanz des Prozesses zu verdeutlichen. Zum Ende der Unterrichtseinheit sollte der Zusammenhang nach Gay-Lussac bekannt sein. 
+Bereits im Vorfeld oder auch während des Experiments können Hypothesen über den Verlauf gesammelt werden, worauf weiter aufgebaut werden kann. Hierbei bietet es sich an, Bezug zu Vorgängen/Phänomenen aus Natur, Technik und Alltag herzustellen, um die Prägnanz des Prozesses zu verdeutlichen. Zum Ende der Unterrichtseinheit sollte der Zusammenhang nach Gay-Lussac bekannt sein. 
 
 #### Thermodynamischer Hintergrund
 
@@ -201,9 +198,9 @@ Ausgehend vom ersten Hauptsatz der Thermodynamik für geschlossene Systeme kann 
 
 ![](images/20231025083539558-5.png)
 
-Da die Differenz ![](images/20231025083539558-6.png)  im betrachteten Bereich konstant ist, muss auch der Quotient ![](images/20231025083539558-7.png)  konstant sein.
+Da die Differenz ![](images/20231025083539558-6.png)  im betrachteten Bereich konstant ist, muss auch der Quotient ![](images/20231025083539558-7.png)  konstant sein.
 
-Aus dem Verhältnis ![](images/20231025083539558-8.png)  ergeben sich zwei mögliche Szenarien:
+Aus dem Verhältnis ![](images/20231025083539558-8.png)  ergeben sich zwei mögliche Szenarien:
 
 - Eine Expansion bei gleichzeitiger Temperaturerhöhung
 
@@ -242,30 +239,30 @@ Für die Durchführung werden außer dem Versuchsgerät folgende **Hilfsmittel**
 
 9. Mathematisieren des Zusammenhangs
 
-Um die Wärmeverluste durch Wärmeleitung während der Kompressionsphase möglichst gering zu halten, ist auf eine zügige Kompression zu achten. Falls das Volumen exakt gemessen werden kann, ist das Verhältnis ![](images/20231025083539558-10.png)  zu bestimmen. Zusätzlich bietet es sich an, den exponentiellen Verlauf der Temperatur über der Zeit zu veranschaulichen:  
+Um die Wärmeverluste durch Wärmeleitung während der Kompressionsphase möglichst gering zu halten, ist auf eine zügige Kompression zu achten. Falls das Volumen exakt gemessen werden kann, ist das Verhältnis ![](images/20231025083539558-10.png)  zu bestimmen. Zusätzlich bietet es sich an, den exponentiellen Verlauf der Temperatur über der Zeit zu veranschaulichen:  
 
 ![](images/20231025083539558-11.png)
 
 Abbildung 5: Messwerte und Kurvenanpassung des isobaren Prozesses
 
 Zur didaktischen Annäherung an die Messwerte können mehrere Wege, je nach Schwerpunktsetzung der Unterrichtseinheit, gewählt werden. Ein möglicher Weg ist die Veranschaulichung über ein Datenanalyse-Programm und die anschließende Diskussion, mit welcher mathematischen Funktion der Verlauf am besten beschrieben werden könnte. Im weiteren Verlauf können verschiedene mathematische Funktionen an die Messwerte probeweise angepasst und die Genauigkeit der Passung von Funktion zu Messwerten (_Chi-Quadrat reduziert_ beziehungsweise _Chi²/Freiheitsgrad n_ nahe 1) beurteilt werden. Dies ist allerdings erst dann sinnvoll, wenn die Lernenden ein entsprechendes mathematisches Verständnis über Fehleranalyse vorweisen können. Wird sich den Messwerten der Temperatur mit einer exponentiellen Funktion der Form
-![](images/20231025083539558-12.png)  angenähert, so lässt sich eine gute Übereinstimmung mit den Messwerten finden (_Chi-Quadrat reduziert_ beziehungsweise _Chi²/Freiheitsgrad n_ nahe 1), wie in der obigen Abbildung ersichtlich.
+![](images/20231025083539558-12.png)  angenähert, so lässt sich eine gute Übereinstimmung mit den Messwerten finden (_Chi-Quadrat reduziert_ beziehungsweise _Chi²/Freiheitsgrad n_ nahe 1), wie in der obigen Abbildung ersichtlich.
 
 Die Messwerte lassen sich in Verbindung mit dem Newtonschen Abkühlungsgesetz bringen, welches besagt, dass die Abkühlungsgeschwindigkeit eines Körpers näherungsweise proportional zur Differenz der Temperaturen von Körper und Umgebung ist:
 
 ![](images/20231025083539558-13.png)
 
-Die Materialkonstante ![](images/20231025083539558-14.png)  stellt mit der Wärmekapazität ![](images/20231025083539558-15.png) , der Wärmeübergangszahl ![](images/20231025083539558-16.png)  und der Fläche ![](images/20231025083539558-17.png) , durch die die Wärme dringt, eine Objektkonstante dar. Die Differenzialgleichung lässt sich zu folgendem Ausdruck hin lösen:
+Die Materialkonstante ![](images/20231025083539558-14.png)  stellt mit der Wärmekapazität ![](images/20231025083539558-15.png) , der Wärmeübergangszahl ![](images/20231025083539558-16.png)  und der Fläche ![](images/20231025083539558-17.png) , durch die die Wärme dringt, eine Objektkonstante dar. Die Differenzialgleichung lässt sich zu folgendem Ausdruck hin lösen:
 
 ![](images/20231025083539558-18.png)
 
-Hierbei stellt ![](images/20231025083539558-19.png)  die aktuelle Temperatur, ![](images/20231025083539558-20.png)  die Anfangstemperatur und ![](images/20231025083539558-21.png)  die Umgebungstemperatur dar. Mit den Größen aus der Kurvenanpassung lassen sich die folgenden Werte finden:
+Hierbei stellt ![](images/20231025083539558-19.png)  die aktuelle Temperatur, ![](images/20231025083539558-20.png)  die Anfangstemperatur und ![](images/20231025083539558-21.png)  die Umgebungstemperatur dar. Mit den Größen aus der Kurvenanpassung lassen sich die folgenden Werte finden:
 
-  ![](images/20231025083539558-22.png) 3,51 °C
+  ![](images/20231025083539558-22.png) 3,51 °C
 
-![](images/20231025083539558-23.png)  
+![](images/20231025083539558-23.png)  
 
-![](images/20231025083539558-24.png)  
+![](images/20231025083539558-24.png)  
 
 Durch das Anpassen einer exponentiellen Funktion an die Messwerte konnte somit die Umgebungstemperatur und die Temperaturdifferenz bestimmt werden. Durch Extrapolieren der Messwerte über die maximale Temperatur hinaus kann die Latenz des Thermoelementes herausgerechnet und somit die theoretische Temperatur zum Zeitpunkt der Druckerhöhung bestimmt werden.
 
@@ -319,9 +316,9 @@ Ausgehend vom Vereinfachten ersten Hauptsatz der Thermodynamik ergibt sich durch
 
 Hieraus können zwei Szenarien abgeleitet werden:
 
-- Erhöhung der inneren Energie ![](images/20231025083539558-28.png)  durch Zufuhr von Wärme  ![](images/20231025083539558-29.png)
+- Erhöhung der inneren Energie ![](images/20231025083539558-28.png)  durch Zufuhr von Wärme  ![](images/20231025083539558-29.png)
 
-- Absenkung der inneren Energie ![](images/20231025083539558-30.png)  durch Abfuhr von Wärme  ![](images/20231025083539558-31.png)
+- Absenkung der inneren Energie ![](images/20231025083539558-30.png)  durch Abfuhr von Wärme  ![](images/20231025083539558-31.png)
 
 Da die innere Energie wie die Wärme von der Temperatur abhängt, folgt aus ihrer Erhöhung beziehungsweise Abnahme auch die Zu- beziehungsweise Abnahme der Temperatur, falls das Volumen konstant ist.
 
@@ -363,9 +360,9 @@ Ist der Prototyp eingelegt (mittleres Bild) und die Messung gestartet, kann mit 
 
 Abbildung 7: Schaubild einer gesamten Messung über der Zeit, ohne Fehlerangaben
 
- 
+ 
 
-Aus Gründen der Übersichtlichkeit sind die Messpunkte des Drucksensors mit einer Linie verbunden und Fehlerbalken unterdrückt. Die Druckspitzen waren durch die Mechanik der vorhandenen Kartuschenpresse bedingt, da diese nach Kompression einrasten musste. Hierdurch, und durch den stattgefundenen Luftverlust von 3 ml, ist der auszuwertende Bereich einzugrenzen und die Fehler anzupassen.  Wird der Druck über die Temperatur im relevanten Bereich dargestellt und eine lineare Kurvenanpassung vorgenommen, ergibt sich folgendes Schaubild.
+Aus Gründen der Übersichtlichkeit sind die Messpunkte des Drucksensors mit einer Linie verbunden und Fehlerbalken unterdrückt. Die Druckspitzen waren durch die Mechanik der vorhandenen Kartuschenpresse bedingt, da diese nach Kompression einrasten musste. Hierdurch, und durch den stattgefundenen Luftverlust von 3 ml, ist der auszuwertende Bereich einzugrenzen und die Fehler anzupassen.  Wird der Druck über die Temperatur im relevanten Bereich dargestellt und eine lineare Kurvenanpassung vorgenommen, ergibt sich folgendes Schaubild.
 
 ![](images/20231025083539558-34.png)
 
@@ -381,7 +378,7 @@ Wird über das ideale Gasgesetz die Konstante berechnet, ergibt sich – im Gege
 
 Die deutlich größere Steigung der linearen Anpassung, welche aus einem überproportionalen Druckabfall folgt, ist auf den Luftverlust der Spritze zurückzuführen.
 
-Bei Anpassung der Fehler auf ![](images/20231025083539558-37.png)  und ![](images/20231025083539558-38.png)  ergibt sich dennoch ein hinreichend genauer linearer Zusammenhang mit einem Chi²/Freiheitsgrad n von 0,7\.
+Bei Anpassung der Fehler auf ![](images/20231025083539558-37.png)  und ![](images/20231025083539558-38.png)  ergibt sich dennoch ein hinreichend genauer linearer Zusammenhang mit einem Chi²/Freiheitsgrad n von 0,7\.
 
 Um eine solche Verfälschung der Messwerte durch Luftverlust zu vermeiden, wäre neben einer weiteren Modifikation des Prototyps das Einstellen eines geringeren Druckes zielführend.
 
@@ -464,7 +461,7 @@ Abbildung 10: Visualisierte Messwerte der isentropen/adiabaten Zustandsänderung
 
 Bei allen Einzelversuchen zeigte sich ein ähnlicher wie der folgende Verlauf. Hierbei ist anzumerken, dass die einzelnen Wertepaare der Messreihen nicht zu Mittelwerten zusammengefasst werden konnten, da sie alle unterschiedliche Wertepaarungen aufwiesen.
 
-Wird nun bei Betrachtung der Temperatur von einem isentropen Modell ausgegangen, kann dieses durch den isentropen Zusammenhang mit ![](images/20231025084715447-3.png)  (trockene Luft als Medium) beschrieben werden:
+Wird nun bei Betrachtung der Temperatur von einem isentropen Modell ausgegangen, kann dieses durch den isentropen Zusammenhang mit ![](images/20231025084715447-3.png)  (trockene Luft als Medium) beschrieben werden:
 
 ![](images/20231025084715447-4.png)
 
@@ -476,7 +473,7 @@ Abbildung 11: Vergleich der Messwerte einer Einzelmessung mit dem theoretischen 
 
 Hieraus ist zu erkennen, dass die Temperatur theoretisch deutlich höher ansteigen sollte, als es in den Messungen der Fall ist. Hierbei wurde auf die Angabe von Fehlern zwecks der Übersichtlichkeit verzichtet.
 
-Zur Verdeutlichung kann die theoretische Endtemperatur ebenfalls berechnet werden: Mit einem üblichen Ausgangsdruck von ![](images/20231025084715447-6.png) , einer Ausgangstemperatur von ![](images/20231025084715447-7.png)  und einem maximalen Absolutdruck von ![](images/20231025084715447-8.png)  ergibt sich beispielsweise eine theoretische Temperatur von __ ![](images/20231025084715447-9.png)__
+Zur Verdeutlichung kann die theoretische Endtemperatur ebenfalls berechnet werden: Mit einem üblichen Ausgangsdruck von ![](images/20231025084715447-6.png) , einer Ausgangstemperatur von ![](images/20231025084715447-7.png)  und einem maximalen Absolutdruck von ![](images/20231025084715447-8.png)  ergibt sich beispielsweise eine theoretische Temperatur von __ ![](images/20231025084715447-9.png)__
 
 Dies entspricht einer Temperaturdifferenz von 127,83 °C.
 
@@ -518,7 +515,7 @@ Während Teflon mit dem größten Volumen eine vergleichbar hohe Wärmekapazitä
 
 Der vorhandene Prozess soll statt als isentrope nun als polytrope Zustandsänderung betrachtet werden. Hierzu sollen die Messwerte in ein Datenanalyse-Programm eingegeben werden und eine Modellanpassung über den polytropen Zusammenhang stattfinden:
 
-Wird ![](images/20231025084715447-10.png)  nach _T_ umgestellt, ergibt sich die Funktion  ![](images/20231025084715447-11.png)
+Wird ![](images/20231025084715447-10.png)  nach _T_ umgestellt, ergibt sich die Funktion  ![](images/20231025084715447-11.png)
 mit welcher eine Modellanpassung über die Bestimmung des Parameters _n_ und der Konstante _const_ möglich ist. Mit den jeweiligen aus einer Fehlerrechnung stammenden statistischen und systematischen Fehlern ergibt sich das folgende Schaubild.
 
 ![](images/20231025084715447-12.png)
@@ -527,13 +524,13 @@ Abbildung 12: Messwerte mit Kurvenanpassung des polytropen Modells mit angepasst
 
 Das Verhalten der Messwerte, welche bei allen der sieben Messungen mit geringer Abweichung dasselbe ist, sollte theoretisch dem polytropen Modell entsprechen. Über den Verlauf lässt sich ein Rückschluss auf das Verhalten der Materialien des Prototyen im Allgemeinen und auf das Verhalten des Thermoelementes im Speziellen ziehen: Auf eine abrupte Temperaturerhöhung reagiert das Thermoelement zunächst mit einer geringen Verzögerung/Latenz. Neben der Erwärmung des Luftvolumens und der Wände/Bauteile verzögert die Erwärmung der Messspitze des Thermoelementes ebenso die Messung des Temperaturanstiegs. Während im weiteren Verlauf das Thermoelement der Temperaturerhöhung folgt, kühlt sich die Luft wieder durch Wärmeübertragung ab. Diese Umstände können zu dem vorgefundenen Verhalten geführt haben.
 
-Die vom Datenanalyse-Programm ausgegebenen Werte können ebenso analytisch berechnet und nachvollzogen werden. An dieser Stelle soll auf den entsprechenden Anhang verwiesen werden. 
+Die vom Datenanalyse-Programm ausgegebenen Werte können ebenso analytisch berechnet und nachvollzogen werden. An dieser Stelle soll auf den entsprechenden Anhang verwiesen werden. 
 
 #### Konklusion
 
 Dieses Experiment ermöglicht den Lernenden einen Einblick in das Wesen der Naturwissenschaften: Aus anfänglichen Hypothesen folgt ein Modell, dessen Wahrheitsgehalt durch Experimente falsifiziert werden muss. Falls das Modell den gemessenen Verlauf nicht hinreichend genau beschreibt, muss es durch eine anschließende Überprüfung und Eingrenzung der Annahmen angepasst werden, bis es die Messwerte hinreichend genau beschreibt. Hierbei bieten Fehler vielmehr das Potential, die Lernenden kognitiv zu aktivieren und in das Wesen der physikalischen Datenanalyse einzuführen, als dass sie als ein Indikator für eine eventuelle Schwäche des Experiments aufgefasst werden sollten. Da die hier gemessenen Wertepaare dem Modell lediglich beim Anfangs- und beim Enddruck entsprechen und für die Genauigkeit der Zwischenwerte multiple Einflussfaktoren verantwortlich sein können, ist für die schulische Anwendung im Sinne einer didaktischen Reduktion empfehlenswert, lediglich diese beiden Punkte vor dem Hintergrund des Modells zu betrachten. Da der isentrope beziehungsweise adiabate Prozess nicht im Lehrplan vermerkt und vom Schwierigkeitsgrad für die technische Oberschule zu komplex ist, ist dieser höchstens als Exkurs in stark vereinfachter Form unterrichtbar.
 
- 
+ 
 
 ### Quasi-Adiabatische Expansion und isobare Erwärmung
 
@@ -565,9 +562,9 @@ Die jeweilige Auswahl und Tiefe der jeweiligen Lernziele sind abhängig von der 
 
 Hieraus können zwei Szenarien abgeleitet werden:
 
-- Erhöhung der inneren Energie ![](images/20231025084715447-14.png)  durch Verrichten von Arbeit ![](images/20231025084715447-15.png)  am System
+- Erhöhung der inneren Energie ![](images/20231025084715447-14.png)  durch Verrichten von Arbeit ![](images/20231025084715447-15.png)  am System
 
-- Absenkung der inneren Energie ![](images/20231025084715447-16.png)  durch Verrichten von Arbeit ![](images/20231025084715447-17.png)  vom System
+- Absenkung der inneren Energie ![](images/20231025084715447-16.png)  durch Verrichten von Arbeit ![](images/20231025084715447-17.png)  vom System
 
 Das zweite Verfahren soll im Folgenden durchgeführt werden, da die erste Variante bereits im letzten Kapitel thematisiert wurde.
 
@@ -601,7 +598,7 @@ Für die Durchführung werden außer dem Versuchsgerät folgende **Hilfsmittel**
 
 7. Auswerten der Daten und Visualisieren als T/t-Schaubild
 
-Wenn davon ausgegangen wird, dass in der kurzen Dekompressionszeit kein signifikanter Wärmeübertrag an die Außenwände und Bauteile erfolgt, dann muss die gesamte in der Kompression der Luft gespeicherte innere Energie ![](images/20231025084715447-19.png)  in Arbeit ![](images/20231025084715447-20.png)  übergehen. Da das Gas am System Arbeit verrichtet, ist das Vorzeichen von ![](images/20231025084715447-21.png)  negativ, weshalb auch die innere Energie negativ sein muss. Die innere Energie stellt beim idealen Gas den Zusammenhang der Temperatur mit der Wärmekapazität ![](images/20231025084715447-22.png)  dar. Da die Wärmekapazität keinen negativen Wert annehmen kann, muss folglich die Temperatur fallen.
+Wenn davon ausgegangen wird, dass in der kurzen Dekompressionszeit kein signifikanter Wärmeübertrag an die Außenwände und Bauteile erfolgt, dann muss die gesamte in der Kompression der Luft gespeicherte innere Energie ![](images/20231025084715447-19.png)  in Arbeit ![](images/20231025084715447-20.png)  übergehen. Da das Gas am System Arbeit verrichtet, ist das Vorzeichen von ![](images/20231025084715447-21.png)  negativ, weshalb auch die innere Energie negativ sein muss. Die innere Energie stellt beim idealen Gas den Zusammenhang der Temperatur mit der Wärmekapazität ![](images/20231025084715447-22.png)  dar. Da die Wärmekapazität keinen negativen Wert annehmen kann, muss folglich die Temperatur fallen.
 
 Um die Wärmeverluste durch Wärmeleitung während der Expansionsphase möglichst gering zu halten, ist auf eine zügige Dekompression zu achten. Wurde das Gewicht entfernt, ist zu erkennen, dass die Temperatur mit geringer Latenz rasch abfällt und sich gegebenenfalls kurzzeitig Nebel im Prozessraum bildet. Werden die Messwerte im Folgenden in ein Daten-Analyse-Programm eingegeben und über die Zeit dargestellt,
 sollte sich ein ähnliches wie das folgende Bild ergeben:
@@ -610,15 +607,15 @@ sollte sich ein ähnliches wie das folgende Bild ergeben:
 
 Abbildung 13: Messwerte des quasi-adiabatischen und isobaren Prozesses ohne Fehleranpassung
 
-Ausgehend von einem Differenzdruck von ![](images/20231025084715447-24.png)  auf ![](images/20231025084715447-25.png)  hat sich das Gas expandiert, sodass es sich von knapp ![](images/20231025084715447-26.png)  auf ![](images/20231025084715447-27.png)abgekühlt hat. Der Effekt würde noch höher sein, wenn zum einen eine höhere Druckdifferenz überwunden und zum anderen schneller dekomprimiert würde, wenn möglich auch in den Unterdruck. Technisch setzt die Temperaturmessung der Effektstärke ebenfalls Grenzen (Latenz aufgrund der Wärmekapazität der Thermoelement-Messspitze).
+Ausgehend von einem Differenzdruck von ![](images/20231025084715447-24.png)  auf ![](images/20231025084715447-25.png)  hat sich das Gas expandiert, sodass es sich von knapp ![](images/20231025084715447-26.png)  auf ![](images/20231025084715447-27.png)abgekühlt hat. Der Effekt würde noch höher sein, wenn zum einen eine höhere Druckdifferenz überwunden und zum anderen schneller dekomprimiert würde, wenn möglich auch in den Unterdruck. Technisch setzt die Temperaturmessung der Effektstärke ebenfalls Grenzen (Latenz aufgrund der Wärmekapazität der Thermoelement-Messspitze).
 
-Im Anschluss kann die Erwärmung des Gases mit den Lernenden thematisiert werden, was als ein Transfer des idealerweise bereits gelernten isobaren Prozesses auf eine Erwärmung darstellt. Wird über ein Datenanalyse-Programm auf die Messwerte eine exponentielle Funktion angepasst, ergibt sich mit einem Fehler auf die Temperatur von ![](images/20231025084715447-28.png)  das folgende Schaubild.
+Im Anschluss kann die Erwärmung des Gases mit den Lernenden thematisiert werden, was als ein Transfer des idealerweise bereits gelernten isobaren Prozesses auf eine Erwärmung darstellt. Wird über ein Datenanalyse-Programm auf die Messwerte eine exponentielle Funktion angepasst, ergibt sich mit einem Fehler auf die Temperatur von ![](images/20231025084715447-28.png)  das folgende Schaubild.
 
 ![](images/20231025084715447-29.png)
 
 Abbildung 14: Messwerte und exponentielle Kurvenanpassung des isobaren Prozesses mit Fehleranpassung
 
-Die einzelnen Messpunkte, welche nicht auf der Kurve liegen, sind auf Fehlmessungen des Thermoelementes zurückzuführen. Der Fehler ist beim Thermoelement mit ![](images/20231025084715447-30.png)  angegeben, weshalb Fehlmessungen vorkommen können, obwohl die Temperaturmessung des Thermoelementes in der Regel präziser ist. Der Fehler von ![](images/20231025084715447-31.png)  wurde entsprechend gewählt, um eine bestmögliche Passung zur Funktion (_Chi²/Freiheitsgrad n_) zu erreichen. Die Kurvenanpassung des relevanten Bereichs zeigt hinreichend genau den Verlauf des isobaren Temperaturausgleichs.
+Die einzelnen Messpunkte, welche nicht auf der Kurve liegen, sind auf Fehlmessungen des Thermoelementes zurückzuführen. Der Fehler ist beim Thermoelement mit ![](images/20231025084715447-30.png)  angegeben, weshalb Fehlmessungen vorkommen können, obwohl die Temperaturmessung des Thermoelementes in der Regel präziser ist. Der Fehler von ![](images/20231025084715447-31.png)  wurde entsprechend gewählt, um eine bestmögliche Passung zur Funktion (_Chi²/Freiheitsgrad n_) zu erreichen. Die Kurvenanpassung des relevanten Bereichs zeigt hinreichend genau den Verlauf des isobaren Temperaturausgleichs.
 
 #### Konklusion
 
@@ -645,7 +642,7 @@ Tabelle 1: Materialien für Versuchsgerät
 | Bezeichnung | Präzisierung | Preis[[1]](#_ftn1) und Herkunft[[2]](#_ftn2) |
 | --- | --- | --- |
 | Teflon-Rundstab | Höhe ![](images/20231025085306639-2.png) ,Durchmesser ![](images/20231025085306639-3.png) (Sockel) | 2,63 €, [ebay](https://www.ebay.de/itm/322980107343?hash=item4b331d544f:g:KWQAAOSw79Zi2Pjt&var=513618673696) |
-| Blech | Aus beispielsweise Aluminium, Stärke ![](images/20231025085306639-4.png) , Abmaße  ![](images/20231025085306639-5.png)   | 7,09 €, [ebay](https://www.ebay.de/itm/283343496803?hash=item41f896a663:g:7TEAAOSwSLljLFXI&amdata=enc%3AAQAHAAAA4G7XswmQzxZJBhIbAIYWNhpMVYJ59InCWdRDXHqBbqofG49xc6LZmAOhTK8TOJzN4twqgZhxk5Fc2ITTlcrya5uDcxl0HqSlxwIa3uJmB%2BfopA6paTlpIRR45m1xOQDoB1kAlvGuTHaWvxBqZSvqk1cTjbwenwHxEvZlQ7b509mA%2BTBrr4qWFSnnDQZEymQtm3P63TkjDbPzWOE2XDdodqQ2GeVNTdRe7zaYkiew0wL3otA4wLzpokOXYFNcUgRbRAHL5dAq3vVmUpc7WkpoRgm843x0%2Bh9xDybESZ1ptZQY%7Ctkp%3ABFBMopihmOFh) |
+| Blech | Aus beispielsweise Aluminium, Stärke ![](images/20231025085306639-4.png) , Abmaße  ![](images/20231025085306639-5.png)   | 7,09 €, [ebay](https://www.ebay.de/itm/283343496803?hash=item41f896a663:g:7TEAAOSwSLljLFXI&amdata=enc%3AAQAHAAAA4G7XswmQzxZJBhIbAIYWNhpMVYJ59InCWdRDXHqBbqofG49xc6LZmAOhTK8TOJzN4twqgZhxk5Fc2ITTlcrya5uDcxl0HqSlxwIa3uJmB%2BfopA6paTlpIRR45m1xOQDoB1kAlvGuTHaWvxBqZSvqk1cTjbwenwHxEvZlQ7b509mA%2BTBrr4qWFSnnDQZEymQtm3P63TkjDbPzWOE2XDdodqQ2GeVNTdRe7zaYkiew0wL3otA4wLzpokOXYFNcUgRbRAHL5dAq3vVmUpc7WkpoRgm843x0%2Bh9xDybESZ1ptZQY%7Ctkp%3ABFBMopihmOFh) |
 | Kunststoffspritze | PP, Inhalt: _V =_ 60 ml | 3,60 €, [ebay](https://www.ebay.de/itm/253747442202?hash=item3b1486b21a:g:vmgAAOSwSbxbRyXB&amdata=enc%3AAQAHAAAA0LutqjqDNS1Iqh%2B0xbCNN9tpI5Bh%2BF4HesAhDqdAoN%2FAtyity5E%2F1PJnS5Kqh3PqyG3LwpqXiMu0a4mdyFnIMdEkAXGw554tacLYSSI1Hej8%2Bg%2BVpBpl5sLvV754YwmVpPrYDTynBo%2BvIKezFAH%2F7cAaZArHKX%2Bx9vQMZma9BxJNofRPqy1ppEK%2FA84Sz2QjTrdYGqA%2FVgKDI31m9vpVMk2TnFjCWWF9DGYkty7vI7ccXVcS%2FPy6sh537kO1OnO3z0ms0YAWMheLZGwY9OaHgec%3D%7Ctkp%3ABk9SR9j01JjhYQ) |
 | Drucksensor | mit Außengewinde G¼, 150 PSI | 13,92 €, [ebay](https://www.ebay.de/itm/402770412647?hash=item5dc6fcc467:g:vkUAAOSwfp1bq5PE&amdata=enc%3AAQAHAAAA4BiFGuhC3hTy1a9kn%2BXysy0SU8ByX6AR9kkig7ZkazsMgoeok%2FLJQzjqDZOyZ9E3UHtku47r7Y51g%2FWKo%2FQ4G0YV%2B8CB6h%2BdSB640eN5MfaGhvuaLOUzGZdaaUVjKwWjL%2BFP7cxbrWuzjeR8LYUt1SOsheRIl02DxZT5imWXyQsU3KZAss9qrYBBiMJkihUIghqxpfG50kquv%2FJeEJ85mwV7cUm%2BxutXhU2tV7N43OoOu1BUwnPSwQ0bBQB91rBppuX%2FGHikYrlSxyYnBQUW8BpHWQzqKZP%2FG0vt90C1aV84%7Ctkp%3ABFBMtKPjmOFh) |
 | Thermoelement | Typ K | 9,99 €, [conrad](https://www.conrad.com/p/voltcraft-tp-202-air-probe-0-up-to-250-c-sensor-type-k-1661476) |
@@ -745,7 +742,7 @@ Das hier vorgestellte Modell hat sich jedoch als robust und verlässlich erwiese
 
 ### Vergleich von ausgewählten Temperatursensoren
 
-Da für die Temperaturmessung prinzipiell viele Sensoren infrage kommen würden, soll eine Auswahl an Temperatursensoren anhand ihrer Eigenschaften und hinsichtlich ihrer Eignung, die Temperatur eines Gases zu messen, miteinander verglichen werden, um den adäquatesten Sensor für diesen Versuch zu finden. Eine Gegenüberstellung von breit eingesetzten Temperatursensoren soll durch folgende Tabelle veranschaulicht und nachfolgend ausdifferenziert werden. Statt eine Übersicht über sämtliche Temperatursensoren darzustellen, soll weiterführend auf diverse Internetseiten, wie [mikrocontroller.net](https://www.mikrocontroller.net/articles/Temperatursensor) verwiesen werden. 
+Da für die Temperaturmessung prinzipiell viele Sensoren infrage kommen würden, soll eine Auswahl an Temperatursensoren anhand ihrer Eigenschaften und hinsichtlich ihrer Eignung, die Temperatur eines Gases zu messen, miteinander verglichen werden, um den adäquatesten Sensor für diesen Versuch zu finden. Eine Gegenüberstellung von breit eingesetzten Temperatursensoren soll durch folgende Tabelle veranschaulicht und nachfolgend ausdifferenziert werden. Statt eine Übersicht über sämtliche Temperatursensoren darzustellen, soll weiterführend auf diverse Internetseiten, wie [mikrocontroller.net](https://www.mikrocontroller.net/articles/Temperatursensor) verwiesen werden. 
 
 Tabelle 2: Vergleich ausgewählter Temperatursensoren
 
@@ -753,7 +750,7 @@ Tabelle 2: Vergleich ausgewählter Temperatursensoren
 
 | Sensoren | Messbereich | Genauigkeit | Wasserresistenz | Weitere Infos |
 | --- | --- | --- | --- | --- |
-| PT100 | -30-105 °C |   ![](images/20231025085306639-13.png) | Vorhanden | Benötigt Verstärkerboard MAX31865 |
+| PT100 | -30-105 °C |   ![](images/20231025085306639-13.png) | Vorhanden | Benötigt Verstärkerboard MAX31865 |
 | DS18B20 | -55-125 °C | ![](images/20231025085306639-14.png) | Vorhanden | Digitales Ausgangssignal |
 | Thermoelement | -200-700 °C | ![](images/20231025085306639-15.png) | Nicht vorhanden | Benötigt Verstärkerboard MAX31855 |
 
@@ -1136,7 +1133,7 @@ Qualitativ lässt sich feststellen, dass auch bei der Abkühlung das Thermoeleme
 
 Aus den Ergebnissen lässt sich schließen, dass das Thermoelement trotz seiner Nachteile aufgrund seiner geringen Latenz und seiner geringen Masse an der Messspitze am besten für eine Temperaturmessung in Gasen geeignet ist und in nicht nur in Produkten von diversen Lehrmittelherstellern, sondern auch in allen hier entworfenen Prototypen Einsatz findet.
 
- 
+ 
 
   
 
@@ -1154,7 +1151,7 @@ Um eine Aussage über den Verlauf des Druckes über den gesamten relevanten Wert
 
 Die folgende Abbildung zeigt den im Zuge dieser Arbeit verwendeten Luftpumpenaufbau.
 
-  ![](images/20231025091046191-3.jpg)
+  ![](images/20231025091046191-3.jpg)
 
 Abbildung 30: Fahrrad-Luftpumpe mit Manometer und Drucksensor
 
@@ -1245,15 +1242,15 @@ Unten: Verkabelung in Nahansicht
 
 Abbildung 35: Schaubild der Drucksensor-Kalibrationsfunktion
 
-6. Die ermittelte Funktion muss im Folgenden näher betrachtet werden: Die vom Programm ausgegebene Funktion ![](images/20231025091046191-12.png)  stellt in diesem Fall keine Ursprungsgerade dar, sondern weist einen geringen Offset auf, welcher aber auch von Sensor zu Sensor unterschiedlich sein kann und eine Absolutwert-Kalibrierung als nicht zweckmäßig erscheinen lässt. Darum soll die Druckmessung in diesem Rahmen als Relativdruckkalibrierung erfolgen, wodurch die Güte lediglich von der Steigung der Geraden und ihren Fehlern abhängt. Die Steigung _m_ der Geraden beträgt somit ![](images/20231025091046191-13.png)  und kann für künftige Messungen verwendet werden
+6. Die ermittelte Funktion muss im Folgenden näher betrachtet werden: Die vom Programm ausgegebene Funktion ![](images/20231025091046191-12.png)  stellt in diesem Fall keine Ursprungsgerade dar, sondern weist einen geringen Offset auf, welcher aber auch von Sensor zu Sensor unterschiedlich sein kann und eine Absolutwert-Kalibrierung als nicht zweckmäßig erscheinen lässt. Darum soll die Druckmessung in diesem Rahmen als Relativdruckkalibrierung erfolgen, wodurch die Güte lediglich von der Steigung der Geraden und ihren Fehlern abhängt. Die Steigung _m_ der Geraden beträgt somit ![](images/20231025091046191-13.png)  und kann für künftige Messungen verwendet werden
 
 7. Für künftige Messungen muss die ermittelte Funktion in das entsprechende Messprogramm eingespeichert werden. Da nur die Differenzdrücke entscheidend sind, muss die Spannung, die bei Atmosphärendruck vorliegt, berücksichtigt werden:
 
 a. Messen und notieren der Spannung bei Atmosphärendruck
 
-b. Eingeben der nach dem Druck umgestellten Funktion ![](images/20231025091046191-14.png)  in das Feld „ChanFormula“ der neu erstellten Haupt-Config, mit welcher künftig gemessen werden soll
+b. Eingeben der nach dem Druck umgestellten Funktion ![](images/20231025091046191-14.png)  in das Feld „ChanFormula“ der neu erstellten Haupt-Config, mit welcher künftig gemessen werden soll
 
-c. Eingeben des Atmosphärendrucks in die Formel. Dies kann folgende Form annehmen: ![](images/20231025091046191-15.png)  mit ![](images/20231025091046191-16.png)  als Messkanal und ![](images/20231025091046191-17.png)  als Atmosphärendruck in V
+c. Eingeben des Atmosphärendrucks in die Formel. Dies kann folgende Form annehmen: ![](images/20231025091046191-15.png)  mit ![](images/20231025091046191-16.png)  als Messkanal und ![](images/20231025091046191-17.png)  als Atmosphärendruck in V
 
 Hierdurch werden die gemessenen Spannungen in zukünftigen Messungen automatisch mit der Formel umgerechnet.
 
@@ -1263,16 +1260,16 @@ Der am Aquarien-Ventil aufgetretene, (eigentlich) unerwünschte Luftverlust füh
 
 **Quantifizierung**
 
-Um das mit dem Aquarien-Ventil auftretende Luftentweichen zu quantifizieren, wurden in 3 Durchläufen bei 2 verschiedenen Volumina nach unterschiedlichen Zeitdauern die Druck- und Volumendifferenz ![](images/20231025091046191-18.png)  gemessen. Das Anfangsvolumen betrug 60 ml bei einem Anfangsdruck von 0 Pa (Differenzmessung). Hieraus ergaben sich folgende Ergebnisse:
+Um das mit dem Aquarien-Ventil auftretende Luftentweichen zu quantifizieren, wurden in 3 Durchläufen bei 2 verschiedenen Volumina nach unterschiedlichen Zeitdauern die Druck- und Volumendifferenz ![](images/20231025091046191-18.png)  gemessen. Das Anfangsvolumen betrug 60 ml bei einem Anfangsdruck von 0 Pa (Differenzmessung). Hieraus ergaben sich folgende Ergebnisse:
 
 Tabelle 8: Messwerte des Luftentweichens
 
-| Zeitdifferenz ![](images/20231025091046191-19.png) | Endvolumen: ![](images/20231025091046191-20.png)  (Enddruck ![](images/20231025091046191-21.png) ) | Endvolumen: ![](images/20231025091046191-22.png)(Enddruck ![](images/20231025091046191-23.png) ) |
+| Zeitdifferenz ![](images/20231025091046191-19.png) | Endvolumen: ![](images/20231025091046191-20.png)  (Enddruck ![](images/20231025091046191-21.png) ) | Endvolumen: ![](images/20231025091046191-22.png)(Enddruck ![](images/20231025091046191-23.png) ) |
 | --- | --- | --- |
-| 10 s | ![](images/20231025091046191-24.png)   | ![](images/20231025091046191-25.png)   | ![](images/20231025091046191-26.png)   | ![](images/20231025091046191-27.png)   |
-| 20 s | ![](images/20231025091046191-28.png)   | ![](images/20231025091046191-29.png)   | ![](images/20231025091046191-30.png)   | ![](images/20231025091046191-31.png)   |
-| 30 s | ![](images/20231025091046191-32.png)   | ![](images/20231025091046191-33.png)   | ![](images/20231025091046191-34.png)   | ![](images/20231025091046191-35.png)   |
-| 60 s | ![](images/20231025091046191-36.png)   | ![](images/20231025091046191-37.png)   | ![](images/20231025091046191-38.png)   | ![](images/20231025091046191-39.png)   |
+| 10 s | ![](images/20231025091046191-24.png)   | ![](images/20231025091046191-25.png)   | ![](images/20231025091046191-26.png)   | ![](images/20231025091046191-27.png)   |
+| 20 s | ![](images/20231025091046191-28.png)   | ![](images/20231025091046191-29.png)   | ![](images/20231025091046191-30.png)   | ![](images/20231025091046191-31.png)   |
+| 30 s | ![](images/20231025091046191-32.png)   | ![](images/20231025091046191-33.png)   | ![](images/20231025091046191-34.png)   | ![](images/20231025091046191-35.png)   |
+| 60 s | ![](images/20231025091046191-36.png)   | ![](images/20231025091046191-37.png)   | ![](images/20231025091046191-38.png)   | ![](images/20231025091046191-39.png)   |
 
 Die Werte sind nur grobe Angaben, da sich zum einen die Messwerte des Drucksensor ständig ändern (vor allem bei der größeren Kompression) und zum anderen die Ablesung des Volumens auf dem Spritzenzylinder nicht fehlerfrei ist. Zudem wurde die Temperaturänderung unberücksichtigt gelassen.
 
@@ -1310,13 +1307,13 @@ Da es sich bei dem Prototyp um ein geschlossenes System handelt und der Einfluss
 
 zu ![](images/20231025091630117-2.png) .
 
-Für die Arbeit ![](images/20231025091630117-3.png)  vom Zustand 0 (V = 62,5 ml) zum Zustand 1 (V = 16,7 ml) ergibt sich folgendes:  
+Für die Arbeit ![](images/20231025091630117-3.png)  vom Zustand 0 (V = 62,5 ml) zum Zustand 1 (V = 16,7 ml) ergibt sich folgendes:  
 
 ![](images/20231025091630117-4.png)
 
 ![](images/20231025091630117-5.png)
 
-Die innere Energie lässt sich beim idealen Gas unter den gegebenen Zuständen mit ![](images/20231025091630117-6.png)  vereinfacht beschreiben, da Druck im komprimierten Zustand konstant gehalten wird und ergibt bei einer totalen (gemessenen) Temperaturdifferenz von 3,5 K folgendes:  ![](images/20231025091630117-8.png)
+Die innere Energie lässt sich beim idealen Gas unter den gegebenen Zuständen mit ![](images/20231025091630117-6.png)  vereinfacht beschreiben, da Druck im komprimierten Zustand konstant gehalten wird und ergibt bei einer totalen (gemessenen) Temperaturdifferenz von 3,5 K folgendes:  ![](images/20231025091630117-8.png)
 
 Die obige Formel des vereinfachten 1\. Hauptsatzes zur Wärmemenge Q umgestellt ergibt nun mit allen berechneten Werten:
 
@@ -1326,11 +1323,11 @@ Das negative Vorzeichen zeigt an, dass das System diese Energie in Form von Wär
 
 **Abschätzung Wärmeleitung durch Kunststoffoberflächen**
 
-Im Folgenden soll die Wärmeleitung der Kunststoffoberflächen grob abgeschätzt werden. Da die beiden Flächen des Teflons und des PP‘s parallel angeordnet mit derselben Temperaturdifferenz in Kontakt sind, lässt sich ihr gesamter Wärmestrom ![](images/20231025091630117-10.png)  aus ihren einzelnen Wärmeströmen ![](images/20231025091630117-11.png)  abschätzen:
+Im Folgenden soll die Wärmeleitung der Kunststoffoberflächen grob abgeschätzt werden. Da die beiden Flächen des Teflons und des PP‘s parallel angeordnet mit derselben Temperaturdifferenz in Kontakt sind, lässt sich ihr gesamter Wärmestrom ![](images/20231025091630117-10.png)  aus ihren einzelnen Wärmeströmen ![](images/20231025091630117-11.png)  abschätzen:
 
 **Wärmestrom der PE-Spritze bei 20 kg Belastung:**
 
-![](images/20231025091630117-12.png)  
+![](images/20231025091630117-12.png)  
 ergibt mit dem Wärme-Widerstand
 
 ![](images/20231025091630117-13.png)
@@ -1341,7 +1338,7 @@ den Wärmestrom
 
 ![](images/20231025091630117-15.png)
 
-wobei als ![](images/20231025091630117-16.png)  die Resthöhe von 23 mm (von Boden Spritze bis Kolben) und ![](images/20231025091630117-17.png)  wieder großzügig mit 3,5 K angesetzt wurde.
+wobei als ![](images/20231025091630117-16.png)  die Resthöhe von 23 mm (von Boden Spritze bis Kolben) und ![](images/20231025091630117-17.png)  wieder großzügig mit 3,5 K angesetzt wurde.
 
 **Wärmestrom des Teflon-Sockels bei 20 kg Belastung:** Der Wärmestrom
 
@@ -1355,13 +1352,13 @@ ergibt mit dem Wärme-Widerstand
 
 ![](images/20231025091630117-21.png)
 
-wobei als ![](images/20231025091630117-22.png)  die Sockelhöhe von 35 mm gewählt wurde (von Boden bis Spritzenboden). Eine genauere Betrachtung wäre hierbei möglich, da die Spritzentülle eine Strecke in den Sockel hineinragt, jedoch soll dieser Einfluss an dieser Stelle vernachlässigt werden.
+wobei als ![](images/20231025091630117-22.png)  die Sockelhöhe von 35 mm gewählt wurde (von Boden bis Spritzenboden). Eine genauere Betrachtung wäre hierbei möglich, da die Spritzentülle eine Strecke in den Sockel hineinragt, jedoch soll dieser Einfluss an dieser Stelle vernachlässigt werden.
 
 **Auswertung der Wärmeströme**
 
-Der gesamte Wärmestrom lässt sich somit zu ![](images/20231025091630117-23.png)  abschätzen.
+Der gesamte Wärmestrom lässt sich somit zu ![](images/20231025091630117-23.png)  abschätzen.
 
-Die Wärmemenge über die mittlere Zeit der Temperaturerhöhung bei Kompression von durchschnittlich ![](images/20231025091630117-24.png)  beträgt somit:
+Die Wärmemenge über die mittlere Zeit der Temperaturerhöhung bei Kompression von durchschnittlich ![](images/20231025091630117-24.png)  beträgt somit:
 
 ![](images/20231025091630117-25.png)
 
@@ -1397,7 +1394,7 @@ Darauf hinführend sollen im Folgenden die Wärmekapazitäten der in Kontakt mit
 
 Wird der Prozessraum als inhomogener Körper (bestehend aus Luft, Oberflächen aus Kunststoff und Metall) beschrieben, kann durch die Regel von Neumann-Kopp die gesamte Wärmekapazität als Summe der einzelnen Wärmekapazitäten aufgefasst werden: ![](images/20231025091630117-27.png) . Zusätzlich müssen für die folgende Berechnung/Abschätzung die Massen der jeweiligen Elemente einbezogen werden:
 
- ![](images/20231025091630117-28.png)  
+ ![](images/20231025091630117-28.png)  
 
 Der Massenanteil der Messingtülle basiert lediglich auf einer Schätzung, da nur ein kleiner Teil der Tülle im Prozessraum ist.
 
@@ -1409,7 +1406,7 @@ mit Literaturwerten für Zinn und Messing aus [schweizer-fn.de](https://www.schw
 
 Die reine Wärmekapazität der Luftmasse im Prozessraum beträgt hingegen lediglich ![](images/20231025091630117-30.png) .
 
-Das Verhältnis beider Wärmekapazitäten ist ![](images/20231025091630117-31.png) . Somit beträgt die angenommene Wärmekapazität der Luft im Verhältnis zur Gesamtkapazität ![](images/20231025091630117-32.png)  und ist damit 6 mal kleiner.
+Das Verhältnis beider Wärmekapazitäten ist ![](images/20231025091630117-31.png) . Somit beträgt die angenommene Wärmekapazität der Luft im Verhältnis zur Gesamtkapazität ![](images/20231025091630117-32.png)  und ist damit 6 mal kleiner.
 
 Die innere Energie des Gesamtkomplexes berechnet sich somit zu: ![](images/20231025091630117-33.png) . Diese Berechnungen stellen eine grobe Abschätzung dar, da von konstanten Wärmekapazitäten, homogener Wärmeleitung und der gemessenen Temperatur ausgegangen wurde. Da zumindest kurzzeitig die Temperaturdifferenz höher gewesen sein müsste, sollte die innere Energie, zumindest kurz nach Kompression, theoretisch ebenso höher sein.
 
@@ -1421,7 +1418,7 @@ An dieser Stelle soll eine mögliche analytische Berechnung des Polytropenexpone
 
 **Polytropenexponent**
 
-Unter Zuhilfenahme der Formel ![](images/20231025091630117-34.png) , welche aus der Beziehung ![](images/20231025091630117-35.png)  folgt, kann durch Umstellen der Formel der Polytropenexponent berechnet werden:
+Unter Zuhilfenahme der Formel ![](images/20231025091630117-34.png) , welche aus der Beziehung ![](images/20231025091630117-35.png)  folgt, kann durch Umstellen der Formel der Polytropenexponent berechnet werden:
 
 ![](images/20231025091630117-36.png)
 
@@ -1429,7 +1426,7 @@ Hieraus folgt für die <u>gemessenen</u> Drücke und Temperaturen bezüglich ein
 
 ![](images/20231025091630117-37.png)
 
-Obwohl an dieser Stelle mit einzelnen Messwertepaaren gerechnet wurden, werde selbst Fehlern unterliegen, hat sich ein mit der Ausgabe des Datenanalyse-Programms identischer Wert ergeben.  
+Obwohl an dieser Stelle mit einzelnen Messwertepaaren gerechnet wurden, werde selbst Fehlern unterliegen, hat sich ein mit der Ausgabe des Datenanalyse-Programms identischer Wert ergeben.  
 
 Weiterhin könnte die Konstante _const_ durch Einsetzen des Polytropenexponenten und eines Messwertepaares in obige Formel bestimmt werden, allerdings liefert die Anpassungsfunktion hierfür einen deutlich genaueren Wert, da die einzelnen Messwerte deutlich streuen.
 
@@ -1447,7 +1444,7 @@ Nachfolgend sollen weiterführende Informationen zu den verwendeten Sensoren und
 
 Abbildung 38: Anbindung des ADS1115 an den Raspberry Pi (Quelle: [Adafruit](https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/python-circuitpython))
 
- 
+ 
 
 Info zu PhyPiDAQ-Device-Config: Differential Mode: Wenn aktiviert, dann wird die Spannung zwischen zwei analogen Eingängen (z.B. A0 und A1) gemessen. In diesem Fall müssen A0 und A1 auch verkabelt sein. Über den Single-Ended-Mode wird die Spannung zwischen dem analogen Eingang und der Masse (Ground) gemessen. In der Regel ist dieser deaktiviert.
 
@@ -1504,7 +1501,7 @@ Tabelle 9: Anschluss des Drucksensors und des ADS1115 an den Raspberry Pi
 
 
 
- 
+ 
 
 Bei andersfarbigen Litzen des Drucksensors sind dem Datenblatt entsprechend die jeweiligen Anschlüsse zu bestimmen. Der 10 kOhm-Widerstand wird benötigt, um die Störgrößen zu mildern. Bei starkem Rauschen kann ein 10 µF-Kondensator zusätzlich in Reihe verbaut werden. Der vorhandene Drucksensor könnte theoretisch auch an 5V betrieben werden.
 
