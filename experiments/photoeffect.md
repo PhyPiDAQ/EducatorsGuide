@@ -20,8 +20,8 @@ A mercury lamp is used as the light source because it also emits light in the UV
 range. The light beam is bundled with lenses and reduced to the respective 
 wavelength with interference filters. When the photons hit the cathode, electrons 
 are released and a positive excess charge is created on the initially neutrally 
-charged plate. If electrons hit the opposite anode, it is negatively charged. The 
-separation of charges between the anode and the cathode creates an increasing 
+charged plate. If electrons hit the opposite cathode, it becomes negatively charged.
+The separation of charges between the anode and the cathode creates an increasing 
 electric field, which slows down further electrons that fly from the cathode to 
 the anode. In equilibrium, the breaking force is so great that even electrons 
 no longer arrive at the anode with maximum kinetic energy. The voltage between the 
