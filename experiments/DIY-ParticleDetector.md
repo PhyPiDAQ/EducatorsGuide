@@ -38,6 +38,9 @@ Ready-to use scripts  illustrate how to use these classes:
   - *phypidaq/examples/poissonLED* produces random flashes of a LED. A photodiode exposed to the light of
      the LED will produce signals analogous to  a detector for gamma rays.
 
+![Fig.1: Graphical display showing data acquisition with a small sample of pitchblende ore.
+ An average count rate of about 5 signals in 5 s intervals is observed.](images/PoissonEventDisplay.png)
+
 
 ### The CERN DIY particle detector 
 
@@ -50,6 +53,12 @@ The two-stage amplifier with a high-bandwidth op-amp produces large signals of s
  make this detector an ideal choice for projects with high-school students. Besides building the device,
  experience is gained in data acquisition and data analysis of a fascinating phenomenon not directly 
  accessible by human senses. 
+ 
+ A typical waveform is shown in the figure below. 
+ 
+ ![Fig.2 Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
+ of 96000/s is shown below. Note that the y-axis only shows a range of +/- 2¹⁴](images/scOscillogram.png)
+
 
 ### Results of measurements
 
