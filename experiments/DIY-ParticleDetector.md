@@ -96,6 +96,8 @@ options:
 Reasonable default settings are available so that in most cases useful output is generated. Because the signal rate is  
 very low in normal environments without a radioactive source, the trigger level should be set to be just above noise  
 level so that some noise pulses become visible. It is also advisable to use the option `-o` to switch on the oscilloscope view. 
+Note that the signal level depends on the  settings of the soundcard. Use the appropriate tool of your PC operating system to 
+select the standard input device used for sound recording and adjust the volume control. 
 
 The output shown under measurement conditions at low rates is shown in the figure below. A flashing circle indicates  
 the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
