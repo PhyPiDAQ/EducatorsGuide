@@ -9,32 +9,34 @@ be visualized with any kind of sound-card oscilloscope.
 ### The CERN DIY particle detector 
 
 A rather recent proposal of a simple, cheap and easy to operate particle detector based on four silicon 
-PIN photo-diodes is the [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
-The two-stage amplifier with a high-bandwidth op-amp produces large signals of several hundred mV
- shaped to a width of about 100 µs. Such signals can be easily recorded with a standard sound card. 
+PIN photo-diodes(BPW34)  is the [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
+A two-stage amplifier with a high-bandwidth op-amp produces large signals of several hundred mV
+shaped to a width of about 100 µs. Such signals can be easily recorded with a standard sound card. 
  
- The availability of necessary parts including the printed circuit board and the large and long signals
- make this detector an ideal choice for projects with high-school students. Besides building the device,
- experience is gained in data acquisition and data analysis of a fascinating phenomenon not directly 
- accessible by the human senses. 
+ The commercial availability of all necessary parts including the printed circuit board and the large and 
+ long output signals make this detector an ideal choice for projects with high-school students. Besides 
+ building the device, additional experience is gained in data acquisition software and data analysis of a
+ fascinating phenomenon not directly accessible by the human senses. 
 
 ### Signal recording and analysis with *PhyPiDAQ*
 
 *PhyPiDAQ* contains several modules supporting data recording, visualization and analysis. An interesting
 and important aspect to study in this context is the randomness of the occurrence of signals. As the probability
-to detect a signal is invariant with time, the number of events observed in a given time interval is given by
+to detect a signal is invariant with time, the number of events observed in a time interval is given by
 Poisson statistics. Typical for such a process is the fact that the time between randomly occurring events 
 follows an exponential distribution.
 
-The exponential decay of a sample of radioactive nuclei is another important aspect that can be studied if
- a sample of short-lived nuclei can be provided. In Nature, such a source is natural Radon that can be 
- accumulated on an electrically charged balloon. 
+In addition, the exponentially falling decay rate of a sample of radioactive nuclei is another important aspect 
+that can be studied if a sample of short-lived nuclei can be provided. In Nature, such a source is Radon produced 
+from radioactive decays in the inner of the earth; decay products of Radon, which are themselves radioactive, 
+can be  accumulated on an the surface of an electrically charged balloon. 
 
 Relevant modules of the *PhyPiDAQ* package are:
 
-   - `phypidaq\soundcardOsci` with two classes to record, select  and display waveforms from a PC soundcard
+   - `phypidaq\soundcardOsci` with two classes to record and select  and to display waveforms from a PC soundcard
 
-   - `phypidaq/DisplayPoissonEvent`, a class to display a pulse corresponding to a single Poisson event 
+   - `phypidaq/DisplayPoissonEvent`, a class to display a pulse corresponding to a single Poisson event and to show 
+   a rate history. 
 
 Ready-to use scripts  illustrate how to use these classes: 
 
@@ -47,14 +49,15 @@ Ready-to use scripts  illustrate how to use these classes:
    
  Studies of Poisson processes are possible by using scripts
  
-  -  `examples/poissonFlash.py` to generate, visualize and store data of a simulated Poisson process. 
+  -  `examples/poissonFlash.py` to generate, visualize and store data of a simulated Poisson process, and  
 
-  - `examples/poissonLED.py` produces random flashes of a LED. A photodiode exposed to the light of
+  - `examples/poissonLED.py` to produce random flashes of a LED. A photodiode exposed to the light of
      the LED will produce signals analogous to  a detector for gamma rays.
 
- A typical waveform recorded with *scGammaDetector.py -o* is shown in the figure below. The signal is clearly visible
- above the noise level of approx. 3500 ADC counts. It  is sufficiently large to be directly connected to an
- earphone so that the signal clicks can also be acoustically perceived. 
+ A typical waveform recorded after issuing the command *scGammaDetector.py -o* on the command line 
+ is shown in the figure below. The signal is clearly visible above the noise level of approx. 3500 ADC counts. 
+ It  is sufficiently large to be directly connected to a earphone so that the signal clicks can also be acoustically 
+ perceived. 
  
  ![Fig. 1: Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
  of 96000/s is shown below. Note that the y-axis only shows a range of +/- 2¹⁴](images/scOscillogram.png)
