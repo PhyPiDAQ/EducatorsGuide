@@ -42,12 +42,12 @@ Ready-to use scripts  illustrate how to use these classes:
 
    - `examples/oscilloscope/soundcardOsci.py` to record and display wave forms from a sound card.  
 
-  - `examples/scGammaDetector.py` to visualize every occurrence of a large signal and also the 
-  associated wave form data around the trigger point. A rate history is also shown. The script also offers the 
-  possibility to store the event times in a file for off-line analysis, or to only visualize a sub-set of triggering
+  - `examples/scGammaDetector.py` to visualize every occurrence of a large signal and also the  associated
+    wave form data around the trigger point. A rate history is also shown. The script also offers the 
+   possibility to store the event times in a file for off-line analysis, or to only visualize a sub-set of triggering
    pulses if the rate is very high. 
    
- Studies of Poisson processes are possible by using scripts
+ Studies of Poisson processes are possible by using the Python scripts
  
   -  `examples/poissonFlash.py` to generate, visualize and store data of a simulated Poisson process, and  
 
@@ -96,19 +96,38 @@ options:
                         time bin for rate display
 ```
 
-Reasonable default settings are available so that in most cases useful output is generated. Because the signal rate is  
+Reasonable default settings are ensure  that in most cases useful output is generated. Because the signal rate is  
 very low in normal environments without a radioactive source, the trigger level should be set to be just above noise  
 level so that some noise pulses become visible. It is also advisable to use the option `-o` to switch on the oscilloscope view. 
 Note that the signal level depends on the  settings of the soundcard. Use the appropriate tool of your PC operating system to 
 select the standard input device used for sound recording and adjust the volume control. 
 
-The output shown under measurement conditions at low rates is shown in the figure below. A flashing circle indicates  
-the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
+To become acquainted with the software, in particular the selection of data by setting appropriate trigger conditions, it is 
+useful to use a microphone signal as input source.  Initially, the only the oscilloscope with a very low trigger  level is started:  
+   > `python3 scGammaDetector.py -n -o -l 100`
+This will show raw data from the soundcard in the oscilloscope display.  Now make some noise, e .g. by clapping your hands or snipping your fingers, and you will see some short signals well above the average noise level. Remember the typical signal level
+ of the background noise.  
+Stop the program by typing 'E' on the command line or click the 'End' button in the graphical control interface. Then, restart at
+a higher trigger level, this time also enabling the event display:  
+   > `python3 scGammaDetector.py -o -l 1500`
+You should see no signals at all - unless you create a loud sound signal, which then is displayed in the oscilloscope and
+also in the event display window.   
+Detecting the very small signals from the CERN DIY particle detector works exactly the same way. Connecting the detector output
+to a microphone input of a soundcard  and repeat the the same procedure just described to find the right trigger level to separate
+the noise level from true signals of detected particles.  Note that the signal level depends on the settings of your soundcard, most
+importantly the volume. If possible, increase the sampling rate to the highest possible value supported by your soundcard - typical 
+values are 44100, 48000, 96000 or 192000 samples/s. Also consider adjusting the sample size of a single recording using the option
+`-z<n>`  - 256 or 512 are optimal settings for the short pulses of the particle detector,  but some sound drivers only support a minimum setting of 1024. If the sample size is too large, more than one signal may be contained in the sample, but only the first one would  triggered and counted.   
+It is obvious that the trigger level has a strong influence on the recorded signal rate. If it is too low, most true signal will be detected, but some noise pulses (called "background") will also be present. It the trigger level is too high, noise pulses will mostly be suppressed, but also some signal pulses will be lost. There is no way out here - the detection efficiency and the background suppression cannot both be 100 %.! If an absolute rate is to be determined, corrections for signal efficiency and background
+contamination of a selected signal sample  must be applied.  
+
+ The output from the particle detector seen under measurement conditions at low rates is shown in the figure below. A flashing circle indicates the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
 the trigger time is displayed. A rate history is also shown; the bin width in seconds can be set using the opton `--interval <n>` 
 
 ![Fig. 2: Graphical display showing data acquisition with a small sample of pitchblende ore.
  An average count rate of about 5 signals in 5 s intervals is observed.](images/PoissonEventDisplay.png)
 
+The determination of the background level and the signal efficiency is not always easy to do  with small uncertainties. the background level can be determined rather precisely by performing measurements without the signal source. The determination of the signal efficiency requires precise knowledge of the detector and the signal characteristics, typically gained by detailed modeling  of the physics processes in the detector and the response of the front-end electronics. In case such studies signal efficiency vs. purity are interesting, data recorded with `scGammaDetector.py` can be analyzed  to gain more insight. Recording of detected pulses is switched on with the option `-f <filename>`; for each detected signal, the "event number", the time of occurrence in seconds since program start and the pulse height in ADC counts are stored in the file. In an off-line analysis, a pulse-height spectrum, i. e. the frequency at which pulse heights in a given interval occur, can be derived from data taken at a low trigger threshold. This will show a large number of very small pulses, but also a clear  accumulation arising from true signals at higher values. From data taken without a particle source a spectrum of expected background signals during the measurement can be determined and subtracted from the data taken with a signal source.  
 
 
 ### Results of measurements
