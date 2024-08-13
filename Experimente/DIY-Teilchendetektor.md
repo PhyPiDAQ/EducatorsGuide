@@ -117,13 +117,15 @@ Die nachstehende Abbildung zeigt die Ausgabe des Teilchendetektors unter Messbed
 
 ![Abb. 2: Grafische Darstellung der Datenerfassung mit einer kleinen Probe von Pechblende-Erz. Es wird eine durchschnittliche Zählrate von etwa 5 Signalen in 5-Sekunden-Intervallen beobachtet.](images/PoissonEventDisplay.png)
 
-Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse sind, können die mit `scGammaDetector.py` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. Aus Daten, die ohne
-Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale während der Messung bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
+Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse sind, können die mit `scGammaDetector.py` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. Aus Daten, 
+die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale während der Messung bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
 
 
 ### Ergebnisse
 
-Die Analyse von mit `scGammaDetector.py` aufgezeichnten registrierten Gammaquanten aus einer kleine Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Ereignisse wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
+Die Analyse von mit `scGammaDetector.py` aufgezeichnten registrierten Gammaquanten aus einer 
+kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse wurden mit
+einer Rate von ca. 1,32 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 11500 aufgezeichnete Ereignisse
 mit den Spalten  
   > `event_numer, event_time[s], pulse_height[adc]`
@@ -131,7 +133,8 @@ mit den Spalten
 Ausgewertet wurde nur die mittlere Spalte mit den Zeiten, zu denen Ereignisse registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit der Eingabe  
  > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
  
- verwendet. 
+ verwendet. Der letzte Parameter legt die Dauer der Zeitinvervalle (in s) fest, in denen
+ jeweils die Ereignisanzahlen ermittelt werden. 
 
 Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
