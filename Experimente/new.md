@@ -107,21 +107,32 @@ Angemessene Standardeinstellungen sorgen dafür, dass in den meisten Fällen ein
 Es ist auch ratsam, die Option `-o` zu verwenden, um die Oszilloskopansicht einzuschalten. 
 Beachten Sie, dass der Signalpegel von den Einstellungen der Soundkarte abhängt. Verwenden Sie zur Auswahl des Standard-Eingabegeräts das entsprechende Werkzeug  Ihres PC-Betriebssystems, insbesondere auch um die Lautstärke einzustellen.  
 
+<<<<<<< HEAD
 Um sich mit der Software vertraut zu machen, insbesondere mit der Auswahl der Daten durch Einstellung geeigneter Triggerbedingungen, ist es nützlich, ein Mikrofonsignal als Eingangsquelle zu verwenden.
  Zunächst wird nur das Oszilloskop  mit einem sehr niedrigen Triggerpegel gestartet:     
    > `python3 scGammaDetector.py -n -o -l 100`
-        
+   
+Damit werden die Rohdaten der Soundkarte auf dem Oszilloskop-Display angezeigt.  Machen Sie nun ein lautes
+Geräusche, z.B. indem Sie in die Hände klatschen oder mit den Fingern schnipsen, und Sie werden einige kurze
+Signale sehen, die weit über dem durchschnittlichen Geräuschpegel liegen. Merken Sie sich den typischen Signalpegel des Hintergrundrauschens.  
+Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durch Klicken auf die Schaltfläche "Ende" in der grafischen Benutzeroberfläche. Starten Sie es dann erneut mit einem höheren Triggerpegel, wobei Sie diesmal auch die Ereignisanzeige aktivieren:  
+   > `python3 scGammaDetector.py -o -l 1500`  
+     
+=======
+Um sich mit der Software vertraut zu machen, insbesondere mit der Auswahl der Daten durch Einstellung geeigneter Triggerbedingungen, ist es nützlich, ein Mikrofonsignal als Eingangsquelle zu verwenden.  Zunächst wird nur das Oszilloskop 
+mit einem sehr niedrigen Triggerpegel gestartet:  
+   > `python3 scGammaDetector.py -n -o -l 100`  
 Damit werden die Rohdaten der Soundkarte auf dem Oszilloskop-Display angezeigt.  Machen Sie nun ein lautes Geräusch,
 z.B. indem Sie in die Hände klatschen oder mit den Fingern schnipsen, und Sie werden einige kurze Signale sehen, die weit 
 über dem durchschnittlichen Geräuschpegel liegen. Merken  Sie sich den typischen Signalpegel des Hintergrundrauschens.  
-Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durch Klicken auf die Schaltfläche "End" 
-in der grafischen Benutzeroberfläche. Starten Sie es dann erneut mit einem höheren Triggerpegel, wobei Sie diesmal
- die Ereignisanzeige aktiviert lassen:  
+Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durch Klicken auf die Schaltfläche "Ende" in der grafischen Benutzeroberfläche. Starten Sie es dann erneut mit einem höheren Triggerpegel, wobei Sie diesmal die Ereignisanzeige aktivieren:  
    > `python3 scGammaDetector.py -l 1500`
+>>>>>>> 5fee47e (minor language improvements)
 Sie sollten keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, das dann im Oszilloskop und auch in der Ereignisanzeige angezeigt wird.  
 Anmerkung: die gleichzeitige animierte Anzeige von Ereignisdarstellungen und Oszillogramm funktioniert und MS Windows  
 nicht stabil; unter Linux können problemlos beide Anzeigen aktiviert werden:  `python3 scGammaDetector.py -o -l 1500`
 
+<<<<<<< HEAD
 Das Aufspüren der sehr kleinen Signale des DIY-Teilchendetektors des CERN funktioniert auf genau dieselbe
 Weise. Verbinden Sie den Ausgang des Detektors mit dem Mikrofoneingang Ihrer Soundkarte und wiederholen Sie
 das eben beschriebene Verfahren, um den richtigen Triggerpegel zur Unterscheidung der echten Signalen
@@ -131,7 +142,7 @@ vor allem vor allem von der Lautstärke. Wenn möglich, erhöhen Sie die Abtastr
 
 Es ist offensichtlich, dass der Triggerpegel einen starken Einfluss auf die aufgezeichnete Signalrate hat. Ist er zu niedrig, wird der größte Teil des echten Signale erfasst, aber es sind auch viele Rauschimpulse (als "Untergrund" bezeichnet) vorhanden. Ist der Triggerpegel zu hoch, werden die meisten Rauschimpulse unterdrückt, aber auch es gehen auch Signalimpulse verloren. Hier gibt es keinen Ausweg - die Nachweiseffizienz und die Untergrundunterdrückung können nicht beide 100 % betragen!
 Wenn eine absolute Rate bestimmt werden soll, müssen Korrekturen für Signaleffizienz und Untergrundkontamination vorgenommen werden.  
-
+=======
 Das Aufspüren der sehr kleinen Signale des DIY-Teilchendetektors des CERN funktioniert auf genau dieselbe Weise. 
 Verbinden Sie den Ausgang des Detektors mit dem Mikrofoneingang Ihrer Soundkarte und wiederholen Sie das eben
 beschriebene Verfahren, um den richtigen Triggerpegel zur Unterscheidung der echten Signalen nachgewiesener Teilchen
@@ -142,14 +153,19 @@ kurzen Pulse des Teilchendetektors, aber einige Soundkartentreiber unterstützen
 Es ist offensichtlich, dass der Triggerpegel einen starken Einfluss auf die aufgezeichnete Signalrate hat. Ist er zu niedrig, wird der größte Teil des echten Signals erfasst, aber es sind auch viele Rauschimpulse (als "Untergrund" bezeichnet) vorhanden. Ist der Triggerpegel zu hoch, werden die meisten Rauschimpulse unterdrückt, aber auch einige Signalimpulse gehen verloren. Hier gibt es keinen Ausweg - die Nachweiseffizienz und die Untergrundunterdrückung können nicht beide 100 % betragen!
 Wenn eine absolute Rate bestimmt werden soll, müssen Korrekturen für Signaleffizienz und Untergrundkontamination
 vorgenommen werden.  
+>>>>>>> 5fee47e (minor language improvements)
 
  Die nachstehende Abbildung zeigt die Ausgabe des Teilchendetektors unter Messbedingungen bei niedrigen Raten. Ein blinkender Kreis zeigt das Auftreten eines ausgelösten Ereignisses an, und die entsprechende (normalisierte) Wellenform mit 100 Abtastpunkten um um den Auslösezeitpunkt herum wird ebenfalls angezeigt. Es wird auch ein Ratenverlauf angezeigt; die Bin-Breite in Sekunden kann mit der Option `--interval <n>` eingestellt werden. 
 
 ![Abb. 2: Grafische Darstellung der Datenerfassung mit einer kleinen Probe von Pechblende-Erz.
  Es wird eine durchschnittliche Zählrate von etwa 5 Signalen in 5-Sekunden-Intervallen beobachtet.](images/PoissonEventDisplay.png)
 
+<<<<<<< HEAD
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse sind, können die mit `scGammaDetector.py` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. Aus Daten, die ohne
 Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale während der Messung bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
+=======
+Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz und Reinheit von Interesse sind, können die mit `scGammaDetector.py` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung, die von echten Signalen bei höheren Werten herrührt. Aus Daten, die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale während der Messung bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
+>>>>>>> 5fee47e (minor language improvements)
 
 
 ### Ergebnisse

@@ -1,0 +1,1792 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.1.0">
+<title>Kurs_digitale_Messwerterfassung_mit_PhyPiDAQ</title>
+<style type="text/css">
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS", "output/NativeMML"],
+  extensions: ["MathMenu.js", "MathZoom.js"],
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    equationNumbers: {autoNumber: "AMS"}
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script></head>
+<body>
+<p><img alt="" src="../images/PhiPiLogo.png">  </p>
+<hr>
+<p>&nbsp;</p>
+<p><center><span style="color:#5882FA; font-size: 40pt"> Einführungskurs <br>zur digitalen Messwerterfassung <br> mit dem 
+Raspberry Pi <br> und PhyPiDAQ  </span></center></p>
+<p>Autor: M. Aupperle, in <a href="https://publish.etp.kit.edu/record/21520">"Konzeption und Gestaltung eines digitalen Messwerterfassungssystems für den Physikunterricht in der Schule"</a>, Masterarbeit ETP 2018.</p>
+<hr>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>Übersicht über wichtige Komponenten</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AD-Wandler ADS1115</td>
+<td align="center"><img alt="" src="images/course/component_ads1115.png"></td>
+</tr>
+<tr>
+<td>Bananenbuchse mit angeschlossener Breadboardleitung</td>
+<td align="center"><img alt="" src="images/course/component_banana_jack.png"></td>
+</tr>
+<tr>
+<td>Fotowiderstand (LDR Typ5516)</td>
+<td align="center"><img alt="" src="images/course/component_ldr.png"></td>
+</tr>
+<tr>
+<td>Instrumentenverstärker AD623</td>
+<td align="center"><img alt="" src="images/course/component_instrumentation_amplifier.png"></td>
+</tr>
+<tr>
+<td>Keramikkondensator 0,1 µF</td>
+<td align="center"><img alt="" src="images/course/component_capacitor_0,1µF.png"></td>
+</tr>
+<tr>
+<td>Elektrolytkondensator 10 µF</td>
+<td align="center"><img alt="" src="images/course/component_capacitor_10µF.png"></td>
+</tr>
+<tr>
+<td>Kraftsensor, Wägezelle TAL220B</td>
+<td align="center"><img alt="" src="images/course/component_force_sensor.png"></td>
+</tr>
+<tr>
+<td>NTC-Widerstand <em>R<sub>25</sub></em> = 10 k&Omega;</td>
+<td align="center"><img alt="" src="images/course/component_ntc.png"></td>
+</tr>
+<tr>
+<td>Potentiometer 10 k&Omega;</td>
+<td align="center"><img alt="" src="images/course/component_potentiometer.png"></td>
+</tr>
+<tr>
+<td>Spannungsversorgung</td>
+<td align="center"><img alt="" src="images/course/component_power_supply.png"></td>
+</tr>
+<tr>
+<td>Widerstand (Bsp. 10 k&Omega;)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Farbcode: <span style="color:SaddleBrown">braun</span>, schwarz, schwarz, <span style="color:red">rot</span>,</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><span style="color:SaddleBrown">braun</span></td>
+<td align="center"><img alt="" src="images/course/component_resistor_10kOhm.png"></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+
+<h1>1. Digitale Messtechnik</h1>
+<p>Digitale Messtechnik begegnet uns im Alltag überall. Die digitale Temperaturanzeige am Gefrierschrank, eine Pulsuhr 
+beim Sport, eine digitale Küchenwaage oder die Einparkhilfe beim Auto...unsere Welt wäre eine andere ohne digitale Messtechnik!</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> 
+Nennen Sie drei weitere Geräte oder Anwendungen, in denen digitale Messtechnik 
+vorkommt und nennen Sie die physikalische Größe, die dabei gemessen wird.  </p>
+<p>&nbsp;  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Gerät / Anwendung</th>
+<th>physikalische Größe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;  </p>
+<h1>2. Das Breadboard und die LED</h1>
+<h3>Einführung</h3>
+<p>In den nächsten Stunden befassen wir uns damit, wie man digitale Messwerte erfassen und verarbeiten kann. Wir nutzen 
+dabei ein Breadboard, auf dem wir die Schaltungen stecken sowie LEDs als Leuchtmittel. Zunächst schauen wir uns an, wie 
+diese einzusetzen sind.</p>
+<h3>Die LED</h3>
+<p><img alt="" src="images/course/led_overview.PNG"></p>
+<p>In unserem Projekt verwenden wir keine Glühlampen, sondern LEDs, wenn wir etwas optisch anzeigen wollen. <strong>LED</strong> ist 
+die Abkürzung für  <strong>L</strong>ight <strong>E</strong>mitting <strong>D</strong>iode, was auf Deutsch so viel bedeutet wie Licht emittierende bzw. 
+aussendende Diode. Um die LED zum Leuchten zu bringen, kann diese im Gegensatz zu einer Glühlampe nicht einfach an eine 
+Spannungsversorgung angeschlossen werden.
+Es sind <strong>zwei Dinge</strong> zu beachten:</p>
+<ol>
+<li>Die LED muss immer mit einem <strong>Widerstand (Vorwiderstand) in Reihe</strong> betrieben werden, da sie sonst zerstört wird.</li>
+<li>Die LED ist eine Diode und kann in Durchlass- oder in Sperrrichtung angeschlossen werden. Sie hat also eine 
+<strong>Anode</strong> (Pluspol) und eine <strong>Kathode</strong> (Minuspol). Soll die <strong>LED leuchten</strong>, muss sie in Durchlassrichtung 
+geschaltet werden, d.h. die <strong>Anode</strong> muss am <strong>höheren Potential</strong> angeschlossen werden. </li>
+</ol>
+<h3>Das Breadboard</h3>
+<p>Auf dem Breadboard bauen wir unsere Schaltungen auf. Um die Schaltungen stecken zu können ist es wichtig zu wissen, wie 
+das Breadboard aufgebaut ist.
+In der nachfolgenden Abbildung sind die elektrisch verbundenen Steckkontakte durch Linien gekennzeichnet.  </p>
+<p><img alt="" src="images/course/breadboard.png">  </p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> In welcher der nachfolgend abgebildeten Schaltungen 
+leuchtet die LED? Begründe.  </p>
+<p><strong>Schaltung 1:</strong><br>
+<img alt="" src="images/course/led1_fritzing.png"></p>
+<p><strong>Schaltung 2:</strong><br>
+<img alt="" src="images/course/led2_fritzing.png"></p>
+<p><strong>Schaltung 3:</strong><br>
+<img alt="" src="images/course/led3_fritzing.png"></p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
+
+<h1>3. Was bedeutet digitales Messen?</h1>
+<p>Bevor wir richtig loslegen können, müssen wir uns zuerst damit befassen, wie der Raspberry Pi mit seiner Umwelt 
+kommuniziert. Der Raspberry Pi verfügt über <strong>GPIO</strong>-Pins (<strong>g</strong>eneral <strong>p</strong>urpose <strong>i</strong>nput/<strong>o</strong>utput). Über diese 
+kann er mit seiner Umgebung kommunizieren. Die GPIO-Pins sind durchnummeriert und über das bunte, mehrfarbige 
+Flachbandkabel mit dem Breadboard verbunden. Es gibt zum einen Pins zur Spannungsversorgung mit 5V und 3,3V sowie GND 
+(0V) und klassische GPIO-Pins, die zur Kommunikation dienen. Jeder Pin kann die digitalen <strong>Zustände 1 (true = wahr) 
+oder 0 (false = falsch)</strong> annehmen und sowohl als <strong>Eingang (input)</strong> als auch als <strong>Ausgang (output)</strong> des Raspberry 
+Pi verwendet werden. </p>
+<p>Damit wir über die GPIO-Pins mit dem Raspberry Pi kommunizieren können, müssen wir zuerst untersuchen, wie der 
+Raspberry Pi zwischen den beiden Zuständen 0 und 1 unterscheidet. Dazu bauen wir nun eine Schaltung auf und schreiben 
+unser erstes kleines Programm. </p>
+<h3>GPIO-Pin</h3>
+<p><strong>Material:</strong></p>
+<ul>
+<li>10 k&Omega; Potentiometer</li>
+<li>Breadboard mit Spannungsversorgung und Netzteil</li>
+<li>Breadboard-Leitungen in verschiedenen Farben</li>
+<li>Voltmeter</li>
+<li>Raspberry Pi</li>
+<li>Flachbandkabel</li>
+</ul>
+<p><strong>Durchführung:</strong></p>
+<p><span style="color:#5882FA; font-size: 12pt ">1. </span>Stecken Sie die Schaltung gemäß des  nachfolgenden Schaltplans 
+und der Abbildung des Schaltungsaufbaus auf dem Breadboard und und schalten Sie nach einer Kontrolle des 
+Schaltungsaufbaus die Spannungsversorgung des Breadboards an (grüne LED auf Spannungsversorgung leuchtet). <br>
+Mit Hilfe des Potentiometers kann die elektrische Spannung am Eingangspin GPIO17 in einem Bereich zwischen 0 und 3.3V 
+eingestellt werden. Das Voltmeter wird über die beiden Leitungen zu den Bananenbuchsen so angeschlossen, dass die 
+Spannung zwischen dem Schleifer (dem mittleren Pin) des Potentiometers und GND (0V) gemessen werden kann.</p>
+<p><img alt="" src="images/course/digital_circuit.JPG"></p>
+<p><img alt="" src="images/course/digital_breadboard.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">2. </span>Für alle, die am Raspberry Pi mit Bildschirm, Tastatur und Maus 
+arbeiten wollen (wer stattdessen mit dem VNC-Viewer per Fernzugriff arbeiten möchte, kann direkt zu Schritt 3 
+übergehen): Schließen Sie Bildschirm, Tastatur und Maus an den Raspberry Pi an.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">3. </span>Nun müssen wir den Raspberry Pi über das Flachbandkabel mit dem 
+Breadboard verbinden. Der Raspberry Pi hat keinen Ein-/Ausschalter, sondern wird einfach durch Verbinden mit der 
+Spannungsversorgung gestartet. </p>
+<p><img alt="" src="images/course/connect_ribbon_cable.png"></p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt ">4. </span>Für alle, die mit dem VNC-Viewer per Fernzugriff arbeiten 
+möchten (wer stattdessen mit Bildschirm etc. direkt am Raspberry Pi arbeitet, kann direkt zu Schritt 5 übergehen):<br>
+Wenn der Raspberry Pi gestartet ist, können wir uns vom Laptop (oder einem anderen Anzeigegerät) aus über den 
+VNC-Viewer mit dem Raspberry Pi verbinden:</p>
+<ul>
+<li>Als erstes den VNC-Viewer aufrufen.</li>
+</ul>
+<p><img alt="" src="images/course/open_vnc_viewer.PNG"></p>
+<ul>
+<li>
+<p>Als nächstes oben in die Zeile die IP-Adresse des verwendeten Raspberry Pi eingeben (steht auf einem Zettel auf dem 
+Raspberry Pi) und mit Enter bestätigen. </p>
+</li>
+<li>
+<p>Nun wird über das WLAN mit dem Raspberry Pi eine Verbindung aufgebaut und es sollte das nachfolgend dargestellte 
+Fenster auftauchen. Hier muss nur noch der der Benutzername pi und das Kennwort (steht auf dem Raspberry Pi) angegeben 
+werden und die Verbindung mit OK gestartet werden.</p>
+</li>
+</ul>
+<p><img alt="" src="images/course/authentification_vnc_viewer.PNG"></p>
+<ul>
+<li>Wenn alles richtig angegeben wurde, sieht man jetzt die Bildschirmansicht des Raspberry Pi und kann über den 
+VNC-Viewer mit dem Raspberry Pi arbeiten.</li>
+</ul>
+<p><img alt="" src="images/course/vnc_is_connected.PNG"></p>
+<ul>
+<li>Für das nächste Mal ist die Verbindung jetzt schon angelegt und kann zukünftig mit einem Doppelklick auf das 
+Bildschirmsymbol mit der passenden IP-Adresse gestartet werden.</li>
+</ul>
+<p><img alt="" src="images/course/vnc_connection.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">5. </span>Um herauszufinden, welchen Zustand der GPIO-Pin 17 hat und uns 
+diesen Zustand anzeigen zu lassen, schreiben wir nun unser erstes kleines Programm:</p>
+<ul>
+<li>
+<p>Dazu öffnen zuerst über das <strong>Ordnersymbol</strong> oben links das Verzeichnis <strong>PhyPi</strong> und erstellen in diesem ein 
+Verzeichnis <strong>MeineProgramme</strong>, in dem wir unsere Programme speichern. </p>
+</li>
+<li>
+<p>Über die <strong>Himbeere</strong> (oben links) und den Reiter <strong>Entwicklung</strong> öffnen wir das Programm <strong>Python 3 (IDLE)</strong>.</p>
+</li>
+<li>
+<p>Jetzt müssen wir uns noch über <strong>File</strong> und <strong>New File</strong> eine Datei für unser erstes Programm erzeugen.</p>
+</li>
+<li>
+<p>In diese Datei schreiben wir unseren ersten Programmcode:</p>
+</li>
+</ul>
+<p>Alles was im Programm hinter einem Hashtag # - Symbol steht ist ein erklärender Kommentar zur Programmzeile davor und 
+keine Aufforderung zu twittern.</p>
+<pre><code class="python">import RPi.GPIO as GPIO # Wir importieren die Bibliothek GPIO.
+import time # Wir importieren die Bibliothek &quot;time&quot;.  
+
+GPIO.setmode(GPIO.BCM) # Wir geben an, wie die GPIO-Pins nummeriert sind.
+GPIO.setup(17, GPIO.IN) # GPIO-Pin 17 wird als Eingang festgelegt. 
+
+try: # Ausfuehren des Programmcodes, solange es keine Unterbrechung gibt.
+    while True: # Dauerschleife (alles eingerueckte danach wird wiederholt).
+        print(&quot;Status GPIO17:&quot;) # Wir geben den Text &quot;Status GPIO17:&quot; aus.
+        print(GPIO.input(17)) # Wir geben den Zustand des GPIO-Pin 17 aus.
+        time.sleep(0.1) # Wir warten 0.1 s (Raspberry Pi &quot;schlaeft&quot;).
+except KeyboardInterrupt: # Wenn das Programm mit Strg + C unterbrochen wird,
+    GPIO.cleanup() # ... wird noch aufgerauemt.
+</code></pre>
+
+<p><span style="color:#5882FA; font-size: 12pt ">6. </span>Bevor wir unser Programm starten können, müssen wir unsere 
+Datei noch über <strong>File</strong> und <strong>Save</strong> unter dem Namen <strong>digital.py</strong> in unser Unterverzeichnis <strong>MeineProgramme</strong> im 
+Verzeichnis <strong>PhyPi</strong> speichern.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">7. </span>Mit <strong>Run</strong> oder <code>F5</code> starten wir unser Programm und bekommen 
+jetzt alle 0,1 Sekunden den Zustand des GPIO-Pins 17 angezeigt. </p>
+<p><span style="color:#5882FA; font-size: 12pt ">8. </span>Drehen Sie am Potentiometer und verändern Sie damit die 
+Spannung am GPIO-Pin 17. Notieren Sie Ihre Beobachtungen.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt ">9. </span>Alles was eingerückt (nach Zeile 7) in unserer Dauerschleife 
+<code>while(True):</code>  steht, wird jetzt immer weiter wiederholt. Wenn wir unser Programm beenden wollen, müssen wir also 
+unsere Dauerschleife unterbrechen. Dafür drücken wir gleichzeitig <code>Strg + c</code>.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">10. </span>Formulieren Sie einen Merksatz: Was muss für die Spannung 
+zwischen dem GPIO-Pin 17 und GND (0V) gelten, wenn der GPIO-Pin 17 den Zustand 1 (true) bzw. 0 (false) besitzt?</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt ">11. </span>Was bedeutet also digitales Messen?
+Wählen Sie aus den folgenden Begriffen die passenden aus und vervollständigen Sie den Lückentext.</p>
+<p>abzählbare, analog, digital, false, kontinuierliche, ganzzahlige, GPIO-Pin, Raspberry Pi, true, stufenlose</p>
+<p>Digitales Messen bedeutet, dass Messwerte in Stufen erfasst werden. Ein digitaler _ <em> _ </em> _ <em> _ </em> _ <em> _ </em> _ ist 
+digital, da er nur eine _ <em> _ </em> _ <em> _ </em> _ <em> _ </em> _ und _ <em> _ </em> _ <em> _ </em> _ <em> _ </em> _ Anzahl an Zuständen annehmen kann. Er 
+kann entweder den Zustand 0 ( _ <em> _ </em> _ <em> _ </em> _ <em> _ </em> _  ) oder den Zustand 1 ( _ <em> _ </em> _ <em> _ </em> _ <em> _ </em> ) annehmen.</p>
+<div style="page-break-after: always;"></div>
+
+<h1>4. Lichtautomatik (Hell-Dunkel-Sensor)</h1>
+<p>Nun wissen wir, wie der Zustand eines GPIO-Pins festgelegt ist und können das nutzen, um unseren ersten eigenen 
+digitalen Sensor zu bauen.<br>
+Jeder kennt bei neueren Autos die Lichtautomatik, die das Licht automatisch anschaltet, wenn es draußen dunkel wird 
+oder wenn man in einen Tunnel fährt. Die Beleuchtung von Zugängen zu Häusern oder die Beleuchtung von Wegen ist 
+ebenfalls häufig mit einer Lichtautomatik ausgestattet. Um zu verstehen, wie so etwas funktionieren kann, bauen wir nun 
+unsere eigene Lichtautomatik. </p>
+<h3>Schaltungsentwurf und Realisierung</h3>
+<p><strong>Material:</strong></p>
+<ul>
+<li>10 k&Omega; Potentiometer</li>
+<li>220 &Omega; Vorwiderstand für LED (Farbcode: rot, rot, schwarz, schwarz, braun)</li>
+<li>Fotowiderstand (LDR Typ5516)</li>
+<li>weiße LED</li>
+<li>Breadboard mit Spannungsversorgung und Netzteil</li>
+<li>Breadboard-Leitungen in verschiedenen Farben</li>
+<li>Raspberry Pi</li>
+<li>Flachbandkabel</li>
+</ul>
+<p><strong>Durchführung:</strong></p>
+<p><span style="color:#5882FA; font-size: 12pt ">1. </span>Stecken Sie die abgebildete Schaltung gemäß des nachfolgenden 
+Schaltplans und der Abbildung des Schaltungsaufbaus auf dem Breadboard und schalten Sie nach einer Kontrolle des 
+Schaltungsaufbaus die Spannungsversorgung des Breadboards an.  </p>
+<p><img alt="" src="images/course/ldr_digital_circuit.PNG"></p>
+<p><img alt="" src="images/course/ldr_digital.PNG">  </p>
+<p><span style="color:#5882FA; font-size: 12pt ">2. </span>Öffnen Sie wieder das Programm <strong>Python 3 (IDLE)</strong> und die 
+zuvor erstellte Programmdatei <strong>digital.py</strong> im Verzeichnis <strong>MeineProgramme</strong>. Starten Sie nun mit <strong>Run</strong> oder <code>F5</code> 
+das zuvor erstellte Programm.
+Dunkeln Sie den Fotowiderstand (LDR) mit der Hand ab. Wechseln Sie mehrfach zwischen abgedunkteltem und hellem Zustand 
+ab und notieren Sie Ihre Beobachtungen. Mit <code>Strg + C</code> können Sie das Programm wieder beenden.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p><span style="color:#5882FA; font-size: 12pt ">3. </span>Wie kommt es zu dem beobachteten Verhalten? Schauen wir uns 
+dazu den Fotowiderstand LDR (<strong>L</strong>ight <strong>D</strong>ependent <strong>R</strong>esistor) genauer an:<br>
+<img alt="" src="images/course/ldr.PNG">  </p>
+<div style="page-break-after: always;"></div>
+
+<p>Formulieren Sie auf Grundlage der Abbildung einen Merksatz, wie sich der ohmsche Widerstand des Fotowiderstands in 
+Abhängigkeit von der Beleuchtungsstärke verhält.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt ">4. </span>Noch einmal zurück zu unserer Beobachtung aus 3. Wie kommt es 
+zu diesem Verhalten?
+Dazu müssen wir uns die verwendete Schaltung genauer anschauen. Wir haben einen einfachen Spannungsteiler 
+(Reihenschaltung aus zwei Widerständen) verwendet.<br>
+Die Widerstände werden vom selben Strom <em>I</em> durchflossen, sodass der Spannungsteiler die Gesamtspannung 
+<em>U<sub>ges</sub></em> im Verhältnis der Widerstände aufteilt, d.h. das Verhältnis zwischen den Spannungen <em>U<sub>1</sub></em> 
+und <em>U<sub>2</sub></em> ist gleich dem Verhältnis zwischen den Widerständen.</p>
+<p>Die Widerstände werden vom selben Strom <em>I</em> durchflossen, sodass der Spannungsteiler die Gesamtspannung 
+<em>U<sub>ges</sub></em> im Verhältnis der Widerstände aufteilt, d.h. das Verhältnis zwischen den Spannungen <em>U<sub>1</sub></em> 
+und <em>U<sub>2</sub></em> ist gleich dem Verhältnis zwischen den Widerständen <em>R<sub>1</sub></em> und <em>R<sub>2</sub></em>:<br>
+<script type="math/tex; mode=display">
+\frac{U_1}{U_2}=\frac{R_1}{R_2}
+</script>
+Genauso kann auch über das Verhältnis des Teilwiderstands (<em>R<sub>1</sub></em> oder <em>R<sub>2</sub></em>) zum Gesamtwiderstand 
+(<em>R<sub>ges</sub></em> =                <em>R<sub>1</sub></em> + <em>R<sub>2</sub></em>), auf das Verhältnis zwischen der 
+Teilspannung (<em>U<sub>1</sub></em> oder <em>U<sub>2</sub></em>) und der Gesamtspannung <em>U<sub>ges</sub></em> geschlossen werden.<br>
+<script type="math/tex; mode=display">
+\frac{U_1}{U_{ges}}=\frac{R_1}{R_{ges}}=\frac{R_1}{R_1+R_2}
+</script>
+ bzw.<br>
+<script type="math/tex; mode=display">
+\frac{U_2}{U_{ges}}=\frac{R_2}{R_{ges}}=\frac{R_2}{R_1+R_2}
+</script>
+Allgemein lässt sich für den Spannungsteiler festhalten, dass sich die Spannungen wie die zugehörigen Widerstände 
+verhalten.  </p>
+<p>Vervollständigen Sie auf Grundlage der Zusammenhänge für den Spannungsteiler und der Kennlinie aus drittens den 
+nachfolgenden Merksatz:</p>
+<p>Je größer die Beleuchtungsstärke, desto  _ <em> _ </em> _ <em> _ </em> wird der Widerstand <em>R<sub>2</sub></em> des Fotowiderstands.  Die 
+Spannung <em>U<sub>1</sub></em> wird dadurch _ <em> _ </em> _ <em> _ _und die Spannung <em>U<sub>2</sub></em>, die am GPIO-Pin 17 anliegt, _ </em> 
+_ <em> _ </em> _ _ . </p>
+<p>Was hat das nun mit dem Zustand des GPIO-Pins 17 zu tun, also damit, ob uns eine 0 oder eine 1 angezeigt wird? </p>
+<p>Schauen wir uns dazu ein Beispiel an: Der Fotowiderstand hat im beleuchteten Fall einen Widerstand von <em>R<sub>2</sub></em> 
+= 2 k&Omega; und im abgedunkelten Fall einen Widerstand von <em>R<sub>2</sub></em> = 30 k&Omega;. Was bedeutet das für die 
+Spannung <em>U<sub>2</sub></em> am GPIO-Pin 17 und den Zustand des Pins? Bearbeiten Sie hierzu folgende Aufgabe.</p>
+<p><strong>beleuchteter Fall:</strong></p>
+<p>Welche Spannung liegt am GPIO-Pin 17 an? Berechnen Sie. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Welchen Zustand besitzt der GPIO-Pin 17 in diesem Fall? Begründen Sie.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p><strong>abgedunkelter Fall:</strong></p>
+<p>Welche Spannung liegt am GPIO-Pin 17 an? Berechnen Sie. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Welchen Zustand besitzt der GPIO-Pin 17 in diesem Fall? Begründen Sie.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt ">5. </span>Wir haben also aus einem Fotowiderstand und einem zweiten 
+Widerstand einen einfachen Sensor gebaut, mit dem wir nach der Digitalisierung zwischen hell und dunkel unterscheiden 
+können. Damit wir eine Lichtautomatik haben, fehlt uns noch eine Beleuchtung, die abhängig von unserem Sensor ein- bzw. 
+ausgeschaltet wird. Dafür ergänzen wir unsere Schaltung um eine weiße LED (Polung beachten) mit Vorwiderstand (220 
+&Omega;) , die wir an den GPIO-Pin 27 anschließen.</p>
+<p><img alt="" src="images/course/ldr_led_breadboard.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">6. </span>Jetzt müssen wir nur noch unser Programm anpassen, sodass die 
+LED abhängig vom Zustand des GPIO-Pins 17 an- bzw. ausgeschaltet wird.</p>
+<ul>
+<li>
+<p>Wir öffnen wieder das Programm <strong>Python 3 IDLE</strong> und erzeugen dort eine Datei <strong>lichtautomatik.py</strong> für unser neues 
+Programm, die wir im Verzeichnis <strong>MeineProgramme</strong> speichern.</p>
+</li>
+<li>
+<p>In diese Datei schreiben wir unseren Programmcode für die Lichtautomatik:</p>
+</li>
+</ul>
+<pre><code class="python">import RPi.GPIO as GPIO # Wir importieren die Bibliothek GPIO.
+import time # Wir importieren die Bibliothek &quot;time&quot;.
+
+GPIO.setmode(GPIO.BCM) # Wir geben an, wie die GPIO-Pins nummeriert sind.
+GPIO.setup(17, GPIO.IN) # GPIO-Pin 17 wird als Eingang festgelegt.
+GPIO.setup(27, GPIO.OUT) # GPIO-Pin 27 wird als Ausgang festgelegt.
+try: # Ausfuehren des Programmcodes, solange es keine Unterbrechung gibt.
+  while True: # Dauerschleife (alles eingerueckte danach wird wiederholt).
+      statusGPIO17 = GPIO.input(17) # Abfrage des Zustands von GPIO-Pin 17
+      if statusGPIO17 == 1: # Wenn (if) der Zustand 1 ist, dann...
+          GPIO.output(27, GPIO.HIGH) # ...schalten wir die LED ein.
+      if statusGPIO17 == 0: # Wenn (if) der Zustand 0 ist, dann...
+          GPIO.output(27, GPIO.LOW) # ...schalten wir die LED aus.
+      time.sleep(0.1) # Wir warten 0.1 s (Raspberry Pi &quot;schlaeft&quot;).
+except KeyboardInterrupt: # Wenn das Programm mit Strg + C unterbrochen wird,
+  GPIO.cleanup() # ... wird noch aufgerauemt.
+</code></pre>
+
+<p>Das Programm sieht unserem ersten Programm sehr ähnlich. Für die LED brauchen wir aber einen GPIO-Pin, der als 
+Ausgang geschaltet ist. Dessen Zustand wir also im Programm bestimmen können und mit dem wir die LED ein- bzw. 
+ausschalten können. Der GPIO-Pin kann auch wieder die Zustände 1 (HIGH = 3,3 V = LED-EIN) und 0 (LOW = 0 V = LED-AUS)<br>
+annehmen.</p>
+<ul>
+<li>
+<p>Nun speichern wir unser Programm und staren es mit <strong>Run</strong> oder <code>F5</code>. </p>
+</li>
+<li>
+<p>Jetzte können wir unesere Lichtautomatik testen. Beim Abdunkeln müsste die LED jetzt eingeschaltet werden.</p>
+</li>
+<li>
+<p>Wenn wir das Programm beenden wollen, können wir einfach wieder <code>Strg + c</code> drücken und unsere Dauerschleife wird 
+gestoppt.</p>
+</li>
+</ul>
+<p><span style="color:#5882FA; font-size: 12pt ">7. </span>Aufgrund unserer Beobachtungen der vergangenen Versuche lässt 
+sich ein Grundprinzip der digitalen Messwerterfassung erkennen, das in der nachfolgenden Abbildung links dargestellt 
+ist. Ergänzen Sie die allgemeine Darstellung mit den folgenden Begriffen aus dem Beispiel der Lichtautomatik:</p>
+<p>beleuchtungsabhängiger Widerstand, Beleuchtungsstärke, GPIO-Pin, LED-Ein / LED-Aus, Spannungsteiler  </p>
+<p><img alt="" src="images/course/measuring_chain.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<h1>5. Wir bauen ein digitales Thermometer</h1>
+<p><img alt="" src="images/course/tree_adc.png"></p>
+<p>Bevor wir gleich zum Thermometer kommen, müssen wir zuerst ein bisschen ausholen. Wenn die Person am Boden wissen 
+möchte, wo genau sich ihr Freund befindet, hilft ihr die Antwort "Auf Stufe 10!" sicher mehr weiter als "In der 
+Baumkrone!". </p>
+<p>Wir haben in diesem Beispiel auch digitale Werte:</p>
+<ul>
+<li>im Falle der Antwort "In der Baumkrone!" genau zwei ("In der Baumkrone" = 1, "Nicht in der Baumkrone" = 0).</li>
+<li>im Falle der Antwort "Auf Stufe 10!" genau so viele mögliche Werte, wie die Leiter Stufen hat.</li>
+</ul>
+<p>Noch präziser wüsste die Person am Boden Bescheid, wenn die Leiter extrem viele dicht beieinander liegende Stufen 
+hätte. Wir könnten die Höhe also noch besser auflösen (d.h. präziser angeben).</p>
+<p>Was hat das aber jetzt mit unserem digitalen Thermometer zu tun? Im Beispiel unserer Lichtautomatik haben wir gesehen, 
+dass wir mittels der GPIO-Pins eine Digitalisierung (0 und 1) vornehmen können. Für ein Thermometer wäre so eine Form 
+der Digitalisierung jedoch nicht wirklich zufriedenstellend. Wir könnten ja nur zwei Werte unterscheiden (warm und 
+kalt). Wir brauchen also etwas mit der Leiter Vergleichbares, das uns eine fein gestufte Digitalisierung ermöglicht, 
+sodass wir Temperaturwerte ermitteln können.</p>
+<div style="page-break-after: always;"></div>
+
+<h3>Die Analog-Digital-Wandlung (AD-Wandlung)</h3>
+<p><img alt="" src="images/course/analog_digital_signal.PNG"></p>
+<p>Der Analog-Digital-Wandler wandelt ein analoges in ein digitales Signal. Das heißt er wandelt ein kontinuierliches 
+Signal mit unendlich vielen Signalwerten in eine Folge von Wertepaaren aus einem Zeitwert und einem Signalwert um. Es 
+wird zu festen Zeitpunkten (Abtastung) je ein Signalwert erfasst. Die Signalwerte können dabei nur die Werte 
+festgelegter Stufen (Quantisierung) annehmen. Dabei wird immer zur nächstgelegenen Stufe gerundet. </p>
+<p>Da die Signalwerte nur in Stufen erfasst werden können, entsteht bei der Analog-Digital-Wandlung immer ein Fehler, der 
+Quantisierungsfehler. Dieser ist, wie beim Beispiel der Leiter, umso kleiner, je geringer der Abstand zwischen den 
+Stufen (Auflösung  <em>U<sub>LSB</sub></em> ) ist. Auch durch die Abtastung gehen uns Informationen verloren. Wir kennen immer 
+nur zu diskreten Zeitpunkten den Signalwert und können über den Signalwert zwischen zwei Abtastzeitpunkten keine 
+Aussage treffen.</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span>Beschriften Sie die beiden oben abgebildeten Signale mit 
+den Begriffen "analoges Signal" bzw. "digitales Signal".</p>
+<div style="page-break-after: always;"></div>
+
+<h3>Schaltungsentwurf</h3>
+<p>Nun aber zum Bau unseres digitalen Thermometers. Wie auch bei der Lichtautomatik kommt auch hier wieder ein 
+veränderlicher Widerstand, der NTC-Widerstand, zum Einsatz. Dieser ist temperaturabhängig.</p>
+<p>Betrachten wir zuerst seine Kennlinie.</p>
+<p><img alt="" src="images/course/ntc_characteristic.png"></p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 2: </span> Formulieren Sie auf Grundlage der Abbildung einen 
+Merksatz, wie sich der ohmsche Widerstand des NTC-Widerstands in Abhängigkeit von der Temperatur verhält.</p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 3: </span>Ergänzen Sie die nachfolgende Schaltung so, dass sich 
+die am Anschlusspin des AD-Wandlers anliegende elektrische Spannung <em>U<sub>2</sub></em> erhöht, wenn die Temperatur steigt 
+(Tipp: Spannungsteiler).</p>
+<p><img alt="" src="images/course/voltage_divider_NTC.PNG"></p>
+<p>Mit der entworfenen Schaltung haben wir nun die Grundlage für unser Thermometer gelegt. Der Spannungsteiler mit dem 
+NTC-Widerstand stellt uns ein temperaturabhängiges analoges Spannungssignal zur Verfügung. Nun müssen wir uns noch um 
+die Digitalisierung dieses Spannungssignals und die Berechnung des Temperaturwerts kümmern.</p>
+<h3>Realisierung des digitalen Thermometers</h3>
+<p><strong>Material:</strong></p>
+<ul>
+<li>10 k&Omega; Widerstand (Farbcode: braun, schwarz, schwarz, rot, braun)</li>
+<li>NTC-Widerstand (<strong>N</strong>egative <strong>T</strong>emperature <strong>C</strong>oefficient) <em>R<sub>25</sub></em> = 10 k&Omega;</li>
+<li>AD-Wandler ADS1115</li>
+<li>Breadboard mit Spannungsversorgung und Netzteil</li>
+<li>Breadboard-Leitungen in verschiedenen Farben</li>
+<li>Raspberry Pi</li>
+<li>Flachbandkabel</li>
+<li>Wasserkocher</li>
+<li>Bechergläser</li>
+<li>Flüssigkeitsthermometer</li>
+<li>Glasstab zum Rühren</li>
+</ul>
+<div style="page-break-after: always;"></div>
+
+<p><strong>Durchführung</strong>:</p>
+<p><span style="color:#5882FA; font-size: 12pt ">1. </span>Ergänzen Sie den nachfolgenden Schaltungsaufbau auf dem 
+Breadboard durch Leitungen, sodass der Spannungsteiler aus 10 k&Omega; Widerstand und NTC-Widerstand der oben 
+entworfenen Schaltung entspricht.</p>
+<p><img alt="" src="images/course/breadboard_ntc.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">2. </span>Bauen Sie die Schaltung auf dem Breadboard auf. Aus der 
+nachfolgenden Tabelle kann entnommen werden, wie der AD-Wandler auf dem Breadboard anzuschließen ist.</p>
+<table>
+<thead>
+<tr>
+<th>Anschlüsse AD-Wandler ADS1115</th>
+<th>Anschlüsse Breadboard / GPIO-Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VDD</td>
+<td>5 V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>SDL</td>
+<td>GPIO-Pin SCL</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td>GPIO-Pin SDA</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>Spannungsteiler (zwischen 10 k&Omega;- und NTC-Widerstand)</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:#5882FA; font-size: 12pt ">3. </span>Nun haben wir unsere Schaltung für das digitale Thermometer 
+aufgebaut und können uns um ein Programm zur Auswertung kümmern:</p>
+<ul>
+<li>
+<p>Dazu öffnen wir wieder das Programm <strong>Python 3 (IDLE)</strong> und erstellen eine Programmdatei <strong>thermometer.py</strong>.</p>
+</li>
+<li>
+<p>Nun können wir unseren Programmcode zur Auswertung erstellen:</p>
+</li>
+</ul>
+<pre><code class="python">import Adafruit_ADS1x15 # Wir importieren die Bibliothek für den AD-Wandler.
+import time # Wir importieren die Bibliothek &quot;time&quot;.
+adWandler = Adafruit_ADS1x15.ADS1115() # Wir nennen unseren ADS1115 adWandler.
+
+while True: # Dauerschleife.
+    adWert = adWandler.read_adc(0,2/3)  # aktuellen Wert des AD-Wandlers am Anschluss A0 lesen und speichern.
+    print(&quot;Aktueller Wert AD-Wandler:&quot;) # Wir geben den Text &quot;Aktueller Wert des Ad-Wandlers:&quot; aus.
+    print(adWert) # Wir geben den aktuellen Wert des AD-Wandlers aus.
+    time.sleep(1) # Wir warten 1 s (Raspberry Pi &quot;schlaeft&quot;).
+</code></pre>
+
+<p>Unser Programm macht nun Folgendes: Es fragt den digitalisierten Signalwert am Anschluss A0 des AD-Wandlers ab und 
+gibt diesen aus. Dann wartet es eine Sekunde und fragt anschließend den nächsten Wert ab, usw..</p>
+<ul>
+<li>
+<p>Wir speichern unser Programm und starten es mit <strong>Run</strong> oder <code>F5</code>.</p>
+</li>
+<li>
+<p>Notieren Sie den angezeigten Wert (ungefähr) bei Zimmertemperatur. Was passiert, wenn der NTC-Widerstand zwischen den 
+Handflächen auf Handtemperatur gebracht wird? Notieren Sie Ihre Beobachtungen.</p>
+</li>
+</ul>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<ul>
+<li>Danach unterbrechen wir unsere Dauerschleife und damit unser Programm wieder  mit <code>Strg + c</code>.</li>
+</ul>
+<p><span style="color:#5882FA; font-size: 12pt ">4. </span>Eigentlich interessiert uns ja der Spannungswert am Anschluss 
+A0 des AD-Wandlers, um aus diesem Wert eine Temperatur bestimmen zu können. Was haben die beobachteten Werte aber jetzt 
+mit diesem Spannungswert zu tun? </p>
+<p>Die Werte geben Auskunft darüber, welche Stufe dem Signal am Anschluss A0 bei der Digitalisierung zugeordnet wurde. Wir 
+müssen also diesen Wert noch einer Spannungsstufe zuordnen.</p>
+<p>Dazu müssen wir zunächst einmal die Auflösung unseres AD-Wandlers kennen, also wissen, "wie hoch" eine einzelne Stufe 
+ist. Unser AD-Wandler (ADS1115) verfügt über 32767 Stufen. Bei jeder Abtastung ordnet er dem analogen Signal am 
+Anschluss A0 eine bestimmte Stufe zu. Jetzt müssen wir also nur noch wissen, welcher Spannungsdifferenz eine Stufe 
+entspricht. Unser AD-Wandler (ADS1115) ist so programmiert, dass er Spannungswerte von 0 V bis 6,114 V digitalisieren 
+kann.</p>
+<ul>
+<li>Berechnen Sie mit den gegebenen Informationen:</li>
+</ul>
+<p>Welcher Spannungsdifferenz entspricht eine Stufe ( &#8793; Auflösung &#8793; <em>U<sub>LSB</sub></em>) ? Vervollständigen 
+Sie dazu die nachfolgende Gleichung und berechnen Sie die Auflösung.</p>
+<p>
+<script type="math/tex; mode=display">
+  Auflösung = U_{LSB}=
+</script>
+</p>
+<ul>
+<li>
+<p>Wie wir feststellen ist dieser Wert sehr klein, sodass die zu messende Spannung in sehr kleinen Stufen aufgelöst 
+werden kann.</p>
+</li>
+<li>
+<p>Ergänzen Sie die fehlenden Werte in der nachfolgenden Tabelle.</p>
+<table>
+<thead>
+<tr>
+<th>Stufe</th>
+<th align="center">&#x27F9;</th>
+<th>digitalisierte Spannung in V</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td align="center">&#x27F9;</td>
+<td>0</td>
+</tr>
+<tr>
+<td>32767</td>
+<td align="center">&#x27F9;</td>
+<td>6,114</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="center">&#x27F9;</td>
+<td></td>
+</tr>
+<tr>
+<td>518</td>
+<td align="center">&#x27F9;</td>
+<td></td>
+</tr>
+<tr>
+<td>16383</td>
+<td align="center">&#x27F9;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Jetzt müssen wir noch unser Programm so ergänzen, dass wir nicht mehr den Wert der Stufe, sondern den Wert der 
+digitalisierten Spannung angezeigt bekommen. Dazu müssen wir das nachfolgende Programm noch so ergänzen, dass in Zeile 
+4 die Auflösung berechnet wird und der Variablen <code>aufloesung</code> zugewiesen wird. Außerdem müssen wir noch in Zeile 6 die 
+Berechnung des digitalisierten  Spannungswerts ergänzen. </p>
+</li>
+<li>
+<p>Ergänzen Sie das Programm <strong>thermometer.py</strong> entsprechend.</p>
+<p><span style="color:crimson">Achtung: Beim Programmieren entspricht ein Punkt einem Komma ( also 6.114 &#8793;<br>
+6,114)! </span></p>
+</li>
+</ul>
+<pre><code class="python">import Adafruit_ADS1x15 # Wir importieren die Bibliothek für den AD-Wandler.
+import time # Wir importieren die Bibliothek &quot;time&quot;.
+adWandler = Adafruit_ADS1x15.ADS1115() # Wir nennen unseren ADS1115 adWandler.
+aufloesung = 6.114/32767 # Hier berechnen wir die Aufloesung.
+while True: # Dauerschleife.
+    adWert = adWandler.read_adc(0,2/3) * aufloesung # aktuellen Wert des AD-Wandlers lesen und rechnen diesen in eine 
+digitalisierte Spannung um.
+    print(&quot;Aktueller Wert AD-Wandler:&quot;) # Wir geben den Text &quot;Aktueller Wert des AD-Wandlers:&quot; aus.
+    print(adWert) # Wir geben den Wert der digitalisierten Spannung aus.
+    print(&quot;V&quot;) # Wir geben die Einheit V aus.
+    time.sleep(1) # Wir warten 1 s (Raspberry Pi &quot;schlaeft&quot;).
+</code></pre>
+
+<ul>
+<li>
+<p>Jetzt können wir unser Programm testen. Dazu speichern wir die Programmdatei und starten diese mit <strong>Run</strong> oder 
+<code>F5</code>. </p>
+</li>
+<li>
+<p>Notieren Sie den ungefähren Spannungswert bei Zimmertemperatur. Was passiert, wenn der NTC-Widerstand zwischen den 
+Handflächen auf Handtemperatur gebracht wird? Notieren Sie Ihre Beobachtungen.</p>
+</li>
+</ul>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt ">5. </span>Auf unserem Weg zu einem digitalen Thermometer fehlt uns noch 
+etwas. Der Raspberry Pi gibt uns bisher nur digitalisierte Spannungswerte aus. Wir müssen uns also noch darum kümmern, 
+dass wir diese Spannungswerte in Temperaturen umrechnen können. Diesen Schritt nennt man Kalibrierung.</p>
+<p>Bei der Kalibrierung müssen wir unsere digitalisierten Spannungswerte mit den zugehörigen Temperaturwerten verknüpfen. 
+Wir erhalten so Wertepaare aus einem Spannungs- und einem Temperaturwert. Auf Grundlage dieser Wertepaare kann der 
+Raspberry Pi dann aus den digitalisierten Spannungswerten die zugehörige Temperatur berechnen.</p>
+<p>Führen wir also die Kalibrierung durch:</p>
+<ul>
+<li>Dazu nehmen wir im Bereich zwischen 20 °C und 50 °C in Intervallen von ca. 10 °C die zugehörigen digitalisierten 
+Spannungswerte auf:</li>
+</ul>
+<p>Die benötigten Wassertemperaturen erhalten wir durch entsprechendes Mischen von Wasser aus dem Wasserkocher und dem 
+Wasserhahn. Die Temperatur messen wir mit dem Flüssigkeitsthermometer. Füllen Sie die nachfolgende Tabelle aus.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1.</th>
+<th>2.</th>
+<th>3.</th>
+<th>4.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperatur <em>T</em> in °C</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Spannung <em>U</em> in V</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Zeichnen Sie die Wertepaare in ein Diagramm ein und verbinden Sie die Messpunkte sinnvoll zu einer Kurve 
+(nachfolgende Lücke).</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;
+- Lesen Sie aus dem Diagramm den ungefähr erwarteten digitalisierten Spannungswert für eine Temperatur von 35 °C ab und 
+notieren Sie diesen.</p>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt; ">6. </span>Die ermittelten Kalibrationswerte können wir nun nutzen, um 
+mit der digitalisierten Messspannung des AD-Wandlers Temperaturwerte zu berechnen. Dabei gehen wir ähnlich vor wie beim 
+sinnvollen Verbinden der Messwerte von Hand im Diagramm (vergleiche Aufgabe zuvor). </p>
+<p>Wir lassen den Raspberry Pi eine Funktion berechnen, deren Verlauf unsere Messpunkte möglichst günstig verbindet. Mit 
+dieser Funktion können wir dann für jeden gemessenen digitalen Spannungswert die zugehörige Temperatur berechnen. Je 
+mehr Wertepaare man für die Kalibrierung besitzt und je genauer diese bestimmt wurden, desto genauer sind auch die 
+ermittelten Temperaturwerte.</p>
+<p>Ergänzen wir also die Berechnung der Temperatur:</p>
+<ul>
+<li>
+<p>Dazu öffnen wir wieder unser Programm <strong>thermometer.py</strong>.</p>
+</li>
+<li>
+<p>Nun können wir unser Programm um die Berechnung der Temperaturwerte ergänzen. Wir müssen für Wert1 bis Wert4 die 
+Werte aus der Kalibrierung für Spannung bzw. für die Temperatur angeben (ohne Einheiten). <span 
+style="color:crimson">Achtung: Aufsteigende Reihenfolge der Werte anwenden! </span></p>
+</li>
+</ul>
+<pre><code class="python">import Adafruit_ADS1x15 # Wir importieren die Bibliothek für den AD-Wandler.
+from scipy.interpolate import UnivariateSpline # Wir importieren die Bibliothek für die Interpolation.
+import time # Wir importieren die Bibliothek &quot;time&quot;.
+
+adWandler = Adafruit_ADS1x15.ADS1115() # Wir nennen unseren ADS1115 adWandler.
+aufloesung = 6.114/32767 # Wir berechnen die Aufloesung des AD-Wandlers.
+U = [Wert1, Wert2, Wert3 , Wert4] # Spannungswerte aus der Kalibrierung.
+T = [Wert1, Wert2, Wert3 , Wert4] # Temperaturwerte aus der Kalibrierung.
+kalibFunkt = UnivariateSpline(U,T) # Wir berechnen die Kalibrierungsfunktion.
+
+while True: # Dauerschleife.
+    adWert = adWandler.read_adc(0,2/3) * aufloesung # Wert Ad-Wandler.
+    temperatur = kalibFunkt(adWert) # Berechnen der Temperatur aus digitalisierten Spannung des AD-Wandlers.
+    temperatur = round(float(temperatur),1) # Runden des Temperaturwerts auf eine Nachkommastelle.
+    print(&quot;Temperatur:&quot;) # Wir geben den Text &quot;Temperatur&quot; aus.
+    print(temperatur) # Wir geben den Wert der Temperatur aus.
+    print(&quot;°C&quot;) # Wir geben die Einheit °C aus.
+
+    time.sleep(1) # Wir warten 1 s (Raspberry Pi &quot;schlaeft&quot;).
+</code></pre>
+
+<ul>
+<li>
+<p>Wir speichern unsere Programmdatei wieder und starten das Programm mit <strong>Run</strong> oder <code>F5</code>.</p>
+</li>
+<li>
+<p>Nun können wir unser digitales Thermometer testen.</p>
+</li>
+<li>
+<p>Das Programm beenden wir wieder mit <code>Strg + c</code>.</p>
+</li>
+</ul>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 4: </span>Das im Beispiel der Lichtautomatik kennengelernte 
+Grundprinzip der digitalen Messwerterfassung lässt sich auch auf unser digitales Thermometer übertragen.</p>
+<p>Ergänzen Sie die fehlenden Begriffe für unser Beispiel des digitalen Thermometers.</p>
+<p><img alt="" src="images/course/measuring_chain_NTC.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<h1>6. Wir untersuchen die Lade- und Entladekurve eines Kondensators</h1>
+<p><strong>Material:</strong></p>
+<ul>
+<li>1 k&Omega; Widerstand (Farbcode: braun, schwarz, schwarz, braun, braun)</li>
+<li>100 k&Omega; Widerstand (Farbcode: braun, schwarz, schwarz, orange, braun)</li>
+<li>Elektrolytkondensator 10 μF</li>
+<li>Fotowiderstand (LDR Typ5516)</li>
+<li>AD-Wandler ADS1115</li>
+<li>Breadboard mit Spannungsversorgung und Netzteil</li>
+<li>Breadboard-Leitungen in verschiedenen Farben</li>
+<li>Raspberry Pi</li>
+<li>Flachbandkabel</li>
+</ul>
+<p><strong>Durchführung:</strong></p>
+<p>In dieser Aufgabe soll die Spannung beim Laden und Entladen eines Kondensators dargestellt werden. Dazu legen wir 
+zunächst die Lade- bzw. Entladezeit für unsere Schaltung fest.</p>
+<p>Das Produkt aus Widerstand und Kapazität ergibt <strong>τ (Tau) = R* C</strong> und wird die Zeitkonstante genannt. Mit dieser ist 
+man in der Lage zu berechnen wann der Kondensator „voll“ geladen ist, oder zum Beispiel 63,2%, was genau einem <strong>τ</strong> 
+entsprechen würde. In der Tabelle findest du noch mehr Werte für verschiedene τ‘s.</p>
+<table>
+<thead>
+<tr>
+<th>τ (Tau)</th>
+<th>Laden: Uc(t) [%]</th>
+<th>Entladen auf: Uc(t) [%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1τ</td>
+<td>63,2</td>
+<td>36,8</td>
+</tr>
+<tr>
+<td>2τ</td>
+<td>86,5</td>
+<td>13,5</td>
+</tr>
+<tr>
+<td>3τ</td>
+<td>95,0</td>
+<td>5,0</td>
+</tr>
+<tr>
+<td>4τ</td>
+<td>98,2</td>
+<td>1,8</td>
+</tr>
+<tr>
+<td>5τ</td>
+<td>99,3</td>
+<td>0,7</td>
+</tr>
+</tbody>
+</table>
+<p>Man erkennt deutlich, dass nach 5τ der Kondensator nahezu voll geladen ist. Wir möchten in unserem Diagramm innerhalb 
+von 10 Sekunden eine Lade- sowie eine Entladekurve darstellen.</p>
+<p>Wieviel Sekunden entspricht also in unserem Fall 5τ, wieviel 1τ?
+Notieren Sie Ihr Ergebnis in der Tabelle.</p>
+<table>
+<thead>
+<tr>
+<th>τ</th>
+<th>t [s]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Wir haben einen 10μF Elektrolytkondensator zur Verfügung. Wie groß müssen wir den Widerstand R1 wählen? Berechne. (Zur 
+Auswahl: 1k&Omega; und 100k&Omega;)</p>
+<p>R1 =</p>
+<p>Nachfolgend ist die zu vermessende Reihenschaltung aus Widerstand R1 und Kondensator C1 dargestellt. Das Potential 
+Uc(t) wollen wir über der Zeit t auftragen. Kannst du auf der nächsten Seite bereits mit Bleistift einen Kurvenverlauf 
+mit Hilfe der Tabelle und der berechneten Werte einzeichnen?</p>
+<p><img alt="" src="images/course/cap_schematics_diagramm.png"></p>
+<p>Nun möchten wir die Kondensatorspannung Uc(t) mittels dem Analog-Digital-Wandler ADS1115 messen. Dieser wird über den 
+I2C-BUS (Signal SDA und SCL) an den Raspberry Pi angebunden und mit Hilfe von PhyPiDAQ ausgelesen. Gleichzeitig 
+schreiben wir ein kleines Stück Code, welches den Kondensator lädt während der LDR beleuchtet wird und wieder entlädt, 
+wenn wenig Licht auf den LDR fällt.
+Dazu bauen wir zunächst folgende Schaltung auf dem Breadboard auf: (Netzteil noch nicht einstecken oder Flachbandkabel 
+entfernen!)</p>
+<p><img alt="" src="images/course/cap_fritzing.png"></p>
+<p>Nachdem wir sicher sind, dass alles korrekt aufgebaut ist wird das Netzteil und das Flachbandkabel eingesteckt. </p>
+<p>Nun gehen wir analog wie bei der bereits programmierten Lichtsteuerung (3.6) vor und möchten den LDR zur Steuerung des 
+Lade- und Entladevorgangs nutzen. Dazu verwenden wir die bereits programmierte Datei wieder. </p>
+<p>Tipp: Die Tabulatortaste vervollständigt in der Konsole die Eingaben, sobald sie eindeutig sind!</p>
+<p>• In der Konsole wechseln wir mit dem Befehl <code>cd PhyPi/MeineProgramme/</code> in das Arbeitsverzeichnis.
+• Jetzt können wir mit dem Befehl <code>ls</code> den Inhalt des Ordners anzeigen und finden die Datei lichtautomatik.py 
+wieder, welche wir mit <code>cp lichtautomatik.py ladesteuerung.py</code> kopieren. 
+• Diese Datei öffnen wir nun mittels <code>idle ladesteuerung.py</code></p>
+<p>Ändern Sie nun bei GPIO.setup(), sowie auch im weiteren Programm die Werte der GPIO’s ab, an die Sie den Ausgang 
+(Ladesignal) und Eingang (LDR) angeschlossen haben. </p>
+<pre><code class="python">import RPi.GPIO as GPIO         # Wir importieren die Bibliothek GPIO.
+import time                     # Wir importieren die Bibliothek &quot;time&quot;.
+
+GPIO.setmode(GPIO.BCM)      # Wir geben an, wie die GPIO-Pins nummeriert sind.
+GPIO.setup(17, GPIO.IN)         # GPIO-Pin 17 wird als Eingang festgelegt.
+GPIO.setup(26, GPIO.OUT)    # GPIO-Pin 27 wird als Ausgang festgelegt.
+
+while True:                     # Dauerschleife (alles eingerueckte danach wird wiederholt).
+    statusGPIO17 = GPIO.input(17)   # Wir fragen den Zustand von GPIO-Pin 17 ab
+    if statusGPIO17 == 1:           # Wenn (if) der Zustand 1 ist, dann...
+      GPIO.output(26, GPIO.HIGH)        # ...schalten wir die LED ein.
+    if statusGPIO17 == 0:           # Wenn (if) der Zustand 0 ist, dann...
+      GPIO.output(26, GPIO.LOW)         # ...schalten wir die LED aus.
+    time.sleep(0.1)                     # Wir warten 0.1 s (Raspberry Pi &quot;schlaeft&quot;).
+</code></pre>
+
+<p>Um das Programm zu starten tippen Sie <code>python3 ladesteuerung.py</code> und bestätigen mit Enter.  </p>
+<p>Zum Beenden würde man nun <code>Strg + c</code> drücken, jedoch wollen wir parallel die Messung in PhyPiDAQ durchführen und 
+starten daher PhyPiDAQ über das Symbol auf dem Desktop.</p>
+<p>Stellen Sie nun den Y-Achsen Bereich auf 0 bis 3,3V ein. Gehen Sie dazu in <code>Configuration -&gt; PhyPiConfig</code> und 
+klicken Sie rechts oben auf <code>Edit-Mode</code> um den Inhalt des Textfeldes ändern zu können.</p>
+<p>Ändere nun (ohne die Anführungszeichen)</p>
+<p>​   "##ChanLimits: "</p>
+<p>​   "- [0., 1.]   # chan 0"</p>
+<p>​   "- [0., 1.]   # chan 1"</p>
+<p>zu</p>
+<p>​   "##ChanLimits: "</p>
+<p>​   "- [0., 3.3]   # chan 0"</p>
+<p>​   "- [0., 3.3]   # chan 1"</p>
+<p>um den Y-Achsen-Bereich beider Kanäle auf 0 bis 3,3V einzustellen und klicke danach auf Save Config. Wechsle nun in den 
+Tab Device Config und aktiviere den entsprechenden ADCChannel. Den Differentialmodus stellen wir auf false und die 
+Samplerate bleibt bei 860.</p>
+<p>Welchen Wert stellen wir für Gain ein um eine Optimale Messung durchführen zu können?</p>
+<h2>&nbsp;</h2>
+<p>&nbsp;</p>
+<p>Stelle den von den gewählten Wert ein und speichern Sie wiederum mit Save Config. Nun starten wir die Datenerfassung im 
+Tab Control indem wir auf StartRun klicken. Überprüfe nun die Funktion der Schaltung und speichere mittels Pause und 
+Save ein Bild der Kurve ab!</p>
+<p>Das Schalten mittels der Helligkeitsänderung genau bei 5 Sekunden ist relativ schwierig. 
+Wie könnte man die Umschaltung automatisieren? </p>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;
+Puffer: Falls noch Zeit ist, dann erstelle ein Duplikat deines Programms und programmiere die Änderung und beobachte 
+das Ergebnis.</p>
+<h1>7. Wir bauen einen digitalen Kraftsensor</h1>
+<p>Wir alle kennen digitale Waagen aus der Küche oder aus dem Bad. Wie funktioniert aber eine solche Waage und wie können 
+wir Komponenten aus einer handelsüblichen Küchenwaage nutzen, um einen digitalen Kraftsensor für Physikexperimente zu 
+bauen?</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 1: </span> Geben Sie die physikalische Größe an, die bei einer 
+Waage gemessen wird.</p>
+<h2>&nbsp;</h2>
+<p>Nachfolgend ist eine handelsübliche günstige Küchenwaage von innen zu sehen. Der längliche Aluminiumstab ist das 
+Herzstück der Waage, eine sogenannte Wägezelle.<br>
+<img alt="" src="images/course/load_cell.PNG"></p>
+<p>Wie funktioniert aber eine solche Wägezelle und wie können wir uns daraus einen digitalen Kraftsensor bauen?</p>
+<p>Die Wägezelle besteht aus einem Federkörper (Doppelbiegebalken), dem Aluminiumstab mit den zwei überlappenden 
+Bohrungen. Dieser verformt sich abhängig von der Größe der eingeleiteten Kraft, vergleichbar mit einer Schraubenfeder 
+(z.B. in einem Federkraftmesser), die sich abhängig von der an ihr ziehenden Kraft verlängert bzw. verkürzt.</p>
+<p><img alt="" src="images/course/sketch_load_cell.PNG"></p>
+<p>Nachfolgend ist eine Prinzipskizze einer solchen Wägezelle dargestellt, in der die durch die eingeleitete Kraft 
+hervorgerufene Verformung stark übertrieben dargestellt ist. Wie bei den vorherigen Sensoren brauchen wir ein 
+auswertbares elektrisches Signal, mit dessen Hilfe wir auf die Größe der eingeleiteten Kraft schließen können. Dazu 
+müssen wir die kraftabhängige Verformung des Federkörpers elektrisch auswerten können. In einer solchen Wägezelle 
+kommen sogenannte Dehnungsmessstreifen zum Einsatz, die aus einem gewundenen Widerstandsdraht mit zwei Anschlüssen 
+bestehen und auf einer Trägerfolie aufgebracht sind. Vier dieser Dehnungsmessstreifen sind so auf dem Federkörper 
+aufgeklebt, dass diese sich Krafteinwirkung gemeinsam mit dem Federkörper verformen.</p>
+<p><img alt="" src="images/course/principle_sketch_load_cell.PNG"></p>
+<p>Die folgende Abbildung zeigt zwei benachbarte, auf einer Wägezelle aufgeklebte Dehnungsmessstreifen. Man kann den 
+gewundenen Widerstandsdraht (Messgitter) jeweils gut an den dicht beieinander liegenden waagerechten Linien erkennen.</p>
+<p><img alt="" src="images/course/image_dms.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 2: </span> Streichen Sie unter Berücksichtigung der Prinzipskizze 
+die falschen Aussagen durch.</p>
+<p>Bei Krafteinwirkung werden die Dehnungsmessstreifen <strong><em>R<sub>1</sub></em></strong> und <strong><em>R<sub>4</sub></em></strong> <em>gedehnt / gestaucht</em>. 
+Der Widerstandsdraht der Dehnungsmessstreifen wird also <em>länger und dünner / kürzer und dicker</em>. Die Länge des Drahtes 
+<strong><em>L</em></strong> <em>vergrößert / verkleinert</em> sich also, während sich der Durchmesser <strong><em>D</em></strong> und damit die Querschnittsfläche 
+<strong><em>A</em></strong> des Drahtes <em>vergrößert / verkleinert</em>.</p>
+<p>Bei Krafteinwirkung werden die Dehnungsmessstreifen <strong><em>R<sub>2</sub></em></strong> und <strong><em>R<sub>3</sub></em></strong> <em>gedehnt / gestaucht</em>. 
+Der Widerstandsdraht der Dehnungsmessstreifen wird also <em>länger und dünner / kürzer und dicker</em>. Die Länge des Drahtes 
+<strong><em>L</em></strong> <em>vergrößert / verkleinert</em> sich also, während sich der Durchmesser <strong><em>D</em></strong> und damit die Querschnittsfläche 
+<strong><em>A</em></strong> des Drahtes <em>vergrößert / verkleinert</em>.</p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 3: </span> </p>
+<p>Für den unbelasteten Dehnungsmessstreifen ergibt sich mit dem spezifischen Widerstand des Drahtes <strong><em>&rho;</em></strong> für den 
+Widerstand <strong><em>R</em></strong>:
+<script type="math/tex; mode=display">
+R=\rho\cdot\frac{L}{A}=\rho\cdot\frac{4 \cdot L}{D^2 \cdot \pi}
+</script>
+Ergänzen Sie das folgende Schema mit Hilfe der Gleichung oben. Setzen Sie dazu folgende Begriffe passend ein: <em>gedehnt, 
+gestaucht, größer, kleiner</em></p>
+<p><img alt="" src="images/course/dms_behavior.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<h3>Schaltungsentwurf</h3>
+<p>Unser digitaler Kraftsensor folgt dem gleichen Grundprinzip der digitalen Messwerterfassung wie die Lichtautomatik oder 
+das digitale Thermometer. </p>
+<p><img alt="" src="images/course/measuring_chain_force.PNG"></p>
+<p>Zur Erinnerung: Unser Ziel ist es ja, Kräfte digital messen zu können. Durch die Dehnungsmessstreifen auf dem 
+Federkörper der Wägezelle sind wir in der Lage, die durch die Krafteinwirkung verursachte Dehnung in eine 
+Widerstandsänderung zu wandeln. Damit wir diese Widerstandsänderung digitalisieren können, müssen wir diese noch in ein 
+weiterverarbeitbares elektrisches Signal wandeln, das wir mit unserem AD-Wandler digitalisieren können.</p>
+<p><strong>Problem:</strong> Die Widerstandsänderung der Dehnungsmessstreifen ist sehr klein. Mit einem Spannungsteiler wie beim 
+digitalen Thermometer erhalten wir kein auswertbares Spannungssignal.</p>
+<p><strong>Lösungsansatz:</strong> Wir brauchen eine Schaltung, die empfindlich auf kleine Widerstandänderungen reagiert und diese in 
+eine auswertbare Spannung wandelt. In der Messtechnik kommt dabei eine Brückenschaltung (Wheatstonesche Messbrücke) zum 
+Einsatz.</p>
+<p>Dazu benutzt man zwei parallele Spannungsteiler aus insgesamt vier Widerständen, die zusammen eine Brückenschaltung 
+bilden.</p>
+<p><img alt="" src="images/course/wheatstone_bridge.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 4: </span> Berechnen Sie die Spannungsverhältnisse für die beiden 
+Spannungsteiler für den Fall, dass die Wägezelle unbelastet ist und alle vier Widerstände <em>R<sub>1</sub></em> = 
+<em>R<sub>2</sub></em> = <em>R<sub>3</sub></em> = <em>R<sub>4</sub></em> = <em>R</em> = 1000 &Omega; groß sind. Zur Erinnerung: Die Spannungen in 
+einem Spannungsteiler verhalten sich immer wie die zugehörigen Widerstände. Damit ergeben sich für die Verhältnisse 
+folgende Gleichungen:
+<script type="math/tex; mode=display">
+\frac{U_1}{U_2}=\frac{R_1}{R_{2}}
+</script>
+bzw.
+<script type="math/tex; mode=display">
+\frac{U_3}{U_4}=\frac{R_3}{R_{4}}
+</script>
+&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 5: </span> Notieren Sie: Was ergibt sich damit für die Spannungen 
+<em>U<sub>1</sub></em> , <em>U<sub>2</sub></em> , <em>U<sub>3</sub></em>  und <em>U<sub>4</sub></em>, wenn die Gesamtspannung <em>U<sub>0</sub></em> = 5 V 
+beträgt?</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 6: </span> Aus den Teilspannungen können wir nun mit Hilfe der 
+Maschenregel (2. Kirchhoffsches Gesetz), die für uns relevante Messspannung <em>U<sub>M</sub></em> berechnen. Dazu schauen wir 
+uns die Masche aus <em>U<sub>2</sub></em> , <em>U<sub>4</sub></em>  und <em>U<sub>M</sub></em> an (grüner Pfeil in der Abbildung der 
+Schaltung).</p>
+<p>Zur Erinnerung hier noch einmal die Maschenregel:<br>
+Die Summe aller Teilspannungen längs einer geschlossenen Masche ist gleich null.</p>
+<p>Stellen Sie mit Hilfe der Maschenregel die Gleichung für die Messspannung <em>U<sub>M</sub></em> in Abhängigkeit von 
+<em>U<sub>2</sub></em> und <em>U<sub>4</sub></em> auf.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 7: </span> Notieren Sie: Was gilt für die Messspannung 
+<em>U<sub>M</sub></em> mit den Ergebnissen für die Spannungen <em>U<sub>2</sub></em> und <em>U<sub>4</sub></em> aus Aufgabe 5? </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 8: </span> Denken wir noch einmal zurück an die 
+Dehnungsmessstreifen auf der Wägezelle. Wirkt eine Kraft auf die Wägezelle, so werden die Dehnungsmessstreifen 
+<em>R<sub>1</sub></em> und <em>R<sub>4</sub></em> gedehnt und ihr ohmscher Widerstand erhöht sich. Die Dehnungsmessstreifen 
+<em>R<sub>2</sub></em> und <em>R<sub>3</sub></em> werden hingegen gestaucht und ihr ohmscher Widerstand verringert sich.</p>
+<p>Beschreiben Sie, wie sich die Spannungen <em>U<sub>1</sub></em> , <em>U<sub>2</sub></em> , <em>U<sub>3</sub></em>  und <em>U<sub>4</sub></em> 
+verändern, wenn eine Kraft auf die Wägezelle wirkt. Notieren Sie die Gleichungen, mit deren Hilfe Sie zu den 
+Ergebnissen gekommen sind.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#5882FA; font-size: 12pt">Aufgabe 9: </span> Beschreiben Sie: Wie verändert sich mit den Ergebnissen 
+aus Aufgabe 8 (belastete Wägezelle) die Messspannung <em>U<sub>M</sub></em> gegenüber Aufgabe 7 (unbelastete Wägezelle)?</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Unsere Erkenntnis aus den Aufgaben zuvor ist also, dass man mit Hilfe einer Brückenschaltung (Wheatstonesche 
+Messbrücke) kleine Widerstandänderungen detektieren und in ein weiterverarbeitbares Spannungssignal wandeln kann. 
+Ergänzen wir nun also unser Schema zum Grundprinzip der digitalen Messwerterfassung.</p>
+<p><img alt="" src="images/course/measuring_chain_force_2.PNG"></p>
+<p>Auf unserem Weg zu einem digitalen Kraftsensor steht nun also die Digitalisierung an. Damit wir für die weiteren 
+Schritte auf unsere Messergebnisse zugreifen können, nutzen wir das das Programm <code>phypi.py</code>. Hier haben wir die 
+Möglichkeiten uns die digitalisierten Messwerte grafisch anzeigen zu lassen und können diese zur Auswertung 
+abspeichern. Im Hintergrund laufen dabei dieselben Schritte ab, wie wir sie beim digitalen Thermometer in unseren 
+eigenen Programmen durchgeführt haben.</p>
+<div style="page-break-after: always;"></div>
+
+<h3>Realisierung des digitalen Kraftsensors</h3>
+<p><strong>Material:</strong></p>
+<ul>
+<li>Kraftsensor, Wägezelle TAL220B</li>
+<li>AD-Wandler ADS1115</li>
+<li>Breadboard mit Spannungsversorgung und Netzteil</li>
+<li>Breadboard-Leitungen in verschiedenen Farben</li>
+<li>Raspberry Pi</li>
+<li>Flachbandkabel</li>
+<li>Instrumentenverstärker AD 623 ANZ</li>
+<li>2 x 10 k&Omega; Widerstand (Farbcode: braun, schwarz, schwarz, rot, braun)</li>
+<li>200 &Omega; Widerstand (Farbcode: rot, schwarz, schwarz, schwarz, braun)</li>
+<li>Keramikkondensator 0,1 µF</li>
+<li>Elektrolytkondensator 10 µF</li>
+<li>5 x Massestück 100 g</li>
+<li>Schraubenfeder <em>D</em> = 10 N/m</li>
+</ul>
+<p><strong>Durchführung:</strong></p>
+<p><span style="color:#5882FA; font-size: 12pt ">1. </span>Bauen Sie die nachfolgende Schaltung auf dem Breadboard auf. 
+Aus den Tabellen kann entnommen werden, wie der AD-Wandler und die Wägezelle auf dem Breadboard anzuschließen ist. 
+Zwischen der grünen und der weißen Messleitung können wir die Messspannung <em>U<sub>M</sub></em> unserer Brückenschaltung 
+messen.</p>
+<p><img alt="" src="images/course/breadboard_force_sensor.PNG"></p>
+<table>
+<thead>
+<tr>
+<th>Anschlüsse Wägezelle</th>
+<th>Anschlüsse Breadboard / GPIO-Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rote Anschlussleitung</td>
+<td>5 V</td>
+</tr>
+<tr>
+<td>schwarze Anschlussleitung</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>grüne Anschlussleitung</td>
+<td>A0 (AD-Wandler ADS1115)</td>
+</tr>
+<tr>
+<td>weiße Anschlussleitung</td>
+<td>A1 (AD-Wandler ADS1115)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Anschlüsse AD-Wandler ADS1115</th>
+<th>Anschlüsse Breadboard / GPIO-Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VDD</td>
+<td>5 V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>SDL</td>
+<td>GPIO-Pin SCL</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td>GPIO-Pin SDA</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>grüne Leitung der Wägezelle</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>weiße Signalleitung der Wägezelle</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:#5882FA; font-size: 12pt ">2. </span> Befestigen Sie die Wägezelle so an einem Stativ, dass der auf 
+der Stirnseite abgebildete Pfeil nach unten zeigt. Wir benutzen eine Wägezelle, die in Waagen bis 500 g eingesetzt 
+wird. Diese hat im Gegensatz zur Wägezelle aus der 5 kg - Küchenwaage nicht nur zwei Bohrungen, sondern einen 
+länglichen Schlitz zwischen den Bohrungen, sodass ebenfalls oben und unten Biegebalken entstehen. Diese Konstruktion 
+ist nur notwendig, um eine höhere Empfindlichkeit zu ermöglichen, funktioniert aber genauso wie bei der Wägezelle oben. 
+Das folgende Bild zeigt einen möglichen Aufbau (hier bereits mit Massestücken belastet). </p>
+<p><img alt="" src="images/course/tripod_force_sensor.png"></p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt ">3. </span>Wenn wir die Schaltung aufgebaut haben und die Wägezelle am 
+Stativ angebracht haben, können wir unseren digitalen Kraftsensor das erste mal testen. Dazu starten wir das Programm 
+"PhyPi" auf dem Desktop des Raspberry Pi mit einem Doppelklick.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">4. </span> Jetzt können wir uns die mit Hilfe des AD-Wandlers die 
+digitalisierte Messspannung <em>U<sub>M</sub></em> anzeigen lassen. Dafür müssen wir zuerst noch den AD-Wandler passend 
+konfigurieren. Dazu gehen wir über den Reiter Configuration auf die Device Config des ADS1115 und aktivieren den Edit 
+Mode oben rechts.</p>
+<p><img alt="" src="images/course/config_ads1115_force_sensor.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">5. </span>Da wir bereits wissen, dass die Widerstandsänderungen der 
+Dehnungsmessstreifen und auch unserer Messspannung sehr klein sind, machen wir uns noch eine Eigenschaft des von uns 
+verwendeten AD-Wandlers ADS1115 zunutze. Er ist in der Lage ein Eingangssignal mit einer Verstärkung von bis zu Faktor 
+16 zu verstärken. Außerdem müssen wir den AD-Wandler noch so konfigurieren, dass er die Spannungsdifferenz zwischen den 
+Anschlüssen A0 und A1, also die Messspannung <em>U<sub>M</sub></em> misst. Dazu passen wir die Konfigurationsdatei an:</p>
+<ol>
+<li>Unter <code>ADCChannels:</code> in Zeile 5 geben wir in der eckigen Klammer mit <code>ADCChannels: [0]</code> an, welchen Kanal wir nutzen 
+wollen.</li>
+<li>Unter <code>DifModeChan:</code> in Zeile 16 geben wir in der eckigen Klammer mit <code>DifModeChan:[true]</code> an, dass wir die 
+Differenz von A0 und A1 digitalisieren möchten.</li>
+<li>Unter <code>Gain:</code> in Zeile 17 geben wir in der eckigen Klammer mit <code>Gain: [16]</code> an, dass wir das Eingangssignal mit dem 
+Faktor 16 verstärken wollen.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+
+<p>Nachfolgend ist die Konfiguration dargestellt, die sich daraus ergibt.</p>
+<pre><code class="yaml"># example of a configuration file for ADC ADS1115
+
+DAQModule: ADS1115Config  
+
+ADCChannels: [0]         # active ADC-Channels
+                            # possible values: 0, 1, 2, 3
+                              # when using differential mode:
+                                #  -  0 = ADCChannel 0 
+                                #          minus ADCChannel 1
+                                #  -  1 = ADCChannel 0 
+                                #          minus ADCChannel 3
+                                #  -  2 = ADCChannel 1 
+                                #          minus ADCChannel 3
+                                #  -  3 = ADCChannel 2 
+                                #          minus ADCChannel 3
+DifModeChan: [true]   # enable differential mode for Channels
+Gain: [16]                # programmable gain of ADC-Channel
+                              # possible values for Gain:
+                              #  - 2/3 = +/-6.144V
+                              #  -   1 = +/-4.096V
+                              #  -   2 = +/-2.048V  
+                              #  -   4 = +/-1.024V
+                              #  -   8 = +/-0.512V
+                              #  -  16 = +/-0.256V
+sampleRate: 860             # programmable Sample Rate of ADS1115
+                              # possible values for SampleRate: 
+                              # 8, 16, 32, 64, 128, 250, 475, 860
+</code></pre>
+
+<p><span style="color:#5882FA; font-size: 12pt ">6. </span> In der PhyPi Config können wir noch Einstellungen für die 
+grafische Ausgabe, das Messintervall und weitere Einstellungen für die Ausgabe der Messwerte angeben. Hier passen wir 
+noch den dargestellten Wertebereich für die grafische Darstellung an, damit wir nur den für uns interessanten 
+Wertebereich angezeigt bekommen.</p>
+<ol>
+<li>Dazu löschen wir die beiden <code>##</code> vor <code>ChanLimits:</code> in Zeile 26, um die Einstellung des dargestellten Werteberichs zu 
+aktivieren.</li>
+<li>Da unsere Messspannung <em>U<sub>M</sub></em> sehr klein und bei einer einwirkenden Kraft von oben positiv ist, lassen wir 
+uns einen Bereich von - 1 mV bis 5 mV anzeigen. Dazu entfernen wir die beiden <code>##</code> in Zeile 27 und passen die Werte in 
+der eckigen Klammer entsprechend an <code>- [-0.001, 0.005]</code>.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+
+<pre><code class="yaml"># Configuration Options for PhyPiDAQ 
+
+# device configuration files 
+DeviceFile: config/ADS1115Config.yaml  
+#DeviceFile: config/MCP3008Config.yaml  
+#DeviceFile: config/PSConfig.yaml         
+#DeviceFile: config/MAX31865Config.yaml 
+#DeviceFile: config/GPIOCount.yaml
+
+## an example of multiple devices
+#DeviceFile: [config/ADS1115Config.yaml, config/GPIOCount.yaml]  
+
+
+DisplayModule: DataLogger
+# DisplayModule: DataGraphs  # text, bar-graph, history and xy-view
+Interval: 0.1                     # logging interval         
+XYmode:     false                 # enable/disable XY-display
+
+
+# channel-specific information
+ChanLabels: [U, U]                 # names for channels 
+ChanUnits: [V, V]                  # units for channels
+ChanColors: [darkblue, sienna]    # channel colours in display
+
+# eventually overwrite Channel Limits obtained from device config 
+ChanLimits: 
+ - [-0.001, 0.005]   # chan 0
+## - [0., 1.]   # chan 1
+## - [0., 1.]   # chan 2
+
+# calibration of channel values
+#  - null    or  - &lt;factor&gt; or  - [ [ &lt;true values&gt; ], [ &lt;raw values&gt; ] ]
+#ChanCalib:
+#  - 1.                          # chan0: simple calibration factor
+#  - [ [0.,1.], [0., 1.] ]    # chan1: interpolation: [true]([&lt;raw&gt;] )
+#  - null                      # chan2: no calibration
+
+# apply formulae to calibrated channel values
+#ChanFormula:
+#  - c0 + c1  # chan0
+#  - c1          # chan1
+#  - null        # chan2 : no formula
+
+# name of output file
+DataFile:   null                  # file name for output file 
+#DataFile:   testfile.csv         # file name for output file 
+#CSVseparator: ';'
+</code></pre>
+
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt ">7. </span> Über den Reiter Control, anschließendes Klicken auf StartRun 
+und Bestätigen mit OK können wir nun PhyPiDAQ starten und uns die digitalisierte Messspannung über der Zeit anzeigen 
+lassen.</p>
+<p><img alt="" src="images/course/startrun_phypi.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">8. </span> Jetzt können wir durch Belasten und Entlasten der Wägezelle 
+mit den Fingern testen, ob wir eine digitalisierte Messspannung angezeigt bekommen und ob sich diese wie erwartet 
+verändert. </p>
+<p>Die nachfolgende Abbildung zeigt beispielhaft eine solche Messung.</p>
+<p><img alt="" src="images/course/test_force_sensor.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<p><span style="color:#5882FA; font-size: 12pt ">9. </span> <strong>Problem:</strong> Die sehr kleine Messspannung bringt mehrere 
+Nachteile mit sich: Zum einen sind solch kleine Spannungssignale sehr störanfällig. Bereits kleine Störspannungen 
+wirken sich massiv auf das Messergebnis aus. Zum anderen können wir die Messspannung nur schlecht auflösen (wir können 
+nur wenige der Digitalisierungsstufen des AD-Wandlers nutzen).</p>
+<p><strong>Lösungsansatz:</strong> Wir verstärken die analoge Messspannung <em>U<sub>M</sub></em>, bevor wir diese digitalisieren. Dadurch 
+beeinflussen Störungen die Messspannung wesentlich weniger, wenn diese nach der Verstärkung auftreten. Für die 
+Digitalisierung mit dem AD-Wandler ist für uns entscheidend, dass wir die Digitalisierungsstufen des AD-Wandlers gut 
+ausnutzen, damit wir unsere Messspannung möglichst gut auflösen. Deshalb wählen wir eine Verstärkung, die so groß ist, 
+dass wir den Messbereich des AD-Wandlers gut ausnutzen.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">10. </span> <strong>Der Instrumentenverstärker</strong>: Für die Verstärkung verwenden 
+wir einen sogenannten Instrumentenverstärker, der es uns ermöglicht unsere Messspannung mit einem einstellbaren 
+Verstärkungsfaktor zu verstärken. Die Einstellung erfolgt durch einen Widerstand, der an den Instrumentenverstärker 
+angeschlossen wird. In unserem Fall wählen wir einen Verstärkungsfaktor von 500, indem wir an den 
+Instrumentenverstärker einen Widerstand von 200 &Omega; anschließen. Die Messspannung wird also 500 Mal größer als ohne 
+Verstärkung. Der Instrumentenverstärker AD623 ist ein elektronisches Bauelement mit insgesamt acht Pins (Anschlüssen). 
+In der nachfolgenden Abbildung ist die Pinbelegung für den Instrumentenverstärker AD623 dargestellt. Das Gehäuse des 
+Instrumentenverstärkers hat an einer Seite eine Einkerbung. Die Pins sind so nummeriert, dass von oben gesehen der Pin 
+links dieser Einkerbung die Nummer 1 und der Pin rechts von der Einkerbung die Nummer 8 bekommt. Die anderen Pins sind 
+dann entsprechend durchnummeriert. Beim Einbau des Instrumentenverstärkers in eine Schaltung muss unbedingt darauf 
+geachtet werden, dass die Pins des Instrumentenverstärkers korrekt angeschlossen werden.</p>
+<p><img alt="" src="images/course/instrumentation_amplifier.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<p>Aus der Tabelle kann entnommen werden, welche Funktionen die einzelnen Pins des Instrumentenverstärkers haben und wie 
+dieses angeschlossen werden müssen.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Pin (Anschluss)</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td>- R<sub>G</sub>: Anschluss für den Widerstand zur Einstellung des Verstärkungsfaktors.</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>- IN: Negativer Anschluss des Messsignals (grüne Leitung des Kraftsensors).</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>+ IN: Positiver Anschluss des Messsignals (weiße Leitung des Kraftsensors).</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>-V<sub>s</sub>: Negative Versorgungsspannung 0 V.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>REF: Über diesen Eingang kann eine Referenzspannung zum Messsignal addiert werden.</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>OUTPUT: Verstärkte Messspannung als Ausgangssignal.</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td>+V<sub>s</sub>: Positive Versorgungspannung 5 V.</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td>+ R<sub>G</sub>: Anschluss für den Widerstand zur Einstellung des Verstärkungsfaktors.</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:#5882FA; font-size: 12pt ">11. </span> Bauen Sie die nachfolgende Schaltung auf dem Breadboard auf. 
+Achten Sie während des Aufbaus darauf, dass die Spannungsversorgung des Breadboards ausgeschaltet ist (grüne LED 
+leuchtet nicht). Da die Schaltung komplizierter ist, sollte auf jeden Fall sehr gründlich kontrolliert werden, ob alle 
+Bauelemente richtig angeschlossen sind, bevor die Spannungsversorgung des Breadboards eingeschaltet wird. Der 
+AD-Wandler ADS-1115 und die Wägezelle sind im nachfolgenden Schaltplan nicht dargestellt. Die Anschlussbelegung dieser 
+Komponenten kann den Tabellen unter dem Schaltplan entnommen werden.</p>
+<p><img alt="" src="images/course/circuit_instrumentation_amplifier.PNG"></p>
+<table>
+<thead>
+<tr>
+<th>Anschlüsse Wägezelle</th>
+<th>Anschlüsse Breadboard / GPIO-Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rote Anschlussleitung</td>
+<td>5 V</td>
+</tr>
+<tr>
+<td>schwarze Anschlussleitung</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>grüne Anschlussleitung</td>
+<td>+IN Instrumentenverstärker AD623 (Pin 3)</td>
+</tr>
+<tr>
+<td>weiße Anschlussleitung</td>
+<td>-IN Instrumentenverstärker AD623 (Pin 2)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Anschlüsse AD-Wandler ADS1115</th>
+<th>Anschlüsse Breadboard / GPIO-Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VDD</td>
+<td>5 V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>SDL</td>
+<td>GPIO-Pin SCL</td>
+</tr>
+<tr>
+<td>SDA</td>
+<td>GPIO-Pin SDA</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>OUTPUT Instrumentenverstärker AD623 (Pin 6)</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>2,5 V (zwischen <em>R<sub>1</sub></em> und <em>R<sub>2</sub></em>)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/course/breadboard_instrumentation_amplifier.PNG"></p>
+<p><strong>Zusatzinformation zur Schaltung für Interessierte:</strong><br>
+Die beiden Kondensatoren <em>C<sub>1</sub></em> und <em>C<sub>2</sub></em> sind dazu da, Störsignale in unserer Schaltung zu 
+unterdrücken. Mit dem Spannungsteiler aus den Widerständen <em>R<sub>1</sub></em> und <em>R<sub>2</sub></em> halbieren wir die 
+Versorgungsspannung von 5 V, sodass wir zwischen den beiden Widerständen eine Spannung von 2,5 V abgreifen können. 
+Diese addieren wir über den Pin 5 des Instrumentenverstärkers zur verstärkten Messspannung. Dieser Schritt ist 
+notwendig, da wir sonst sehr kleine Messspannungen und negative Messspannungen nicht verstärken könnten. Da wir diesen 
+Offset von 2,5 V in unserem digitalisierten Wert der Messspannung nicht mehr haben möchten, ziehen wir die Spannung von 
+2,5 V im AD-Wandler wieder ab, indem wir die Spannung von 2,5 V zwischen den Widerständen des Spannungsteilers 
+abgreifen und am Eingang A1 des AD-Wandlers anschließen. Durch die Konfiguration des AD-Wandlers sorgen wir dann dafür, 
+dass dieser die Spannungs-differenz zwischen den Eingängen A0 und A1 digitalisiert und unsere digitalisierte 
+Messspannung wieder um den Offset von 2,5 V bereinigt ist.</p>
+<p><span style="color:#5882FA; font-size: 12pt ">12. </span> Jetzt können wir unsere Schaltung testen und schauen, ob 
+diese wie erwartet funktioniert und uns die verstärkte und digitalisierte Messspannung anzeigen lassen.</p>
+<ol>
+<li>
+<p>Dazu starten wir wieder das Programm PhyPi auf dem Desktop und wechseln über den Reiter <strong>Configuration</strong> und 
+<strong>PhyPi Config</strong> in die Konfiguration des Messdatenerfassungssystems PhyPi.</p>
+</li>
+<li>
+<p>Hier nehmen wir eine Änderung vor: Wir wählen eine andere Darstellung unserer Messwerte. Dazu deaktivieren wir 
+zuerst das Display-Modul DataLogger in Zeile 14, indem wir diese Zeile mit Hilfe eines <code>#</code> auskommentieren 
+(<code>#DisplayModule: DataLogger</code>). Stattdessen aktivieren wir das Display-Modul DataGraphs in Zeile 15, indem wir den <code>#</code> 
+entfernen (<code>DisplayModule: DataGraphs</code>). Nun bekommen wir außer dem zeitlichen Verlauf unserer digitalisierten 
+Messspannung auch deren aktuellen Wert in Textform und ein Balkendiagramm angezeigt.</p>
+</li>
+</ol>
+<pre><code class="yaml"># Configuration Options for PhyPiDAQ 
+
+# device configuration files 
+DeviceFile: config/ADS1115Config.yaml  
+#DeviceFile: config/MCP3008Config.yaml  
+#DeviceFile: config/PSConfig.yaml         
+#DeviceFile: config/MAX31865Config.yaml 
+#DeviceFile: config/GPIOCount.yaml
+
+## an example of multiple devices
+#DeviceFile: [config/ADS1115Config.yaml, config/GPIOCount.yaml]  
+
+
+# DisplayModule: DataLogger
+DisplayModule: DataGraphs  # text, bar-graph, history and xy-view
+Interval: 0.1                     # logging interval         
+XYmode:     false                 # enable/disable XY-display
+
+
+# channel-specific information
+ChanLabels: [U, U]                 # names for channels 
+ChanUnits: [V, V]                  # units for channels
+ChanColors: [darkblue, sienna]    # channel colours in display
+
+# eventually overwrite Channel Limits obtained from device config 
+##ChanLimits: 
+## - [0., 1.]   # chan 0
+## - [0., 1.]   # chan 1
+## - [0., 1.]   # chan 2
+
+# calibration of channel values
+#  - null    or  - &lt;factor&gt; or  - [ [ &lt;true values&gt; ], [ &lt;raw values&gt; ] ]
+#ChanCalib: 
+#  - 1.                          # chan0: simple calibration factor
+#  - [ [0.,1.], [0., 1.] ]    # chan1: interpolation: [true]([&lt;raw&gt;] )
+#  - null                      # chan2: no calibration
+
+# apply formulae to calibrated channel values
+#ChanFormula:
+#  - c0 + c1  # chan0
+#  - c1          # chan1
+#  - null        # chan2 : no formula
+
+# name of output file
+DataFile:   null                  # file name for output file 
+#DataFile:   testfile.csv         # file name for output file 
+#CSVseparator: ';'
+
+</code></pre>
+
+<ol>
+<li>Außerdem müssen wir noch den AD-Wandler ADS1115 passend konfigurieren: Dazu wechseln wir über den Reiter <strong>Device 
+Config</strong> in die Konfigurationsdatei des ADS1115.</li>
+<li>Hier passen wir die Konfiguration für unsere Messung an:  Zum einen müssen wir den AD-Wandler so konfigurieren, dass 
+dieser uns die Spannungsdifferenz zwischen den Anschlüssen A0 und A1, also unsere verstärkte Messspannung 
+digitalisiert. Dazu ändern wir Zeile 5 in <code>ADCChannels:[0]</code> und Zeile 16 in <code>DifModeChan: [true]</code>. Zum anderen passen 
+wir die interne Verstärkung und damit den Messbereich des AD-Wandlers so an, dass wir den Messbereich möglichst gut 
+ausnutzen. Dazu ändern wir Zeile 17 in <code>Gain:[2]</code>, sodass unsere Messspannung noch mal um den Faktor zwei verstärkt 
+wird und wir Spannungen in einem Bereich von +2,048 V und -2,048 V digitalisieren können.</li>
+</ol>
+<pre><code class="yaml"># example of a configuration file for ADC ADS1115
+
+DAQModule: ADS1115Config  
+
+ADCChannels: [0]         # active ADC-Channels
+                            # possible values: 0, 1, 2, 3
+                              # when using differential mode:
+                                #  -  0 = ADCChannel 0 
+                                #          minus ADCChannel 1
+                                #  -  1 = ADCChannel 0 
+                                #          minus ADCChannel 3
+                                #  -  2 = ADCChannel 1 
+                                #          minus ADCChannel 3
+                                #  -  3 = ADCChannel 2 
+                                #          minus ADCChannel 3
+DifModeChan: [true]   # enable differential mode for Channels
+Gain: [2]                # programmable gain of ADC-Channel
+                              # possible values for Gain:
+                              #  - 2/3 = +/-6.144V
+                              #  -   1 = +/-4.096V
+                              #  -   2 = +/-2.048V  
+                              #  -   4 = +/-1.024V
+                              #  -   8 = +/-0.512V
+                              #  -  16 = +/-0.256V
+sampleRate: 860             # programmable Sample Rate of ADS1115
+                              # possible values for SampleRate: 
+                              # 8, 16, 32, 64, 128, 250, 475, 860
+</code></pre>
+
+<ol>
+<li>Nun können wir unseren Test starten: Dazu wechseln wir zu <strong>Control</strong> und starten die Messung mit <strong>StartRun</strong>. Mit 
+den Fingern können wir nun sanft von oben oder unten auf den Kraftsensor drücken und testen, ob sich das Messsignal wie 
+gewünscht verändert. Das Bild unten zeigt beispielhaft einen erfolgreichen Test.</li>
+</ol>
+<p><img alt="" src="images/course/test_instrumentation_amplifier.PNG"></p>
+<div style="page-break-after: always;"></div>
+
+<ol>
+<li>Wir können nun unser Schema zum Grundprinzip der digitalen Messwerterfassung um die Verstärkung der Messspannung 
+durch den Instrumentenverstärker und die Analog-Digital-Wandlung ergänzen.</li>
+</ol>
+<p><img alt="" src="images/course/measuring_chain_force_3.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">13. </span>  Nach der Digitalisierung haben wir nun eine digitalisierte 
+Messspannung, aber keinen digitalisierten Wert der auf den Kraftsensor wirkenden Kraft. Uns fehlt also noch die 
+Umrechnung und Weiterverabeitung unserer digitalisierten Messspannung. Um wirklich Kräfte zu messen, müssen wir unseren 
+digitalen Kraftsensor also noch kalibrieren. Dazu nehmen wir für die Gewichtskraft verschiedener bekannter Massen die 
+digitalisierte Messspannung auf.</p>
+<p>Füllen Sie die nachfolgende Tabelle aus. Wiegen Sie dafür zunächst die benötigten Massestücke mit einer Laborwaage ab 
+und tragen Sie das Messergebnis in die Tabelle ein. Berechnen Sie die zugehörige Gewichtskraft <em>F<sub>G</sub></em> aus der 
+gemessenen Masse <em>m</em> und der Gravitationsfeldstärke <em>g</em> = 9,81 m/s<sup>2</sup>.
+<script type="math/tex; mode=display">
+F_G=m\cdot g
+</script>
+Um die Messspannung <em>U<sub>M</sub></em>  zu ermitteln, führen Sie die Schritte 1. bis 11. für jede zu messende Masse aus.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0 g</th>
+<th>100 g</th>
+<th>200 g</th>
+<th>300 g</th>
+<th>400 g</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gemessene Masse  <em>m</em> in g</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Gewichtskraft <em>F</em> in N</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Messspannung <em>U<sub>M</sub></em> in V</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Wir starten wieder das Programm <strong>PhyPi</strong> und nutzen die Konfiguration unserer eben durchgeführten Messung. Dazu 
+klicken wir in der Zeile <strong>DAQ config</strong> auf das Ordnersymbol. </li>
+</ol>
+<p><img alt="" src="images/course/load_config.PNG"></p>
+<ol>
+<li>
+<p>Wir öffnen links oben <strong>Persönliche Ordner</strong> und wechseln dann in das Verzeichnis <strong>PhyPi</strong>. Im neuesten 
+phypi-Ordner liegt die Konfiguration unseres Tests bzw. unserer letzten Messung. Mit einem Doppelklick auf die 
+<strong>.daq-Datei</strong> laden wir diese Konfiguration in PhyPi.</p>
+</li>
+<li>
+<p>Damit uns bei der Kalibrierung nur ein sinnvoller Wertebereich angezeigt wird, gehen wir über den Reiter 
+<strong>Configuration</strong> wieder auf die <strong>PhyPi Config</strong> und aktivieren in Zeile 26 durch Entfernen der beiden <code>##</code> vor 
+<code>ChanLimits</code> die Anzeigebereichseinstellung. Jetzt können wir durch Entfernen der beiden <code>##</code> in der nachfolgenden 
+Zeile einen Wertebereich für die Anzeige vorgeben <code>- [-0.5, 2.]   # chan 0</code>.</p>
+</li>
+<li>
+<p>Damit wir nicht nur Daten angezeigt bekommen, sondern diese auch zur Auswertung gespeichert werden, müssen wir in 
+Zeile 45 unter <code>DataFile:</code> einen Dateinamen <code>kalibrierung_&lt;hier verwendete Masse eintragen&gt;.csv</code> anstatt <code>null</code> 
+angeben. Unsere Messdaten werden dann im PhyPi-Verzeichnis im neuesten Ordner abgelegt.</p>
+</li>
+<li>
+<p>Nun hängen wir das entsprechende Massestück an den Kraftsensor und achten darauf, dass dieses nicht pendelt, wenn 
+wir die Messung beginnen.</p>
+</li>
+<li>
+<p>Wir klicken auf den Reiter <strong>Control</strong> und starten die Messung mit <strong>StartRun</strong>.</p>
+</li>
+<li>
+<p>Nach etwas mehr als 10 Sekunden beenden wir die Messung über <strong>End</strong>.</p>
+</li>
+<li>
+<p>Jetzt können wir unsere aufgenommenen Messwerte für die Kalibrierung auswerten. Damit wir die Daten nachher zuordnen 
+können, benennen wir den jeweils neuesten Ordner im Verzeichnis PhyPi in kalibrierung_&lt; jeweilige Masse &gt; um.</p>
+</li>
+<li>
+<p>Nun lesen wir die Daten in das Tabellenkalkulationsprogramm <strong>LibreOffice Calc</strong> (ähnlich Excel) ein. Zunächst 
+öffnen wir das Programm: Dazu klicken wir auf dem Startbildschirm links oben auf die <strong>Himbeere</strong>, dann auf <strong>Büro</strong> 
+und auf <strong>LibreOffice Calc</strong>.</p>
+</li>
+<li>
+<p>Wir öffnen unsere Messdaten aus dem eben umbenannten Ordner und lesen diese in LibreOffice Calc ein.</p>
+</li>
+<li>
+<p>Nun können wir für unsere Kalibrierung den Mittelwert aus 100 Messwerten für die Messspannung <em>U<sub>M</sub></em> 
+berechnen und in unsere Tabelle oben übernehmen.<br>
+    Berechnung eines Mittelwerts mit LibreOffice Calc:</p>
+<ul>
+<li>
+<p>Wir klicken auf eine beliebige leere Zelle in der Tabelle.</p>
+</li>
+<li>
+<p>Wir berechnen mit <code>= MITTELWERT(A4:A103)</code> den Mittelwert aus den Zellen A4 bis A103.</p>
+</li>
+<li>
+<p>Den errechneten Mittelwert für die Messspannung <em>U<sub>M</sub></em> tragen wir nun in die Tabelle oben ein.  </p>
+</li>
+</ul>
+</li>
+</ol>
+<p><span style="color:#5882FA; font-size: 12pt ">14. </span> Nun können wir die Kalibrierung abschließen, indem wir PhyPi 
+starten und als Basis für die Konfiguration die .daq-Datei unserer letzten Messung im PhyPi-Verzeichnis öffnen. Wir 
+wechseln wieder in die PhyPi Config und können nun unsere Kalibrierung vornehmen:</p>
+<ol>
+<li>Durch Entfernen der beiden <code>##</code> in Zeile 33 aktivieren wir die Kalibrierungsfunktion <code>ChanCalib:</code>.</li>
+<li>In Zeile 32 fügen wir unsere Werte für die Gewichtskraft <em>F<sub>G</sub></em> und die zugehörige Messspannung 
+<em>U<sub>M</sub></em> ein, mit deren Hilfe PhyPi dann eine Funktion für die gemessene Kraft in Abhängigkeit von der 
+Messspannung <em>U<sub>M</sub></em> berechnet. Mit dieser Funktion kann dann für jeden beliebigen Zwischenwert ein zugehöriger 
+Kraftwert berechnet werden.</li>
+<li>Damit wir den passenden Wertebereich angezeigt bekommen, passen wir in Zeile 27 den Anzeigebereich entsprechend an 
+<code>-[0., 5.]</code>.</li>
+<li>Da unser angezeigter Messwert nun keine Spannung mehr ist, passen wir Zeile 21 an die Messgröße Kraft 
+<code>ChanLabels:[N]</code> und Zeile 22 an die entsprechende Einheit <code>ChanUnits: [N]</code>  an.</li>
+</ol>
+<pre><code class="yaml"># Configuration Options for PhyPiDAQ 
+
+# device configuration files 
+DeviceFile: config/ADS1115Config.yaml  
+#DeviceFile: config/MCP3008Config.yaml  
+#DeviceFile: config/PSConfig.yaml         
+#DeviceFile: config/MAX31865Config.yaml 
+#DeviceFile: config/GPIOCount.yaml
+
+## an example of multiple devices
+#DeviceFile: [config/ADS1115Config.yaml, config/GPIOCount.yaml]  
+
+
+# DisplayModule: DataLogger
+DisplayModule: DataGraphs  # text, bar-graph, history and xy-view
+Interval: 0.1                     # logging interval         
+XYmode:     false                 # enable/disable XY-display
+
+
+# channel-specific information
+ChanLabels: [F]                 # names for channels 
+ChanUnits: [N]                  # units for channels 
+ChanColors: [darkblue, sienna]    # channel colours in display
+
+# eventually overwrite Channel Limits obtained from device config 
+ChanLimits: 
+ - [0., 5.]   # chan 0
+## - [0., 1.]   # chan 1
+## - [0., 1.]   # chan 2
+
+# calibration of channel values
+#  - null    or  - &lt;factor&gt; or  - [ [ &lt;true values&gt; ], [ &lt;raw values&gt; ] ]
+ChanCalib:
+- [[FG0, FG100, FG200, FG300, FG400], [UM0, UM100, UM200, UM300, UM400]]
+#  - 1.                          # chan0: simple calibration factor
+#  - [ [0.,1.], [0., 1.] ]    # chan1: interpolation: [true]([&lt;raw&gt;] )
+#  - null                      # chan2: no calibration
+
+# apply formulae to calibrated channel values
+#ChanFormula:
+#  - c0 + c1  # chan0
+#  - c1          # chan1
+#  - null        # chan2 : no formula
+
+# name of output file
+DataFile:   null                  # file name for output file 
+#DataFile:   testfile.csv         # file name for output file 
+#CSVseparator: ';'
+
+</code></pre>
+
+<ol>
+<li>Mit der Kalibrierung können wir unser Schema zum Grundprinzip der digitalen Messwerterfassung um den letzten 
+Schritt, die Umrechnung der digitalisierten Messpannung in eine Kraft, ergänzen.</li>
+</ol>
+<p><img alt="" src="images/course/measuring_chain_force_4.PNG"></p>
+<p><span style="color:#5882FA; font-size: 12pt ">15. </span> Jetzt können wir unseren digitalen Kraftsensor abschließend 
+in einem Physikexperiment testen. Dazu lassen wir uns den Kraftverlauf im Aufhängepunkt eines Federpendels anzeigen:</p>
+<ol>
+<li>
+<p>Wir hängen die Schraubenfeder mit einer angehängten Masse von <em>m</em> = 300 g an unserem Kraftsensor ein und versetzen 
+das System in Schwingung.</p>
+</li>
+<li>
+<p>Nun können wir die Messung wie gewohnt starten. </p>
+</li>
+</ol>
+<p>Nachfolgend ist beispielhaft der zeitliche Kraftverlauf im Aufhängepunkt eines Federpendels dargestellt. 
+<img alt="" src="../examples/spring_pendulum_Federpendel/spring_pendulum_Federpendel.png"><br>
+Auf eine quantitative Auswertung verzichten wir an dieser Stelle. Trotzdem können wir einige grundsätzliche 
+Beobachtungen festhalten.<br>
+Die Kraft im Aufhängepunkt ist am oberen Umkehrpunkt des Federpendels am kleinsten und am unteren Umkehrpunkt am 
+größten. Das Messsignal schwingt um einen Gleichgewichtszustand. Dieser Gleichgewichtszustand entspricht der 
+Gewichtskraft von Feder und angehängter Masse.</p>
+
+</body>
+</html>
