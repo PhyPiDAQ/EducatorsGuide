@@ -13,7 +13,7 @@ Der Nachweis von Radioaktivität, die entweder durch künstliche Quellen oder al
 
 ### Der CERN DIY Teilchendetektor  
 
-Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden Teilchendetektor basierend auf vier Silizium  PIN-Photodioden vom Typ BPW34 ist  der 
+Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden Teilchendetektor basierend auf vier Silizium  PIN-Photodioden vom Typ BPW34 ist der 
 [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
 Der zweistufige Verstärker mit einem Operationsvertärker mit hoher Bandbreite erzeugt große
 Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können leicht mit einer Standard-Soundkarte aufgenommen werden. 
@@ -123,5 +123,28 @@ Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsi
 
 ### Ergebnisse
 
-  muss noch geschrieben werden ...
+Die Analyse von mit `scGammaDetector.py` aufgezeichnten registrierten Gammaquanten aus einer kleine Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Ereignisse wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
+`GammaStrahlung_Pechblende.csv` enthält ca. 11500 aufgezeichnete Ereignisse
+mit den Spalten  
+  > `event_numer, event_time[s], pulse_height[adc]`
+
+Ausgewertet wurde nur die mittlere Spalte mit den Zeiten, zu denen Ereignisse registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit der Eingabe  
+ > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
+ 
+ verwendet. 
+
+Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
+Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
+Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
+sind ebenfalls eingezeichnet, d.h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
+von 13.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine 
+Exponentialverteilung für einen mittleren zeitlichen Abstand von 0.757 s zwischen 
+den Ereignissen sind ebenfalls eingezeichnet. 
+
+![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, die
+Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
+Ereignissen.](images/RateAnalysis.png)
+
+
+      mehr muss noch gemacht und aufgeschrieben werden ...
   
