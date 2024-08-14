@@ -132,4 +132,23 @@ The determination of the background level and the signal efficiency is not alway
 
 ### Results of measurements
 
-  to be written ....
+The analysis of registered gamma quanta from a small sample of pitchblende recorded with `scGammaDetector.py` is shown in
+the figure below. Signal pulses were registered at a rate of approximately 1.32 HZ. The file
+`GammaStrahlung_Pechblende.csv` contains approx. 11500 recorded events with the columns  
+  > `event_number, event_time[s], pulse_height[adc]`
+
+Only the middle column with the times at which events were recorded was analyzed. For this purpose, 
+the Python code `data/RateAnalysis.py` was executed with the input  
+ > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
+ 
+ is used. The last parameter defines the duration of the time intervals (in s) in which the number of events is determined. 
+
+The graphs show the number of events in intervals of 10 s duration, the frequency distribution of the observed numbers of events and the time between two events.
+The expected distributions resulting from the mean rate are also plotted, i.e. a uniform distribution for an average number of events 
+of 13.2 in every 10 s interval, the corresponding Poisson distribution and an 
+exponential distribution for a mean time interval of 1/1.32 s = 0.757 s between the events are also shown. 
+
+![Fig. 3: Representation of the number of events in intervals of 10 s duration, the frequency distribution of the observed number of events and the time between two events](images/RateAnalysis.png)
+
+
+  more to be written ....
