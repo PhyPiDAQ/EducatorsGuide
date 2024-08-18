@@ -1,4 +1,4 @@
-## *PhyPiDAQ*: Datenaufname von do-it-yourself Teilchendetektor
+## *PhyPiDAQ*: Datenaufname do-it-yourself Teilchendetektor
 
 Übersetzt aus der englischen Version mit Hilfe von DeepL.com (kostenlose Version)
 
@@ -55,7 +55,7 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
 
  Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde, ist in der folgenden Abbildung dargestellt. Das Signal ist  oberhalb des Rauschpegels von ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
  
-  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt. Beachten Sie, dass auf der  y-Achse nur einen Bereich von +/- 2¹⁴ anzeigt wird.](images/scOscillogram.png)
+  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt. Beachten Sie, dass auf der  y-Achse nur einen Bereich von $\pm2^{¹⁴}$ angezeigt wird.](images/scOscillogram.png)
 
 Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und die Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte und die Triggeroptionen einzustellen. Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick über alle Optionen: 
 
@@ -116,7 +116,7 @@ Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsiche
 
 ### Ergebnisse
 
-Die Analyse von mit `scGammaDetector.py` aufgezeichnten registrierten Gammaquanten aus einer kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
+Die Analyse von mit `scGammaDetector.py` aufgezeichnten Gammaquanten aus einer kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 11500 aufgezeichnete Ereignisse mit den Spalten  
   > `event_numer, event_time[s], pulse_height[adc]`
 
