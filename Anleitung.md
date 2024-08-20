@@ -509,6 +509,14 @@ Einige anspruchsvollere Beispiele für Messungen aus verschiedenen Bereichen des
 
  - <a name="photoeffekt"></a> [Photoeffekt](Experimente/Photoeffekt.md)
 
+ - <a name="Ideales_Gasgesetz"></a> [Ideales Gasgesetz](Experimente/IdealesGasgesetz.md)
+
+ - <a name="DIY-Teilchendetektor"></a> [DIY-Teilchendetektor](Experimente/DIY-Teilchendetektor.md)
+
+
+
+
+
 &nbsp;  
 &nbsp;  
 <a name="andereProjekte"></a>  

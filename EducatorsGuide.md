@@ -537,7 +537,8 @@ List of experiments with *PhyPiDAQ*
   - <a name="elektrostatik"></a> [Electrostatics](experiments/electrostatics.md)
   - <a name="kraftsensor"></a> [Force sensor](experiments/forcesensor.md)
   - <a name="photoeffekt"></a> [Photoeffect](experiments/photoeffect.md)
- - <a name="gamma ray spectra"></a> [Gamma Spectra](experiments/GammaSpectra.md)
+  - <a name="gamma ray spectra"></a> [Gamma Spectra](experiments/GammaSpectra.md)
+  - <a name="diy particle-detector"></a> [DIY Particle Detector](experiments/DIY-ParticleDetector.md)
 
 &nbsp;  
 &nbsp;  
