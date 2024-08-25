@@ -51,9 +51,35 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
   - `examples/poissonFlash.py` zur Erzeugung, Visualisierung und Speicherung von Daten eines simulierten
   Poisson-Prozesses. 
 
-  - `examples/poissonLED.py` zur Erzeugung zufälliger Blitze einer LED. Eine Photodiode, die dem Licht der der LED ausgesetzt ist, erzeugt Signale, die einem Detektor für Gammastrahlen entsprechen.
+  - `examples/poissonLED.py` zur Erzeugung zufälliger Blitze einer LED. Eine Photodiode, die dem Licht der der LED ausgesetzt ist, erzeugt Signale, die einem Detektor für Gammastrahlen entsprechen. Für diese Anwendung wird ein Raspberry Pi mit an die GPIO-Leiste angeschlossener LED + Vorwiderstand benötigt. 
 
- Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde, ist in der folgenden Abbildung dargestellt. Das Signal ist  oberhalb des Rauschpegels von ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
+#### Anmerkungen zur Installation
+
+Die Skripte benötigen zwar nur einen geringen Teil der im *phypidaq*-Paket enthaltenen
+Software, aber weil die angegebenen Scripte als Quellcode benötigt werden, sollte das
+gesamte *PhyPiDAQ*-Paket herunter geladen werden und die Python-Bibliotheken installiert werden: 
+
+```sh
+# get git repository with PhyPiDAQ code
+cd <workdir>
+echo "retrieving https://github.com/PhyPiDAQ/PhyPiDAQ"
+git clone https://github.com/PhyPiDAQ/PhyPiDAQ
+ 
+# install  phypidaq modules
+cd PhyPiDAQ
+python -m pip install .
+
+```
+
+Nach diesem Schritt können die oben genannten *Python*-Programme in den Verzeichnissen *examples/* und *examples/oscilloscope/* ausgeführt werden. 
+
+*Anmerkung:* 
+Diese Befehlsfolge funktioniert auch auf der Konsole ("Terminal") von Rechnern mit MS Windows 10 oder 11, wenn dort *Python* installiert ist. 
+
+
+#### Beispiele
+
+ Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde, ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
  
   ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt. Beachten Sie, dass auf der  y-Achse nur einen Bereich von $\pm2^{¹⁴}$ angezeigt wird.](images/scOscillogram.png)
 
