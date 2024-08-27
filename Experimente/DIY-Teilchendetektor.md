@@ -55,9 +55,13 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
 
 #### Anmerkungen zur Installation
 
-Die Skripte benötigen zwar nur einen geringen Teil der im *phypidaq*-Paket enthaltenen
-Software, aber weil die angegebenen Scripte als Quellcode benötigt werden, sollte das
-gesamte *PhyPiDAQ*-Paket herunter geladen werden und die Python-Bibliotheken installiert werden: 
+Die genannten *Python*-Skripte benötigen einen kleinen Teil der im
+Paket *phypidaq*enthaltenen Software. Wenn die Installation des
+gesamten Pakets nicht gewünscht wird, wird weiter unten auch eine
+vereinfachte Möglichkeit beschrieben. Idealerweise sollte allerdings
+das gesamte *PhyPiDAQ*-Paket herunter geladen und die Python-Bibliotheken
+installiert werden:
+
 
 ```sh
 # get git repository with PhyPiDAQ code
@@ -68,25 +72,52 @@ git clone https://github.com/PhyPiDAQ/PhyPiDAQ
 # install  phypidaq modules
 cd PhyPiDAQ
 python -m pip install .
-
 ```
 
-Nach diesem Schritt können die oben genannten *Python*-Programme in den Verzeichnissen *examples/* und *examples/oscilloscope/* ausgeführt werden. 
+Nach diesem Schritt können die oben genannten *Python*-Programme in den Verzeichnissen
+*examples/* und *examples/oscilloscope/* ausgeführt werden.
 
 *Anmerkung:* 
-Diese Befehlsfolge funktioniert auch auf der Konsole ("Terminal") von Rechnern mit MS Windows 10 oder 11, wenn dort *Python* installiert ist. 
+Diese Befehlsfolge funktioniert auch auf der Konsole ("Terminal") von Rechnern mit MS
+Windows 10 oder 11, wenn dort *Python* installiert ist.
+
+
+#### Vereinfachte Installation
+
+Die Python-Programme *scGammaDector.py* und *run_scOsci.py* können auch ohne den Dewnload des kompletten
+*PhyPiDAQ*-Pakets ausgeführt werden. Wenn eine aktuelle Python-Version verfügbar ist, können die Bibliotheken
+auch direkt aus dem *github*-Repository installiert werden:
+
+```sh
+python -m pip install git+https://github.com/PhyPiDAQ/PhyPiDAQ
+```
+Die Python-Programme können dann über die Links
+[run_scOsci.py](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/examples/oscilloscope/run_scOsci.py)
+und
+[scGammaDetector.py](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/examples/scGammaDetector.py)
+in ein Arbeitsverzeichnis geladen und ausgeführt werden.
 
 
 #### Beispiele
 
- Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde, ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
+ Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde,
+ ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
+ ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
+ angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können.
  
-  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt. Beachten Sie, dass auf der  y-Achse nur einen Bereich von $\pm2^{¹⁴}$ angezeigt wird.](images/scOscillogram.png)
+  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink
+  USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt.
+  Beachten Sie, dass auf der  y-Achse nur einen Bereich von $\pm2^{¹⁴}$ angezeigt wird.](images/scOscillogram.png)
 
-Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und die Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte und die Triggeroptionen einzustellen. Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick über alle Optionen: 
+Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und die
+Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte und
+die Triggeroptionen einzustellen. Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick
+über alle Optionen:
 
 ```
-usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-t TIME] [-s {48000,96000,192000,44100}] [-c {1,2}] [-l TRGLEVEL] [--trgfalling] [-d] [-z SAMPLESIZE] [-r RANGE] [-i INTERVAL]
+usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-t TIME]
+  [-s {48000,96000,192000,44100}] [-c {1,2}]
+  [-l TRGLEVEL] [--trgfalling] [-d] [-z SAMPLESIZE] [-r RANGE] [-i INTERVAL]
 
 Read waveforms from soundcard and display and optionally store data
 
