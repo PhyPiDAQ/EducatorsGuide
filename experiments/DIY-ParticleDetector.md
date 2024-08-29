@@ -54,6 +54,53 @@ Ready-to use scripts  illustrate how to use these classes:
   - `examples/poissonLED.py` to produce random flashes of a LED. A photodiode exposed to the light of
      the LED will produce signals analogous to  a detector for gamma rays.
 
+
+### Notes on the installation
+
+The *Python* scripts mentioned require a small part of the software contained in the
+package *phypidaq*. If the download of the full package is not desired, a simplified
+option is described below. Ideally, however one should download the entire *PhyPiDAQ*
+package and install the Python libraries as follows: 
+
+```sh
+# get git repository with PhyPiDAQ code
+cd <workdir>
+echo “retrieving https://github.com/PhyPiDAQ/PhyPiDAQ”
+git clone https://github.com/PhyPiDAQ/PhyPiDAQ
+ 
+# install phypidaq modules
+cd PhyPiDAQ
+python -m pip install .
+```
+
+After this step, the *Python* programs mentioned above can be installed in the
+directories *examples/* and *examples/oscilloscope/*.
+
+*Note:* 
+This command sequence also works on the console (“Terminal”) of computers with MS
+Windows 10 or 11, if *Python* is installed there.
+
+
+#### Simplified installation
+
+The Python programs *scGammaDector.py* and *run_scOsci.py* can also be executed without downloading the complete *PhyPiDAQ* package. If a current Python version
+is available, the libraries can also be downloaded can also be installed directly
+from the *github* repository:
+
+```sh
+python -m pip install git+https://github.com/PhyPiDAQ/PhyPiDAQ
+```
+The Python programs can then be downloaded via the links
+[run_scOsci.py](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/examples/oscilloscope/run_scOsci.py)
+and
+[scGammaDetector.py](https://github.com/PhyPiDAQ/PhyPiDAQ/blob/main/examples/scGammaDetector.py)
+into a working directory and executed.
+
+
+
+
+#### Examples  
+
  A typical waveform recorded after issuing the command *scGammaDetector.py -o* on the command line 
  is shown in the figure below. The signal is clearly visible above the noise level of approx. 3500 ADC counts. 
  It  is sufficiently large to be directly connected to a earphone so that the signal clicks can also be acoustically 
@@ -105,23 +152,26 @@ select the standard input device used for sound recording and adjust the volume 
 To become acquainted with the software, in particular the selection of data by setting appropriate trigger conditions, it is 
 useful to use a microphone signal as input source.  Initially, the only the oscilloscope with a very low trigger  level is started:  
    > `python3 scGammaDetector.py -n -o -l 100`
+
 This will show raw data from the soundcard in the oscilloscope display.  Now make some noise, e .g. by clapping your hands or snipping your fingers, and you will see some short signals well above the average noise level. Remember the typical signal level
  of the background noise.  
 Stop the program by typing 'E' on the command line or click the 'End' button in the graphical control interface. Then, restart at
 a higher trigger level, this time also enabling the event display:  
    > `python3 scGammaDetector.py -o -l 1500`
-You should see no signals at all - unless you create a loud sound signal, which then is displayed in the oscilloscope and
-also in the event display window.   
-Detecting the very small signals from the CERN DIY particle detector works exactly the same way. Connecting the detector output
-to a microphone input of a soundcard  and repeat the the same procedure just described to find the right trigger level to separate
-the noise level from true signals of detected particles.  Note that the signal level depends on the settings of your soundcard, most
-importantly the volume. If possible, increase the sampling rate to the highest possible value supported by your soundcard - typical 
-values are 44100, 48000, 96000 or 192000 samples/s. Also consider adjusting the sample size of a single recording using the option
-`-z<n>`  - 256 or 512 are optimal settings for the short pulses of the particle detector,  but some sound drivers only support a minimum setting of 1024. If the sample size is too large, more than one signal may be contained in the sample, but only the first one would  triggered and counted.   
+
+You should see no signals at all - unless you create a loud sound signal, which then is displayed in the oscilloscope and also in the event display window.
+
+Detecting the very small signals from the CERN DIY particle detector works exactly the same way. Connecting the detector output to a microphone input of a soundcard and repeat the the same procedure just described to find the right trigger level to
+separate the noise level from true signals of detected particles.  Note that the
+signal level depends on the settings of your soundcard, most importantly the volume.
+If possible, increase the sampling rate to the highest possible value supported by
+your soundcard - typical values are 44100, 48000, 96000 or 192000 samples/s. 
+Also consider adjusting the sample size of a single recording using the option
+`-z<n>`  - 256 or 512 are optimal settings for the short pulses of the particle detector,  but some sound drivers only support a minimum setting of 1024. If the sample size is too large, more than one signal may be contained in the sample, but only the first one would  be triggered and counted.   
 It is obvious that the trigger level has a strong influence on the recorded signal rate. If it is too low, most true signal will be detected, but some noise pulses (called "background") will also be present. It the trigger level is too high, noise pulses will mostly be suppressed, but also some signal pulses will be lost. There is no way out here - the detection efficiency and the background suppression cannot both be 100 %.! If an absolute rate is to be determined, corrections for signal efficiency and background
 contamination of a selected signal sample  must be applied.  
 
- The output from the particle detector seen under measurement conditions at low rates is shown in the figure below. A flashing circle indicates the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
+The output from the particle detector seen under measurement conditions at low rates is shown in the figure below. A flashing circle indicates the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
 the trigger time is displayed. A rate history is also shown; the bin width in seconds can be set using the opton `--interval <n>` 
 
 ![Fig. 2: Graphical display showing data acquisition with a small sample of pitchblende ore.
