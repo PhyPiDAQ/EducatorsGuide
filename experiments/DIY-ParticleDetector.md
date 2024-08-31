@@ -104,7 +104,8 @@ into a working directory and executed.
  A typical waveform recorded after issuing the command *scGammaDetector.py -o* on the command line 
  is shown in the figure below. The signal is clearly visible above the noise level of approx. 3500 ADC counts. 
  It  is sufficiently large to be directly connected to a earphone so that the signal clicks can also be acoustically 
- perceived. 
+ perceived. The picture below shows a pulse inverted by the soundcard. The original output pulse is negative with a clearly visible positive overshoot. 
+
  
  ![Fig. 1: Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
  of 96000/s is shown below. Note that the y-axis only shows a range of +/- 2¹⁴](images/scOscillogram.png)
