@@ -174,7 +174,9 @@ Die nachstehende Abbildung zeigt die Ausgabe des Teilchendetektors unter Messbed
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse sind, können die mit `scGammaDetector.py -f <name>` in eine Datei `<name>_time.csv` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus den aufgezeichneten Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. Aus Daten, die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
 
 
-### Ergebnisse
+### Messergebnisse
+
+#### Statitik bei radioaktiven Zerflällen
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichnten Gammaquanten aus einer kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 11500 aufgezeichnete Ereignisse mit den Spalten  
@@ -183,18 +185,37 @@ Die Analyse von mit `scGammaDetector.py` aufgezeichnten Gammaquanten aus einer k
 Ausgewertet wurde nur die mittlere Spalte mit den Zeiten, zu denen Ereignisse registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit der Eingabe  
  > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
  
- verwendet. Der letzte Parameter legt die Dauer der Zeitinvervalle (in s) fest, in denen
- jeweils die Ereignisanzahlen ermittelt werden. 
+verwendet. Der letzte Parameter legt die Dauer der Zeitinvervalle (in s) fest, 
+in denen jeweils die Ereignisanzahlen ermittelt werden. 
 
-Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei Ereignissen.
+Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei Ereignissen.
 Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
-sind ebenfalls eingezeichnet, d.h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 13.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine 
-Exponentialverteilung für einen mittleren zeitlichen Abstand von 1/1.32 s = 0.757 s zwischen den Ereignissen sind ebenfalls eingezeichnet. 
+sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl von 13.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine Exponentialverteilung für einen mittleren zeitlichen Abstand von
+1/1.32 s = 0.757 s zwischen den Ereignissen sind ebenfalls eingezeichnet.
+Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
 ![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
 Ereignissen.](images/RateAnalysis.png)
 
 
-      mehr muss noch gemacht und aufgeschrieben werden ...
+#### Umweltradioktivität 
+
+Die Sensorfläche des DIY Teilchendetektos ist mit nur 28 mm² sehr klein, und
+außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
+Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
+daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
+in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
+kann man eine ungefärhe Kalibration vornehmen: 
+
+  > Eine Dosisrate von  0.1 µS/h entspricht 2.5 registreirten Ereignissen pro Minute. 
+
+Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
+durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der Unterschied der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen oder
+gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
+von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
+elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
+nachweisbar. 
+
+
+      mehr müsste noch ausprobiert und aufgeschrieben werden ...
   
