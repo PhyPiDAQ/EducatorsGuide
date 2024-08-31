@@ -100,10 +100,13 @@ in ein Arbeitsverzeichnis geladen und ausgeführt werden.
 
 #### Beispiele
 
- Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde,
- ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
- ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
- angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können.
+Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde,
+ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
+ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
+angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
+Das Bild unten zeigt einen durch die verwendete Soundkarte inverierten Puls. Der Originalpuls
+ist negativ mit einem deutlich sichbaren Überschwinger ins Positive. 
+
  
   ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer LogiLink
   USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s,, ist unten dargestellt.
