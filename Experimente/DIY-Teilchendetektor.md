@@ -207,12 +207,19 @@ daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter
 in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
 kann man eine ungefärhe Kalibration vornehmen: 
 
-  > Eine Dosisrate von  0.1 µS/h entspricht 2.5 registreirten Ereignissen pro Minute. 
+  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
+
+Eine Beispielmessung der Umgebungsaktivität ist in der Grafik unten gezeigt.
+
+![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer.](
+images/EnvironmentRate.png)
 
 Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
-durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der Unterschied der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen oder
+durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der Unterschied
+der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen oder
 gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
-von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
+von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt 
+schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
 elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
 nachweisbar. 
 

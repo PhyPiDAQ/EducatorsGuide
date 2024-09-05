@@ -209,11 +209,19 @@ and and the sensitive layer is very thin. Of the typically several Hz gamma rate
 
   > A dose rate of 0.1 µS/h corresponds to 2.5 registered events per minute. 
 
-Therefore, if sufficiently long measurement times are provided, the do-it-yourself
-detector can be used to study radioactivity in different environments. The difference
-in dose rate outdoors, in living rooms or in rooms with tiles or even granite differ by factors of two to three. With sufficiently large measurement times of a few tens
-of minutes such differences can be shown with high enough statistical precision. 
-The effect of weakly radioactive rock samples or the decay Products of Radon on the surface of a balloon, electrically charged by rubbing, are also detectable.
+An example of a measurement of environmental radioactivity is shown below.
+
+![Fig. 4: Number of events in intervals of 60 s.](images/EnvironmentRate.png)
+
+If sufficiently long measurement times are foreseen, the do-it-yourself
+detector can be used to study radioactivity in different environments.
+The difference in dose rate outdoors, in living rooms or in rooms with 
+tiles or even granite differ by factors of two to three. With sufficiently
+large measurement times of a few tens of minutes such differences can be 
+shown with significant statistical precision. 
+The effects of weakly radioactive rock samples or the decay products of
+Radon on the surface of a balloon, electrically charged by rubbing,
+are also detectable.
 
 
 
