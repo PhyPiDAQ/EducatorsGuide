@@ -174,7 +174,33 @@ Die nachstehende Abbildung zeigt die Ausgabe des Teilchendetektors unter Messbed
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund kann durch Messungen ohne die Signalquelle recht genau bestimmt werden. Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis des Detektors und der Signaleigenschaften, die in der Regel durch eine detaillierte Modellierung der physikalischen Prozesse im Detektor und des Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall, dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse sind, können die mit `scGammaDetector.py -f <name>` in eine Datei `<name>_time.csv` aufgezeichneten Daten analysiert werden, um weitere Erkenntnisse zu gewinnen. Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>` eingeschaltet; für jedes detektierte Signal werden die "Ereignisnummer", die Zeit des Auftretens in Sekunden seit Programmstart und die Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in einem bestimmten Intervall, aus den aufgezeichneten Daten abgeleitet werden, die mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. Aus Daten, die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale bestimmt und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
 
 
-### Messergebnisse
+### Messungen mit dem Selbstbaudetektor
+
+#### Umweltradioktivität 
+
+Die Sensorfläche des DIY Teilchendetektos ist mit nur 28 mm² sehr klein, und
+außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
+Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
+daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
+in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
+kann man eine ungefärhe Kalibration vornehmen: 
+
+  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
+
+Eine Beispielmessung der Umgebungsaktivität ist in der Grafik unten gezeigt.
+
+![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer.](
+images/EnvironmentRate.png)
+
+Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
+durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der Unterschied
+der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen oder
+gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
+von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt 
+schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
+elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
+nachweisbar. 
+
 
 #### Statitik bei radioaktiven Zerflällen
 
@@ -194,34 +220,9 @@ sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere E
 1/1.32 s = 0.757 s zwischen den Ereignissen sind ebenfalls eingezeichnet.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
-![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
+![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen zwei
 Ereignissen.](images/RateAnalysis.png)
 
-
-#### Umweltradioktivität 
-
-Die Sensorfläche des DIY Teilchendetektos ist mit nur 28 mm² sehr klein, und
-außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
-Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
-daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
-in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
-kann man eine ungefärhe Kalibration vornehmen: 
-
-  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
-
-Eine Beispielmessung der Umgebungsaktivität ist in der Grafik unten gezeigt.
-
-![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer.](
-images/EnvironmentRate.png)
-
-Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
-durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der Unterschied
-der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen oder
-gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
-von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt 
-schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
-elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
-nachweisbar. 
 
 
       mehr müsste noch ausprobiert und aufgeschrieben werden ...

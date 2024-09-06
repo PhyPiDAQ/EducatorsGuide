@@ -97,8 +97,6 @@ and
 into a working directory and executed.
 
 
-
-
 #### Examples  
 
  A typical waveform recorded after issuing the command *scGammaDetector.py -o* on the command line 
@@ -183,6 +181,29 @@ The determination of the background level and the signal efficiency is not alway
 
 ### Results of measurements
 
+#### Environmental radioactivity 
+
+The sensor surface area of the DIY particle detector is very small at just 28 mm², 
+and and the sensitive layer is very thin. Of the typically several Hz gamma rate at normal ambient radioactivity of typically 0.1 µS/h, and therefore only a small fraction is registered. By comparison with a dosimeter, in this case a Radiacode 102, see [Instructions](GammaSpectra.md), an approximate calibration can be made: 
+
+  > A dose rate of 0.1 µS/h corresponds to 2.5 registered events per minute. 
+
+An example of a measurement of environmental radioactivity is shown below.
+
+![Fig. 3: Number of events in intervals of 60 s.](images/EnvironmentRate.png)
+
+If sufficiently long measurement times are foreseen, the do-it-yourself
+detector can be used to study radioactivity in different environments.
+The difference in dose rate outdoors, in living rooms or in rooms with 
+tiles or even granite differ by factors of two to three. With sufficiently
+large measurement times of a few tens of minutes such differences can be 
+shown with significant statistical precision. 
+The effects of weakly radioactive rock samples or the decay products of
+Radon on the surface of a balloon, electrically charged by rubbing,
+are also detectable.
+
+#### Statistics of Radioactive Decays  
+
 The analysis of registered gamma quanta from a small sample of pitchblende recorded with `scGammaDetector.py` is shown in
 the figure below. Signal pulses were registered at a rate of approximately 1.32 HZ. The file
 `GammaStrahlung_Pechblende.csv` contains approx. 11500 recorded events with the columns  
@@ -199,30 +220,7 @@ The expected distributions resulting from the mean rate are also plotted, i.e. a
 of 13.2 in every 10 s interval, the corresponding Poisson distribution and an 
 exponential distribution for a mean time interval of 1/1.32 s = 0.757 s between the events are also shown. The graphics show very nicely the properties expected for a Poisson process.
 
-![Fig. 3: Representation of the number of events in intervals of 10 s duration, the frequency distribution of the observed number of events and the time between two events](images/RateAnalysis.png)
-
-
-#### Environmental radioactivity 
-
-The sensor surface area of the DIY particle detector is very small at just 28 mm², 
-and and the sensitive layer is very thin. Of the typically several Hz gamma rate at normal ambient radioactivity of typically 0.1 µS/h, and therefore only a small fraction is registered. By comparison with a dosimeter, in this case a Radiacode 102, see [Instructions](GammaSpectra.md), an approximate calibration can be made: 
-
-  > A dose rate of 0.1 µS/h corresponds to 2.5 registered events per minute. 
-
-An example of a measurement of environmental radioactivity is shown below.
-
-![Fig. 4: Number of events in intervals of 60 s.](images/EnvironmentRate.png)
-
-If sufficiently long measurement times are foreseen, the do-it-yourself
-detector can be used to study radioactivity in different environments.
-The difference in dose rate outdoors, in living rooms or in rooms with 
-tiles or even granite differ by factors of two to three. With sufficiently
-large measurement times of a few tens of minutes such differences can be 
-shown with significant statistical precision. 
-The effects of weakly radioactive rock samples or the decay products of
-Radon on the surface of a balloon, electrically charged by rubbing,
-are also detectable.
-
+![Fig. 4: Representation of the number of events in intervals of 10 s duration, the frequency distribution of the observed number of events and the time between two events](images/RateAnalysis.png)
 
 
   more to be written ....
