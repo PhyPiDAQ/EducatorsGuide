@@ -15,13 +15,11 @@ Parameters:
   - number of bins
 """
 
-# -*- coding=utf-8 -*-
-
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-# -*- Eingabe-Parameter
+# -*- input parameters
 
 print(f"*==* script {sys.argv[0]} executing, parameters: {sys.argv[1:]}\n")
 
@@ -35,19 +33,22 @@ if len(sys.argv) > 2:
 else:
     Nbins = 100  #  number of bins
 
-fig = plt.figure(1, figsize=(6.0, 4.0))
-ax = fig.add_subplot(1, 1, 1)  # for rate vs. time
+# -*- read data
 
-# -*- Daten einlesen:
 try:
-    H = np.loadtxt(fname, skiprows=1, usecols=(2), delimiter=",", unpack=True)
+    ph_data = np.loadtxt(fname, skiprows=1, usecols=(2), delimiter=",", unpack=True)
 except Exception as e:
     print(" no input file given - abort")
     sys.exit(1)
 
-ax.hist(H, Nbins)
+# -*- create figure a show histogram
+
+fig = plt.figure(1, figsize=(8.0, 5.0))
+ax = fig.add_subplot(1, 1, 1)  # for pulse-height histogram
+
+ax.hist(ph_data, Nbins)
 ax.set_ylabel("Anzahl Einträge")
 ax.set_xlabel("Pulshöhe (ACD-counts)")
-ax.set_title("Pulshöhenspektrum")
+ax.set_title("peak-to-peak Pulshöhenspektrum")
 
 plt.show()
