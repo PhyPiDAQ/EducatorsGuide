@@ -2,9 +2,13 @@
 
 Übersetzt aus der englischen Version mit Hilfe von DeepL.com (kostenlose Version)
 
-Der Nachweis von Radioaktivität, die entweder durch künstliche Quellen oder als Teil der natürlichen Umwelt entsteht, wie K-40 oder Radon aus dem Erdinneren, ist ein faszinierendes Forschungsgebiet, das heute mit preiswerten und einfachen Detektoren zugänglich geworden ist. Es gibt kommerzielle Angebote, aber auch eine Reihe von Vorschlägen für Do-it-yourself-Projekte. Schon die Soundkarte eines Standard-PCs
-ist geeignet die Signale aufzuzeichnen, die dann mit einem 
-beliebigen Soundkarten-Oszilloskop visualisiert werden können. 
+Der Nachweis von Radioaktivität, die entweder durch künstliche Quellen oder als Teil
+ der natürlichen Umwelt entsteht, wie K-40 oder Radon aus dem Erdinneren, ist ein
+faszinierendes Forschungsgebiet, das heute mit preiswerten und einfachen Detektoren
+ zugänglich geworden ist. Es gibt kommerzielle Angebote, aber auch eine Reihe von
+Vorschlägen für Do-it-yourself-Projekte. Schon die Soundkarte eines Standard-PCs
+ist geeignet die Signale aufzuzeichnen, die dann mit einem Soundkarten-Oszilloskop
+visualisiert werden können. 
 
 
 ### Der CERN DIY Teilchendetektor  
@@ -182,7 +186,8 @@ Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durc
 Schaltfläche "End" in der grafischen Benutzeroberfläche. Starten Sie es dann erneut mit einem
 höheren Triggerpegel, wobei Sie diesmal die Ereignisanzeige aktiviert lassen:  
    > `python3 scGammaDetector.py -l 1500`  
-Sie sollten keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen Verlauf
+
+Sie sollten nun keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen Verlauf
 dann in der Ereignisanzeige angezeigt wird.  
 *Anmerkung*: die gleichzeitige animierte Anzeige von Ereignisdarstellung und Oszillogramm
 funktioniert unter MS Windows nicht stabil; unter Linux können problemlos beide Anzeigen
@@ -219,8 +224,8 @@ angezeigt; die Bin-Breite in Sekunden kann mit der Option `--interval <n>`
 eingestellt werden. 
 
 ![Abb. 2: Grafische Darstellung der Datenerfassung mit einer kleinen Probe 
-von Pechblende. Es wird eine durchschnittliche Zählrate von etwa 5 Signalen
-in 5-Sekunden-Intervallen beobachtet.](images/PoissonEventDisplay.png)
+von Pechblende. Es wird eine durchschnittliche Zählrate von etwa 10 Signalen
+in 10-Sekunden-Intervallen beobachtet.](images/PoissonEventDisplay.png)
 
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen
 Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund
@@ -228,23 +233,11 @@ kann durch Messungen ohne die Signalquelle recht genau bestimmt werden.
 Die Bestimmung der Signaleffizienz hingegen erfordert genaue Kenntnis
 des Detektors und der Signaleigenschaften, die in der Regel durch eine
 detaillierte Modellierung der physikalischen Prozesse im Detektor und des
-Ansprechverhaltens  der Front-End-Elektronik gewonnen werden. Für den Fall
+Ansprechverhaltens der Front-End-Elektronik gewonnen werden. Für den Fall
 dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse
 sind, können die mit `scGammaDetector.py -f <name>` in eine Datei
 `<name>_time.csv` aufgezeichneten Daten analysiert werden, um weitere
-Erkenntnisse zu gewinnen. 
-
-Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>`
-eingeschaltet; für jedes detektierte Signal werden eine fortlaufend inkrementierte
-Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart und die
-Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann
-ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in
-einem bestimmten Intervall, aus den aufgezeichneten Daten abgeleitet werden, die
-mit einer niedrigen Triggerschwelle aufgenommen wurden. Dieses Spektrum zeigt
-eine große Anzahl von sehr kleinen Impulsen, aber auch eine deutliche Anhäufung
-von echten Signalen bei höheren Werten. Aus Daten, die ohne Teilchenquelle
-aufgenommen wurden, kann ein Spektrum der erwarteten Untergrundsignale bestimmt
-und von den Daten, die mit einer Signalquelle aufgenommen wurden, abgezogen werden.  
+Untersuchungen durchzuführen. 
 
 
 ### Messungen mit dem Selbstbaudetektor
@@ -275,12 +268,34 @@ elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
 nachweisbar. 
 
 
+#### Pulshöhenspktrum
+
+Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>`
+eingeschaltet; für jedes detektierte Signal werden eine fortlaufend inkrementierte
+Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart und die
+Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann
+ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in
+einem bestimmten Intervall, aus den aufgezeichneten Daten abgeleitet werden, die
+mit einer niedrigen Triggerschwelle aufgenommen wurden. 
+
+Ein solches Spektrum der peak-to-peak Pulshöhen ist in der Abbidlung unten gezeigt.
+
+![Abb. 3: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeight.png)
+
+
+Man sieht eine große Anzahl von Impulsen knapp oberhalb der Triggerschwelle, 
+aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. 
+Aus Daten, die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der
+erwarteten Untergrundsignale bestimmt und von den Daten, die mit einer
+Signalquelle aufgenommen wurden, abgezogen werden.  
+
+
 #### Statitik bei radioaktiven Zerflällen
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichnten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse
 wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
-`GammaStrahlung_Pechblende.csv` enthält ca. 11500 aufgezeichnete Ereignisse
+`GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse
 mit den Spalten  
   > `event_numer, event_time[s], pulse_height[adc]`
 
@@ -296,9 +311,9 @@ Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
 sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 13.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine
+von 11.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine
 Exponentialverteilung für einen mittleren zeitlichen Abstand von
-1/1.32 s = 0.757 s zwischen den Ereignissen sind ebenfalls dargestellt.
+1/1.12 s = 0.891 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
 ![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
