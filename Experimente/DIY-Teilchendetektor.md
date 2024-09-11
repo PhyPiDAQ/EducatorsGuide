@@ -16,7 +16,7 @@ visualisiert werden können.
 Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden Teilchendetektor
  basierend auf vier PIN-Photodioden vom Typ BPW34 ist der 
 [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
-Der zweistufige Verstärker mit einem Operationsvertärker mit hoher Bandbreite erzeugt große
+Der zweistufige Verstärker mit einem Operationsverstärker mit hoher Bandbreite erzeugt große
 Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können leicht
 sogar mit einer Soundkarte aufgenommen werden. 
 
@@ -121,8 +121,8 @@ Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet 
 ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
 ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
 angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
-Das Bild unten zeigt einen durch die verwendete Soundkarte inverierten Puls. Der Originalpuls
-ist negativ mit einem deutlich sichbaren Überschwinger ins Positive. 
+Das Bild unten zeigt einen durch die verwendete Soundkarte invertierten Puls. Der Originalpuls
+ist negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
 
  
   ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
@@ -242,14 +242,14 @@ Untersuchungen durchzuführen.
 
 ### Messungen mit dem Selbstbaudetektor
 
-#### Umweltradioktivität 
+#### Umweltradioaktivität 
 
-Die Sensorfläche des DIY Teilchendetektos ist mit nur 28 mm² sehr klein, und
+Die Sensorfläche des DIY Teilchendetektors ist mit nur 28 mm² sehr klein, und
 außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
 Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
 daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
 in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
-kann man eine ungefärhe Kalibration vornehmen: 
+kann man eine ungefähre Kalibration vornehmen: 
 
   > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
 
@@ -264,7 +264,7 @@ Unterschied der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Flie
 oder gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
 von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt 
 schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben 
-elektrisch geladenen Luftballons angereicherte Zerafallsprodukte von Radon sind
+elektrisch geladenen Luftballons angereicherte Zerfallsprodukte von Radon sind
 nachweisbar. 
 
 
@@ -275,24 +275,30 @@ eingeschaltet; für jedes detektierte Signal werden eine fortlaufend inkrementie
 Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart und die
 Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann
 ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in
-einem bestimmten Intervall, aus den aufgezeichneten Daten abgeleitet werden, die
-mit einer niedrigen Triggerschwelle aufgenommen wurden. 
+einem bestimmten Intervall, aus bei niedriger Triggerschwelle aufgezeichneten 
+Daten abgeleitet werden.
 
-Ein solches Spektrum der peak-to-peak Pulshöhen ist in der Abbidlung unten gezeigt.
+Ein solches Spektrum der peak-to-peak Pulshöhen ist in der Abbildung unten gezeigt.
+Es wurde mit einer solchen Lautstärkeeinstellung aufgezeichnet, dass die Triggerschwelle
+noch innerhalb der Rauschsignale lag. 
 
-![Abb. 3: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeight.png)
-
-
-Man sieht eine große Anzahl von Impulsen knapp oberhalb der Triggerschwelle, 
-aber auch eine deutliche Anhäufung von echten Signalen bei höheren Werten. 
-Aus Daten, die ohne Teilchenquelle aufgenommen wurden, kann ein Spektrum der
-erwarteten Untergrundsignale bestimmt und von den Daten, die mit einer
-Signalquelle aufgenommen wurden, abgezogen werden.  
+![Abb. 3: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeights.png)
 
 
-#### Statitik bei radioaktiven Zerflällen
+Man sieht eine große Anzahl von Impulsen knapp oberhalb der Triggerschwelle,
+die bei größeren Pulshöhen schnell abfällt. Ab etwa 10000 ADC-counts sieht man
+die flache Verteilung der von den Gammas aus der radioaktiven Probe erzeugten
+Signale. 
 
-Die Analyse von mit `scGammaDetector.py` aufgezeichnten Gammaquanten aus einer
+Ein solches Spektrum kann auch ohne radioaktive Quelle nur mit Umgebungsstrahlung 
+erzeugt werden. Dann gibt es klarerweise deutlich weniger Einträge bei großen
+Pulshöhen, der starke Abfall und die Grenze zwischen Rauschen und echten Signalen
+ist aber auch dann deutlich sichtbar. 
+
+
+#### Statistik bei radioaktiven Zerfällen
+
+Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse
 wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse
@@ -304,14 +310,14 @@ registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit
 der Eingabe  
  > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
  
-verwendet. Der letzte Parameter legt die Dauer der Zeitinvervalle (in s) fest, 
+verwendet. Der letzte Parameter legt die Dauer der Zeitintervalle (in s) fest, 
 in denen jeweils die Ereignisanzahlen ermittelt werden. 
 
 Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
 sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 11.2 in jedem 10 s-Intervall, die entprechende Poisson-Verteilung und eine
+von 11.2 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
 Exponentialverteilung für einen mittleren zeitlichen Abstand von
 1/1.12 s = 0.891 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
