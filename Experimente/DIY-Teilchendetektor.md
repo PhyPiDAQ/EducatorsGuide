@@ -279,10 +279,9 @@ einem bestimmten Intervall, aus bei niedriger Triggerschwelle aufgezeichneten
 Daten abgeleitet werden.
 
 Ein solches Spektrum der peak-to-peak Pulshöhen ist in der Abbildung unten gezeigt.
-Es wurde mit einer solchen Lautstärkeeinstellung aufgezeichnet, dass die Triggerschwelle
-noch innerhalb der Rauschsignale lag. 
+Es wurde mit einer solchen Lautstärkeeinstellung aufgezeichnet, dass die Triggerschwelle noch innerhalb der Rauschsignale lag. 
 
-![Abb. 3: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeights.png)
+![Abb. 4: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeights.png)
 
 
 Man sieht eine große Anzahl von Impulsen knapp oberhalb der Triggerschwelle,
@@ -300,7 +299,7 @@ ist aber auch dann deutlich sichtbar.
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse
-wurden mit einer Rate von ca. 1,32 HZ registriert. Die Datei
+wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse
 mit den Spalten  
   > `event_numer, event_time[s], pulse_height[adc]`
@@ -317,12 +316,12 @@ Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
 sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 11.2 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
+von 11,1 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
 Exponentialverteilung für einen mittleren zeitlichen Abstand von
-1/1.12 s = 0.891 s zwischen den Ereignissen sind ebenfalls dargestellt.
+1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
-![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
+![Abb. 5: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
 die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen.](images/RateAnalysis.png)
 
