@@ -1,4 +1,4 @@
-## *PhyPiDAQ*: Datenaufname do-it-yourself Teilchendetektor
+## *PhyPiDAQ*: Datenaufnahme do-it-yourself Teilchendetektor
 
 Übersetzt aus der englischen Version mit Hilfe von DeepL.com (kostenlose Version)
 
@@ -100,7 +100,7 @@ Windows 10 oder 11, wenn dort *Python* installiert ist.
 
 #### Vereinfachte Installation
 
-Die Python-Programme *scGammaDector.py* und *run_scOsci.py* können auch ohne den Dewnload
+Die Python-Programme *scGammaDector.py* und *run_scOsci.py* können auch ohne den Download
 des kompletten *PhyPiDAQ*-Pakets ausgeführt werden. Wenn eine aktuelle Python-Version
 verfügbar ist, können die Bibliotheken auch direkt aus dem *github*-Repository installiert
 werden:
