@@ -267,17 +267,17 @@ nachweisbar.
 Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
 Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
 die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der Datei gespeichert. Eine solche Datei enthält die Spalten  
-  > `Ereignisnummer, Ereigniszeit[s], Impulshöhe[adc]`
+  > `Ereignisnummer, Ereigniszeit[s], Pulshöhe[adc]`
 
-Zur Anzeige des Spektrums der Impulshöhen, d. h. der Häufigkeit des Auftretens von Impulshöhen 
+Zur Anzeige des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens von Pulshöhen 
 in einem bestimmten Zeitintervall, wird nur die dritte Spalte verwendet. 
 
 Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung dargestellt. 
 Die Lautstärkeeinstellung der souund-Karte wurde so gewählt, dass die Triggerschwelle 
-noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Impulshöhen definiert sind
-als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Impulshöhen).  
+noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Pulshöhen definiert sind
+als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhen).  
 
-![Abb. 3: Häufigkeitsverteilung der Impulshöhen, die mit einer Triggerschwelle
+![Abb. 3: Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
 im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
 aufgenommen wurden.](images/PulseHeights.png)
 
