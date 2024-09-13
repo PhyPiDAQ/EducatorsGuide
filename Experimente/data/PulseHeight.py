@@ -38,7 +38,7 @@ else:
 try:
     ph_data = np.loadtxt(fname, skiprows=1, usecols=(2), delimiter=",", unpack=True)
 except Exception as e:
-    print(" no input file given - abort")
+    print(" Problem reading input file - abort ", str(e))
     sys.exit(1)
 
 # -*- create figure a show histogram
@@ -50,5 +50,7 @@ ax.hist(ph_data, Nbins)
 ax.set_ylabel("Anzahl Einträge")
 ax.set_xlabel("Pulshöhe (ACD-counts)")
 ax.set_title("peak-to-peak Pulshöhenspektrum")
+# set logarithmic scale
+ax.set_yscale("log")
 
 plt.show()

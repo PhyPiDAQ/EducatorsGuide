@@ -187,8 +187,8 @@ Schaltfläche "End" in der grafischen Benutzeroberfläche. Starten Sie es dann e
 höheren Triggerpegel, wobei Sie diesmal die Ereignisanzeige aktiviert lassen:  
    > `python3 scGammaDetector.py -l 1500`  
 
-Sie sollten nun keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen Verlauf
-dann in der Ereignisanzeige angezeigt wird.  
+Sie sollten nun keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen
+Verlauf dann in der Ereignisanzeige angezeigt wird.  
 *Anmerkung*: die gleichzeitige animierte Anzeige von Ereignisdarstellung und Oszillogramm
 funktioniert unter MS Windows nicht stabil; unter Linux können problemlos beide Anzeigen
 aktiviert werden:  `python3 scGammaDetector.py -o -l 1500`
@@ -255,8 +255,8 @@ kann man eine ungefähre Kalibration vornehmen:
 
 Eine Beispielmessung der Umgebungsaktivität ist in der Grafik unten gezeigt.
 
-![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer.](
-images/EnvironmentRate.png)
+![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer bei einer
+Dosisrate von 0,085 µSv/h.](images/EnvironmentRate.png)
 
 Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
 durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der
@@ -268,41 +268,47 @@ elektrisch geladenen Luftballons angereicherte Zerfallsprodukte von Radon sind
 nachweisbar. 
 
 
-#### Pulshöhenspktrum
+#### Pulshöhenspektrum
 
-Die Aufzeichnung von detektierten Impulsen wird mit der Option `-f <Dateiname>`
+Zur statistischen Auswertung der Pulshöhen dienen die in einer Datei während der
+Datennahme gespeicherten Daten. Die Aufzeichnung wird mit der Option `-f <Dateiname>`
 eingeschaltet; für jedes detektierte Signal werden eine fortlaufend inkrementierte
 Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart und die
-Impulshöhe in ADC-Counts in der Datei gespeichert. In einer Offline-Analyse kann
-ein Impulshöhenspektrum, d. h. die Häufigkeit des Auftretens von Impulshöhen in
-einem bestimmten Intervall, aus bei niedriger Triggerschwelle aufgezeichneten 
-Daten abgeleitet werden.
-
-Ein solches Spektrum der peak-to-peak Pulshöhen ist in der Abbildung unten gezeigt.
-Es wurde mit einer solchen Lautstärkeeinstellung aufgezeichnet, dass die Triggerschwelle noch innerhalb der Rauschsignale lag. 
-
-![Abb. 4: Häufigkeitsverteilung der Pulshöhen.](images/PulseHeights.png)
+Pulshöhe in ADC-Counts in der Datei gespeichert. Eine solche Datei enthält die Spalten  
+  > `event_numer, event_time[s], pulse_height[adc]`
 
 
-Man sieht eine große Anzahl von Impulsen knapp oberhalb der Triggerschwelle,
-die bei größeren Pulshöhen schnell abfällt. Ab etwa 10000 ADC-counts sieht man
-die flache Verteilung der von den Gammas aus der radioaktiven Probe erzeugten
-Signale. 
+Zur Darstellung des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens 
+von Pulshöhen in einem bestimmten Intervall, wird nur die dritte Spalte verwendet. 
 
-Ein solches Spektrum kann auch ohne radioaktive Quelle nur mit Umgebungsstrahlung 
-erzeugt werden. Dann gibt es klarerweise deutlich weniger Einträge bei großen
-Pulshöhen, der starke Abfall und die Grenze zwischen Rauschen und echten Signalen
-ist aber auch dann deutlich sichtbar. 
+Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der Abbildung unten gezeigt. 
+Dabei wurde die Lautstärkeeinstellung so gewählt, dass die Triggerschwelle noch innerhalb
+des Bereichs der Rauschsignale lag. Die Pulshöhen sind definiert als die Differenz 
+zwischen dem maximalen und dem minimalen Wert der ADC-counts im Signalbereich 
+("peak-to-peak" Pulshöhen).  
+
+![Abb. 4: Häufigkeitsverteilung der Pulshöhen, erzeugt mit einer Triggerschwelle
+im Bereich der Rauschpulse bei einer Umgebungsaktivität von
+0,085 µSv/h.](images/PulseHeights.png)
+
+In der logarithmischen Darstellung sieht man eine sehr große Anzahl von Pulshöhen
+knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfällt.
+Ab etwa 10000 ADC-counts sieht man die flache Verteilung der von den echten Gammas
+aus der Umgebung verursachten Signale. 
+
+Setzt man die Triggerschwelle oberhalb des Übergangspunkts von der Rausch- zur
+Signalverteilung, so werden Rauschsignale unterdrückt und nur echte Gammas 
+registriert. Die Triggerrate entspricht dann direkt der Rate nachgewiesener Gammas.
+
+Zur Darstellung der Pulshöhenverteilung dient das Python*-Programm `data/PulseHeight.py`.
 
 
 #### Statistik bei radioaktiven Zerfällen
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
-kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. Signalpulse
-wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
-`GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse
-mit den Spalten  
-  > `event_numer, event_time[s], pulse_height[adc]`
+kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. 
+Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
+`GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
 
 Ausgewertet wurde nur die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit 
