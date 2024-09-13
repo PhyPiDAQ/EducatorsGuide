@@ -218,14 +218,13 @@ vorgenommen werden.
 
 Die nachstehende Abbildung zeigt die Ausgabe des Teilchendetektors. 
 Ein blinkender Kreis zeigt das Auftreten eines ausgelösten Ereignisses an,
-und die entsprechende (normalisierte) Wellenform mit 100 Abtastpunkten um
-den Auslösezeitpunkt herum wird ebenfalls angezeigt. Es wird auch ein Ratenverlauf 
-angezeigt; die Bin-Breite in Sekunden kann mit der Option `--interval <n>` 
-eingestellt werden. 
+und die entsprechende Wellenform mit 100 Abtastpunkten um den Auslösezeitpunkt
+herum wird ebenfalls angezeigt. Es wird auch ein Ratenverlauf angezeigt; die
+Bin-Breite in Sekunden kann mit der Option `--interval <n>` eingestellt werden. 
 
-![Abb. 2: Grafische Darstellung der Datenerfassung mit einer kleinen Probe 
-von Pechblende. Es wird eine durchschnittliche Zählrate von etwa 10 Signalen
-in 10-Sekunden-Intervallen beobachtet.](images/PoissonEventDisplay.png)
+![Abb. 2: Grafische Darstellung der Datenerfassung unter Umgebungsbedingungen.
+Es wird eine durchschnittliche Zählrate von etwa 1.5 Signalen pro Minute 
+beobachtet.](images/EnvironmentRate.png)
 
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen
 Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund
@@ -253,11 +252,7 @@ kann man eine ungefähre Kalibration vornehmen:
 
   > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
 
-Eine Beispielmessung der Umgebungsaktivität ist in der Grafik unten gezeigt.
-
-![Abb. 3: Darstellung der Zahl der Ereignisse in Intervallen von 60 s Dauer bei einer
-Dosisrate von 0,085 µSv/h.](images/EnvironmentRate.png)
-
+Eine Beispielmessung der Umgebungsaktivität wurde oben schon gezeigt.
 Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
 durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der
 Unterschied der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen
@@ -267,40 +262,36 @@ schwach radioaktiver Gesteinsproben oder auf der Oberfläche eines durch Reiben
 elektrisch geladenen Luftballons angereicherte Zerfallsprodukte von Radon sind
 nachweisbar. 
 
-
 #### Pulshöhenspektrum
 
-Zur statistischen Auswertung der Pulshöhen dienen die in einer Datei während der
-Datennahme gespeicherten Daten. Die Aufzeichnung wird mit der Option `-f <Dateiname>`
-eingeschaltet; für jedes detektierte Signal werden eine fortlaufend inkrementierte
-Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart und die
-Pulshöhe in ADC-Counts in der Datei gespeichert. Eine solche Datei enthält die Spalten  
-  > `event_numer, event_time[s], pulse_height[adc]`
+Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
+Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
+die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der Datei gespeichert. Eine solche Datei enthält die Spalten  
+  > `Ereignisnummer, Ereigniszeit[s], Impulshöhe[adc]`
 
+Zur Anzeige des Spektrums der Impulshöhen, d. h. der Häufigkeit des Auftretens von Impulshöhen 
+in einem bestimmten Zeitintervall, wird nur die dritte Spalte verwendet. 
 
-Zur Darstellung des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens 
-von Pulshöhen in einem bestimmten Intervall, wird nur die dritte Spalte verwendet. 
+Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung dargestellt. 
+Die Lautstärkeeinstellung der souund-Karte wurde so gewählt, dass die Triggerschwelle 
+noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Impulshöhen definiert sind
+als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Impulshöhen).  
 
-Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der Abbildung unten gezeigt. 
-Dabei wurde die Lautstärkeeinstellung so gewählt, dass die Triggerschwelle noch innerhalb
-des Bereichs der Rauschsignale lag. Die Pulshöhen sind definiert als die Differenz 
-zwischen dem maximalen und dem minimalen Wert der ADC-counts im Signalbereich 
-("peak-to-peak" Pulshöhen).  
+![Abb. 3: Häufigkeitsverteilung der Impulshöhen, die mit einer Triggerschwelle
+im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
+aufgenommen wurden.](images/PulseHeights.png)
 
-![Abb. 4: Häufigkeitsverteilung der Pulshöhen, erzeugt mit einer Triggerschwelle
-im Bereich der Rauschpulse bei einer Umgebungsaktivität von
-0,085 µSv/h.](images/PulseHeights.png)
-
-In der logarithmischen Darstellung sieht man eine sehr große Anzahl von Pulshöhen
+Die logarithmische Darstellung zeigt eine sehr große Anzahl von Pulshöhen
 knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfällt.
-Ab etwa 10000 ADC-counts sieht man die flache Verteilung der von den echten Gammas
-aus der Umgebung verursachten Signale. 
+Ab etwa 10000 ADC-Zählungen sieht man die flache Verteilung, die
+die durch die Signle der umgebende Gammastrahlung verursacht wird. 
 
-Setzt man die Triggerschwelle oberhalb des Übergangspunkts von der Rausch- zur
-Signalverteilung, so werden Rauschsignale unterdrückt und nur echte Gammas 
-registriert. Die Triggerrate entspricht dann direkt der Rate nachgewiesener Gammas.
+Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur 
+der Signalverteilung, werden Rauschsignale unterdrückt und nur echte Gammastrahlen 
+registriert. Die Triggerrate entspricht dann direkt der Rate der detektierten Gammastrahlen.
 
-Zur Darstellung der Pulshöhenverteilung dient das Python*-Programm `data/PulseHeight.py`.
+Zur Darstellung der Pulshöhenverteilung wird das Python*-Programm `data/PulseHeight.py`
+verwendet.
 
 
 #### Statistik bei radioaktiven Zerfällen
@@ -309,10 +300,10 @@ Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. 
 Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
-
-Ausgewertet wurde nur die mittlere Spalte mit den Zeiten, zu denen Ereignisse
+Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit 
-der Eingabe  
+der Eingabe
+
  > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
  
 verwendet. Der letzte Parameter legt die Dauer der Zeitintervalle (in s) fest, 
@@ -327,7 +318,7 @@ Exponentialverteilung für einen mittleren zeitlichen Abstand von
 1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
-![Abb. 5: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
+![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
 die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen.](images/RateAnalysis.png)
 

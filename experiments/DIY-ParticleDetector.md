@@ -149,7 +149,7 @@ Note that the signal level depends on the  settings of the soundcard. Use the ap
 select the standard input device used for sound recording and adjust the volume control. 
 
 To become acquainted with the software, in particular the selection of data by setting appropriate trigger conditions, it is 
-useful to use a microphone signal as input source.  Initially, the only the oscilloscope with a very low trigger  level is started:  
+useful to use a microphone signal as input source.  Initially, only the oscilloscope with a very low trigger  level is started:  
    > `python3 scGammaDetector.py -n -o -l 100`
 
 This will show raw data from the soundcard in the oscilloscope display.  Now make some noise, e .g. by clapping your hands or snipping your fingers, and you will see some short signals well above the average noise level. Remember the typical signal level
@@ -171,10 +171,10 @@ It is obvious that the trigger level has a strong influence on the recorded sign
 contamination of a selected signal sample  must be applied.  
 
 The output from the particle detector seen under measurement conditions at low rates is shown in the figure below. A flashing circle indicates the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
-the trigger time is displayed. A rate history is also shown; the bin width in seconds can be set using the opton `--interval <n>` 
+the trigger time is displayed. A rate history is also shown; the bin width in seconds can be set using the option `--interval <n>` 
 
-![Fig. 2: Graphical display showing data acquisition with a small sample of pitchblende ore.
- An average count rate of about 5 signals in 5 s intervals is observed.](images/PoissonEventDisplay.png)
+![Fig. 2: Graphical display showing a typical signal waveform and the observed rates per minute.
+ An average count rate is about 1.5 signals per minute.](images/EnvironmentRate.png)
 
 The determination of the background level and the signal efficiency is not always easy to do  with small uncertainties. the background level can be determined rather precisely by performing measurements without the signal source. The determination of the signal efficiency requires precise knowledge of the detector and the signal characteristics, typically gained by detailed modeling  of the physics processes in the detector and the response of the front-end electronics. In case such studies signal efficiency vs. purity are interesting, data recorded with `scGammaDetector.py` can be analyzed  to gain more insight. Recording of detected pulses is switched on with the option `-f <filename>`; for each detected signal, the "event number", the time of occurrence in seconds since program start and the pulse height in ADC counts are stored in the file. In an off-line analysis, a pulse-height spectrum, i. e. the frequency at which pulse heights in a given interval occur, can be derived from data taken at a low trigger threshold. This will show a large number of very small pulses, but also a clear  accumulation arising from true signals at higher values. From data taken without a particle source a spectrum of expected background signals during the measurement can be determined and subtracted from the data taken with a signal source.  
 
@@ -188,10 +188,7 @@ and and the sensitive layer is very thin. Of the typically several Hz gamma rate
 
   > A dose rate of 0.1 µS/h corresponds to 1.5 registered events per minute. 
 
-An example of a measurement of environmental radioactivity is shown below.
-
-![Fig. 3: Number of events in intervals of 60 s.](images/EnvironmentRate.png)
-
+An example of a measurement of environmental radioactivity has been shown above. 
 If sufficiently long measurement times are foreseen, the do-it-yourself
 detector can be used to study radioactivity in different environments.
 The difference in dose rate outdoors, in living rooms or in rooms with 
@@ -202,28 +199,39 @@ The effects of weakly radioactive rock samples or the decay products of
 Radon on the surface of a balloon, electrically charged by rubbing,
 are also detectable.
 
+
 #### Pulse height spectrum
 
-The recording of detected pulses is switched on with the option `-f <filename>`.
-For each detected signal, a consecutively incremented event number, the time of
- occurrence in seconds since the start of the program and the pulse height in 
- ADC counts are saved in the file. In an offline analysis a pulse height spectrum, 
- i.e. the frequency of the occurrence of pulse heights in a time interval, can be derived from data recorded at a low trigger threshold.
+The data stored in a file during data collection is used for the statistical
+evaluation of pulse heights. Data recording is switched on with the option `-f <filename>`.
+For each detected signal, a consecutively incremented event number
+event number, the time of occurrence in seconds since program start and the pulse height in
+pulse height in ADC counts are saved in the file. Such a file contains the columns  
+  > `event_number, event_time[s], pulse_height[adc]`
 
-Such a spectrum of peak-to-peak pulse heights is shown in the figure below.
-It was recorded at a volume setting such that the trigger threshold
-was close to the noise level. 
+To display the spectrum of pulse heights, i.e. the frequency with which pulse heights occur 
+in a certain time interval, only the third column is used. 
 
-![Fig. 4: Frequency distribution of pulse heights](images/PulseHeights.png)
+The result of a measurement with ambient radioactivity is shown in the figure below. 
+The volume setting of the sound card was selected so that the trigger threshold was 
+still within the range of the noise signals. Note that the pulse heights are defined
+as the difference between the maximum and minimum values of the ADC counts in the signal
+ range (“peak-to-peak” pulse heights).  
 
+![Fig. 3: Frequency distribution of the pulse heights generated with a
+trigger threshold in the range of the noise pulses at an ambient activity of
+of 0.085 µSv/h.](images/PulseHeights.png)
 
-You can see a large number of pulses just above the trigger threshold,
-which drops rapidly at higher pulse heights. From about 10000 ADC counts you 
-can see the flat distribution of the signals generated by the gammas from the radioactive source.
+The logarithmic representation shows a very large number of pulse heights
+just above the trigger threshold, which drops rapidly towards larger values.
+From around 10000 ADC counts, you can see the flat distribution of the signals
+caused by the ambient gamma radiation. 
 
-Such a spectrum can also be generated without a radioactive source using only ambient radiation. Clearly, there are then significantly fewer entries at 
-large pulse heights, but the sharp drop and the boundary between noise and real
-signals is clearly visible. 
+If the trigger threshold is set above the transition point from the noise to 
+the signal distribution, noise signals are suppressed and only real gamma rays are 
+registered. The trigger rate then corresponds directly to the rate of detected gammas.
+
+The Python* program `data/PulseHeight.py` is used to display the pulse height distribution.
 
 
 #### Statistics of Radioactive Decays  
