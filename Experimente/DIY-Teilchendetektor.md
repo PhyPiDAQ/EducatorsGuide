@@ -290,7 +290,8 @@ Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur
 der Signalverteilung, werden Rauschsignale unterdrückt und nur echte Gammastrahlen 
 registriert. Die Triggerrate entspricht dann direkt der Rate der detektierten Gammastrahlen.
 
-Zur Darstellung der Pulshöhenverteilung wird das unten beschriebene Python*-Programm `data/GammaAnalysis.py` verwendet.
+Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Programm
+`data/GammaAnalysis.py` verwendet.
 
 
 #### Statistik bei radioaktiven Zerfällen
@@ -303,9 +304,6 @@ Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
 `data/GammaAnalysis.py` verwendet.
  
-verwendet. Der letzte Parameter legt die Dauer der Zeitintervalle (in s) fest, 
-in denen jeweils die Ereignisanzahlen ermittelt werden. 
-
 Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
@@ -333,14 +331,14 @@ bei der zweiten Messung mit einer Probe radioaktiver Pechblende war die
 Triggerschwelle deutlich oberhalb des Rauschniveaus eingestellt. 
 
 Eingabe von  
-> `python3 Analysis -h`
+> `python3 GammaAnalysis -h`
 
 zeigt die vorhandenen Optionen und Parameter:
 
 ```sh
 *==* script ./Analysis.py executing, parameters: ['-h']
 
-usage: Analysis.py [-h] [-b BINS] [-i INTERVAL] [-c CUT] inFileName
+usage: GammaAnalysis.py [-h] [-b BINS] [-i INTERVAL] [-c CUT] inFileName
 
 Analysis of DIY Detector
 
