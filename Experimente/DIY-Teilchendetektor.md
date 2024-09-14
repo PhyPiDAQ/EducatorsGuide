@@ -290,8 +290,7 @@ Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur
 der Signalverteilung, werden Rauschsignale unterdrückt und nur echte Gammastrahlen 
 registriert. Die Triggerrate entspricht dann direkt der Rate der detektierten Gammastrahlen.
 
-Zur Darstellung der Pulshöhenverteilung wird das Python*-Programm `data/PulseHeight.py`
-verwendet.
+Zur Darstellung der Pulshöhenverteilung wird das unten beschriebene Python*-Programm `data/GammaAnalysis.py` verwendet.
 
 
 #### Statistik bei radioaktiven Zerfällen
@@ -301,10 +300,8 @@ kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt.
 Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
 Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
-registriert wurden. Dazu wurde der Python-Code `data/RateAnalysis.py` mit 
-der Eingabe
-
- > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
+registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
+`data/GammaAnalysis.py` verwendet.
  
 verwendet. Der letzte Parameter legt die Dauer der Zeitintervalle (in s) fest, 
 in denen jeweils die Ereignisanzahlen ermittelt werden. 
@@ -323,6 +320,53 @@ die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwisch
 zwei Ereignissen.](images/RateAnalysis.png)
 
 
+### Software zur Auswertung
 
-      mehr müsste noch ausprobiert und aufgeschrieben werden ...
-  
+Der Code zur Erzeugung der oben gezeigten Ergebnisgrafiken befindet sich im
+Python-Script `data/Analysis.py`, das als Beispiel für eigene Auswertungen oder
+auch als gebrauchsfertiges Programm dienen kann. Die beiden Dateien 
+`data/Umgebung_lowTrigger.csv` und `data/Pechblende.csv` enthalten Daten, die mit dem
+CERN DIY-Detektor und dem Programm `scGammaDetector.py` aufgezeichnet wurden
+und mit `Analysis.py` ausgewertet werden können. Der erste Datensatz wurde mit
+einer niedrigen Triggerschwelle lediglich mit Umgebungsradioaktivität aufgenommen,
+bei der zweiten Messung mit einer Probe radioaktiver Pechblende war die 
+Triggerschwelle deutlich oberhalb des Rauschniveaus eingestellt. 
+
+Eingabe von  
+> `python3 Analysis -h`
+
+zeigt die vorhandenen Optionen und Parameter:
+
+```sh
+*==* script ./Analysis.py executing, parameters: ['-h']
+
+usage: Analysis.py [-h] [-b BINS] [-i INTERVAL] [-c CUT] inFileName
+
+Analysis of DIY Detector
+
+positional arguments:
+  inFileName            input file name (CSV format)
+
+options:
+  -h, --help            show this help message and exit
+  -b BINS, --bins BINS  bins for Pulse Height Histogram
+  -i INTERVAL, --interval INTERVAL
+                        time interval for Rate Histogram
+  -c CUT, --cut CUT     cut on minimal pulse height
+```
+
+Dargestellt werden die Pulshöhenverteilung in *BINS* Intervallen sowie die 
+Raten in Zeitintervallen der Länge *INTERVAL*; die Parameter *BINS* und *INTERVAL*
+werden als Optionen beim Start angeben. Wenn Rauschpulse in den Daten enthalten sind,
+kann der Parameter "CUT" verwendet werden, um kleinere Pulse bei der Analyse der Raten
+zu unterdrücken.  
+
+Die oben gezeigten Grafiken werden mit den Befehlen
+
+> `python3 GammaAnalysis.py -c 11000 -i 60 Umgebung_lowTrigger` 
+
+bzw. 
+
+> `python3 GammaAnalysis.py -i 10 Pechblende.cvs` 
+
+erzeugt.

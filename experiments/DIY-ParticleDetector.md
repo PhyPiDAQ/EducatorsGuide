@@ -231,7 +231,8 @@ If the trigger threshold is set above the transition point from the noise to
 the signal distribution, noise signals are suppressed and only real gamma rays are 
 registered. The trigger rate then corresponds directly to the rate of detected gammas.
 
-The Python* program `data/PulseHeight.py` is used to display the pulse height distribution.
+The Python* program `data/GammaAnalysis.py` described below was used to display the
+pulse height distribution.
 
 
 #### Statistics of Radioactive Decays  
@@ -241,18 +242,56 @@ the figure below. Signal pulses were registered at a rate of approximately 1.12 
 `GammaStrahlung_Pechblende.csv` contains approx. 10000 recorded events with the columns  
   > `event_number, event_time[s], pulse_height[adc]`
 
-Only the middle column with the times at which events were recorded was analyzed. For this purpose, 
-the Python code `data/RateAnalysis.py` was executed with the input  
- > `python3 RateAnalyis.py GammaStrahlung_Pechblende.csv 10` 
- 
- is used. The last parameter defines the duration of the time intervals (in s) in which the number of events is determined. 
-
-The graphs show the number of events in intervals of 10 s duration, the frequency distribution of the observed numbers of events and the time between two events.
-The expected distributions resulting from the mean rate are also plotted, i.e. a uniform distribution for an average number of events 
-of 1.11 in every 10 s interval, the corresponding Poisson distribution and an 
-exponential distribution for a mean time interval of 1/1.11 s = 0.90 s between the events are also shown. The graphics show very nicely the properties expected for a Poisson process.
+The graphs below were generated with the the Python code `data/GammaAnalysis.py`.
+They show the number of events in intervals of 10 s duration, the frequency distribution 
+of the observed numbers of events and the time between two events.
+The expected distributions resulting from the mean rate are also plotted, i.e. a uniform distribution for an average number of events of 1.11 in every 10 s interval, the corresponding Poisson distribution and an exponential distribution for a mean time interval of 1/1.11 s = 0.90 s between the events are also shown. The graphics show very nicely the properties expected for a Poisson process.
 
 ![Fig. 5: Representation of the number of events in intervals of 10 s duration, the frequency distribution of the observed number of events and the time between two events](images/RateAnalysis.png)
 
 
-  more to be written ....
+### Software for data analysis
+
+The code for generating the results graphics shown above can be found in the
+*Python* script `data/Analysis.py`, which can be used as an example for your own
+evaluations or as a ready-to-use program. The two data files `data/ambient_lowTrigger.csv` 
+and `data/Pechblende.csv` contain data recorded wiht the CERN DIY detector and the program  `scGammaDetector.py` and can be analyzed with `Analysis.py`. 
+The first data set was recorded with a low trigger threshold with ambient radioactivity
+only, while the second measurement was made with a sample of radioactive pitchblende 
+with trigger threshold well above the noise level. 
+
+Input of  
+> `python3 GammaAnalysis -h`
+
+shows the available options and parameters:
+
+```sh
+*==* script ./Analysis.py executing, parameters: ['-h']
+
+usage: GammaAnalysis.py [-h] [-b BINS] [-i INTERVAL] [-c CUT] inFileName
+
+Analysis of DIY Detector
+
+positional arguments:
+  inFileName input file name (CSV format)
+
+options:
+  -h, --help show this help message and exit
+  -b BINS, --bins BINS bins for Pulse Height Histogram
+  -i INTERVAL, --interval INTERVAL
+                        time interval for Rate Histogram
+  -c CUT, --cut CUT cut on minimal pulse height
+```
+
+The pulse height distribution is displayed in *BINS* intervals as well as the 
+rates in time intervals of length *INTERVAL*; the parameters *BINS* and *INTERVAL*
+are specified as options. If noise pulses are contained in the data, the “CUT” 
+parameter can be used to suppress smaller pulses when analyzing the rates.
+
+The graphics shown above are generated with the commands
+
+> `python3 GammaAnalysis.py -c 11000 -i 60 environment_lowTrigger` 
+
+or 
+
+> `python3 GammaAnalysis.py -i 10 pitchblende.cvs`. 
