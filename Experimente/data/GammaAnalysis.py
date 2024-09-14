@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""RateAnalysis.py
+"""GammaAnalysis.py
 
 statistical analysis of arrival times of random events
 
 uses .csv file provided by scGammaDetector.py and calculates:
 
+- pulse-height distribution
 - number of events per time interval (rate)
 - distribution of rates (Poisson)
 - distribution of time between events (exponential)
@@ -12,17 +13,18 @@ uses .csv file provided by scGammaDetector.py and calculates:
 Parameters:
 
   - file name
+  - number of bis for pulse-height histogram
   - time interval
+  - cut on minimal pulse height
 
 """
-
-# -*- coding=utf-8 -*-
 
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.special as sp
 import argparse
+
 
 #
 # -*- relevante Verteilungen
@@ -50,14 +52,25 @@ def getHistDistribution(bc, bw, f, **kwargs):
     """Distribution function f(**kwargs) for bin centres bc and bin widths bw"""
     return bw * f(bc, **kwargs)
 
+
 print(f"*==* script {sys.argv[0]} executing, parameters: {sys.argv[1:]}\n")
 
 # -*- Eingabe-Parameter
 parser = argparse.ArgumentParser(description="Analysis of DIY Detector")
-parser.add_argument('inFileName', help="input file name (CSV format)")
-parser.add_argument('-b', '--bins', type = int, default = 100, help="bins for Pulse Height Histogram")
-parser.add_argument('-i', '--interval', type = int, default = 30, help="time interval for Rate Histogram")
-parser.add_argument('-c', '--cut', type = int, default = 7500, help="cut on minimal pulse height")
+parser.add_argument("inFileName", help="input file name (CSV format)")
+parser.add_argument(
+    "-b", "--bins", type=int, default=100, help="bins for Pulse Height Histogram (100)"
+)
+parser.add_argument(
+    "-i",
+    "--interval",
+    type=int,
+    default=30,
+    help="time interval for Rate Histogram (30)",
+)
+parser.add_argument(
+    "-c", "--cut", type=int, default=0, help="cut on minimal pulse height (0)"
+)
 args = parser.parse_args()
 inFileName = args.inFileName
 NHbins = args.bins
@@ -68,12 +81,12 @@ phCut = args.cut
 # -*- Daten einlesen:
 try:
     Traw = np.loadtxt(inFileName, skiprows=1, usecols=(1), delimiter=",", unpack=True)
-    H = np.loadtxt(inFileName, skiprows=1, usecols=(2), delimiter=",", unpack=True)    
+    H = np.loadtxt(inFileName, skiprows=1, usecols=(2), delimiter=",", unpack=True)
 except Exception as e:
     print(" Problem reading input - ", e)
     sys.exit(1)
 
-# Grafiken erzeugen 
+# Grafiken erzeugen
 #  - für Pulshöhen
 figH = plt.figure("PulseHeight", figsize=(8.0, 5.0))
 ax_ph = figH.add_subplot(1, 1, 1)  # for pulse-height histogram
@@ -82,9 +95,11 @@ ax_ph.grid()
 # -*- selektiere Daten mit großer Pulshöhe
 T = Traw[H > phCut]
 
-# - für Statistik 
+# - für Statistik
 figS = plt.figure("Statistics", figsize=(6.0, 11.0))
-figS.subplots_adjust(left=0.12, bottom=0.1, right=0.98, top=0.97, wspace=0.3, hspace=0.25)
+figS.subplots_adjust(
+    left=0.12, bottom=0.1, right=0.98, top=0.97, wspace=0.3, hspace=0.25
+)
 ax_rate = figS.add_subplot(3, 1, 1)  # for rate vs. time
 ax_rdist = figS.add_subplot(3, 1, 2)  # for distribution of rates
 ax_tw = figS.add_subplot(3, 1, 3)  # for wait-time
@@ -142,7 +157,7 @@ ax_rdist.set_xlabel("$n$", size="x-large")
 # Mittelpunkt und Breite der Bins
 bc = (bins[:-1] + bins[1:]) / 2.0
 bw = bins[1] - bins[0]
-# zeichne Gleichverteilung ein
+# zeichne Poisssonverteilung ein
 hDist = getHistDistribution(bins[:-1], bw, fPoisson, mu=meanN, N=len(beR) - 1)
 ax_rdist.plot(bins[:-1], hDist, "g--")
 
