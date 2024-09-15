@@ -1,4 +1,4 @@
-event_numer, event_time[s], pp_height[adc]
+event_number, event_time[s], pp_height[adc]
 1, 7.922022104263306, 8605.0
 2, 8.694847822189331, 7678.0
 3, 9.020063400268555, 8215.0
