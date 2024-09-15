@@ -1,4 +1,4 @@
-## *PhyPiDAQ*: Recording data from a do-it-yourself particle detector
+cp## *PhyPiDAQ*: Recording data from a do-it-yourself particle detector
 
 The detection of radioactivity, either produced by artificial sources or as part of the natural environment
 like K-40 or Radon from the inner of the Earth, is a fascinating field of study which today has become
@@ -102,7 +102,9 @@ into a working directory and executed.
  A typical waveform recorded after issuing the command *scGammaDetector.py -o* on the command line 
  is shown in the figure below. The signal is clearly visible above the noise level of approx. 3500 ADC counts. 
  It  is sufficiently large to be directly connected to a earphone so that the signal clicks can also be acoustically 
- perceived. The picture below shows a pulse inverted by the soundcard. The original output pulse is negative with a clearly visible positive overshoot. 
+ perceived. 
+ 
+ Note that some soundcards invert the signal. The original output pulse is negative with a clearly visible positive overshoot. 
 
  
  ![Fig. 1: Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
@@ -142,11 +144,14 @@ options:
                         time bin for rate display
 ```
 
-Reasonable default settings are ensure  that in most cases useful output is generated. Because the signal rate is  
-very low in normal environments without a radioactive source, the trigger level should be set to be just above noise  
-level so that some noise pulses become visible. It is also advisable to use the option `-o` to switch on the oscilloscope view. 
-Note that the signal level depends on the  settings of the soundcard. Use the appropriate tool of your PC operating system to 
-select the standard input device used for sound recording and adjust the volume control. 
+Because the signal rate is very low in normal environments without a radioactive source, 
+the trigger level should be set to be just above noise level so that some noise pulses 
+become visible. It is also advisable to use the option `-o` to switch on the oscilloscope
+view. 
+Note that the signal level depends on the  settings of the soundcard. Use the appropriate 
+tool of your PC operating system to select the standard input device used for sound recording
+and adjust the volume control. 
+To register the signal shown above, the trigger options `--trgfalling -l -5000` were used.
 
 To become acquainted with the software, in particular the selection of data by setting appropriate trigger conditions, it is 
 useful to use a microphone signal as input source.  Initially, only the oscilloscope with a very low trigger  level is started:  

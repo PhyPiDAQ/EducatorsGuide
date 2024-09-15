@@ -52,7 +52,7 @@ Relevante Module des *PhyPiDAQ*-Pakets sind
 
 Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen: 
 
-  - `examples/oscilloscope/run_scOsci.py`, um von einer Soundkarte ausgelesene Wellenforan anzuzeigen.  
+  - `examples/oscilloscope/run_scOsci.py`, um von einer Soundkarte ausgelesene Wellenform anzuzeigen.  
 
   - `examples/scGammaDetector.py` zur Visualisierung des Zeitpunkts des Auftretens eines großen 
   Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie angezeigt. 
@@ -121,19 +121,18 @@ Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet 
 ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
 ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
 angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
-Das Bild unten zeigt einen durch die verwendete Soundkarte invertierten Puls. Der Originalpuls
-ist negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
-
  
-  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
-  LogiLink USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von 96000/s.
-  Beachten Sie, dass auf der  y-Achse nur einen Bereich von $\pm 2^{¹⁴}$ angezeigt 
-  wird.](images/scOscillogram.png)
+  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer einfachen USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von
+  96000/s. Beachten Sie, dass auf der y-Achse nur einen Bereich von $\pm 2^{¹⁴}$
+  angezeigt wird.](images/scOscillogram.png)
+
+Bitte beachten, das manche Soundkarten den Puls invertierten. Der Originalpuls
+ist, wie hier gezeigt, negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
 
 Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und
 die Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte
-und die Triggeroptionen einzustellen. Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen
-Überblick über alle Optionen:
+und insbesondere die Triggeroptionen einzustellen. 
+Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick über alle Optionen:
 
 ```
 usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-t TIME]
@@ -165,13 +164,14 @@ options:
                         time bin for rate display
 ```
 
-Angemessene Standardeinstellungen sorgen dafür, dass in den meisten Fällen eine brauchbare
-Ausgabe erzeugt wird. Da die Signalrate  in normalen Umgebungen ohne radioaktive Quelle 
-sehr gering ist, sollte die Triggerschwelle knapp über dem Rauschpegel eingestellt werden,
-so dass einige Rauschimpulse sichtbar werden. Es ist auch ratsam, die Option `-o` zu verwenden, 
-um die Oszilloskopansicht einzuschalten. Beachten Sie, dass der Signalpegel von den Einstellungen
-der Soundkarte abhängt. Verwenden Sie zur Auswahl des Standard-Eingabegeräts das entsprechende
-Werkzeug  Ihres PC-Betriebssystems, insbesondere auch um die Lautstärke einzustellen.  
+Da die Signalrate  in normalen Umgebungen ohne radioaktive Quelle sehr gering ist, sollte
+die Triggerschwelle knapp über dem Rauschpegel eingestellt werden, so dass einige Rauschimpulse
+sichtbar werden. Es ist auch ratsam, die Option `-o` zu verwenden, um die Oszilloskopansicht
+einzuschalten. Beachten Sie, dass der Signalpegel von den Einstellungen der Soundkarte abhängt. 
+Verwenden Sie zur Auswahl des Standard-Eingabegeräts das entsprechende Werkzeug Ihres
+PC-Betriebssystems, insbesondere auch um die Lautstärke einzustellen.  
+Zur Registrietung des oben gezeigten Signals wurden die Trigger-Optionen
+`--trgfalling -l -5000`verwendet.
 
 Um sich mit der Software vertraut zu machen, insbesondere mit der Auswahl der Daten durch
 Einstellung geeigneter Triggerbedingungen, ist es nützlich, ein Mikrofonsignal als Eingangsquelle
