@@ -58,9 +58,7 @@ print(f"*==* script {sys.argv[0]} executing, parameters: {sys.argv[1:]}\n")
 # -*- Eingabe-Parameter
 parser = argparse.ArgumentParser(description="Analysis of DIY Detector")
 parser.add_argument("inFileName", help="input file name (CSV format)")
-parser.add_argument(
-    "-b", "--bins", type=int, default=100, help="bins for Pulse Height Histogram (100)"
-)
+parser.add_argument("-b", "--bins", type=int, default=100, help="bins for Pulse Height Histogram (100)")
 parser.add_argument(
     "-i",
     "--interval",
@@ -68,9 +66,7 @@ parser.add_argument(
     default=30,
     help="time interval for Rate Histogram (30)",
 )
-parser.add_argument(
-    "-c", "--cut", type=int, default=0, help="cut on minimal pulse height (0)"
-)
+parser.add_argument("-c", "--cut", type=int, default=0, help="cut on minimal pulse height (0)")
 args = parser.parse_args()
 inFileName = args.inFileName
 NHbins = args.bins
@@ -80,8 +76,7 @@ phCut = args.cut
 
 # -*- Daten einlesen:
 try:
-    Traw = np.loadtxt(inFileName, skiprows=1, usecols=(1), delimiter=",", unpack=True)
-    H = np.loadtxt(inFileName, skiprows=1, usecols=(2), delimiter=",", unpack=True)
+    Traw, H = np.loadtxt(inFileName, skiprows=1, usecols=(1, 2), delimiter=",", unpack=True)
 except Exception as e:
     print(" Problem reading input - ", e)
     sys.exit(1)
@@ -97,9 +92,7 @@ T = Traw[H > phCut]
 
 # - für Statistik
 figS = plt.figure("Statistics", figsize=(6.0, 11.0))
-figS.subplots_adjust(
-    left=0.12, bottom=0.1, right=0.98, top=0.97, wspace=0.3, hspace=0.25
-)
+figS.subplots_adjust(left=0.12, bottom=0.1, right=0.98, top=0.97, wspace=0.3, hspace=0.25)
 ax_rate = figS.add_subplot(3, 1, 1)  # for rate vs. time
 ax_rdist = figS.add_subplot(3, 1, 2)  # for distribution of rates
 ax_tw = figS.add_subplot(3, 1, 3)  # for wait-time
@@ -165,9 +158,7 @@ ax_rdist.plot(bins[:-1], hDist, "g--")
 mn = 0.0
 mx = 5 * meanTw
 nb = 75  # minimum, maximum and number of bins
-bcW, beW, _ = ax_tw.hist(
-    dT, bins=np.linspace(mn, mx, nb), log=True, rwidth=0.8
-)  # log. Darstellung
+bcW, beW, _ = ax_tw.hist(dT, bins=np.linspace(mn, mx, nb), log=True, rwidth=0.8)  # log. Darstellung
 ax_tw.set_ylabel("Anzahl Einträge", size="x-large")
 ax_tw.set_xlabel("$\Delta$t [s]", size="x-large")
 # Mittelpunkt und Breite der Bins
