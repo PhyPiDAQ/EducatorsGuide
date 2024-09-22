@@ -20,8 +20,8 @@ Der zweistufige Verstärker mit einem Operationsverstärker mit hoher Bandbreite
 Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können leicht
 sogar mit einer Soundkarte aufgenommen werden. 
 
-Die Verfügbarkeit der erforderlichen Bauteile, einschließlich der Leiterplatine, und die großen und 
-langen Signale machen diesen Detektor zu einer idealen Wahl für Projekte mit Oberstufenschülern.
+Die Verfügbarkeit der erforderlichen Bauteile, einschließlich der Leiterplatine, und die
+großen und langen Signale machen diesen Detektor zu einer idealen Wahl für Projekte mit Oberstufenschülern.
 Neben dem Bau des Geräts werden Erfahrungen in der Datenerfassung gewonnen und die Analyse eines
 faszinierenden Phänomens ermöglicht, das nicht direkt mit den menschlichen Sinnen erfassbar ist. 
 
@@ -126,7 +126,7 @@ angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen we
   96000/s. Beachten Sie, dass auf der y-Achse nur einen Bereich von $\pm 2^{¹⁴}$
   angezeigt wird.](images/scOscillogram.png)
 
-Bitte beachten, das manche Soundkarten den Puls invertierten. Der Originalpuls
+Bitte beachten, dass manche Soundkarten den Puls invertierten. Der Originalpuls
 ist, wie hier gezeigt, negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
 
 Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und
@@ -234,9 +234,10 @@ des Detektors und der Signaleigenschaften, die in der Regel durch eine
 detaillierte Modellierung der physikalischen Prozesse im Detektor und des
 Ansprechverhaltens der Front-End-Elektronik gewonnen werden. Für den Fall
 dass derartige Untersuchungen von Signal-Effizienz vs. Reinheit von Interesse
-sind, können die mit `scGammaDetector.py -f <name>` in eine Datei
-`<name>_time.csv` aufgezeichneten Daten analysiert werden, um weitere
-Untersuchungen durchzuführen. 
+sind, können die Daten `scGammaDetector.py -f <name>` in eine Datei
+`<name>_time.csv` schreiben und anschließend die aufgezeichneten Daten 
+auswerten, um weitere Untersuchungen durchzuführen. Ein Beispiel dazu 
+wird weiter unten besprochen. 
 
 
 ### Messungen mit dem Selbstbaudetektor
@@ -246,7 +247,7 @@ Untersuchungen durchzuführen.
 Die Sensorfläche des DIY Teilchendetektors ist mit nur 28 mm² sehr klein, und
 außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
 Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
-daher nur ein kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
+daher nur ein sehr kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
 in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
 kann man eine ungefähre Kalibration vornehmen: 
 
@@ -266,16 +267,17 @@ nachweisbar.
 
 Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
 Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
-die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der Datei gespeichert. Eine solche Datei enthält die Spalten  
+die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der
+Datei gespeichert. Eine solche Datei enthält die Spalten  
   > `Ereignisnummer, Ereigniszeit[s], Pulshöhe[adc]`
 
 Zur Anzeige des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens von Pulshöhen 
 in einem bestimmten Zeitintervall, wird nur die dritte Spalte verwendet. 
 
-Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung dargestellt. 
-Die Lautstärkeeinstellung der souund-Karte wurde so gewählt, dass die Triggerschwelle 
+Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung dargestellt.
+Die Lautstärkeeinstellung der Soundkarte wurde so gewählt, dass die Triggerschwelle 
 noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Pulshöhen definiert sind
-als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhen).  
+als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
 
 ![Abb. 3: Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
 im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
@@ -284,11 +286,11 @@ aufgenommen wurden.](images/PulseHeights.png)
 Die logarithmische Darstellung zeigt eine sehr große Anzahl von Pulshöhen
 knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfällt.
 Ab etwa 10000 ADC-Zählungen sieht man die flache Verteilung, die
-die durch die Signle der umgebende Gammastrahlung verursacht wird. 
+die durch die Signale der Gammastrahlung verursacht wird. 
 
-Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur 
-der Signalverteilung, werden Rauschsignale unterdrückt und nur echte Gammastrahlen 
-registriert. Die Triggerrate entspricht dann direkt der Rate der detektierten Gammastrahlen.
+Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur Signalverteilung, 
+werden Rauschsignale unterdrückt und nur echte Gammastrahlen registriert. Die Triggerrate
+entspricht dann direkt der Rate der detektierten Gammastrahlen.
 
 Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Programm
 `data/GammaAnalysis.py` verwendet.
