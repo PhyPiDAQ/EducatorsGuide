@@ -10,7 +10,6 @@ Vorschlägen für Do-it-yourself-Projekte. Schon die Soundkarte eines Standard-P
 ist geeignet die Signale aufzuzeichnen, die dann mit einem Soundkarten-Oszilloskop
 visualisiert werden können. 
 
-
 ### Der CERN DIY Teilchendetektor  
 
 Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden Teilchendetektor
@@ -21,9 +20,16 @@ Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signal
 sogar mit einer Soundkarte aufgenommen werden. 
 
 Die Verfügbarkeit der erforderlichen Bauteile, einschließlich der Leiterplatine, und die
-großen und langen Signale machen diesen Detektor zu einer idealen Wahl für Projekte mit Oberstufenschülern.
+großen und langen Signale machen diesen Detektor zu einer idealen Wahl für Projekte mit
+Oberstufenschülern.
 Neben dem Bau des Geräts werden Erfahrungen in der Datenerfassung gewonnen und die Analyse eines
 faszinierenden Phänomens ermöglicht, das nicht direkt mit den menschlichen Sinnen erfassbar ist. 
+
+Für das hier vorgestellte Projekt wird die "Elektron-Variante" verwendet, die Elektronen mit
+Hilfe von vier PIN-Photodioden als Sensoren nachweist. Nachweisbare Elektronen können auch durch
+Gamma-Strahlung entweder in der Nähe oder in der PIN-Diode erzeugt werden. Wenn man den 
+Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschirmt, so dass
+nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
 
 
 ### Datenerfassung und Auswertung mit *PhyPiDAQ*
