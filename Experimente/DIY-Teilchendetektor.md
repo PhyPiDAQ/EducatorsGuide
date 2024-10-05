@@ -12,8 +12,8 @@ visualisiert werden können.
 
 ### Der CERN DIY Teilchendetektor  
 
-Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden Teilchendetektor
- basierend auf vier PIN-Photodioden vom Typ BPW34 ist der 
+Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu bauenden
+Teilchendetektor basierend auf vier PIN-Photodioden vom Typ BPW34 ist der 
 [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
 Der zweistufige Verstärker mit einem Operationsverstärker mit hoher Bandbreite erzeugt große
 Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können leicht
@@ -32,7 +32,7 @@ Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschir
 nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
 
 
-### Datenerfassung und Auswertung mit *PhyPiDAQ*
+### Datenerfassung und Auswertung mit *PhyPiDAQ*lt36
 
 *PhyPiDAQ* enthält mehrere Module zur Aufzeichnung, Visualisierung und Analyse von Daten. 
 Ein in diesem Kontext interessanter und wichtiger Aspekt ist die Zufälligkeit des Auftretens der 
@@ -106,7 +106,7 @@ Windows 10 oder 11, wenn dort *Python* installiert ist.
 
 #### Vereinfachte Installation
 
-Die Python-Programme *scGammaDector.py* und *run_scOsci.py* können auch ohne den Download
+Die Python-Programme *scGammaDetector.py* und *run_scOsci.py* können auch ohne den Download
 des kompletten *PhyPiDAQ*-Pakets ausgeführt werden. Wenn eine aktuelle Python-Version
 verfügbar ist, können die Bibliotheken auch direkt aus dem *github*-Repository installiert
 werden:
@@ -128,7 +128,8 @@ ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpe
 ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
 angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
  
-  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer einfachen USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von
+  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
+  einfachen USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von
   96000/s. Beachten Sie, dass auf der y-Achse nur einen Bereich von $\pm 2^{¹⁴}$
   angezeigt wird.](images/scOscillogram.png)
 
@@ -229,7 +230,7 @@ herum wird ebenfalls angezeigt. Es wird auch ein Ratenverlauf angezeigt; die
 Bin-Breite in Sekunden kann mit der Option `--interval <n>` eingestellt werden. 
 
 ![Abb. 2: Grafische Darstellung der Datenerfassung unter Umgebungsbedingungen.
-Es wird eine durchschnittliche Zählrate von etwa 1.5 Signalen pro Minute 
+Es wird eine durchschnittliche Zählrate von etwa 1.5 Signalen pro Minute 
 beobachtet.](images/EnvironmentRate.png)
 
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen
@@ -250,14 +251,14 @@ wird weiter unten besprochen.
 
 #### Umweltradioaktivität 
 
-Die Sensorfläche des DIY Teilchendetektors ist mit nur 28 mm² sehr klein, und
+Die Sensorfläche des DIY Teilchendetektors ist mit nur 28 mm² sehr klein, und
 außerdem ist die sensitive Schicht sehr dünn. Von den typischerweise einigen Hz
-Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
+Gamma-Rate bei normaler Umgebungsradioaktivität von typischerweise 0.1 µS/h wird
 daher nur ein sehr kleiner Bruchteil registriert. Durch Vergleich mit einem Dosimeter,
-in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
+in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
 kann man eine ungefähre Kalibration vornehmen: 
 
-  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
+  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
 
 Eine Beispielmessung der Umgebungsaktivität wurde oben schon gezeigt.
 Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
@@ -272,7 +273,8 @@ nachweisbar.
 #### Pulshöhenspektrum
 
 Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
-Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
+Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` 
+eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
 die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der
 Datei gespeichert. Eine solche Datei enthält die Spalten  
   > `Ereignisnummer, Ereigniszeit[s], Pulshöhe[adc]`
@@ -286,7 +288,7 @@ noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Pulshöhen defin
 als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
 
 ![Abb. 3: Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
-im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
+im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
 aufgenommen wurden.](images/PulseHeights.png)
 
 Die logarithmische Darstellung zeigt eine sehr große Anzahl von Pulshöhen
@@ -306,22 +308,22 @@ Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Pr
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. 
-Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
+Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
 Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
 `data/GammaAnalysis.py` verwendet.
  
-Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
+Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
-sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 11,1 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
+sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
+von 11,1 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
 Exponentialverteilung für einen mittleren zeitlichen Abstand von
-1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
+1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
-![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
+![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
 die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen.](images/RateAnalysis.png)
 
