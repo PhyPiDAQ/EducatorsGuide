@@ -308,7 +308,7 @@ Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Pr
 
 Die Analyse von mit `scGammaDetector.py` aufgezeichneten Gammaquanten aus einer
 kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt. 
-Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
+Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
 Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
