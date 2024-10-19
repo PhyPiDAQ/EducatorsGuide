@@ -3,9 +3,9 @@
 Übersetzt aus der englischen Version mit Hilfe von DeepL.com (kostenlose Version)
 
 Der Nachweis von Radioaktivität, die entweder durch künstliche Quellen oder als Teil
- der natürlichen Umwelt entsteht, wie K-40 oder Radon aus dem Erdinneren, ist ein
+der natürlichen Umwelt entsteht, wie K-40 oder Radon aus dem Erdinneren, ist ein
 faszinierendes Forschungsgebiet, das heute mit preiswerten und einfachen Detektoren
- zugänglich geworden ist. Es gibt kommerzielle Angebote, aber auch eine Reihe von
+zugänglich geworden ist. Es gibt kommerzielle Angebote, aber auch eine Reihe von
 Vorschlägen für Do-it-yourself-Projekte. Schon die Soundkarte eines Standard-PCs
 ist geeignet die Signale aufzuzeichnen, die dann mit einem Soundkarten-Oszilloskop
 visualisiert werden können. 
@@ -16,20 +16,20 @@ Ein relativ neuer Vorschlag für einen einfachen, kostengünstig  und leicht zu 
 Teilchendetektor basierend auf vier PIN-Photodioden vom Typ BPW34 ist der 
 [CERN DIY_particle_detector](https://github.com/ozel/DIY_particle_detector). 
 Der zweistufige Verstärker mit einem Operationsverstärker mit hoher Bandbreite erzeugt große
-Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können leicht
+Signale von mehreren Hundert mV mit einer Breite von etwa 100 µs. Solche Signale können
 sogar mit einer Soundkarte aufgenommen werden. 
 
 Die Verfügbarkeit der erforderlichen Bauteile, einschließlich der Leiterplatine, und die
 großen und langen Signale machen diesen Detektor zu einer idealen Wahl für Projekte mit
 Oberstufenschülern.
-Neben dem Bau des Geräts werden Erfahrungen in der Datenerfassung gewonnen und die Analyse eines
-faszinierenden Phänomens ermöglicht, das nicht direkt mit den menschlichen Sinnen erfassbar ist. 
+Neben dem Bau des Geräts werden Erfahrungen in der Datenerfassung gewonnen und die Analyse
+eines faszinierenden Phänomens ermöglicht, das nicht direkt mit den menschlichen Sinnen
+erfassbar ist. 
 
 Für das hier vorgestellte Projekt wird die "Elektron-Variante" verwendet, die Elektronen mit
-Hilfe von vier PIN-Photodioden als Sensoren nachweist. Nachweisbare Elektronen können auch durch
-Gamma-Strahlung entweder in der Nähe oder in der PIN-Diode erzeugt werden. Wenn man den 
-Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschirmt, so dass
-nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
+Hilfe von vier PIN-Photodioden als Sensoren nachweist. Nachweisbare Elektronen können auch
+durch Gamma-Strahlung entweder in der Nähe oder in der PIN-Diode erzeugt werden. Wenn man den Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschirmt,
+so dass nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
 
 
 ### Datenerfassung und Auswertung mit *PhyPiDAQ*lt36
@@ -54,26 +54,28 @@ Relevante Module des *PhyPiDAQ*-Pakets sind
    Wellenformen von einer PC-Soundkarte, 
 
   - phypidaq/DisplayPoissonEvent", eine Klasse zur Anzeige einzelner Ereignisses eines
-   Poisson-Prozesses. 
+  Poisson-Prozesses. 
 
 Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen: 
 
   - `examples/oscilloscope/run_scOsci.py`, um von einer Soundkarte ausgelesene Wellenform anzuzeigen.  
 
-  - `examples/scGammaDetector.py` zur Visualisierung des Zeitpunkts des Auftretens eines großen 
-  Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie angezeigt. 
+  - `examples/scGammaDetector.py` zur Visualisierung des Zeitpunkts des Auftretens eines
+  großen Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie
+  angezeigt. 
   Das Skript bietet auch die die Möglichkeit, die Ereigniszeiten und Signalhöhen für eine
   Offline-Analyse in einer Datei zu speichern.
     
   Untersuchungen von Poisson-Prozessen ermöglichen die Python-Skripte 
  
-  - `examples/poissonFlash.py` zur Erzeugung, Visualisierung und Speicherung von Daten eines simulierten
-  Poisson-Prozesses. 
+  - `examples/poissonFlash.py` zur Erzeugung, Visualisierung und Speicherung von Daten
+  eines simulierten Poisson-Prozesses. 
 
-  - `examples/poissonLED.py` zur Erzeugung zufälliger Blitze einer LED. Eine Photodiode, die dem
-  Licht der der LED ausgesetzt ist, erzeugt Signale, die einem Detektor für Gammastrahlen entsprechen. 
-  Für diese Anwendung wird ein Raspberry Pi mit an die GPIO-Leiste angeschlossener LED + Vorwiderstand
-  benötigt. 
+  - `examples/poissonLED.py` zur Erzeugung zufälliger Blitze einer LED. Eine Photodiode,
+  die dem Licht der der LED ausgesetzt ist, erzeugt Signale, die einem Detektor für
+  Gammastrahlen entsprechen. 
+  Für diese Anwendung wird ein Raspberry Pi mit an die GPIO-Leiste angeschlossener LED mit
+  Vorwiderstand benötigt. 
 
 
 #### Anmerkungen zur Installation
@@ -171,18 +173,20 @@ options:
                         time bin for rate display
 ```
 
-Da die Signalrate  in normalen Umgebungen ohne radioaktive Quelle sehr gering ist, sollte
-die Triggerschwelle knapp über dem Rauschpegel eingestellt werden, so dass einige Rauschimpulse
-sichtbar werden. Es ist auch ratsam, die Option `-o` zu verwenden, um die Oszilloskopansicht
-einzuschalten. Beachten Sie, dass der Signalpegel von den Einstellungen der Soundkarte abhängt. 
+Da die Signalrate in normalen Umgebungen ohne radioaktive Quelle sehr gering ist, sollte
+die Triggerschwelle knapp über dem Rauschpegel eingestellt werden, so dass einige
+Rauschimpulse sichtbar werden. Es ist auch ratsam, die Option `-o` zu verwenden, um die
+Oszilloskopansicht einzuschalten. Beachten Sie, dass der Signalpegel von den Einstellungen
+der Soundkarte abhängt. 
 Verwenden Sie zur Auswahl des Standard-Eingabegeräts das entsprechende Werkzeug Ihres
 PC-Betriebssystems, insbesondere auch um die Lautstärke einzustellen.  
 Zur Registrietung des oben gezeigten Signals wurden die Trigger-Optionen
 `--trgfalling -l -5000`verwendet.
 
 Um sich mit der Software vertraut zu machen, insbesondere mit der Auswahl der Daten durch
-Einstellung geeigneter Triggerbedingungen, ist es nützlich, ein Mikrofonsignal als Eingangsquelle
-zu verwenden. Zunächst wird nur das Oszilloskop  mit einem sehr niedrigen Triggerpegel gestartet:     
+Einstellung geeigneter Triggerbedingungen, ist es nützlich, ein Mikrofonsignal als
+Eingangsquelle zu verwenden. Zunächst wird nur das Oszilloskop  mit einem sehr niedrigen
+Triggerpegel gestartet:     
    > `python3 scGammaDetector.py -n -o -l 100`
         
 Damit werden die Rohdaten der Soundkarte auf dem Oszilloskop-Display angezeigt. Erzeugen Sie nun
