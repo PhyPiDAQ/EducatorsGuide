@@ -284,7 +284,7 @@ Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `
 eingeschaltet. Für jedes aufgenommene Signal werde eine fortlaufend inkrementierte 
 Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart, die 
 peak-to-peak Pulshöhe in ADC-Counts des bipolaren Signals, das Verhältnis
-des der Höhen des zweiten und erssten Peaks, die zeitliche Distanz der Extrema
+des der Höhen des zweiten und ersten Peaks, die zeitliche Distanz der Extrema
 und die Breiten bei halber Höher der Peaks in der Datei gespeichert. Die Datei
 im *csv*-Format enthält die Spalten 
   > `event_number,event_time,pp_height,p_ratio,p_dist,fwhm1,fwhm2`
