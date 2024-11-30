@@ -144,9 +144,9 @@ und insbesondere die Triggeroptionen einzustellen.
 Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick über alle Optionen:
 
 ```
-usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-t TIME]
-  [-s {48000,96000,192000,44100}] [-c {1,2}]
-  [-l TRGLEVEL] [--trgfalling] [-d] [-z SAMPLESIZE] [-r RANGE] [-i INTERVAL]
+usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-w] [-t TIME] [-z SAMPLESIZE]
+                          [-s {48000,96000,192000,44100}] [-c {1,2}] [-l TRGLEVEL] [--trgfalling] [-d]
+                          [--overshoot OVERSHOOT] [-r RANGE] [-i INTERVAL]
 
 Read waveforms from soundcard and display and optionally store data
 
@@ -156,7 +156,10 @@ options:
   -o, --oscilloscope    oscilloscope display
   -n, --noeventdisplay  deactivate event display
   -f FILE, --file FILE  base filename to store results
+  -w, --write_raw       write raw wave forms
   -t TIME, --time TIME  run time in seconds
+  -z SAMPLESIZE, --samplesize SAMPLESIZE
+                        number of samples per read
   -s {48000,96000,192000,44100}, --samplingrate {48000,96000,192000,44100}
                         sampling rate
   -c {1,2}, --channels {1,2}
@@ -165,8 +168,8 @@ options:
                         level of trigger
   --trgfalling          trigger falling edge
   -d, --trgdeactivate   deactivate triggering
-  -z SAMPLESIZE, --samplesize SAMPLESIZE
-                        number of samples per read
+  --overshoot OVERSHOOT
+                        minimum overshoot fraction
   -r RANGE, --range RANGE
                         display range
   -i INTERVAL, --interval INTERVAL
@@ -278,18 +281,24 @@ nachweisbar.
 
 Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
 Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` 
-eingeschaltet. Für jedes aufgenommene Signal wird eine fortlaufend inkrementierte Ereignisnummer,
-die Zeit des Auftretens in Sekunden seit Programmstart und die Pulshöhe in ADC-Counts in der
-Datei gespeichert. Eine solche Datei enthält die Spalten  
-  > `Ereignisnummer, Ereigniszeit[s], Pulshöhe[adc]`
+eingeschaltet. Für jedes aufgenommene Signal werde eine fortlaufend inkrementierte 
+Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart, die 
+peak-to-peak Pulshöhe in ADC-Counts des bipolaren Signals, das Verhältnis
+des der Höhen des zweiten und erssten Peaks, die zeitliche Distanz der Extrema
+und die Breiten bei halber Höher der Peaks in der Datei gespeichert. Die Datei
+im *csv*-Format enthält die Spalten 
+  > `event_number,event_time,pp_height,p_ratio,p_dist,fwhm1,fwhm2`
 
-Zur Anzeige des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens von Pulshöhen 
-in einem bestimmten Zeitintervall, wird nur die dritte Spalte verwendet. 
+Zur Anzeige des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens von 
+Pulshöhen  in einem bestimmten Zeitintervall, wird im Folgenden nur die dritte Spalte 
+verwendet. Die übrigen Spalten können dazu genutzt werden, um die Signaleigenschaften
+genauer zu untersuchen und auch die Trennung von Signal- und Rauschpulsen vor allem
+bei kleinen Pulshöhen zu verbessern. 
 
-Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung dargestellt.
-Die Lautstärkeeinstellung der Soundkarte wurde so gewählt, dass die Triggerschwelle 
-noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die Pulshöhen definiert sind
-als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
+Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung 
+dargestellt. Die Lautstärkeeinstellung der Soundkarte wurde so gewählt, dass die 
+Triggerschwelle noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die 
+Pulshöhen definiert sind als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
 
 ![Abb. 3: Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
 im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
