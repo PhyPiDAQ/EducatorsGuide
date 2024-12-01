@@ -122,8 +122,9 @@ and to set up the parameters of the soundcard and the trigger options.
 The output of the command `./scGammaDetector -h` is shown here: 
 
 ```
-usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-t TIME] [-s {48000,96000,192000,44100}] [-c {1,2}]
-                          [-l TRGLEVEL] [--trgfalling] [-d] [-z SAMPLESIZE] [-r RANGE] [-i INTERVAL]
+usage: scGammaDetector.py [-h] [-q] [-o] [-n] [-f FILE] [-w] [-t TIME] [-z SAMPLESIZE]
+                          [-s {48000,96000,192000,44100}] [-c {1,2}] [-l TRGLEVEL] [--trgfalling] [-d]
+                          [--overshoot OVERSHOOT] [-r RANGE] [-i INTERVAL]
 
 Read waveforms from soundcard and display and optionally store data
 
@@ -133,7 +134,10 @@ options:
   -o, --oscilloscope    oscilloscope display
   -n, --noeventdisplay  deactivate event display
   -f FILE, --file FILE  base filename to store results
+  -w, --write_raw       write raw wave forms
   -t TIME, --time TIME  run time in seconds
+  -z SAMPLESIZE, --samplesize SAMPLESIZE
+                        number of samples per read
   -s {48000,96000,192000,44100}, --samplingrate {48000,96000,192000,44100}
                         sampling rate
   -c {1,2}, --channels {1,2}
@@ -142,8 +146,8 @@ options:
                         level of trigger
   --trgfalling          trigger falling edge
   -d, --trgdeactivate   deactivate triggering
-  -z SAMPLESIZE, --samplesize SAMPLESIZE
-                        number of samples per read
+  --overshoot OVERSHOOT
+                        minimum overshoot fraction
   -r RANGE, --range RANGE
                         display range
   -i INTERVAL, --interval INTERVAL
@@ -195,9 +199,10 @@ The determination of the background level and the signal efficiency is not alway
 #### Environmental radioactivity 
 
 The sensor surface area of the DIY particle detector is very small at just 28 mm², 
-and and the sensitive layer is very thin. Of the typically several Hz gamma rate at normal ambient radioactivity of typically 0.1 µS/h, and therefore only a small fraction is registered. By comparison with a dosimeter, in this case a Radiacode 102, see [Instructions](GammaSpectra.md), an approximate calibration can be made: 
+and and the sensitive layer is very thin. Of the typically several Hz gamma rate at normal ambient radioactivity of typically 0.1 µS/h, and therefore only a small fraction is registered. By comparison with a dosimeter, in this case a Radiacode 102, see [Instructions](GammaSpectra.md),
+an approximate calibration can be made: 
 
-  > A dose rate of 0.1 µS/h corresponds to 1.5 registered events per minute. 
+  > A dose rate of 0.1 µS/h corresponds to 1.3 registered events per minute. 
 
 An example of a measurement of environmental radioactivity has been shown above. 
 If sufficiently long measurement times are foreseen, the do-it-yourself
@@ -248,6 +253,21 @@ registered. The trigger rate then corresponds directly to the rate of detected g
 The Python* program `data/GammaAnalysis.py` described below was used to display the
 pulse height distribution.
 
+If, in addition to the peak-to-peak pulse height, the other typical characteristics 
+of the pulse shapes are considered, it is possible to distinguish noise and signal 
+pulses on the basis of their tpyical shapes. In this way, the course of the pulse 
+height spectrum can also be displayed in the noise region. This is shown below 
+in Figure 4. The classification of the noise pulses shown in orange was achieved 
+using an artificial neural network network that was trained on signal shapes for 
+large and very small pulses. 
+
+![Fig. 4: Frequency distribution of pulse heights of a low-level radioactive rock 
+sample from the Black Forest. Signal and noise pulses were classified using an
+artificial neural network trained on the typical signal shapes of small and
+large pulse heights.](images/PulseHeightSpectrum.png)
+
+Translated with DeepL.com (free version)
+
 
 #### Statistics of Radioactive Decays  
 
@@ -261,7 +281,9 @@ They show the number of events in intervals of 10 s duration, the frequency dist
 of the observed numbers of events and the time between two events.
 The expected distributions resulting from the mean rate are also plotted, i.e. a uniform distribution for an average number of events of 1.11 in every 10 s interval, the corresponding Poisson distribution and an exponential distribution for a mean time interval of 1/1.11 s = 0.90 s between the events are also shown. The graphics show very nicely the properties expected for a Poisson process.
 
-![Fig. 5: Representation of the number of events in intervals of 10 s duration, the frequency distribution of the observed number of events and the time between two events](images/RateAnalysis.png)
+![Fig. 5: Representation of the number of events in intervals of 10 s duration, 
+the frequency distribution of the observed number of events and the time between
+two events](images/RateAnalysis.png)
 
 
 ### Software for data analysis

@@ -28,7 +28,8 @@ erfassbar ist.
 
 Für das hier vorgestellte Projekt wird die "Elektron-Variante" verwendet, die Elektronen mit
 Hilfe von vier PIN-Photodioden als Sensoren nachweist. Nachweisbare Elektronen können auch
-durch Gamma-Strahlung entweder in der Nähe oder in der PIN-Diode erzeugt werden. Wenn man den Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschirmt,
+durch Gamma-Strahlung entweder in der Nähe oder in der PIN-Diode erzeugt werden. Wenn man
+den Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abgeschirmt,
 so dass nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
 
 
@@ -58,7 +59,8 @@ Relevante Module des *PhyPiDAQ*-Pakets sind
 
 Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen: 
 
-  - `examples/oscilloscope/run_scOsci.py`, um von einer Soundkarte ausgelesene Wellenform anzuzeigen.  
+  - `examples/oscilloscope/run_scOsci.py`, um von einer Soundkarte ausgelesene Wellenform
+    anzuzeigen.  
 
   - `examples/scGammaDetector.py` zur Visualisierung des Zeitpunkts des Auftretens eines
   großen Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie
@@ -265,7 +267,7 @@ daher nur ein sehr kleiner Bruchteil registriert. Durch Vergleich mit einem Dosi
 in diesem Fall ein Radiacode 102, s. [Anleitung](../experiments/GammaSpectra.md),
 kann man eine ungefähre Kalibration vornehmen: 
 
-  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.5 registrierten Ereignissen pro Minute. 
+  > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.3 registrierten Ereignissen pro Minute. 
 
 Eine Beispielmessung der Umgebungsaktivität wurde oben schon gezeigt.
 Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
@@ -316,6 +318,16 @@ entspricht dann direkt der Rate der detektierten Gammastrahlen.
 Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Programm
 `data/GammaAnalysis.py` verwendet.
 
+Wenn man außer der den peak-to-peak Pulshöhe auch die anderen typischen Merkmale
+der Pulsformen verwendet, ist es möglich, Rausch- und Signalpulse auf Grund ihrer
+tpyischen Form zu unterscheiden. Auf diese Art kann der Verlauf des Pulshöhenspektrums
+auch im Bereich des Rauschens dargestellt werden. Dies ist unten in Abbildung 4 gezeigt.
+Die Erkennung der orange dargestellten Rauschpulse wurde mit einem künstliche neuronalen
+Netz erreicht, dass auf Signalformen für große und sehr kleine Pulse trainiert wurde. 
+
+![Abb. 4: Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen Netzes klassifiziert, das auf die typischen Signalformen kleiner und großer Pulshöhen trainiert
+wurde.](images/PulseHeightSpectrum.png)
+
 
 #### Statistik bei radioaktiven Zerfällen
 
@@ -346,8 +358,8 @@ zwei Ereignissen.](images/RateAnalysis.png)
 Der Code zur Erzeugung der oben gezeigten Ergebnisgrafiken befindet sich im
 Python-Script `data/Analysis.py`, das als Beispiel für eigene Auswertungen oder
 auch als gebrauchsfertiges Programm dienen kann. Die beiden Dateien 
-`data/Umgebung_lowTrigger.csv` und `data/Pechblende.csv` enthalten Daten, die mit dem
-CERN DIY-Detektor und dem Programm `scGammaDetector.py` aufgezeichnet wurden
+`data/Umgebung_lowTrigger.csv` und `data/Pechblende.csv` enthalten Daten, die mit
+dem CERN DIY-Detektor und dem Programm `scGammaDetector.py` aufgezeichnet wurden
 und mit `Analysis.py` ausgewertet werden können. Der erste Datensatz wurde mit
 einer niedrigen Triggerschwelle lediglich mit Umgebungsradioaktivität aufgenommen,
 bei der zweiten Messung mit einer Probe radioaktiver Pechblende war die 
