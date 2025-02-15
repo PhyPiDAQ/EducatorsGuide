@@ -125,7 +125,7 @@ ax_ph.set_yscale("log")
 # 2. rates (= frequency / time interval)
 tmn = 0.0
 tmx = NTbins * Tinterval
-bcR, beR, _ = ax_rate.hist(T, bins=np.linspace(tmn, tmx, NTbins))
+bcR, beR, _ = ax_rate.hist(T, bins=np.linspace(tmn, tmx, NTbins), ec='grey')
 ax_rate.set_ylabel("frequency", size="x-large")
 ax_rate.set_xlabel("$t$ [s]", size="x-large")
 # Mittelpunkt und Breite der Bins
@@ -159,7 +159,7 @@ mx = 5 * meanTw
 nb = 75  # minimum, maximum and number of bins
 bcW, beW, _ = ax_tw.hist(dT, bins=np.linspace(mn, mx, nb), log=True, rwidth=0.8)  # log. Darstellung
 ax_tw.set_ylabel("frequency", size="x-large")
-ax_tw.set_xlabel("$\Delta$t [s]", size="x-large")
+ax_tw.set_xlabel(r"$\Delta$t [s]", size="x-large")
 # Mittelpunkt und Breite der Bins
 bc = (beW[:-1] + beW[1:]) / 2.0
 bw = beW[1] - beW[0]
