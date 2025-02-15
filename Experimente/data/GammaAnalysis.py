@@ -126,7 +126,7 @@ ax_ph.set_yscale("log")
 # 2. Ereignisse über der Zeit (= Häufigkeit / Zeitinterval)
 tmn = 0.0
 tmx = NTbins * Tinterval
-bcR, beR, _ = ax_rate.hist(T, bins=np.linspace(tmn, tmx, NTbins))
+bcR, beR, _ = ax_rate.hist(T, bins=np.linspace(tmn, tmx, NTbins), ec="grey")
 ax_rate.set_ylabel("Anzahl Einträge", size="x-large")
 ax_rate.set_xlabel("$t$ [s]", size="x-large")
 # Mittelpunkt und Breite der Bins

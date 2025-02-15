@@ -1,4 +1,4 @@
-cp## *PhyPiDAQ*: Recording data from a do-it-yourself particle detector
+## *PhyPiDAQ*: Recording data from a do-it-yourself particle detector
 
 The detection of radioactivity, either produced by artificial sources or as part of the natural environment
 like K-40 or Radon from the inner of the Earth, is a fascinating field of study which today has become
@@ -112,8 +112,7 @@ into a working directory and executed.
  
  Note that some soundcards invert the signal. The original output pulse is negative with a clearly visible positive overshoot. 
 
- 
- ![Fig. 1: Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
+  ![Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
  of 96000/s is shown below. Note that the y-axis only shows a range of +/- 2¹⁴](images/scOscillogram.png)
 
 The script provides a number of command line options to control the visual output, enable storage of results to a file,
@@ -188,7 +187,7 @@ contamination of a selected signal sample  must be applied.
 The output from the particle detector seen under measurement conditions at low rates is shown in the figure below. A flashing circle indicates the occurrence of triggered event, and the corresponding (normalized) wave form with 100 sampling points around
 the trigger time is displayed. A rate history is also shown; the bin width in seconds can be set using the option `--interval <n>` 
 
-![Fig. 2: Graphical display showing a typical signal waveform and the observed rates per minute.
+![Graphical display showing a typical signal waveform and the observed rates per minute.
  An average count rate is about 1.5 signals per minute.](images/EnvironmentRate.png)
 
 The determination of the background level and the signal efficiency is not always easy to do  with small uncertainties. the background level can be determined rather precisely by performing measurements without the signal source. The determination of the signal efficiency requires precise knowledge of the detector and the signal characteristics, typically gained by detailed modeling  of the physics processes in the detector and the response of the front-end electronics. In case such studies signal efficiency vs. purity are interesting, data recorded with `scGammaDetector.py` can be analyzed  to gain more insight. Recording of detected pulses is switched on with the option `-f <filename>`; for each detected signal, the "event number", the time of occurrence in seconds since program start and the pulse height in ADC counts are stored in the file. In an off-line analysis, a pulse-height spectrum, i. e. the frequency at which pulse heights in a given interval occur, can be derived from data taken at a low trigger threshold. This will show a large number of very small pulses, but also a clear  accumulation arising from true signals at higher values. From data taken without a particle source a spectrum of expected background signals during the measurement can be determined and subtracted from the data taken with a signal source.  
@@ -237,7 +236,7 @@ still within the range of the noise signals. Note that the pulse heights are def
 as the difference between the maximum and minimum values of the ADC counts in the signal
  range (“peak-to-peak” pulse heights).  
 
-![Fig. 3: Frequency distribution of the pulse heights generated with a
+![Frequency distribution of the pulse heights generated with a
 trigger threshold in the range of the noise pulses at an ambient activity of
 of 0.085 µSv/h.](images/PulseHeights.png)
 
@@ -261,7 +260,7 @@ in Figure 4. The classification of the noise pulses shown in orange was achieved
 using an artificial neural network network that was trained on signal shapes for 
 large and very small pulses. 
 
-![Fig. 4: Frequency distribution of pulse heights of a low-level radioactive rock 
+![Frequency distribution of pulse heights of a low-level radioactive rock 
 sample from the Black Forest. Signal and noise pulses were classified using an
 artificial neural network trained on the typical signal shapes of small and
 large pulse heights.](images/PulseHeightSpectrum.png)
@@ -281,9 +280,31 @@ They show the number of events in intervals of 10 s duration, the frequency dist
 of the observed numbers of events and the time between two events.
 The expected distributions resulting from the mean rate are also plotted, i.e. a uniform distribution for an average number of events of 1.11 in every 10 s interval, the corresponding Poisson distribution and an exponential distribution for a mean time interval of 1/1.11 s = 0.90 s between the events are also shown. The graphics show very nicely the properties expected for a Poisson process.
 
-![Fig. 5: Representation of the number of events in intervals of 10 s duration, 
+![Representation of the number of events in intervals of 10 s duration, 
 the frequency distribution of the observed number of events and the time between
 two events](images/RateAnalysis.png)
+
+
+#### Decay of radon
+
+The radioactive noble gas radon-222 is formed in nuclear decay in the earth's interior and reaches the surface through fissures in the ground. In particular, it can accumulate in the 
+air in buildings if ventilation is poor. A radon sample can be taken from the air by collecting the radon decay products on a balloon that is electrostatically charged by rubbing it. The isotopic mixture is dominated by the short-lived daughter nuclei Po-218, Pb-14, Bi-214 and Po-214, as shown in the diagram below.
+
+![Radon decays](images/Ra-onBalloon.png){width=50%}  
+
+A radon sample from air thus contains a series of short-lived daughter nuclei and is therefore
+well suited to illustrate the time dependence of the activity. The rate as a
+function of time is shown below; the data in the file `Radon.csv` have been
+again analyzed with the Python script `GammaAnalysis.py` described below and
+displayed graphically.
+
+Since several daughter nuclei are involved, the reduction of the original activity
+does not strictly follow an exponential law. A clear increase in activity above the background level can be seen after about 10 minutes, when the balloon was placed on the detector. 
+Within about 2 hours, the rate drops back to the level of the ambient radiation.  
+
+  ![Number of events in 5 min intervals of radon decay products on a balloon 
+  balloon as a function of time](images/RadonDecay.png){width=80%}  
+
 
 
 ### Software for data analysis
@@ -291,7 +312,7 @@ two events](images/RateAnalysis.png)
 The code for generating the results graphics shown above can be found in the
 *Python* script `data/Analysis.py`, which can be used as an example for your own
 evaluations or as a ready-to-use program. The two data files `data/ambient_lowTrigger.csv` 
-and `data/Pechblende.csv` contain data recorded wiht the CERN DIY detector and the program  `scGammaDetector.py` and can be analyzed with `Analysis.py`. 
+and `data/Pechblende.csv` contain data recorded with the CERN DIY detector and the program  `scGammaDetector.py` and can be analyzed with `Analysis.py`. 
 The first data set was recorded with a low trigger threshold with ambient radioactivity
 only, while the second measurement was made with a sample of radioactive pitchblende 
 with trigger threshold well above the noise level. 

@@ -132,10 +132,10 @@ ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpe
 ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
 angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
  
-  ![Abb. 1: Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
+  ![Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
   einfachen USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von
   96000/s. Beachten Sie, dass auf der y-Achse nur einen Bereich von $\pm 2^{¹⁴}$
-  angezeigt wird.](images/scOscillogram.png)
+  angezeigt wird.](images/scOscillogram.png){width=80%}
 
 Bitte beachten, dass manche Soundkarten den Puls invertierten. Der Originalpuls
 ist, wie hier gezeigt, negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
@@ -238,9 +238,9 @@ und die entsprechende Wellenform mit 100 Abtastpunkten um den Auslösezeitpunkt
 herum wird ebenfalls angezeigt. Es wird auch ein Ratenverlauf angezeigt; die
 Bin-Breite in Sekunden kann mit der Option `--interval <n>` eingestellt werden. 
 
-![Abb. 2: Grafische Darstellung der Datenerfassung unter Umgebungsbedingungen.
+![Grafische Darstellung der Datenerfassung unter Umgebungsbedingungen.
 Es wird eine durchschnittliche Zählrate von etwa 1.5 Signalen pro Minute 
-beobachtet.](images/EnvironmentRate.png)
+beobachtet.](images/EnvironmentRate.png){width=66%}
 
 Die Bestimmung des Untergrundniveaus und der Signaleffizienz mit kleinen
 Unsicherheiten ist nicht immer leicht zu bewerkstelligen. Der Untergrund
@@ -302,9 +302,9 @@ dargestellt. Die Lautstärkeeinstellung der Soundkarte wurde so gewählt, dass d
 Triggerschwelle noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die 
 Pulshöhen definiert sind als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
 
-![Abb. 3: Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
+![Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
 im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
-aufgenommen wurden.](images/PulseHeights.png)
+aufgenommen wurden.](images/PulseHeights.png){width=66%}
 
 Die logarithmische Darstellung zeigt eine sehr große Anzahl von Pulshöhen
 knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfällt.
@@ -320,13 +320,13 @@ Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Pr
 
 Wenn man außer der den peak-to-peak Pulshöhe auch die anderen typischen Merkmale
 der Pulsformen verwendet, ist es möglich, Rausch- und Signalpulse auf Grund ihrer
-tpyischen Form zu unterscheiden. Auf diese Art kann der Verlauf des Pulshöhenspektrums
+typischen Form zu unterscheiden. Auf diese Art kann der Verlauf des Pulshöhenspektrums
 auch im Bereich des Rauschens dargestellt werden. Dies ist unten in Abbildung 4 gezeigt.
 Die Erkennung der orange dargestellten Rauschpulse wurde mit einem künstliche neuronalen
 Netz erreicht, dass auf Signalformen für große und sehr kleine Pulse trainiert wurde. 
 
-![Abb. 4: Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen Netzes klassifiziert, das auf die typischen Signalformen kleiner und großer Pulshöhen trainiert
-wurde.](images/PulseHeightSpectrum.png)
+![Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen Netzes klassifiziert, das auf die typischen Signalformen kleiner und großer Pulshöhen trainiert
+wurde.](images/PulseHeightSpectrum.png){width=66%}
 
 
 #### Statistik bei radioaktiven Zerfällen
@@ -339,6 +339,10 @@ Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
 registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
 `data/GammaAnalysis.py` verwendet.
  
+![Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
+die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
+zwei Ereignissen.](images/RateAnalysis.png){width=66%}
+
 Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
@@ -348,10 +352,28 @@ Exponentialverteilung für einen mittleren zeitlichen Abstand von
 1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
-![Abb. 4: Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
-die Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
-zwei Ereignissen.](images/RateAnalysis.png)
 
+#### Zerfall von Radon
+
+Das radioaktive Edelgas Radon-222 entsteht in Kernzerfällen im Erdinneren und gelangt durch
+Spalten im Erdboden an die Oberfläche. Insbesondere in der Luft in Gebäuden kann es sich bei
+schlechter Lüftung anreichern. Eine Radon-Probe kann aus der Luft entnommen werden, indem die Radon-Zerfallsprodukte auf einem Ballon gesammelt werden, der durch Reibung elektrostatisch aufgeladen wird. Das Isotopengemisch wird von den kurzlebigen Tochterkernen Po-218, Pb-14, Bi-214 und Po-214 dominiert, wie aus dem nachstehenden Diagramm hervorgeht.
+
+![Radon-Zerfälle](images/Ra-onBalloon.png){width=50%}  
+
+Eine solche Radon-Probe enthält also eine Reihe von kurzlebigen Tochterkernen und eignet
+sich daher gut zur Veranschaulichung der Zeitabhängigkeit der Aktivität. Die Rate als
+Funktion der Zeit ist unten gezeigt; die Daten in der Datei `RadonDecay.csv` wurden
+wieder mit dem unten beschriebenen Python-Skript `GammaAnalysis.py` ausgewertet und
+grafisch dargestellt.
+
+Da mehrere Tochterkerne beteiligt sind, folgt die Verringerung der ursprünglichen Aktivität
+nicht streng einem Exponentialgesetz. Zu erkennen ist ein deutlicher Anstieg der Aktivität 
+über dem Untergrundniveau nach etwa 10 min, als der Ballon auf den Detektor gelegt wurde. 
+Innerhalb von von ca. 2 Stunden fällt die Rate wieder auf das Niveau der Umgebungsstrahlung ab.  
+
+  ![Anzahl von Ereignissen in 5 min-Intervallen von Radon-Zerfallsprodukten auf einem 
+  Luftballon in Abhängigkeit von der Zeit.](images/RadonDecay.png){width=80%}  
 
 ### Software zur Auswertung
 
@@ -360,7 +382,7 @@ Python-Script `data/Analysis.py`, das als Beispiel für eigene Auswertungen oder
 auch als gebrauchsfertiges Programm dienen kann. Die beiden Dateien 
 `data/Umgebung_lowTrigger.csv` und `data/Pechblende.csv` enthalten Daten, die mit
 dem CERN DIY-Detektor und dem Programm `scGammaDetector.py` aufgezeichnet wurden
-und mit `Analysis.py` ausgewertet werden können. Der erste Datensatz wurde mit
+und mit `GammaAnalysis.py` ausgewertet werden können. Der erste Datensatz wurde mit
 einer niedrigen Triggerschwelle lediglich mit Umgebungsradioaktivität aufgenommen,
 bei der zweiten Messung mit einer Probe radioaktiver Pechblende war die 
 Triggerschwelle deutlich oberhalb des Rauschniveaus eingestellt. 
@@ -398,8 +420,12 @@ Die oben gezeigten Grafiken werden mit den Befehlen
 
 > `python3 GammaAnalysis.py -c 11000 -i 60 Umgebung_lowTrigger` 
 
-bzw. 
+oder  
 
 > `python3 GammaAnalysis.py -i 10 Pechblende.cvs` 
+
+bzw. 
+
+> `python GammaAnalysis.py -i 300 RadonDecay.csv`
 
 erzeugt.
