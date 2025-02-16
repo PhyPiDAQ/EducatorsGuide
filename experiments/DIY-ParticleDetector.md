@@ -5,9 +5,9 @@
 
 >   The detection of radioactivity, either produced by artificial sources or as part 
     of the natural environment like K-40 or Radon from the inner of the Earth, is a 
-    fascinating field of study which today has become accessible with cheap and simple detectors. There are commercial offers, but also a number of proposals for 
-    do-it-yourself projects. A sound-card of a standard PC is suitable to record 
-    the signals, which can then be visualized with any kind of sound-card oscilloscope. 
+    There are commercial offers, but also a number of proposals for  do-it-yourself 
+    projects. A sound-card of a standard PC is suitable to record  the signals, which 
+    can then be visualized with any kind of sound-card oscilloscope. 
 
 ### The CERN DIY particle detector 
 
@@ -38,8 +38,8 @@ fact that the time between randomly occurring events follows an exponential dist
 In addition, the exponentially falling decay rate of a sample of radioactive nuclei is another
 important aspect that can be studied if a sample of short-lived nuclei can be provided. In Nature,
 such a source is Radon produced  from radioactive decays in the inner of the earth; decay products
-of Radon, which are themselves radioactive, can be accumulated on an the surface of an electrotatically
-charged balloon. 
+of Radon, which are themselves radioactive, can be accumulated on an the surface of an 
+electrostatically charged balloon. 
 
 Relevant modules of the *PhyPiDAQ* package are:
 
@@ -327,15 +327,20 @@ the frequency distribution of the observed number of events and the time between
 two events](images/RateAnalysis.png){width=66%}
 
 
-#### Decay of radon
+#### Decay of Radon
 
-The radioactive noble gas radon-222 is formed in nuclear decay in the earth's interior and reaches the surface through fissures in the ground. In particular, it can accumulate in the 
-air in buildings if ventilation is poor. A radon sample can be taken from the air by collecting the radon decay products on a balloon that is electrostatically charged by rubbing it. The isotopic mixture is dominated by the short-lived daughter nuclei Po-218, Pb-14, Bi-214 and Po-214, as shown in the diagram below.
+The radioactive noble gas radon-222 is formed in nuclear decay in the 
+earth's interior and reaches the surface through fissures in the ground. 
+In particular, it can accumulate in the air in buildings if ventilation is 
+poor. A Radon sample can be taken from the air by collecting the Radon 
+decay products on a balloon that is electrostatically charged by rubbing it. 
+The isotopic mixture is dominated by the short-lived daughter nuclei 
+Po-218, Pb-14, Bi-214 and Po-214, as shown in the diagram below.
 
 ![Radon decays](images/Ra-onBalloon.png){width=50%}  
 
-A radon sample from air thus contains a series of short-lived daughter nuclei and is therefore
-well suited to illustrate the time dependence of the activity. The rate as a
+A radon sample from air thus contains a series of short-lived daughter nuclei and is 
+therefore well suited to illustrate the time dependence of the activity. The rate as a
 function of time is shown below; the data in the file `Radon.csv` have been
 again analyzed with the Python script `RadonAnalysis.py` described below and
 displayed graphically.
@@ -398,8 +403,8 @@ The graphics shown above are generated with the commands
 
 or 
 
-> `python3 GammaAnalysis.py -i 10 pitchblende.cvs`. 
+> `python3 GammaAnalysis.py -i 10 pitchblende.csv`
 
 resp.  
 
-> `python RadonAnalysis.py -i 180 Radon.csv`
+> `python RadonAnalysis.py -i 180 Radon.csv`.
