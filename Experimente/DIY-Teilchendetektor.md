@@ -300,7 +300,8 @@ bei kleinen Pulshöhen zu verbessern.
 Das Ergebnis einer Messung mit Umgebungsradioaktivität ist in der folgenden Abbildung 
 dargestellt. Die Lautstärkeeinstellung der Soundkarte wurde so gewählt, dass die 
 Triggerschwelle noch im Bereich der Rauschsignale liegt. Beachten Sie, dass die 
-Pulshöhen definiert sind als die Differenz zwischen dem maximalen und minimalen Wert im Signalbereich („peak-to-peak“ Pulshöhe).  
+Pulshöhen definiert sind als die Differenz zwischen dem maximalen und minimalen Wert
+im Signalbereich („peak-to-peak“ Pulshöhe).  
 
 ![Häufigkeitsverteilung der Pulshöhen, die mit einer Triggerschwelle
 im Bereich der Rauschimpulse bei einer Umgebungsaktivität von von 0,085 µSv/h
@@ -325,8 +326,10 @@ auch im Bereich des Rauschens dargestellt werden. Dies ist unten in Abbildung 4 
 Die Erkennung der orange dargestellten Rauschpulse wurde mit einem künstliche neuronalen
 Netz erreicht, dass auf Signalformen für große und sehr kleine Pulse trainiert wurde. 
 
-![Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen Netzes klassifiziert, das auf die typischen Signalformen kleiner und großer Pulshöhen trainiert
-wurde.](images/PulseHeightSpectrum.png){width=66%}
+![Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem
+Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen
+Netzes klassifiziert, das auf die typischen Signalformen kleiner und großer Pulshöhen
+trainiert wurde.](images/PulseHeightSpectrum.png){width=66%}
 
 
 #### Statistik bei radioaktiven Zerfällen
@@ -357,22 +360,28 @@ Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigens
 
 Das radioaktive Edelgas Radon-222 entsteht in Kernzerfällen im Erdinneren und gelangt durch
 Spalten im Erdboden an die Oberfläche. Insbesondere in der Luft in Gebäuden kann es sich bei
-schlechter Lüftung anreichern. Eine Radon-Probe kann aus der Luft entnommen werden, indem die Radon-Zerfallsprodukte auf einem Ballon gesammelt werden, der durch Reibung elektrostatisch aufgeladen wird. Das Isotopengemisch wird von den kurzlebigen Tochterkernen Po-218, Pb-14, Bi-214 und Po-214 dominiert, wie aus dem nachstehenden Diagramm hervorgeht.
+schlechter Lüftung anreichern. Eine Radon-Probe kann aus der Luft entnommen werden, indem
+die Radon-Zerfallsprodukte auf einem Ballon gesammelt werden, der durch Reibung 
+elektrostatisch aufgeladen wird. Das Isotopengemisch wird von den kurzlebigen Tochterkernen 
+Po-218, Pb-14, Bi-214 und Po-214 dominiert, wie aus dem nachstehenden Diagramm hervorgeht.
 
 ![Radon-Zerfälle](images/Ra-onBalloon.png){width=50%}  
 
 Eine solche Radon-Probe enthält also eine Reihe von kurzlebigen Tochterkernen und eignet
 sich daher gut zur Veranschaulichung der Zeitabhängigkeit der Aktivität. Die Rate als
-Funktion der Zeit ist unten gezeigt; die Daten in der Datei `RadonDecay.csv` wurden
-wieder mit dem unten beschriebenen Python-Skript `GammaAnalysis.py` ausgewertet und
+Funktion der Zeit ist unten gezeigt; die Daten in der Datei `Radon.csv` wurden
+mit dem unten beschriebenen Python-Skript `RadonAnalysis.py` ausgewertet und
 grafisch dargestellt.
 
 Da mehrere Tochterkerne beteiligt sind, folgt die Verringerung der ursprünglichen Aktivität
-nicht streng einem Exponentialgesetz. Zu erkennen ist ein deutlicher Anstieg der Aktivität 
-über dem Untergrundniveau nach etwa 10 min, als der Ballon auf den Detektor gelegt wurde. 
-Innerhalb von von ca. 2 Stunden fällt die Rate wieder auf das Niveau der Umgebungsstrahlung ab.  
+nicht dem exponentiellen Zerfallsgesetz. Zu erkennen ist ein deutlicher Anstieg der Aktivität 
+über dem Untergrundniveau nach etwa 12 min, als der Ballon nach ca. 15 min Akkumulationszeit 
+auf den Detektor gelegt wurde. Die anfängliche Mischung der Isotope Pb-214 und Bi-214 ist
+unbekannt. Der Zerfall von Pb-214 und die Erzeugung von Bi-214 sowie dessen anschließender
+Zerfall mit Lebensdauern von 27 min und 20 min ergeben den gezeigten zeitlichen Verlauf der
+Gamma-Rate, die nach ca. 2,5 Stunden wieder auf das Niveau der Umgebungsstrahlung abfällt.  
 
-  ![Anzahl von Ereignissen in 5 min-Intervallen von Radon-Zerfallsprodukten auf einem 
+  ![Anzahl von Ereignissen in 3 min-Intervallen von Radon-Zerfallsprodukten auf einem 
   Luftballon in Abhängigkeit von der Zeit.](images/RadonDecay.png){width=80%}  
 
 ### Software zur Auswertung
@@ -426,6 +435,6 @@ oder
 
 bzw. 
 
-> `python GammaAnalysis.py -i 300 RadonDecay.csv`
+> `python RadonAnalysis.py -i 180 Radon.csv`
 
 erzeugt.

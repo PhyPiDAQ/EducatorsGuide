@@ -1,11 +1,13 @@
-# *PhyPiDAQ*:
-## Recording and analyzing data from a do-it-yourself particle detector
 
->  The detection of radioactivity, either produced by artificial sources or as part of the natural environment
-   like K-40 or Radon from the inner of the Earth, is a fascinating field of study which today has become
-   accessible with cheap and simple detectors. There are commercial offers, but also a number of proposals
-   for do-it-yourself projects. A sound-card of a standard PC is suitable to record the signals, which can then
-   be visualized with any kind of sound-card oscilloscope. 
+# *PhyPiDAQ*: 
+
+## Recording data from a do-it-yourself particle detector
+
+>   The detection of radioactivity, either produced by artificial sources or as part 
+    of the natural environment like K-40 or Radon from the inner of the Earth, is a 
+    fascinating field of study which today has become accessible with cheap and simple detectors. There are commercial offers, but also a number of proposals for 
+    do-it-yourself projects. A sound-card of a standard PC is suitable to record 
+    the signals, which can then be visualized with any kind of sound-card oscilloscope. 
 
 ### The CERN DIY particle detector 
 
@@ -119,7 +121,7 @@ into a working directory and executed.
  visible positive overshoot. 
 
   ![Typical waveform recorded with a LogiLink USB soundcard with 16 bit resolution and a sampling rate
- of 96000/s is shown below. Note that the y-axis only shows a range of +/- 2¹⁴](images/scOscillogram.png)
+ of 96000/s is shown below. Note that the y-axis only shows a range of $\pm 2^{14}$.](images/scOscillogram.png){width=80%}
 
 The script provides a number of command line options to control the visual output, enable storage of
 results to a file, and to set up the parameters of the soundcard and the trigger options. 
@@ -211,7 +213,7 @@ time is displayed. A rate history is also shown; the bin width in seconds can be
 the option `--interval <n>`. 
 
 ![Graphical display showing a typical signal waveform and the observed rates per minute.
- An average count rate is about 1.5 signals per minute.](images/EnvironmentRate.png)
+ An average count rate is about 1.5 signals per minute.](images/EnvironmentRate.png){width=66%}
 
 The determination of the background level and the signal efficiency is not always easy to
 do  with small uncertainties. the background level can be determined rather precisely by
@@ -278,7 +280,7 @@ as the difference between the maximum and minimum values of the ADC counts in th
 
 ![Frequency distribution of the pulse heights generated with a
 trigger threshold in the range of the noise pulses at an ambient activity of
-of 0.085 µSv/h.](images/PulseHeights.png)
+of 0.085 µSv/h.](images/PulseHeights.png){width=66%}
 
 The logarithmic representation shows a very large number of pulse heights
 just above the trigger threshold, which drops rapidly towards larger values.
@@ -294,7 +296,7 @@ pulse height distribution.
 
 If, in addition to the peak-to-peak pulse height, the other typical characteristics 
 of the pulse shapes are considered, it is possible to distinguish noise and signal 
-pulses on the basis of their tpyical shapes. In this way, the course of the pulse 
+pulses on the basis of their typical shapes. In this way, the course of the pulse 
 height spectrum can also be displayed in the noise region. This is shown below 
 in Figure 4. The classification of the noise pulses shown in orange was achieved 
 using an artificial neural network network that was trained on signal shapes for 
@@ -303,7 +305,7 @@ large and very small pulses.
 ![Frequency distribution of pulse heights of a low-level radioactive rock 
 sample from the Black Forest. Signal and noise pulses were classified using an
 artificial neural network trained on the typical signal shapes of small and
-large pulse heights.](images/PulseHeightSpectrum.png)
+large pulse heights.](images/PulseHeightSpectrum.png){width=66%}
 
 Translated with DeepL.com (free version)
 
@@ -322,7 +324,7 @@ The expected distributions resulting from the mean rate are also plotted, i.e. a
 
 ![Representation of the number of events in intervals of 10 s duration, 
 the frequency distribution of the observed number of events and the time between
-two events](images/RateAnalysis.png)
+two events](images/RateAnalysis.png){width=66%}
 
 
 #### Decay of radon
@@ -335,16 +337,21 @@ air in buildings if ventilation is poor. A radon sample can be taken from the ai
 A radon sample from air thus contains a series of short-lived daughter nuclei and is therefore
 well suited to illustrate the time dependence of the activity. The rate as a
 function of time is shown below; the data in the file `Radon.csv` have been
-again analyzed with the Python script `GammaAnalysis.py` described below and
+again analyzed with the Python script `RadonAnalysis.py` described below and
 displayed graphically.
 
-Since several daughter nuclei are involved, the reduction of the original activity
-does not strictly follow an exponential law. A clear increase in activity above the background level can be seen after about 10 minutes, when the balloon was placed on the detector. 
-Within about 2 hours, the rate drops back to the level of the ambient radiation.  
 
-  ![Number of events in 5 min intervals of radon decay products on a
+  ![Number of events in 3 min intervals of radon decay products on a balloon 
   balloon as a function of time](images/RadonDecay.png){width=80%}  
 
+Since several daughter nuclei are involved, the reduction of the original activity
+does not follow the exponential decay law. A clear increase in activity can be seen 
+above the background level after about 12 min, when the balloon was placed on the detector 
+after about 15 min of accumulation time. 
+The initial mixture of the isotopes Pb-214 and Bi-214 is unknown. The decay of Pb-214 and 
+the production of Bi-214 and its subsequent decay with lifetimes of 27 min and 20 min 
+result in the the gamma rate over time shown above, which drops back to the level of 
+ambient radiation after approx. 2.5 hours.  
 
 
 ### Software for data analysis
@@ -392,3 +399,7 @@ The graphics shown above are generated with the commands
 or 
 
 > `python3 GammaAnalysis.py -i 10 pitchblende.cvs`. 
+
+resp.  
+
+> `python RadonAnalysis.py -i 180 Radon.csv`
