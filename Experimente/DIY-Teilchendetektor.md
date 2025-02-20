@@ -270,8 +270,8 @@ kann man eine ungefähre Kalibration vornehmen:
   > Eine Dosisrate von  0.1 µS/h entspricht etwa 1.3 registrierten Ereignissen pro Minute. 
 
 Eine Beispielmessung der Umgebungsaktivität wurde oben schon gezeigt.
-Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor  
-durchaus Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der
+Wenn man also hinreichend lange Messzeiten vorsieht, sind mit dem Selbstbaudetektor
+Studien zur Radioaktivität in verschiedenen Umgebungen machbar. Der
 Unterschied der Dosisleistung im Freien, in Wohnräumen oder in Räumen mit Fliesen
 oder gar Granitsteinen unterscheidet sich um Faktoren Zwei bis Drei, die mit Messzeiten
 von einigen 10 Minuten statistisch signifikant nachweisbar sind. Auch der Effekt 
@@ -288,7 +288,7 @@ Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart, die
 peak-to-peak Pulshöhe in ADC-Counts des bipolaren Signals, das Verhältnis
 des der Höhen des zweiten und ersten Peaks, die zeitliche Distanz der Extrema
 und die Breiten bei halber Höher der Peaks in der Datei gespeichert. Die Datei
-im *csv*-Format enthält die Spalten 
+im *csv*-Format enthält die Spalten   
   > `event_number,event_time,pp_height,p_ratio,p_dist,fwhm1,fwhm2`
 
 Zur Anzeige des Spektrums der Pulshöhen, d. h. der Häufigkeit des Auftretens von 
@@ -376,10 +376,11 @@ grafisch dargestellt.
 Da mehrere Tochterkerne beteiligt sind, folgt die Verringerung der ursprünglichen Aktivität
 nicht dem exponentiellen Zerfallsgesetz. Zu erkennen ist ein deutlicher Anstieg der Aktivität 
 über dem Untergrundniveau nach etwa 12 min, als der Ballon nach ca. 15 min Akkumulationszeit 
-auf den Detektor gelegt wurde. Die anfängliche Mischung der Isotope Pb-214 und Bi-214 ist
-unbekannt. Der Zerfall von Pb-214 und die Erzeugung von Bi-214 sowie dessen anschließender
-Zerfall mit Lebensdauern von 27 min und 20 min ergeben den gezeigten zeitlichen Verlauf der
-Gamma-Rate, die nach ca. 2,5 Stunden wieder auf das Niveau der Umgebungsstrahlung abfällt.  
+auf den Detektor gelegt wurde. Die anfängliche Mischung der Isotope Pb-214 und Bi-214, deren 
+ β-Zerfälle von Gamma-Emmissionen begrleitet ist, ist unbekannt. Der Zerfall von Pb-214 und 
+die Erzeugung von Bi-214 sowie dessen anschließender Zerfall mit Lebensdauern von 27 min und 
+20 min ergeben den gezeigten zeitlichen Verlauf der Gamma-Rate, die nach ca. 2,5 Stunden
+wieder auf das Niveau der Umgebungsstrahlung abfällt.  
 
   ![Anzahl von Ereignissen in 3 min-Intervallen von Radon-Zerfallsprodukten auf einem 
   Luftballon in Abhängigkeit von der Zeit.](images/RadonDecay.png){width=80%}  
