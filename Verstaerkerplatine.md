@@ -35,16 +35,20 @@ einfache SChaltung des Pegelwandlers mit einem Innenwiderstand in der Größenor
 ![Abb. 3](Schematics/Pegelwandler_schematic.png)  
 
 In den Unterverzeichnissen *Messplatine/* und *Frontplatine/* finden sich die Quelldateien für eine Platine, die die relevanten Schaltungen enthält und die direkt über ein Flachbandkabel an einen Raspberry Pi angeschlossen werden kann. Dies ist die 
-kompakte Version der Messplatine, die auch im oben erwähnten Messkoffer enthalten und in der entsprechenden Dokumentation beschrieben ist.  Der vollständige Schaltplan 
+kompakte Version der Messplatine, die auch im oben erwähnten Messkoffer enthalten und in der entsprechenden Dokumentation beschrieben ist. Der vollständige Schaltplan 
 ist in Abb. 4 dargestellt, eine 3D-Ansicht der Platine in Abb. 5. 
 
 ![Abb. 4](Verstaerkerplatine/schematic_bottom.png)
 
 ![Abb. 5](Verstaerkerplatine/Messplatine-3d.png)
 
-Zur einfachen Verwendung werden die relevanten Signale über eine Stiftleiste auf eine zweite Platine übertragen, an denen Ein- und Ausgänge über 2mm-Bananenstecker verbunden
-werden können. 
+Die Platine enthält noch Steckplätze für einen Digital-Analog-Wandler MCP4725
+und einen Strom-Spannungssensor INA219, die optional bestückt werden können. 
 
+Zur einfachen Verwendung werden die relevanten Signale über eine Stiftleiste auf eine zweite Platine übertragen, an denen Ein- und Ausgänge über 2mm-Bananenstecker verbunden
+werden können. Eine 3D-Ansicht ist hier gezeigt:
+
+![Abb. 5](Verstaerkerplatine/Frontplatine.png)
 
 
 
