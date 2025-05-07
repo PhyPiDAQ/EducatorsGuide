@@ -114,7 +114,7 @@ Abbildung 4: Ansicht des Verzeichnisses "pi" mit dem Ordner "Python_Projektchen"
 
 Wenn Sie in **PhyPiDAQ** Config‘s erstellen oder ändern, speichern Sie diese (über „Save Config“) in einem erstellten Unterordner von „Projekte“, beispielsweise in „Temp und Druck“. Hierdurch wird die gesamte Config (Haupt-Config und die jeweilige(n) Device-Config(s)) an diesem Ort abgespeichert für eine spätere Verwendung.
 
-è  Achtung: Vor dem Speichern sollten alle deklarierten Device-Config’s geladen sein, da sonst aufgrund der fehlenden Verknüpfung das Programm abstürzt.
+Achtung: Vor dem Speichern sollten alle deklarierten Device-Config’s geladen sein, da sonst aufgrund der fehlenden Verknüpfung das Programm abstürzt.
 
 ![](images/20231018182937193-5.png)
 
@@ -130,11 +130,15 @@ Abbildung 6: Ansicht des Ordners "WorkDir_aller _Projekte" im Verzeichnis "Proje
 
 ## Verkabeln der elektronischen Bauteile
 
-Bevor Sie die Devices im System deklarieren, ist es empfehlenswert, die jeweiligen Geräte mit dem Breadboard des Raspberry Pi zu verbinden. Somit können unnötige Fehler vermieden werden.
+Bevor Sie die Devices im System deklarieren, ist es empfehlenswert, die jeweiligen Geräte mit dem Raspberry Pi zu verbinden. Am einfachsten geht das über ein 
+Steckbrett für Elektronikbauteile ("Breadboard") und einen mit einem Flachbandkabel
+angeschlossenen Adapter für die GPIO-Leiste des Raspberry Pi, wie in der Abbildung
+unten gezeigt. 
+
 ![](images/20231018182937193-7.jpg) 
 Abbildung 7: Beispielhafte Verkabelung (Thermoelement mit MAX31855)
 
-Hierbei ist auf die richtige Verkabelung der jeweiligen Devices zu achten, da sonst eine die Devices oder der gesamte Raspberry Pi irreversibel beschädigt werden kann. Für viele erhältliche Devices sind im Internet mehrfach Anleitungen abrufbar, wie diese verkabelt werden <u>können</u>. Die im Anhang dargestellten Verkabelungen wurden ebenfalls durch diverse Internetquellen motiviert.
+Hierbei ist auf die richtige Verkabelung der jeweiligen Devices zu achten, da sonst die Devices oder der Raspberry Pi beschädigt werden könnten. Für viele erhältliche Devices sind im Internet Anleitungen abrufbar. 
 
 Am häufigsten tauschen Sensoren und Breakoutboards Daten mit dem Raspberry Pi über die Schnittstellen I²C und SPI aus. Etwas exotischer ist der One-Wire-Bus. Alle müssen im System aktiviert werden, wie in folgender Abbildung dargestellt.
 
@@ -178,11 +182,12 @@ Als nächstes werden die Devices softwareseitig eingebunden, damit sie angesteue
 
 - Ansteuerung/Auslesung über PhyPiDAQ (im nächsten Unterkapitel ausdifferenziert)
 
-Die erste Variante ist vorteilig gegenüber der zweiten in der Hinsicht, dass Sie nicht an die in PhyPiDAQ vorkonfigurierte Device-Auswahl und -Version gebunden sind und meist ein einfaches Übernehmen von Code aus dem Internet ohne Probleme zum Ziele führt. Die zweite ist jedoch der ersten gegenüber in der Hinsicht im Vorteil, dass keine Programmierkenntnisse erforderlich sind und weiterführende Werkzeuge bereits integriert sind (Anpassen der Messwerte und Visualisierung, Anwenden von Funktionen, Ausgabe als CSV-Datei und weitere). Ihnen steht somit offen, für welchen Weg Sie sich entscheiden.
+Die erste Variante ist vorteilig gegenüber der zweiten in der Hinsicht, dass Sie nicht an die in PhyPiDAQ vorkonfigurierte Device-Auswahl und -Version gebunden sind und meist ein einfaches Übernehmen von Code aus dem Internet ohne Probleme zum Ziele führt. Die zweite ist jedoch der ersten gegenüber in der Hinsicht im Vorteil, dass keine Programmierkenntnisse erforderlich sind und weiterführende Werkzeuge bereits integriert sind (Anpassen der Messwerte und Visualisierung, Anwenden von Funktionen, Ausgabe als CSV-Datei und weitere). 
+
 
 **Ansteuerung/Auslesung** **über ein selbstgeschriebenes Programm**
 
-Für viele Devices sind im Internet bereits Anleitungen zur Verkabelung und ganze lauffähige Programmcode-Blöcke abrufbar. Die geläufigste Programmiersprache, welche im Internet bezüglich dem Raspberry Pi genutzt wird, ist Python. Zwar ist es auch möglich über andere Programmiersprachen wie Scratch zu programmieren, jedoch soll das hier nicht weiterverfolgt werden. Ein oft genutztes Tool zum Programmieren ist die „Thonny IDE“, welche einen einfachen, aber ausreichenden Funktionsumfang vorweist. Beachtet werden muss beim Programmieren und Übernehmen von Code aus dem Internet folgendes:
+Für viele Devices sind im Internet bereits Anleitungen zur Verkabelung und lauffähige Programmcode-Blöcke abrufbar. Die geläufigste Programmiersprachefür den Raspberry Pi ist Python. Ein oft genutztes Tool ist die „Thonny IDE“, die einen zwar einfachen, aber meist ausreichenden Funktionsumfang vorweist. Beachtet werden muss beim Programmieren und Übernehmen von Code aus dem Internet folgendes:
 
 - Die jeweilig genutzten Schnittstellen (SPI, I²C, …) müssen aktiviert sein
 
@@ -196,7 +201,7 @@ Abbildung 12: IDE des Programms "Thonny" mit einem lauffähigen Code zur Auslesu
 
 **Starten von PhyPiDAQ**
 
-Starten Sie PhyPiDAQ über die Verknüpfung auf dem Desktop oder über den Pfad „pi/PhyPi/phypi.py“ (in der Konsole!), erscheint die Konsole und der Start-Oberfläche, über welche Sie das Programm steuern können:
+Starten Sie PhyPiDAQ über die Verknüpfung auf dem Desktop oder über den Pfad „PhyPi/phypi.py“ (in der Konsole!), erscheint eine Konsole und die Start-Oberfläche, über die das Programm gesteuert wird:
 
 ![](images/20231018182937193-14.png)
 
@@ -224,7 +229,7 @@ Abbildung 16: Ausschnitt aus der Default-Haupt-Config
 
 **Konfigurieren der Haupt-Config**
 
-Ne nachdem, wie Ihre Messung aussehen soll und welche Devices Sie verwenden wollen, müssen Sie die Default-Config Ihren Vorstellungen entsprechend anpassen. Aktivieren Sie hierfür zuerst das Feld „Edit Mode“ am oberen Rand des Fensters. Im Nachhinein sind die Angaben weiterhin manipulierbar, falls sich andere Parameter als sinnvoller erweisen sollten. Alle nicht benötigte, standardmäßig auskommentierte Befehle können zur Wahrung der Übersichtlichkeit gelöscht werden. Die jeweiligen Befehle in den Konfigurationsdateien sind dem versierten Nutzer ausreichend kommentiert, sollen hier jedoch trotzdem zum Verständnis oberflächlich erläutert werden.
+Ne nachdem, wie Ihre Messung aussehen soll und welche Devices Sie verwenden wollen, müssen Sie die Default-Config dem Bedarf entsprechend anpassen. Aktivieren Sie hierfür zuerst das Feld „Edit Mode“ am oberen Rand des Fensters. Im Nachhinein sind die Angaben weiterhin manipulierbar, falls sich andere Parameter als sinnvoller erweisen sollten. Alle nicht benötigte, standardmäßig auskommentierte Befehle können zur Wahrung der Übersichtlichkeit gelöscht werden. Die jeweiligen Befehle in den Konfigurationsdateien sind für versierte Nutzer ausreichend kommentiert, sollen hier jedoch trotzdem zum Verständnis oberflächlich erläutert werden.
 
 - DeviceFile – Auswahl der zu verwendenden Geräte/Sensoren (Devices) durch Entfernen der Raute oder Zusammenfassung in ein Array (Eckige Klammern) bei mehreren Geräten
 
@@ -306,24 +311,22 @@ Neben den selbsterklärenden Buttons „Pause“, save Graph“ und „End“ is
 
 ## Auslesen und Weiterverarbeiten der Messdaten
 
-Haben Sie in der Config die Ausgabe als CSV-Datei aktiviert, können Sie die gewonnenen Messdaten beispielsweise in einem Datenanalyse- oder einem Tabellenkalkulationsprogramm auswerten. Das Erstere sei hierbei zu bevorzugen, da mit diesem Ihnen weiterführende Funktionen möglich sind (Angabe von Fehlern, Kurvenanpassung/Fit mit Fehlern und Gewichtung uvm.). Hierfür bieten sich vor allem Open-Source-Lösungen wie [SciDAVis](https://scidavis.sourceforge.net/) oder [LabPlot](https://labplot.kde.org/) an, da diese in der Regel kostenlos und lizenzfrei sind und meistens ein umfangreiches Funktionsspektrum vorweisen. Für die einfache Auswertung von Messwerten durch Schülerinnen und Schüler ist jedoch auch ein Tabellenkalkulationsprogramm verwendbar.
+Haben Sie in der Config die Ausgabe als CSV-Datei aktiviert, können Sie die gewonnenen Messdaten beispielsweise in einem Datenanalyse- oder einem Tabellenkalkulationsprogramm auswerten. Das Erstere sei hierbei zu bevorzugen, da mit diesem weiterführende Funktionen möglich sind (Angabe von Fehlern, Kurvenanpassung/Fit mit Fehlern und Gewichtung uvm.). Hierfür bieten sich vor allem Open-Source-Lösungen wie [SciDAVis](https://scidavis.sourceforge.net/) oder [LabPlot](https://labplot.kde.org/) an, da diese in der Regel kostenlos und lizenzfrei sind und meistens ein umfangreiches Funktionsspektrum vorweisen. Für die einfache Auswertung von Messwerten durch Schülerinnen und Schüler ist jedoch auch ein Tabellenkalkulationsprogramm verwendbar.
 
 ## Weiterführende Tipps zur Vorbereitung von Experimenten
 
 **Vorbereitung**:
 
-- Bereiten Sie das Experiment hinreichend gut vor und notieren Sie sich gegebenenfalls verwendete Hardware und Programme
+- Bereiten Sie das Experiment hinreichend gut vor und notieren Sie sich gegebenenfalls verwendete Hardware und Programme.
 
-- Falls mehrere Experimente an einem Tag vorgeführt werden sollen, ist es sinnvoll, auf verschiedenen Breadboards die jeweiligen Verkabelungen herzustellen, sodass im Unterricht selbst dies nicht mehr passieren muss
+- Falls mehrere Experimente an einem Tag vorgeführt werden sollen, ist es sinnvoll, auf verschiedenen Breadboards die jeweiligen Verkabelungen herzustellen, sodass im Unterricht selbst dies nicht mehr passieren muss.
 
-- Speichern Sie die Configs der einzelnen Experimente an Orten, die Sie leicht wiederfinden. Erstellen Sie gegebenenfalls eine Verknüpfung auf dem Desktop
+- Speichern Sie die Configs der einzelnen Experimente an Orten, die Sie leicht wiederfinden. Erstellen Sie gegebenenfalls eine Verknüpfung auf dem Desktop.
 
 Weiterführende Informationen finden Sie im „Educator’s Guide“ auf [Github](https://github.com/PhyPiDAQ/). Eine Einführung in die Arbeit mit PhyPiDAQ und Experimente finden Sie ergänzend hierzu auf [Youtube](https://youtube.com/@wissen_tut_nicht_weh?si=3PuPcoavyUXHY5Yw).
-
   
 
 ****
-
 
 
 # Anhang 1 – Bestimmung eines passenden Temperatursensors
@@ -341,9 +344,6 @@ Tabelle 3: Vergleich ausgewählter Temperatursensoren
 | PT100 | -30-105 °C |   ![](images/20231018182937193-24.png) | Vorhanden | Benötigt Verstärkerboard MAX31865 |
 | DS18B20 | -55-125 °C | ![](images/20231018182937193-25.png) | Vorhanden | Digitales Ausgangssignal |
 | Thermoelement | -200-700 °C | ![](images/20231018182937193-26.png) | Nicht vorhanden | Benötigt Verstärkerboard MAX31855 |
-
-
-
 
 
 Neben dem Messbereich und der Wasserresistenz, der von Bauart zu Bauart unterschiedlich sein kann, unterscheidet sich in vielen Fällen deutlich die Genauigkeit je nach Messbereich. Da die Sensoren prinzipiell alle für eine Temperaturmessung infrage kommen würden, sollen ihre Spezifika im Folgenden näher beleuchtet werden:
@@ -373,7 +373,7 @@ o Nachteilhaft ist hierbei, dass ein Verstärker-Board unbedingt benötigt wird,
 ![](images/20231018182937193-28.jpg) 
 Abbildung 24: Beispielhafter DS18B20-Sensor
 
-o Der DS18B20 ist ein digitaler Temperatursensor, welcher die analoge Eingangsgröße in Form einer Spannung durch einen internen AD-Wandler in ein digitales Signal überträgt. Die bereits kalibrierten Werte werden im Folgenden über eine sogenannte
+o Der DS18B20 ist ein digitaler Temperatursensor, welcher die analoge Eingangsgröße in Form einer Spannung durch einen internen AD-Wandler in ein digitales Signal umsetzt. Die bereits kalibrierten Werte werden im Folgenden über eine sogenannte
 „One-Wire“-Verbindung an den Raspberry Pi weitergeleitet. Er hat eine eigene Sensor-Adresse, sodass mehrere seiner Art zeitgleich verbaut werden können, ohne dass das System diese vertauscht.
 Für eine Verminderung der Störsignale ist der Einbau eines Pull-up-Widerstands sinnvoll.
 
