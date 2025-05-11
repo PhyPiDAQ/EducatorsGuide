@@ -53,4 +53,14 @@ werden können. Eine 3D-Ansicht ist hier gezeigt:
 ![Abb. 5](Verstaerkerplatine/Frontplatine.png)
 
 
+Fotos des fertigen Aufbaus sind unten gezeigt. 
+
+
+![Abb. 6](Verstaerkerplatine/Foto1.jpg)
+
+
+![Abb. 6](Verstaerkerplatine/PhyPiDAQPlatine.jpg)
+
+
+
 

@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "Messplatine PhyPiDAQ")
-		(date "2023-10-23, last rev. 05/07/25")
+		(date "2023-10-23, last rev. 05/15/25")
 		(rev "0.7")
 		(company "KIT- Karlsruher Institut für Technologie")
 		(comment 1 "Institut für Experimentelle Teilchenphysik")
@@ -1271,6 +1271,156 @@
 					(at 0 -3.81 90)
 					(length 1.27)
 					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Jumper:Jumper_2_Open"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "JP"
+				(at 0 2.794 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper_2_Open"
+				(at 0 -2.286 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Jumper, 2-pole, open"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Jumper SPST"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Jumper_2_Open_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_0_1"
+				(arc
+					(start -1.524 1.27)
+					(mid 0 1.778)
+					(end 1.524 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Open_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6939,6 +7089,12 @@
 		(uuid "889c50a5-eb7c-4b4d-8c33-68ec0ef1df21")
 	)
 	(junction
+		(at 45.72 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9099f363-d4ea-47cc-a5b9-329f02928e83")
+	)
+	(junction
 		(at 41.91 236.22)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6997,12 +7153,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c8645a5e-b1c2-4ac4-948c-209927b3ec66")
-	)
-	(junction
-		(at 45.72 87.63)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d2a1b3ef-f555-4255-9b9d-60f777cdbcb7")
 	)
 	(junction
 		(at 49.53 231.14)
@@ -7081,10 +7231,6 @@
 		(uuid "30c91011-3e35-4778-aaf3-cb2f515d5da8")
 	)
 	(no_connect
-		(at 294.64 88.9)
-		(uuid "3eb524e0-bff7-4a7b-ba83-6fd83f098765")
-	)
-	(no_connect
 		(at 307.34 91.44)
 		(uuid "4297fd78-aa6c-404b-99d2-3a0566b48960")
 	)
@@ -7135,10 +7281,6 @@
 	(no_connect
 		(at 48.26 176.53)
 		(uuid "77ccd7ce-f407-4c0c-a8dd-ccd8a4bdd550")
-	)
-	(no_connect
-		(at 307.34 88.9)
-		(uuid "7c3b9255-07e9-4827-8520-58641ab6bd37")
 	)
 	(no_connect
 		(at 307.34 96.52)
@@ -7918,6 +8060,16 @@
 	)
 	(wire
 		(pts
+			(xy 307.34 82.55) (xy 308.61 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73f08ac1-97a6-4d18-a57f-819c2e094b61")
+	)
+	(wire
+		(pts
 			(xy 300.99 175.26) (xy 304.8 175.26)
 		)
 		(stroke
@@ -8245,6 +8397,16 @@
 			(type default)
 		)
 		(uuid "a281b207-0fa8-4f9b-852e-36c7508ed7a3")
+	)
+	(wire
+		(pts
+			(xy 307.34 82.55) (xy 307.34 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2973389-144a-4da1-9a19-7fef2fda6a85")
 	)
 	(wire
 		(pts
@@ -8578,6 +8740,16 @@
 	)
 	(wire
 		(pts
+			(xy 294.64 82.55) (xy 293.37 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4cf698f-c10e-499b-bc4d-a3f12eadb48e")
+	)
+	(wire
+		(pts
 			(xy 43.18 82.55) (xy 58.42 82.55)
 		)
 		(stroke
@@ -8745,6 +8917,16 @@
 			(type default)
 		)
 		(uuid "e7c56db2-8be4-4b7b-9316-276fdb216097")
+	)
+	(wire
+		(pts
+			(xy 294.64 88.9) (xy 294.64 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea253483-d049-4c35-a1e1-34332eb6c44e")
 	)
 	(wire
 		(pts
@@ -10563,7 +10745,7 @@
 	)
 	(symbol
 		(lib_id "Messplatine-rescue:CP-Device")
-		(at 73.66 85.09 180)
+		(at 73.66 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10571,7 +10753,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d2b462f")
 		(property "Reference" "C10"
-			(at 70.6628 86.2584 0)
+			(at 76.6572 83.9216 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10581,7 +10763,7 @@
 			)
 		)
 		(property "Value" "10µ"
-			(at 73.66 82.55 0)
+			(at 73.66 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10590,7 +10772,7 @@
 			)
 		)
 		(property "Footprint" "LibraryPhyPiDAQ:elko"
-			(at 72.6948 81.28 0)
+			(at 74.6252 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15344,6 +15526,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 283.21 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9a18ebbb-70ed-47dc-9bb1-b836786affde")
+		(property "Reference" "#PWR015"
+			(at 283.21 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 283.21 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 283.21 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 283.21 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 283.21 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "65130f16-4d2c-46bf-bd93-03a93a54750e")
+		)
+		(instances
+			(project "Messplatine"
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 109.22 240.03 270)
 		(unit 1)
@@ -16391,6 +16638,140 @@
 		)
 	)
 	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 288.29 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e10899a1-f453-4c03-b386-8675252fa383")
+		(property "Reference" "JP1"
+			(at 288.29 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 288.29 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 288.29 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 288.29 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 288.29 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1b7a74d3-e3b8-46ae-94e2-6b73376a5229")
+		)
+		(pin "2"
+			(uuid "75db58d9-1acb-45de-b7db-44a754a22d6c")
+		)
+		(instances
+			(project ""
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 313.69 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e4974596-e07c-42cf-b67f-5f235be590bf")
+		(property "Reference" "JP2"
+			(at 313.69 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_2_Open"
+			(at 313.69 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 313.69 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 313.69 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 313.69 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ba57e04a-c823-498f-9918-801d321d8073")
+		)
+		(pin "2"
+			(uuid "e2b7b994-edf7-4988-9ff8-002fb2b62415")
+		)
+		(instances
+			(project ""
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "JP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 290.83 182.88 0)
 		(unit 1)
@@ -16712,6 +17093,71 @@
 			(project "Messplatine"
 				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
 					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 318.77 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fed8ae9b-67e0-427f-aec4-fc01f44dbb65")
+		(property "Reference" "#PWR045"
+			(at 318.77 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 318.77 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 318.77 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 318.77 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 318.77 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b60dd032-6281-44b6-9c17-38c71dd3dc47")
+		)
+		(instances
+			(project "Messplatine"
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
