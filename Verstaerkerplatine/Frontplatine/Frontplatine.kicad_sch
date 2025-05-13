@@ -2158,17 +2158,91 @@
 			(embedded_fonts no)
 		)
 	)
-	(junction
-		(at 35.56 29.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "673e5fca-21fd-4e43-8b22-be5c075727e2")
+	(text_box "INA219 IN+ wired connection\n"
+		(exclude_from_sim no)
+		(at 132.08 26.67 0)
+		(size 13.97 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left top)
+		)
+		(uuid "0eb02557-8083-4f96-a9f7-48272e605adc")
+	)
+	(text_box "Electrometer_IN wired connection\n"
+		(exclude_from_sim no)
+		(at 38.1 21.59 0)
+		(size 13.97 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left top)
+		)
+		(uuid "1b5184ed-f555-4911-ad1c-ac325f7d51be")
+	)
+	(text_box "INA219 IN- wired connection\n"
+		(exclude_from_sim no)
+		(at 166.37 26.67 0)
+		(size 13.97 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left top)
+		)
+		(uuid "2ab1545a-227c-42b6-bdc0-1341160869c0")
 	)
 	(junction
 		(at 35.56 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cafcc0eb-7119-400f-ab2d-7f1a56e1d4cb")
+	)
+	(no_connect
+		(at 125.73 154.94)
+		(uuid "22ea0449-1197-4d9f-8133-58b2757f2faa")
+	)
+	(no_connect
+		(at 77.47 147.32)
+		(uuid "2bafa2b1-3276-4a30-8ca2-131ea3e9896a")
+	)
+	(no_connect
+		(at 125.73 147.32)
+		(uuid "3f8a33bd-d37e-4a3c-bf46-01b85e088f28")
+	)
+	(no_connect
+		(at 125.73 149.86)
+		(uuid "92f7ceef-989d-4ddf-a933-5ce75562c3eb")
+	)
+	(no_connect
+		(at 125.73 152.4)
+		(uuid "b6e2f3d4-aef5-4ecf-a4f9-c2fcf2bc398c")
 	)
 	(wire
 		(pts
@@ -2179,16 +2253,6 @@
 			(type default)
 		)
 		(uuid "18a8d4cf-826a-4a9c-8c54-023c5a8abdce")
-	)
-	(wire
-		(pts
-			(xy 35.56 29.21) (xy 33.02 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "221a72e6-b9f8-46a6-a4b6-e6242885fa79")
 	)
 	(wire
 		(pts
@@ -2338,28 +2402,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 172.72 41.91 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "1d5a1aaf-b3e6-49e6-8952-e4e3d6b16797")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.72 66.945 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Instrumentenverstaerker_IN_-"
 		(shape bidirectional)
 		(at 77.47 157.48 180)
@@ -2395,28 +2437,6 @@
 		(uuid "26e0f3e3-ea02-402d-9dcc-0b68f260facf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 53.2661 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 125.73 149.86 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "29e92574-4bda-4424-953b-942de186338b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.335 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2778,28 +2798,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 125.73 154.94 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "6f65ca95-8fb2-4058-826e-6c4471c09b26")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.335 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "A1"
 		(shape bidirectional)
 		(at 138.43 87.63 180)
@@ -2846,7 +2844,7 @@
 	)
 	(global_label "Pegelwandler_IN_+"
 		(shape bidirectional)
-		(at 33.02 59.69 180)
+		(at 40.64 66.04 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2856,7 +2854,7 @@
 		)
 		(uuid "84e9f800-3dc2-4351-8fb6-77cb0f3b2f2c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 16.2443 59.69 0)
+			(at 23.8643 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2950,28 +2948,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Elektrometer_IN_+"
-		(shape bidirectional)
-		(at 77.47 147.32 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "93a7e358-4a45-457c-9620-702d65b7c295")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 61.1707 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -3130,28 +3106,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 137.16 40.64 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "adba01b0-a37e-48f5-a5e5-8eded402591a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 65.675 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "DIN_IN_1"
 		(shape bidirectional)
 		(at 125.73 170.18 180)
@@ -3165,28 +3119,6 @@
 		(uuid "b9d45cd4-76fa-4a05-bd90-b77821b4d3b5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 116.6209 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Elektrometer_IN_+"
-		(shape bidirectional)
-		(at 33.02 29.21 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "baca9b07-d6e0-4044-beb0-3cadf0ae1e37")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 16.7207 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3231,28 +3163,6 @@
 		(uuid "c0150d5e-5918-4cda-8ba3-405ff2ca82d1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 117.2399 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 125.73 152.4 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "c4be6f33-370f-4a49-b350-d34de4a5121f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.335 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3429,28 +3339,6 @@
 		(uuid "ef730d4b-e2dd-4104-a25d-9a61428f4a81")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 132.7652 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 125.73 147.32 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "f588bbc6-a3af-4ae9-a4be-6052ca61ef22")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.335 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5950,7 +5838,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Socket")
-		(at 38.1 59.69 0)
+		(at 45.72 66.04 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5959,7 +5847,7 @@
 		(fields_autoplaced yes)
 		(uuid "8e60230e-f7d8-4191-8620-369ecacd22de")
 		(property "Reference" "J6"
-			(at 39.37 58.42 0)
+			(at 46.99 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5968,7 +5856,7 @@
 			)
 		)
 		(property "Value" "PW_IN"
-			(at 39.37 60.96 0)
+			(at 46.99 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5977,7 +5865,7 @@
 			)
 		)
 		(property "Footprint" "Library_Frontplatine:MBU_1"
-			(at 38.1 59.69 0)
+			(at 45.72 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5986,7 +5874,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 38.1 59.69 0)
+			(at 45.72 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5995,7 +5883,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 38.1 59.69 0)
+			(at 45.72 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
