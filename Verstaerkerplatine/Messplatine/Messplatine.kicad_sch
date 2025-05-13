@@ -243,6 +243,128 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:Conn_01x01_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01_Pin"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x01_Pin_1_1"
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_01x20_Socket"
 			(pin_names
 				(offset 1.016)
@@ -7083,6 +7205,12 @@
 		(uuid "882593c9-7c97-4aeb-b8cd-b0150c6974ac")
 	)
 	(junction
+		(at 91.44 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "88648978-3921-45e9-96d6-4b07e2515017")
+	)
+	(junction
 		(at 276.86 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7231,6 +7359,10 @@
 		(uuid "30c91011-3e35-4778-aaf3-cb2f515d5da8")
 	)
 	(no_connect
+		(at 157.48 234.95)
+		(uuid "40316b6c-e755-46a3-9c7b-c2dc570a7d58")
+	)
+	(no_connect
 		(at 307.34 91.44)
 		(uuid "4297fd78-aa6c-404b-99d2-3a0566b48960")
 	)
@@ -7279,12 +7411,20 @@
 		(uuid "76af250c-8df6-4c89-997d-a6c84085786a")
 	)
 	(no_connect
+		(at 236.22 68.58)
+		(uuid "77acbd15-f450-4f96-b996-7c66bdbeb4c7")
+	)
+	(no_connect
 		(at 48.26 176.53)
 		(uuid "77ccd7ce-f407-4c0c-a8dd-ccd8a4bdd550")
 	)
 	(no_connect
 		(at 307.34 96.52)
 		(uuid "884fe40f-2afd-4c01-ac8c-fc073675c3c9")
+	)
+	(no_connect
+		(at 157.48 237.49)
+		(uuid "89b49217-d9ae-43e9-ade3-102dea082935")
 	)
 	(no_connect
 		(at 294.64 101.6)
@@ -7297,6 +7437,14 @@
 	(no_connect
 		(at 294.64 121.92)
 		(uuid "98a2f171-1ab0-4407-bd7d-387c08608cf2")
+	)
+	(no_connect
+		(at 236.22 71.12)
+		(uuid "98fed740-14ee-492c-818d-56f90a2df29c")
+	)
+	(no_connect
+		(at 157.48 240.03)
+		(uuid "9abb9af5-2024-4ffc-99c4-ebf78b3bbb3e")
 	)
 	(no_connect
 		(at 307.34 121.92)
@@ -7329,6 +7477,10 @@
 	(no_connect
 		(at 307.34 124.46)
 		(uuid "f36f3e58-08ba-4705-9b54-55a7ba321503")
+	)
+	(no_connect
+		(at 157.48 232.41)
+		(uuid "f97bccea-804d-4c0b-bba9-dd2a4939b3d7")
 	)
 	(no_connect
 		(at 294.64 116.84)
@@ -7397,6 +7549,16 @@
 			(type default)
 		)
 		(uuid "0b5dfa20-ccfa-47d8-88b5-8ab7a0219a98")
+	)
+	(wire
+		(pts
+			(xy 91.44 81.28) (xy 85.09 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b988e65-fb56-4e1c-8397-c6b5e530d590")
 	)
 	(wire
 		(pts
@@ -7770,6 +7932,16 @@
 	)
 	(wire
 		(pts
+			(xy 288.29 82.55) (xy 288.29 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42abd1de-a935-4115-8b06-4f1114289077")
+	)
+	(wire
+		(pts
 			(xy 34.29 82.55) (xy 43.18 82.55)
 		)
 		(stroke
@@ -8087,6 +8259,16 @@
 			(type default)
 		)
 		(uuid "77843414-035e-4f5e-97b2-668eb10f96f0")
+	)
+	(wire
+		(pts
+			(xy 85.09 81.28) (xy 85.09 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77f2c52c-972a-44bb-8f15-82644fd5258a")
 	)
 	(wire
 		(pts
@@ -8560,6 +8742,16 @@
 	)
 	(wire
 		(pts
+			(xy 294.64 88.9) (xy 288.29 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b85ba974-45a2-45a4-a1d4-ec15bd1bd0be")
+	)
+	(wire
+		(pts
 			(xy 30.48 224.79) (xy 41.91 224.79)
 		)
 		(stroke
@@ -8740,16 +8932,6 @@
 	)
 	(wire
 		(pts
-			(xy 294.64 82.55) (xy 293.37 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4cf698f-c10e-499b-bc4d-a3f12eadb48e")
-	)
-	(wire
-		(pts
 			(xy 43.18 82.55) (xy 58.42 82.55)
 		)
 		(stroke
@@ -8880,6 +9062,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 81.28) (xy 91.44 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4532c0e-6103-4251-8ce0-27512828e003")
+	)
+	(wire
+		(pts
 			(xy 269.24 129.54) (xy 294.64 129.54)
 		)
 		(stroke
@@ -8917,16 +9109,6 @@
 			(type default)
 		)
 		(uuid "e7c56db2-8be4-4b7b-9316-276fdb216097")
-	)
-	(wire
-		(pts
-			(xy 294.64 88.9) (xy 294.64 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea253483-d049-4c35-a1e1-34332eb6c44e")
 	)
 	(wire
 		(pts
@@ -9202,28 +9384,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 157.48 237.49 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "0605a71e-0068-4477-8273-c31b30cda106")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 133.085 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Pegelwandler_OUT"
 		(shape bidirectional)
 		(at 109.22 265.43 180)
@@ -9303,28 +9463,6 @@
 		(uuid "18759b7c-7186-4e8c-93cd-d4e8221efc5b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 85.4447 250.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 236.22 71.12 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "1f2c9672-6aac-4c97-8a3f-9b62fce6c0a5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 211.825 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9466,28 +9604,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_+"
-		(shape bidirectional)
-		(at 157.48 240.03 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "3bacceb6-c860-4c7f-b38d-e96c773f35e7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 133.085 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SCL_3.3"
 		(shape bidirectional)
 		(at 157.48 242.57 180)
@@ -9554,28 +9670,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 157.48 232.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "49e2e6af-8deb-4326-a5dd-ea6e87b0cc23")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 133.085 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "DOUT_2"
 		(shape bidirectional)
 		(at 300.99 170.18 0)
@@ -9616,50 +9710,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Elektrometer_IN_+"
-		(shape bidirectional)
-		(at 109.22 232.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "52b2c28e-7787-4862-9055-f08e270f8b50")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 92.9207 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Elektrometer_IN_+"
-		(shape bidirectional)
-		(at 91.44 81.28 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "52bcd530-623a-42f9-ac29-7b19a49ea8a1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 75.1407 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -10060,28 +10110,6 @@
 			)
 		)
 	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 236.22 68.58 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "94ae01c0-4b1c-46fb-800b-d056cc60fa79")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 211.825 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Referenzspannung_OUT"
 		(shape bidirectional)
 		(at 109.22 252.73 180)
@@ -10144,28 +10172,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "StromSpannungsSensor_IN_-"
-		(shape bidirectional)
-		(at 157.48 234.95 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify right)
-		)
-		(uuid "a635ba67-d8f8-44f9-8b1b-6e207b0a6824")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 133.085 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -15073,6 +15079,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 80.01 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7cfa2a19-9919-4b64-89af-bc9800ea39f7")
+		(property "Reference" "J2"
+			(at 80.645 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Elektrometer_In"
+			(at 81.026 80.772 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 80.01 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 80.01 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e9836d05-9e4e-4dca-b468-2fdefe1a4257")
+		)
+		(instances
+			(project ""
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x20_Socket")
 		(at 162.56 250.19 0)
 		(unit 1)
@@ -15527,7 +15597,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 283.21 82.55 0)
+		(at 298.45 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15536,7 +15606,7 @@
 		(fields_autoplaced yes)
 		(uuid "9a18ebbb-70ed-47dc-9bb1-b836786affde")
 		(property "Reference" "#PWR015"
-			(at 283.21 86.36 0)
+			(at 298.45 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15545,7 +15615,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 283.21 77.47 0)
+			(at 298.45 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15553,7 +15623,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 283.21 82.55 0)
+			(at 298.45 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15562,7 +15632,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 283.21 82.55 0)
+			(at 298.45 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15571,7 +15641,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 283.21 82.55 0)
+			(at 298.45 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16639,7 +16709,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Open")
-		(at 288.29 82.55 0)
+		(at 293.37 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16647,15 +16717,15 @@
 		(dnp no)
 		(uuid "e10899a1-f453-4c03-b386-8675252fa383")
 		(property "Reference" "JP1"
-			(at 288.29 76.2 0)
+			(at 293.37 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Open"
-			(at 288.29 78.74 0)
+		(property "Value" "J_2_Open"
+			(at 293.37 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16663,7 +16733,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 288.29 82.55 0)
+			(at 293.37 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16672,7 +16742,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 288.29 82.55 0)
+			(at 293.37 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16681,7 +16751,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, open"
-			(at 288.29 82.55 0)
+			(at 293.37 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16721,7 +16791,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Open"
+		(property "Value" "J_2_Open"
 			(at 313.69 78.74 0)
 			(effects
 				(font
@@ -16766,6 +16836,72 @@
 			(project ""
 				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
 					(reference "JP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 109.22 232.41 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e531a7dd-45cf-424e-8bd0-07c4d4483ad7")
+		(property "Reference" "#PWR046"
+			(at 102.87 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 105.41 232.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 109.22 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6f73d52c-c671-4a3f-993c-88503544c3fb")
+		)
+		(instances
+			(project "Messplatine"
+				(path "/920cae3c-1e60-4188-a7fb-7b82cc5c8fa3"
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
