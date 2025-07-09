@@ -65,7 +65,7 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
   - `examples/scGammaDetector.py` zur Visualisierung des Zeitpunkts des Auftretens eines
   großen Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie
   angezeigt. 
-  Das Skript bietet auch die die Möglichkeit, die Ereigniszeiten und Signalhöhen für eine
+  Das Skript bietet auch die Möglichkeit, die Ereigniszeiten und Signalhöhen für eine
   Offline-Analyse in einer Datei zu speichern.
     
   Untersuchungen von Poisson-Prozessen ermöglichen die Python-Skripte 
@@ -309,14 +309,14 @@ aufgenommen wurden.](images/PulseHeights.png){width=66%}
 
 Die logarithmische Darstellung zeigt eine sehr große Anzahl von Pulshöhen
 knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfällt.
-Ab etwa 10000 ADC-Zählungen sieht man die flache Verteilung, die
-die durch die Signale der Gammastrahlung verursacht wird. 
+Ab etwa 10000 ADC-Zählungen sieht man die flache Verteilung, die durch die 
+Signale der Gammastrahlung verursacht wird. 
 
 Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur Signalverteilung, 
 werden Rauschsignale unterdrückt und nur echte Gammastrahlen registriert. Die Triggerrate
 entspricht dann direkt der Rate der detektierten Gammastrahlen.
 
-Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene Python*-Programm
+Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene *Python*-Programm
 `data/GammaAnalysis.py` verwendet.
 
 Wenn man außer der den peak-to-peak Pulshöhe auch die anderen typischen Merkmale
