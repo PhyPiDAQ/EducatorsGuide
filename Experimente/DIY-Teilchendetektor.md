@@ -33,7 +33,7 @@ den Detektor in eine Blechdose einbaut, werden Elektronen aus der Umgebung abges
 so dass nur noch Gamma-Strahlung aus der Umgebung registriert wird.  
 
 
-### Datenerfassung und Auswertung mit *PhyPiDAQ*lt36
+### Datenerfassung und Auswertung mit *PhyPiDAQ*
 
 *PhyPiDAQ* enthält mehrere Module zur Aufzeichnung, Visualisierung und Analyse von Daten. 
 Ein in diesem Kontext interessanter und wichtiger Aspekt ist die Zufälligkeit des Auftretens der 
