@@ -440,7 +440,6 @@ d. Abspeichern der neuen Config unter neuem Namen
 9. Wiederholen des letzten Schrittes, bis annähernd Raumtemperatur erreicht ist
 
 
-
 **<u>PT100</u>**
 
 Durch anfängliche Probleme mit dem PT100 und dem MAX31865 können folgende Hinweise nachdrücklich gegeben werden:

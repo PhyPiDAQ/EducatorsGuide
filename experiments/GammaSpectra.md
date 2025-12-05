@@ -47,7 +47,7 @@ this is a consequence of the unavoidingly decreasing efficiency  of the
 
 ### Gamma spectra with *PhyPiDAQ*
 
-For an introductroy physics course on the properties of gamma rays and the basics of
+For an introductory physics course on the properties of gamma rays and the basics of
 gamma spectroscopy, the App and Program supplied by the vendor appear too complex.
 By exporting the data, or directly reading the spectra from the device, a simpler
 graphical display and a direct analysis of the raw input data, i.e. the frequency
