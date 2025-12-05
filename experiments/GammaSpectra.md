@@ -1,18 +1,18 @@
-## *PhyPiDAQ*: Gamma spectroscopy with Radiacode 102
+## *PhyPiDAQ*: Gamma spectroscopy with Radiacode RC-10x and RC-110 
 
 Measurements of gamma ray spectra usually require complex and expensive equipment.
 With the advancement of modern sensor technology, in particular Silicon-Photomultipliers
 (SiPM) for the detection of low-intensity visible light at low noise levels,
 new perspectives have opened up. 
 
-### The Radiacode 102 device
+### The Radiacode devices
 
-A novel device on the market is the
-[Radiation Detector and Spectrometer RadiaCode 102](https://radiacode.com),
-which uses a 1 cm³ CsI(Tl) crystal with a SiPM sensor with temperature correction.
-It measures the deposited energies of gamma rays from radioactive decay and provides
-raw output data in form of a spectrogram, i.e. a frequency distribution (histogram)
-of recorded pulse heights provided by the SiPM sensor.
+A novel type of devices on the market is the
+[Radiation Detector and Spectrometer RadiaCode 102/103 or 110](https://radiacode.com), 
+which contain a 1 cm³ resp. 2.74 cm³ CsI(Tl) crystal with a SiPM sensor with temperature 
+correction. These devices measure the deposited energies of gamma rays from radioactive 
+decay and provide raw output data in form of a spectrogram, i.e. a frequency distribution 
+(histogram) of recorded pulse heights provided by the SiPM sensor.
 Data is exported via USB and Bluetooth interfaces.
 An Android App as well as a windows program exist in addition to a
 [Python library](https://github.com/cdump/radiacode)
@@ -20,20 +20,20 @@ to display and analyze the sensor data. An example script *show-spectrum.py*
 provides access to the raw spectrum read from the sensor, displays it and
 optionally saves the data to a file.
 An adapter (*RC10xConfig.py*) is also available to display and analyze
-data from a RadiaCode device within the *PhyPiDAQ* framework.
+data from RadiaCode devices within the *PhyPiDAQ* framework.
 
-An up to now unique selling point of the RadiaCode device is its ability to run
-on battery power for about 100 h, with an internal memory to save rate and dose
+An up to now unique selling point of the RadiaCode devices is their ability to run
+on battery power for about 200 h, with an internal memory to save rate and dose
 histories as well as the accumulated spectrum. Out-door measurements with
 real-time monitoring  of recorded data via the mobil-phone app and subsequent
 analysis are easily possible.
 
 The RadiaCode App for mobile phones and the Windows program are already very
 powerful. The do not, however, primarily address the needs and goals of physics
-education, but focus on practical applications like dosimetry or the
-radioactivity of food and other probes. The screen shot below illustrates
+education, but focus on practical applications like dosimetry or the measurement
+of radioactive contamination of food and other probes. The screen shot below illustrates
 the possibilities. Shown is the very feature-rich gamma  spectrum of a Thorium-232 
-source recorded over almost 4 hours with a  gas mantle ("Glühstrumpf") in a lead
+source recorded over almost 4 hours with a gas mantle ("Glühstrumpf") in a lead
 container. The average count rate was approximately 160 Hz; the total dose, if
 absorbed by human tissue, would have been  10.8 µSv. The App contains a data base
 with gamma energies of the most frequent sources. In the picture below, all of
@@ -62,9 +62,10 @@ of deposited energy (in units Gy) to an effective dose (in units Sv) is attempte
   ![Spectrum of a Thorium-232 source drawn with the script *decodeRadiaCode102.py*
   using the exported spectrum as input. ](images/Gamma_Spectrum.png)
 
-*PhyPiDAQ* supports live measurements with *RadiaCode 102* by connecting it to 
-a computer via USB. The live measurement show the actual differential spectrum, i.e.
-the gamma energies recorded in the last interval, and the accumulated spectrum. 
+*PhyPiDAQ* supports live measurements with *RadiaCode 102/103 or 110* devices by 
+connecting them to a computer via USB. The live measurement show the actual differential 
+spectrum, i.e. the gamma energies recorded in the last interval, and the accumulated
+spectrum. 
 The transformation of histogram channels **C to energies *E* is performed by a
 quadratic function, $E = a_0 + a_1\cdot C + a_2 \cdot C^2$. The parameters are
 either read from the device during initialization or, alternatively, provided by
@@ -79,7 +80,7 @@ A typical PhyPiDAQ configuration file (*RC102_GammaSpectrum.daq*)  looks as foll
 
 ```
 # configuration for PhyPiDAQ 
-#  read and display gamma spectrum from Radiacode 102
+#  read and display gamma spectrum from Radiacode 102/3 or 110
 
 Title: 'Gamma Ray Spectrum'
 DeviceFile: RC10x_spectrum.yaml  
