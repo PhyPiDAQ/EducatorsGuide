@@ -19,7 +19,7 @@ An Android App as well as a windows program exist in addition to a
 to display and analyze the sensor data. An example script *show-spectrum.py*
 provides access to the raw spectrum read from the sensor, displays it and
 optionally saves the data to a file.
-An adapter (*RC10xConfig.py*) is also available to display and analyze
+An adapter (*RC1xxConfig.py*) is also available to display and analyze
 data from RadiaCode devices within the *PhyPiDAQ* framework.
 
 An up to now unique selling point of the RadiaCode devices is their ability to run
@@ -73,7 +73,7 @@ the user. The total deposited energy is shown in units of keV; with known parame
 of the detection device, this can easily be converted to Gy= J/Kg. 
 
    ![Live recording of a Thorium-232 source with a *RadiaCode 102* device and
-   *PhyPiDAQ* (module *RC10xConfig.py*).](images/Gluehstrumpf.png)
+   *PhyPiDAQ* (module *RC1xxConfig.py*).](images/Gluehstrumpf.png)
 
 
 A typical PhyPiDAQ configuration file (*RC102_GammaSpectrum.daq*)  looks as follows:
@@ -83,7 +83,7 @@ A typical PhyPiDAQ configuration file (*RC102_GammaSpectrum.daq*)  looks as foll
 #  read and display gamma spectrum from Radiacode 102/3 or 110
 
 Title: 'Gamma Ray Spectrum'
-DeviceFile: RC10x_spectrum.yaml  
+DeviceFile: RC1xx_spectrum.yaml  
 DisplayModule: DataSpectrum   # needs extra parameters, not yet read from driver 
 Chan2Val: [-5.7, 2.38, 0.00048]   # factory calibration MCA Channel to Energy
 xName: Energy
@@ -108,7 +108,7 @@ function of time. Here is the corresponding configuration (*RC102_GammaRate.daq*
 
 ```
 # configuration for PhyPiDAQ 
-#  read gamma spectrum from Radiacode 102 and calculate rate and dose
+#  read gamma spectrum from Radiacode device and calculate rate and dose
 
 # device configuration file
 DeviceFile: RC10x.yaml  
