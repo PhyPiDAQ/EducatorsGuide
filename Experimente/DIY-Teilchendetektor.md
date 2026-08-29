@@ -45,8 +45,9 @@ Exponentialverteilung folgt.
 
 Der exponentielle Zerfall einer Probe von radioaktiven Kernen ist ein weiterer wichtiger Aspekt,
 der untersucht werden kann, wenn eine Probe von kurzlebigen Kernen zur Verfügung steht. 
-In der Natur ist eine solche Quelle das aus dem Erdinneren als Folge radioaktiver Prozesse
-austretende Edelgases Radon, dessen Zerfallsprodukte auf einem elektrisch geladenen Luftballon
+In der Natur ist eine solche Quelle das aus dem Erdinneren als Folge radioaktiver 
+Prozesse austretende Edelgases Radon, dessen Zerfallsprodukte auf einem elektrisch
+geladenen Luftballon oder mit Hilfe eines Staubsaugers auf einem Papierfilter 
 gesammelt und anschließend nachgewiesen werden können.
 
 Relevante Module des *PhyPiDAQ*-Pakets sind
@@ -66,7 +67,7 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
   großen Signals und der zugehörigen Wellenformdaten. Außerdem wird eine Ratenhistorie
   angezeigt. 
   Das Skript bietet auch die Möglichkeit, die Ereigniszeiten und Signalhöhen für eine
-  Offline-Analyse in einer Datei zu speichern.
+  spätere Offline-Analyse in einer Datei zu speichern.
     
   Untersuchungen von Poisson-Prozessen ermöglichen die Python-Skripte 
  
@@ -83,7 +84,7 @@ Gebrauchsfertige Skripte veranschaulichen die Verwendung dieser Klassen:
 #### Anmerkungen zur Installation
 
 Die genannten *Python*-Skripte benötigen einen kleinen Teil der im
-Paket *phypidaq*enthaltenen Software. Wenn die Installation des
+Paket *phypidaq* enthaltenen Software. Wenn die Installation des
 gesamten Pakets nicht gewünscht wird, wird weiter unten auch eine
 vereinfachte Möglichkeit beschrieben. Idealerweise sollte allerdings
 das gesamte *PhyPiDAQ*-Paket herunter geladen und die Python-Bibliotheken
@@ -110,10 +111,8 @@ Windows 10 oder 11, wenn dort *Python* installiert ist.
 
 #### Vereinfachte Installation
 
-Die Python-Programme *scGammaDetector.py* und *run_scOsci.py* können auch ohne den Download
-des kompletten *PhyPiDAQ*-Pakets ausgeführt werden. Wenn eine aktuelle Python-Version
-verfügbar ist, können die Bibliotheken auch direkt aus dem *github*-Repository installiert
-werden:
+Die Python-Programme *scGammaDetector.py* und *run_scOsci.py* können auch ohne den 
+Download des kompletten *PhyPiDAQ*-Pakets ausgeführt werden. Wenn eine aktuelle *Python*-Version verfügbar ist, können die Bibliotheken auch direkt aus dem *github*-Repository installiert werden:
 
 ```sh
 python -m pip install git+https://github.com/PhyPiDAQ/PhyPiDAQ
@@ -129,8 +128,8 @@ in ein Arbeitsverzeichnis geladen und ausgeführt werden.
 
 Eine typische Wellenform, die mit *python3 scGammaDetector.py -o* aufgezeichnet wurde,
 ist in der folgenden Abbildung dargestellt. Das Signal ist oberhalb des Rauschpegels von
-ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt an einen Kopfhörer
-angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen werden können. 
+ca. 3500 ADC-Counts deutlich sichtbar. Es ist groß genug, um direkt mit Hilfe eines 
+angeschlossen Kopfhörers auch akustisch als "Klick" wahrgenommen werden zu können. 
  
   ![Typische Wellenform des DIY CERN Teilchendetektors, aufgenommen mit einer 
   einfachen USB-Soundkarte mit 16 Bit Auflösung und einer Abtastrate von
@@ -140,9 +139,8 @@ angeschlossen zu werden, so dass die Signalklicks auch akustisch wahrgenommen we
 Bitte beachten, dass manche Soundkarten den Puls invertierten. Der Originalpuls
 ist, wie hier gezeigt, negativ mit einem deutlich sichtbaren Überschwinger ins Positive. 
 
-Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu steuern und
-die Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte
-und insbesondere die Triggeroptionen einzustellen. 
+Das Skript bietet eine Reihe von Befehlszeilenoptionen, um die visuelle Ausgabe zu
+steuern und die Speicherung der Ergebnisse in einer Datei zu ermöglichen, oder um die Parameter der Soundkarte und insbesondere die Triggeroptionen einzustellen.
 Die Ausgabe des Befehls `./scGammaDetector -h` gibt einen Überblick über alle Optionen:
 
 ```
@@ -194,20 +192,20 @@ Eingangsquelle zu verwenden. Zunächst wird nur das Oszilloskop  mit einem sehr 
 Triggerpegel gestartet:     
    > `python3 scGammaDetector.py -n -o -l 100`
         
-Damit werden die Rohdaten der Soundkarte auf dem Oszilloskop-Display angezeigt. Erzeugen Sie nun
-ein lautes Geräusch, z.B. indem Sie in die Hände klatschen oder mit den Fingern schnipsen, und 
-Sie werden einige kurze Signale sehen, die weit über dem durchschnittlichen Geräuschpegel liegen. 
+Damit werden die Rohdaten der Soundkarte auf dem Oszilloskop-Display angezeigt. Erzeugen
+Sie nun ein lautes Geräusch, z.B. indem Sie in die Hände klatschen oder mit den Fingern schnipsen, und Sie werden einige kurze Signale sehen, die weit über dem durchschnittlichen Geräuschpegel liegen. 
 Merken  Sie sich den typischen Signalpegel des Untergrundrauschens.  
-Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durch Klicken auf die
-Schaltfläche "End" in der grafischen Benutzeroberfläche. Starten Sie es dann erneut mit einem
-höheren Triggerpegel, wobei Sie diesmal die Ereignisanzeige aktiviert lassen:  
+Beenden Sie das Programm nun durch Eingabe von "E" in der Befehlszeile oder durch 
+Klicken auf die Schaltfläche "End" in der grafischen Benutzeroberfläche. 
+Starten Sie es dann erneut mit einem höheren Triggerpegel, wobei Sie diesmal die
+Ereignisanzeige aktiviert lassen:  
    > `python3 scGammaDetector.py -l 1500`  
 
-Sie sollten nun keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen
-Verlauf dann in der Ereignisanzeige angezeigt wird.  
+Sie sollten nun keine Signale sehen - es sei denn, Sie erzeugen ein lautes Geräusch, dessen Verlauf dann in der Ereignisanzeige angezeigt wird.  
 *Anmerkung*: die gleichzeitige animierte Anzeige von Ereignisdarstellung und Oszillogramm
 funktioniert unter MS Windows nicht stabil; unter Linux können problemlos beide Anzeigen
-aktiviert werden:  `python3 scGammaDetector.py -o -l 1500`
+aktiviert werden:  
+`python3 scGammaDetector.py -o -l 1500`
 
 Das Aufspüren der sehr kleinen Signale des DIY-Teilchendetektors des CERN funktioniert
 auf genau dieselbe Weise. Verbinden Sie den Ausgang des Detektors mit dem Mikrofoneingang
@@ -281,9 +279,10 @@ nachweisbar.
 
 #### Pulshöhenspektrum
 
-Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die statistische
-Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit der Option `-f <Dateiname>` 
-eingeschaltet. Für jedes aufgenommene Signal werde eine fortlaufend inkrementierte 
+Die bei der Datenerfassung in einer Datei gespeicherten Daten werden für die 
+statistische Auswertung der Pulshöhen verwendet. Die Datenaufzeichnung wird mit 
+der Option `-f <Dateiname>` eingeschaltet. 
+Für jedes aufgenommene Signal werde eine fortlaufend inkrementierte 
 Ereignisnummer, die Zeit des Auftretens in Sekunden seit Programmstart, die 
 peak-to-peak Pulshöhe in ADC-Counts des bipolaren Signals, das Verhältnis
 des der Höhen des zweiten und ersten Peaks, die zeitliche Distanz der Extrema
@@ -312,9 +311,9 @@ knapp oberhalb der Triggerschwelle, die zu größeren Werten hin schnell abfäll
 Ab etwa 10000 ADC-Zählungen sieht man die flache Verteilung, die durch die 
 Signale der Gammastrahlung verursacht wird. 
 
-Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur Signalverteilung, 
-werden Rauschsignale unterdrückt und nur echte Gammastrahlen registriert. Die Triggerrate
-entspricht dann direkt der Rate der detektierten Gammastrahlen.
+Setzt man die Triggerschwelle oberhalb des Übergangs von der Rausch- zur
+Signalverteilung, werden Rauschsignale unterdrückt und nur echte Gammastrahlen registriert. Die Triggerrate entspricht dann direkt der Rate der detektierten
+Gammastrahlen.
 
 Zur Darstellung der Pulshöhenverteilung wurde das unten beschriebene *Python*-Programm
 `data/GammaAnalysis.py` verwendet.
@@ -323,8 +322,8 @@ Wenn man außer der den peak-to-peak Pulshöhe auch die anderen typischen Merkma
 der Pulsformen verwendet, ist es möglich, Rausch- und Signalpulse auf Grund ihrer
 typischen Form zu unterscheiden. Auf diese Art kann der Verlauf des Pulshöhenspektrums
 auch im Bereich des Rauschens dargestellt werden. Dies ist unten in Abbildung 4 gezeigt.
-Die Erkennung der orange dargestellten Rauschpulse wurde mit einem künstliche neuronalen
-Netz erreicht, dass auf Signalformen für große und sehr kleine Pulse trainiert wurde. 
+Die Erkennung der orange dargestellten Rauschpulse wurde mit einem künstlichen neuronalen
+Netz erreicht, das auf Signalformen für große und sehr kleine Pulse trainiert wurde. 
 
 ![Häufigkeitsverteilung der Pulshöhen einer schwach radioaktiven Gesteinsprobe aus dem
 Schwarzwald. Signal- und Rauschpulse wurde mit Hilfe eines künstlichen neuronalen
@@ -339,7 +338,7 @@ kleinen Probe Pechblende ist in der nachstehenden Abbildung gezeigt.
 Signalpulse wurden mit einer Rate von ca. 1,1 HZ registriert. Die Datei
 `GammaStrahlung_Pechblende.csv` enthält ca. 10000 aufgezeichnete Ereignisse.
 Ausgewertet wurde die mittlere Spalte mit den Zeiten, zu denen Ereignisse
-registriert wurden. Dazu wurde der unten näher erläuterte Python-Code
+registriert wurden. Dazu wurde der unten näher erläuterte *Python*-Code
 `data/GammaAnalysis.py` verwendet.
  
 ![Darstellung der Zahl der Ereignisse in Intervallen von 10 s Dauer, 
@@ -349,37 +348,34 @@ zwei Ereignissen.](images/RateAnalysis.png){width=66%}
 Die Grafiken zeigen die Zahl der Ereignisse in Intervallen von 10 s Dauer, die
 Häufigkeitsverteilung der beobachteten Ereignisanzahlen und die Zeit zwischen
 zwei Ereignissen. Die sich aus der mittleren Rate ergebenden erwarteten Verteilungen
-sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl 
-von 11,1 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung und eine
-Exponentialverteilung für einen mittleren zeitlichen Abstand von
+sind ebenfalls eingezeichnet, d. h. eine Gleichverteilung für eine mittlere Ereignisanzahl von 11,1 in jedem 10 s-Intervall, die entsprechende Poisson-Verteilung 
+und eine Exponentialverteilung für einen mittleren zeitlichen Abstand von
 1/1.11 s = 0.90 s zwischen den Ereignissen sind ebenfalls dargestellt.
 Die Grafiken zeigen sehr schön die für einen Poisson-Prozess erwarteten Eigenschaften.
 
 
 #### Zerfall von Radon
 
-Das radioaktive Edelgas Radon-222 entsteht in Kernzerfällen im Erdinneren und gelangt durch
-Spalten im Erdboden an die Oberfläche. Insbesondere in der Luft in Gebäuden kann es sich bei
-schlechter Lüftung anreichern. Eine Radon-Probe kann aus der Luft entnommen werden, indem
-die Radon-Zerfallsprodukte auf einem Ballon gesammelt werden, der durch Reibung 
-elektrostatisch aufgeladen wird. Das Isotopengemisch wird von den kurzlebigen Tochterkernen 
-Po-218, Pb-14, Bi-214 und Po-214 dominiert, wie aus dem nachstehenden Diagramm hervorgeht.
+Das radioaktive Edelgas Radon-222 entsteht in Kernzerfällen im Erdinneren und gelangt
+durch Spalten im Erdboden an die Oberfläche. Insbesondere in der Luft in Gebäuden kann 
+es sich bei schlechter Lüftung anreichern. Eine Radon-Probe kann aus der Luft entnommen
+werden, indem die Radon-Zerfallsprodukte auf einem Ballon gesammelt werden, der durch Reibung elektrostatisch aufgeladen wird. Das Isotopengemisch wird von den kurzlebigen Tochterkernen Po-218, Pb-14, Bi-214 und Po-214 dominiert, wie aus dem nachstehenden Diagramm hervorgeht.
 
 ![Radon-Zerfälle](images/Ra-onBalloon.png){width=50%}  
 
 Eine solche Radon-Probe enthält also eine Reihe von kurzlebigen Tochterkernen und eignet
 sich daher gut zur Veranschaulichung der Zeitabhängigkeit der Aktivität. Die Rate als
 Funktion der Zeit ist unten gezeigt; die Daten in der Datei `Radon.csv` wurden
-mit dem unten beschriebenen Python-Skript `RadonAnalysis.py` ausgewertet und
+mit dem unten beschriebenen *Python*-Skript `RadonAnalysis.py` ausgewertet und
 grafisch dargestellt.
 
-Da mehrere Tochterkerne beteiligt sind, folgt die Verringerung der ursprünglichen Aktivität
-nicht dem exponentiellen Zerfallsgesetz. Zu erkennen ist ein deutlicher Anstieg der Aktivität 
-über dem Untergrundniveau nach etwa 12 min, als der Ballon nach ca. 15 min Akkumulationszeit 
-auf den Detektor gelegt wurde. Die anfängliche Mischung der Isotope Pb-214 und Bi-214, deren 
- β-Zerfälle von Gamma-Emmissionen begrleitet ist, ist unbekannt. Der Zerfall von Pb-214 und 
-die Erzeugung von Bi-214 sowie dessen anschließender Zerfall mit Lebensdauern von 27 min und 
-20 min ergeben den gezeigten zeitlichen Verlauf der Gamma-Rate, die nach ca. 2,5 Stunden
+Da mehrere Tochterkerne beteiligt sind, folgt die Verringerung der ursprünglichen
+Aktivität nicht dem exponentiellen Zerfallsgesetz. Zu erkennen ist ein deutlicher 
+Anstieg der Aktivität über dem Untergrundniveau nach etwa 12 min, als der Ballon 
+nach ca. 15 min Akkumulationszeit auf den Detektor gelegt wurde. Die anfängliche 
+Mischung der Isotope Pb-214 und Bi-214, deren  β-Zerfälle von Gamma-Emmissionen begrleitet ist, ist unbekannt. Der Zerfall von Pb-214 und  die Erzeugung von Bi-214 
+sowie dessen anschließender Zerfall mit Lebensdauern von 27 min und 20 min 
+ergeben den gezeigten zeitlichen Verlauf der Gamma-Rate, die nach ca. 2,5 Stunden
 wieder auf das Niveau der Umgebungsstrahlung abfällt.  
 
   ![Anzahl von Ereignissen in 3 min-Intervallen von Radon-Zerfallsprodukten auf einem 

@@ -96,6 +96,10 @@ meanN = meanRate * Tinterval  # number of events per time interval
 dT = T[1:] - T[:-1]  # Zeiten zwischen zwei Ereignissen
 meanTw = dT.mean()
 
+# decay times of PB-214 and Bi-214
+tauPb = 26.8 / np.log(2)  # Pb-214 lifetime in min
+tauBi= 19.9 / np.log(2)  # Bi-214 lifetime in min
+
 # -*-  Ausgabe der statistischen Daten
 print(" Intervall: %.3gs" % (Tinterval))
 print("   mittlere Rate: %.3g Hz" % (meanRate))
@@ -115,12 +119,33 @@ ax_ph.set_yscale("log")
 # 2. Ereignisse über der Zeit (= Häufigkeit / Zeitinterval)
 tmn = 0.0
 tmx = NTbins * Tinterval
-bcR, beR, _ = ax_rate.hist(T/60., bins=np.linspace(tmn/60., tmx/60., NTbins), ec="grey")
+tbins = np.linspace(tmn/60., tmx/60., NTbins)
+bcR, beR, _ = ax_rate.hist(T/60., bins=tbins, ec="grey")
 ax_rate.set_ylabel(f"Counts/{Tinterval/60.} min", size="x-large")
 ax_rate.set_xlabel("$t$ [min]", size="x-large")
 # Mittelpunkt und Breite der Bins
 bc = (beR[:-1] + beR[1:]) / 2.0
 bw = beR[1] - beR[0]
+
+offset = 16 # time when sensor was exposed to Radon 
+#tplt = np.linspace(tmn/60., tmx/60.- offset, NTbins*10 - int(10*offset/Tinterval))
+tplt = np.linspace(tmn/60., tmx/60.- offset, NTbins - offset)
+N0_0 = 1300
+f = 0.0 # initial fraction of Bi
+N0 = N0_0 * np.exp(-tplt/tauPb)
+dN0 = N0[0:-1] - N0[1:]
+#
+N1 = np.zeros(len(tplt))
+N1[0] = f * N0_0
+N1[1:] = dN0
+dN1 = np.zeros(len(tplt))
+for i, _t in enumerate(tplt[:-1]): 
+   dN1[i+1:] = dN1[i+1:] + N1[i] * (np.exp(-tplt[i:-1]/tauBi) - np.exp(-tplt[i+1:]/tauBi))
+dN = dN0 + dN1[1:] + 1.3
+ax_rate.plot(offset + tplt[:-1], dN * bw)
+ax_rate.plot(offset + tplt[:-1], dN0 * bw)
+ax_rate.plot(offset + tplt[:-1], dN1[1:] * bw)
+
 
 # zeichne Gleichverteilung ein
 # hDist = getHistDistribution(bc, bw, fUniform, const=meanRate)
